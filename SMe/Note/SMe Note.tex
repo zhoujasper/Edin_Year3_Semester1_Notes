@@ -1,0 +1,393 @@
+\documentclass[9pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{ctex}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{makecell} % 换行
+
+% 使用分栏宏包
+\usepackage{multicol} 
+\usepackage{multirow}
+\setlength{\columnseprule}{0.4pt} % 分割线
+
+% 设置字体
+\usepackage{unicode-math}
+\setmainfont{Cambria}
+\setmathfont{Cambria Math}
+\setmathfont[range={\mathcal},StylisticSet=1]{XITS Math}
+
+% 调整页面布局
+\usepackage[a4paper, top=0.7cm, bottom=1cm, left=0.7cm, right=.7cm]{geometry}
+\setlength{\footskip}{15pt}
+
+% 设置页脚/页眉
+\usepackage{fancyhdr}
+\fancyfoot[C]{Copyright By Jingren Zhou | Page \thepage}
+\fancyhead[]{}
+\pagestyle{fancy}
+% 去除线
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 设置 section/subsection 之间的行间距
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+
+% 调整标题上下间距
+\usepackage{titling}
+\setlength{\droptitle}{-2.4cm} % 负值表示向上移动
+
+% 设置标题，作者，时间
+\title{SMe Note}
+\author{}
+\date{}
+
+% 正文
+\begin{document}
+
+
+% 标题
+\maketitle
+\thispagestyle{fancy}
+\vspace{-3.5cm}
+
+% 字体大小
+\fontsize{10pt}{11pt}\selectfont
+\setlength{\parindent}{8pt}
+
+
+% Acknowledge
+\vspace{0.3cm}
+{\tiny
+
+    \textbf{Acknowledge}: Sample Space: $\Omega$ \ \ \ \ \ \ Random Variables: $\mathbf{Y}=(Y_1,...,Y_n)$ \ \ \ \ \ \ Sample Data: $\mathbf{y}=(y_1,...,y_n)$ \ \ \ \ \ \ $f_{\mathbf{Y}}(\mathbf{y};\theta)=\prod_if_{\mathbf{Y}}(y_i;\theta)$,if $y_i$ are independent \ \ \ \ \ \ Distribution Function: $F_{\mathbf{Y}}(\mathbf{y})=\mathbb{P}(Y_1\leq y_1,...,Y_n\leq y_n)$
+
+    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Parameter Space: $\Theta$ \ \ \ \ \ \ CDF： $F_Y(y)$ \ \ \ \ \ \ PDF/PMF: $f_Y(y)$ or $p_Y(y)$
+
+}
+\vspace{-0.3cm}
+
+\section{Basic Knowledge} % Basic Knowledge
+
+\textbf{Def of expectation (Moments)}: For any well-behaved function $h$ on $\mathbb{R}$. $\mathbb{E}[h(Y)]:=\sum_ih(y_i)\mathbb{P}(Y=y_i)$ \ \ \ $\mathbb{E}[h(Y)]:=\int_{\mathbb{R}}h(y)f_Y(y)dy$
+
+\textbf{Def of Model}: A collection of distributions indexed by a parameter $\{F_\mathbf{Y}(\cdot|\theta);\theta\subseteq\Theta\}$ is model.
+
+\textbf{Likelihood Function}: $L(\theta;\mathbf{y})=f_{\mathbf{Y}}(\mathbf{y};\theta)$ \ \ \ \ \ \ $\cdot$\textbf{MLE}: $\hat{\theta}(\mathbf{y})=ArgMax_{\theta\in\Theta}[L(\theta;\mathbf{y})]=[U(\widehat{\theta})=0]$ {\scriptsize ps: MLE has invariant property}
+
+\textbf{(Strong) Likelihood Principle}: $L(\theta;x)\propto L(\theta;y)$ \ [Strong: $L_f(\theta;x)\propto L_g(\theta;z)${\tiny ; $f,g$ are statistical model}] \ $\Rightarrow$ \ Same Inferential Conclusions.
+
+\textbf{Def of Identifiability}: A model is identifiable if $f(y;\theta_1)=f(y;\theta_2),\forall y$ then $\theta_1=\theta_2$ {\scriptsize (i.e.$map:\theta\to f(y;\theta)$ is 1-1)}
+
+\vspace{-5pt}
+$\cdot$ {\scriptsize Method: \textbf{1}.By def $\Rightarrow$ ratio not depend on $y\Rightarrow$ $\theta_1,\theta_2$ relationship. (with any additional constraint) \ \ \textbf{2}.MLE not unique $\Rightarrow$ not identifiable \ \ \textbf{3}.Give an example $\theta$ \ \ \textbf{4}.Fisher information}
+
+
+\section{Properties of the Likelihood and the MLE} % Properties of the Likelihood and the MLE
+
+\textbf{Positive [Semi-]definite matrix M}: $\forall\mathbf{z}\in\mathbb{R}^n\setminus\mathbf{0},\mathbf{z}^T\mathbf{M}\mathbf{z}>0 \ [\geq0]$ \ \ \ \ \ \ $\Leftrightarrow (>0)$ $^1$ n positive eigenvalues. $^2$ full rank. $^3$ invertible
+
+\vspace{-0.35cm}
+\begin{longtable}{|c|l|l|l|}
+    \hline
+    \multirow{2}{*}{\makecell{\footnotesize Score Func \\ \footnotesize / Vector \ \ U}} & {\footnotesize Single: $U(\theta,\mathbf{Y})=\ell'(\theta;\mathbf{Y})$} & $\mathbb{E}[U]=0$ & $Var[U]=\mathcal{I}(\theta)$ \\
+    \cline{2-4}
+    & {\footnotesize Multiple: $\mathbf{U}(\theta)=[\partial_{\theta_1} \ell(\theta;\mathbf{Y}),...,\partial_{\theta_p} \ell(\theta;\mathbf{Y})]^T\in\mathbb{R}^p$} & $\mathbb{E}[\mathbf{U}]=\mathbf{0}$ & $Var[\mathbf{U}]=\mathbf{\mathcal{I}}(\theta)$ \ \ \ {\scriptsize $I_{j,k}=Cov(\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k})=\mathbb{E}[\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k}]$} \\
+    \hline
+    \multirow{2}{*}{CLT of U} & \multicolumn{3}{l|}{\footnotesize Single: $U(\theta_0;\mathbf{Y})\sim\mathcal{N}(0,\mathcal{I}(\theta_0))$,{\tiny $n\to\infty$}} \\
+    \cline{2-4}
+    & {\footnotesize Multiple: $\mathbf{U}(\theta_0;\mathbf{Y})\sim\mathcal{N}_p(\mathbf{0},\mathbf{\mathcal{I}}(\theta_0))$,{\tiny $n\to\infty$}} & \multicolumn{2}{l|}{\footnotesize Also: $\mathbf{U}(\theta_0;\mathbf{Y})^T\mathbf{\mathcal{I}}^{-1}(\theta_0)\mathbf{U}(\theta_0;\mathbf{Y})\sim\chi^2_p$} \\
+    \hline
+    \hline
+    \multirow{2}{*}{\makecell{\footnotesize Fisher \\ \footnotesize Information $\mathbf{\mathcal{I}}$}} & {\footnotesize Single: Observed: $J(\theta,\mathbf{y})=-U'(\theta,\mathbf{y})=-\ell''(\theta;\mathbf{y})$} & \multicolumn{2}{l|}{\footnotesize Expected: $\mathcal{I}(\theta)=-\mathbb{E}[\ell''(\theta;\mathbf{Y})]$ \ \ \ || \ \ \ Unit: $i(\theta)=\mathcal{I}(\theta) / n=-\mathbb{E}[\ell''(\theta;Y_i)]$} \\
+    \cline{2-4}
+    & {\footnotesize Multiple: Observed: $\mathbf{J}(\theta;\mathbf{y})\in\mathbb{R}^{p\times p},J_{j,k}=-\frac{\partial^2\ell(\theta,\mathbf{y})}{\partial\theta_j \ \partial\theta_k}$} & \multicolumn{2}{l|}{\footnotesize Expected: $\mathbf{\mathcal{I}}(\theta)\in\mathbb{R}^{p\times p},\mathbf{\mathcal{I}}_{j,k}=-\mathbb{E}[\frac{\partial^2\ell(\theta,\mathbf{Y})}{\partial\theta_j \ \partial\theta_k}]$ \ \ \ \ \ \ \ \ {\scriptsize ps: $\mathbf{\mathcal{I}}(\theta)$ always positive semi-definite}} \\
+    \hline
+    \multicolumn{2}{|l|}{\footnotesize $\mathcal{I}\uparrow \ \Rightarrow$ $\mathbf{Y}$ 对 $\theta$ 越敏感；信息量大；参数估计更精确} & \multicolumn{2}{l|}{\footnotesize A model is $identifiable$ iff $\mathbf{\mathcal{I}}(\theta)$ is positive definite. \ \ \ {\scriptsize ps:(一维) identifiable if $\mathcal{I}(\theta)\ne0$}} \\
+    \hline
+    \multirow{2}{*}{\makecell{CLT of MLE \\ CLT of I}} & {\footnotesize Single: $\mathcal{I}(\theta_0)<\infty$ \ $\Rightarrow$ \ $\widehat{\theta}\sim\mathcal{N}(\theta_0,\mathcal{I}^{-1}(\theta_0))$,{\tiny $n\to\infty$}} & {\footnotesize $\widehat{Var}(\widehat{\theta})\approx\mathcal{I}^{-1}(\widehat{\theta})$} & {\footnotesize $ESE(\widehat{\theta})\approx\sqrt{\mathcal{I}^{-1}(\widehat{\theta})}$ \ \ \ \ \ \ {\scriptsize estimated standard error}} \\
+    \cline{2-4}
+    & {\footnotesize Multiple: $\mathbf{\mathcal{I}}(\theta_0)<\infty$ \ $\Rightarrow$ \ $\widehat{\theta}\sim N_p(\theta_0,\mathbf{\mathcal{I}}^{-1}(\theta_0))$,{\tiny $n\to\infty$}} & \multicolumn{2}{l|}{\footnotesize Also: $(\widehat{\theta}-\theta_0)^T\mathbf{\mathcal{I}}(\theta_0)(\widehat{\theta}-\theta_0)\sim\chi^2_p$} \\
+    \hline
+\end{longtable}
+\vspace{-0.35cm}
+
+% assume i.i.d. || for multiple theta is vector. ||
+
+\subsection{For Single Parameter}
+
+\vspace{-0.25cm}
+{\ \ \ \ \ \ \ \ \ \ \tiny *\textbf{Random Variable / Function}: $L(\theta;\mathbf{Y})$ is random function (NOT pdf). For fixed $\theta$, it's r.v. \ \ \ $\hat{\theta}(\mathbf{Y})=ArgMax_{\theta\in\Theta}[L(\theta;\mathbf{Y})]$ is r.v.} \ \ \ \ \ \ {\tiny ps: $\mathcal{I}^{-1},J^{-1}$是指其负一次方，不是反函数 \ \ \ \ \ \ True Parameter: $\theta_0$}
+\vspace{-0.05cm}
+
+\vspace{-0.35cm}
+\begin{longtable}{|c|c|c|c|c|}
+    \hline
+    Name & Test Statistic & {\scriptsize Hypothesis} & CI & Other \\
+    \hline
+    \makecell{Score Test} & \makecell{Given $U(\theta_0;\mathbf{Y})\sim\mathcal{N}(0,\mathcal{I}(\theta_0))$ \\$T_{Score}(\mathbf{Y})=\frac{U(\theta_0)}{\sqrt{\mathcal{I}(\theta_0)}}\sim\mathcal{N}(0,1)$} & \makecell{\scriptsize $ H_0:\theta=\theta_0$ \\ {\tiny 不用MLE,泰勒展开}} & $\left\{\theta:\frac{U^2(\theta)}{\mathcal{I}(\theta)}<z^2_{\alpha,1}\right\}$ & \makecell{ {\scriptsize or} $T^2_{Score}(\mathbf{Y})\sim\chi^2_1$ \\ {\scriptsize $T_{Score}(\mathbf{Y})\approx\frac{U(\theta_0)}{\sqrt{\mathcal{I}(\widehat{\theta})}},\frac{U(\theta_0)}{\sqrt{J(\theta_0)}},\frac{U(\theta_0)}{\sqrt{J(\widehat{\theta})}}$} } \\
+    \hline
+    \makecell{Wald Test {\tiny or} \\ {\tiny Maximum Likelihood(ML) Test} } & \makecell{\small $T_{Wald}(\mathbf{Y})=\sqrt{\mathcal{I}(\theta_0)}(\widehat{\theta}-\theta_0)=\frac{\widehat{\theta}-\theta_0}{\sqrt{\mathcal{I}^{-1}(\theta_0)}}$ \\ $T_{Wald}(\mathbf{Y})\sim\mathcal{N}(0,1)$} & \makecell{\scriptsize $ H_0:\theta=\theta_0$ \\ {\tiny 构建 CI} } & {\small $\left\{\theta:(\widehat{\theta}-\theta)^2\mathcal{I}(\theta)<z^2_{\alpha,1}\right\}$} & \makecell{ {\scriptsize or} {\small $T^2_{Wald}\sim\chi^2_1$} ; {\scriptsize {\tiny $n\to\infty$} $T_{Wald}\simeq T_{Score}$} \\ {\scriptsize $T_{Ward}(\mathbf{Y})\approx\frac{(\widehat{\theta}-\theta_0)}{\sqrt{\mathcal{I}^{-1}(\widehat{\theta})}},\frac{(\widehat{\theta}-\theta_0)}{\sqrt{J^{-1}(\theta_0)}},\frac{(\widehat{\theta}-\theta_0)}{\sqrt{J^{-1}(\widehat{\theta})}}$} }\\
+    \hline
+    \makecell{{\tiny log-}Likelihood \\ Ratio Test} & \makecell{{\small $T_{LR}(\mathbf{Y})=2(\ell(\widehat{\theta})-\ell(\theta_0))\sim\chi^2_1$} {\tiny as $n\to\infty$} \\ {\scriptsize $LR=L(\theta_0)/L(\widehat{\theta})$, \ \ \ $T_{LR}=-2ln(LR)$}} & \makecell{\scriptsize $H_0:\theta=\theta_0$ \\ {\tiny 最小 CI, Most Powerful} } & {\small $\left\{\theta:2(\ell(\widehat{\theta})-\ell(\theta))<z^2_{\alpha,1}\right\}$} & \makecell{\scriptsize ps: $2(\ell(\widehat{\theta})-\ell(\theta_0))\simeq(\theta_0-\widehat{\theta})^2J(\widehat{\theta})$ } \\
+    \hline
+    \multicolumn{5}{|l|}{\scriptsize $T_{Score}\simeq T_{Wald}\simeq T_{LR}$ as $n\to\infty$; \ \ $J(\theta_0)\approx\mathcal{I}(\theta_0)$ as $n\to\infty$; \ \ When $\ell(\theta)=$关于$\theta$的二次函数 $\Rightarrow$ All same. \ \ Geometric:($T_S$,比斜率),($T_W$,比宽度),($T_{LR}$，比高度) ps:$z_{\alpha,n}=\chi^2_{\alpha,n}$} \\
+    \hline
+\end{longtable}
+\vspace{-0.35cm}
+
+\subsection{For Single Parameter (Numerical Method)}
+
+\vspace{-0.35cm}
+\begin{longtable}{|c|c|c|}
+    \hline
+    {\scriptsize \textit{Suppose initial value solution $\theta_0$}} & Newton-Raphson Method \ \ {\tiny ps: also called Newton's method.} & Fisher's Method of Scoring \ \ {\tiny ps: also called scoring method} \\
+    \hline
+    Formula & $\theta_{r+1}=\theta_{r}-\frac{U(\theta_{r})}{\ell''(\theta_{r})}=\theta_{r}+\frac{U(\theta_{r})}{J(\theta_{r})}$ & $\theta_{r+1}=\theta_{r}-\frac{U(\theta_{r})}{\mathbb{E}[\ell''(\theta_{r})]}=\theta_{r}+\frac{U(\theta_{r})}{\mathcal{I}(\theta_{r})}$ \\
+    \hline
+    Advantages & {\small Converge \textit{very quickly} near optimum} & {\small $\mathcal{I}$ is constant / easier to calculate; \ \ Converge for wider $\theta_0$} \\
+    \hline
+    Stoping Rule & \multicolumn{2}{l|}{Given tolerance level $\varepsilon$: $^1$ Stop after $r$ if $|U(\theta_{r})|\leq\varepsilon$ {\scriptsize (Common)} \ \ \ \ {\tiny or} \ \ \ \ $^2$ Stop after $|\theta_{r}-\theta_{r-1}|\leq\varepsilon$} \\
+    \hline
+\end{longtable}
+\vspace{-0.35cm}
+
+\subsection{For Multiple Parameters}
+
+\vspace{-0.25cm}
+{\ \ \ \ \ \ \ \ \ \ \tiny * 此节中，$\theta$ 代表向量,$\theta=(\theta_1,...,\theta_p)$ \ \ \ \ \ \ \ $\mathbf{\mathcal{I}}^{-1}$ 指其逆矩阵 \ \ \ \ \ \ True Parameter: $\theta_0$}
+\vspace{-0.15cm}
+
+\begin{minipage}[t]{0.78\linewidth}
+\vspace{-0.6cm}
+\begin{longtable}{|c|c|c|c|}
+    \hline
+    Name & Test Statistic ({\small $T^2_{Score},T^2_{Wald},T_{LR}$}) & {\scriptsize Hypothesis} & (Confidence Region) CR \\
+    \hline
+    Score Test & $\mathbf{U}(\theta_0)^T\mathbf{\mathcal{I}}^{-1}(\theta_0)\mathbf{U}(\theta_0)>z_{\alpha,p}$ & $\theta=\theta_0$ & $\{\theta:\mathbf{U}(\widehat{\theta})^T\mathbf{\mathcal{I}}^{-1}(\theta)\mathbf{U}(\theta)< z_{\alpha,p}\}$ \\
+    \hline
+    Wald Test & $(\widehat{\theta}-\theta_0)^T\mathbf{\mathcal{I}}(\theta_0)(\widehat{\theta}-\theta_0)>z_{\alpha,p}$ & $\theta=\theta_0$ & $\{\theta:(\widehat{\theta}-\theta)^T\mathbf{\mathcal{I}}(\theta)(\widehat{\theta}-\theta)<z_{\alpha,p}\}$ \\
+    \hline
+    {\scriptsize {\tiny log-}Likelihood Ratio Test} & $2(\ell(\widehat{\theta})-\ell(\theta_0))>z_{\alpha,p}$ & $\theta=\theta_0$ & $\{\theta:2(\ell(\widehat{\theta})-\ell(\theta))<z_{\alpha,p}\}$ \\
+    \hline
+    \multicolumn{4}{|c|}{{\scriptsize $\mathbf{\mathcal{I}}(\theta_0)\approx\mathbf{\mathcal{I}}(\widehat{\theta}),\mathbf{J}(\theta_0),\mathbf{J}(\widehat{\theta})$} \ \ \ \ \ \ $ps:z_{\alpha,p}=\chi^2_{\alpha,p}$ \ \ \ \ \ \ {\footnotesize $T_{LR}$:simple hypothesis testing.($dim(\mathcal{A})=0$)} \ \ \ \ \ \ $\theta$ {\footnotesize 都是向量}} \\
+    \hline
+\end{longtable}
+\end{minipage}
+\begin{minipage}[t]{0.22\linewidth}
+    {\scriptsize \textbf{Marginal Normal} distribution $\widehat{\theta}$}:
+
+    {\footnotesize $\widehat{\theta}_j\sim\mathcal{N}(\theta_j,[\mathbf{\mathcal{I}}^{-1}( \ \underline{\theta_0} \ )]_{jj})$} \ \ {\tiny $\theta_j$: true para}
+
+    {\footnotesize $\cdot ESE(\widehat{\theta}_j)=\sqrt{[\mathbf{\mathcal{I}}^{-1}(\widehat{\theta})]_{jj}}$}
+
+    {\footnotesize $\cdot$ CI($\theta_j$): $\widehat{\theta}_j\pm z_{\alpha}ESE(\widehat{\theta}_j)$}
+
+\end{minipage}
+
+\textbf{Composite Hypothesis Test}: {\small $H_0:\underline{\theta}\in\mathcal{A},H_1:\underline{\theta}\notin\mathcal{A}$} {\footnotesize $\mathcal{A}$: reduced model} \ \ \ \ \ \ {\small $LR=\frac{max_{\underline{\theta}\in\mathcal{A}}L(\underline{\theta})}{max_{\underline{\theta}\in\mathcal{\Theta}}L(\underline{\theta})}=\frac{L(\widehat{\underline{\theta}}_{\mathcal{A}})}{L(\widehat{\underline{\theta}}_\Theta)}$} \ {\tiny ps: 多维未知参数,$H_0$只想其中几个时用 || $dim(\mathcal{A})$ 常数时为0}
+
+\vspace{-1pt}
+$\cdot$ \textbf{Generalised Likelihood Ratio Test}: $T_{GLR}=-2ln(LR)=2\left(\ell(\widehat{\underline{\theta}})-\ell(\widehat{\underline{\theta}}_{\mathcal{A}})\right)\sim\chi^2_{p-r}$ \ \ \ \ \ \ $p:$ \# of parameters. \ \ $r=dim(\mathcal{A})$
+
+\subsection{For Multiple Parameter (Numerical Method)}
+
+\vspace{-0.10cm}
+{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \tiny * 此节中，$\theta$ 代表向量}
+\vspace{-0.30cm}
+
+\vspace{-0.35cm}
+\begin{longtable}{|c|c|c|}
+    \hline
+    Method {\tiny (start at $\theta_0$)} & Newton-Raphson Method & Fisher's Method of Scoring \\
+    \hline
+    Formula & $\theta_{r+1}=\theta_r - \mathbf{H}^{-1}(\theta_r)\mathbf{U}(\theta_r)=\theta_r + \mathbf{J}^{-1}(\theta_r)\mathbf{U }(\theta_r)$ & $\theta_{r+1}=\theta_r-(\mathbb{E}[\mathbf{H}(\theta_r)])^{-1}\mathbf{U}(\theta_r)=\theta_r+\mathbf{\mathcal{I}}^{-1}(\theta_r)\mathbf{U}(\theta_r)$ \\
+    \hline
+    \multicolumn{3}{|l|}{\small ps: Jacobian / Hessian $\mathbf{H}=-\mathbf{J}$ \ \ || \ \ If $\mathbf{\mathcal{I}}=diag(a,b,...)$,$\Rightarrow$ $\mathbf{\mathcal{I}}^{-1}=diag(a^{-1},b^{-1},...)$} \\
+    \hline
+\end{longtable}
+\vspace{-15pt}
+
+
+\section{Bayesian Inference}
+
+% \vspace{-0.25cm}
+% \hspace{15pt}{\tiny * In this section, we will not distinguish between r.v.'s and associated realisations. }
+% \vspace{-0.15cm}
+
+\subsection{Bayesian Approach \& Definitions}
+
+\textbf{Basic Idea}: {\small Consider $\underline{\theta}$ as a \underline{r.v.}. \ \ \ \ \ \ \ \ \ \ \ Bayesian approach $\Rightarrow$ Probability are used to represent \underline{degree of believe} about the unknown $\underline{\theta}$}
+
+\textbf{Prior Distribution $p(\underline{\theta})$}: Prior distribution $p(\underline{\theta})$ contains all available prior information about $\underline{\theta}$ \textit{before observing any data}.
+
+$\cdot$ \textbf{Hyper-Parameters}: {\footnotesize 由于 $p(\underline{\theta})$是已知,服从某种分布(with parameter $\gamma$). We denoted $p(\underline{\theta})$ as $p(\underline{\theta};\gamma)$ where $\gamma$ is \textit{Hyper-parameters}.} \ \ \ {\footnotesize 定义: $\gamma_{prior}\to\gamma_{post}$}
+
+\textbf{Likelihood function $p(\mathbf{y}|\underline{\theta})=f(\mathbf{y}|\underline{\theta})$}: Any observed data is considered as a realisation of r.v. $Y$ with $f(\mathbf{y}|\underline{\theta})$
+
+\textbf{Posterior Distribution $p(\underline{\theta}|\mathbf{y})$}: Posterior distribution $p(\underline{\theta}|\mathbf{y})$, contains all available knowledge.
+
+$\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{p(\mathbf{y}|\underline{\theta})p(\underline{\theta})}{p(\mathbf{y})}=\frac{f(\mathbf{y}|\underline{\theta})p(\underline{\theta})}{m(\mathbf{y})}$ \ \ \ \ \ \ $p(\mathbf{y})=m(\mathbf{y})=\int_{\underline{\theta}\in\Theta}f(\mathbf{y}|\underline{\theta})p(\underline{\theta}) d\underline{\theta}$ (Normalizing constant)
+
+\vspace{-0.35cm}
+\begin{longtable}{|c|c|c|c|}
+    \hline
+    Name & MAP{\tiny Maximum A Posteriori} & MMSE{\tiny Posterior Mean / Bayesian Minimum Mean Squared Error Estimator} & Posterior Median $\widehat{\theta}_{median}$ \\
+    \hline
+    {\scriptsize Single Para} & {\footnotesize $\widehat{\theta}_{MAP}=\arg\max_\theta p(\theta|\mathbf{y})$} & {\footnotesize $\widehat{\theta}_{MMSE}=\mathbb{E}[\theta|\mathbf{y}]=\int_{\theta\in\Theta}\theta p(\theta|\mathbf{y})d\theta$} & {\footnotesize $\frac{1}{2}=\int_{-\infty}^{\widehat{\theta}_{median}}p(\theta|\mathbf{y})d\theta=\int_{\widehat{\theta}_{median}}^{\infty}p(\theta|\mathbf{y})d\theta$} \\
+    \hline
+    \hline
+    Name & Posterior Var & \multicolumn{2}{c|}{$C_{\alpha}=[a,b]$ \scriptsize $(1-\alpha)100\%$ Bayesian Credible Intervals (or Simply Credible Intervals)} \\
+    \hline
+    {\scriptsize Single Para} & {\footnotesize $Var[\theta|\mathbf{y}]=\int_{\theta\in\Theta}(\theta-\mathbb{E}[\theta|\mathbf{y}])^2p(\theta|\mathbf{y})d\theta$} & \multicolumn{2}{l|}{\footnotesize $\mathbb{P}(a\leq\theta\leq b)=\int_{a}^{b}p(\theta|\mathbf{y})d\theta=1-\alpha$ \ \ \ \ \ \ ps: $\mathbb{P}(\theta<a|\mathbf{y})=\mathbb{P}(\theta>b|\mathbf{y})=\alpha/2$} \\
+    \hline
+\end{longtable}
+\vspace{-0.35cm}
+
+
+\subsection{Exact Bayesian Inference with Conjugate priors}
+
+\textbf{Conjugate Prior}: {\small For $\underline{\theta}$, $p(\underline{\theta})$ is \textit{Conjugate Prior} for $p(\mathbf{y}|\underline{\theta})=f(\mathbf{y}|\underline{\theta})$ iff {\footnotesize 对 $p(\underline{\theta})$ 用 Bayes' Rule 得到的 $p(\mathbf{y}|\underline{\theta})$ 都在\textit{同一类型的分布}}}
+
+\textbf{Conjugate Family}: The collection of all \textit{Conjugate Prior}.
+
+\textbf{Choice of Prior}: Observed data number $n$: {\footnotesize $^1n$ small $\Rightarrow$ Posterior shows a great dependency of the choice of prior.}
+
+\hspace{70pt} {\footnotesize $^2n$ middle $\Rightarrow$ posterior less affected by choice of prior. \ $^3n$ large $\Rightarrow$ choice of prior has limited effect on posterior.}
+
+\section{Distribution Table} % Distribution Table
+
+\vspace{-0.4cm}
+\begin{longtable}{|l||c|c|c|c|}
+    \hline
+    Distribution & PDF & Mean & Var & Other \\
+    \hline
+    \hline
+    {\textbf{Bernoulli} \ $X\sim Bern(p)$} & $p^{k}(1-p)^{1-k},k\in\{0,1\}$ & $p$ & $p(1-p)$ & {\small If $X_i$ are i.i.d. $\sum X_i\sim Bin(n,p)$} \\
+    \hline
+    {\textbf{Binomial} \ $X\sim Bin(n,p)$} & $\binom{n}{k}p^k(1-p)^{n-k}$ & $np$ & $np(1-p)$ & \makecell{$X,Y\sim Bin(n,p),Bin(m,p)$ \\ $X+Y\sim Bin(n+m,p)$} \\
+    \hline
+    \multicolumn{2}{|l|}{\small For $X\sim Bin(n,p)$, $n\to\infty,p\to0,np\to \lambda$, \ \ \ \ then $X\sim Poission(\lambda)$} & \multicolumn{3}{l|}{\footnotesize For $X\sim Bin(n,p)$, $n\to\infty$ and pdf symmetric, $\Rightarrow$ $X\sim N(np,np(1-p))$} \\
+    \hline
+    \makecell{\textbf{Geometric} \ $X\sim Geom(p)$} & $(1-p)^{k-1}p$ & $1/p$ & $(1-p)/p^2$ & $\mathbb{E}[X^2]=2/p^2$ \\
+    \hline
+    \makecell{\small \textbf{Negative Binomial} $X\sim NB(r,p)$} & $\binom{r+k-1}{k}p^r(1-p)^{k}$ , $r\geq1$ & {\small $\frac{r(1-p)}{p}$} & {\small $\frac{r(1-p)}{p^2}$} &  \\
+    \hline
+    {\textbf{Poission} \ $X\sim Po(\lambda)$} & $e^{-\lambda}\cdot \frac{\lambda^k}{k!}$ & $\lambda$ & $\lambda$ & $\mathbb{E}[X^2]=\lambda^2+\lambda$ \\
+    \hline
+    \multicolumn{5}{|l|}{For $X,Y\sim Po(\lambda_1),Po(\lambda_2)$, then $X+Y\sim Po(\lambda_1+\lambda_1)$} \\
+    \hline
+    \makecell{\textbf{Multinomial} \ {\tiny $X_1+\cdots+X_k=n$} \\ $(X_1,...,X_k)\sim MN(n,p_1,...,p_k)$} & $\frac{n!}{x_1!\cdots x_k!}p_1^{x_1}\cdots p_k^{x_k},$ {\tiny $0<p_i<1$} & $np_i$ & $np_i(1-p_i)$ & \\
+    \hline
+    {\textbf{Uniform} \ $X\sim \mathcal{U}([a,b])$} & $\frac{1}{b-a}$ & $\frac{a+b}{2}$ & $\frac{(b-a)^2}{12}$ & $\mathbb{E}[X^2]=\frac{b^2+ab+a^2}{3}$ \\
+    \hline
+    {\textbf{Normal} \ $X\sim \mathcal{N}(\mu,\sigma^2)$} & $\frac{1}{\sqrt{2\pi \sigma^2}}\cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ & $\mu$ & $\sigma^2$ & \makecell{$\mathbf{Y}\sim N_k(\mu,\Sigma)$ , $\mu$ vector  \\ $f_{\mathbf{Y}}(y_1,...,y_k)=\frac{e^{-\frac{1}{2}(\mathbf{y}-\mu)^T\Sigma^{-1}(\mathbf{y}-\mu)}}{\sqrt{(2\pi)^kdet(\Sigma)}} $}\\
+    \hline
+    \multicolumn{5}{|l|}{For $X,Y\sim N(\mu_1,\sigma^2_1),Po(\mu_2,\sigma^2_2)$, then $aX\pm Y\pm c\sim Po(a\mu_1\pm b\mu_2\pm c,a^2\sigma^2_1+b^2\sigma^2_2)$} \\
+    \hline
+    {\textbf{Exponential} \ $X\sim Exp(\lambda)$} & $\lambda e^{-\lambda x}$ & $\frac{1}{\lambda}$ & $\frac{1}{\lambda^2}$ & $\mathbb{E}[X^n]=\frac{n!}{\lambda^n}$ \\
+    \hline
+    \makecell{\textbf{Beta} \\ $X\sim Beta(\alpha,\beta),\alpha,\beta >0$} & $\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)},x\in[0,1]$ & $\frac{\alpha}{\alpha +\beta}$ & $\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$ & $B(\alpha,\beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$ \\
+    \hline
+    \makecell{\textbf{Gamma} \\ $X\sim \Gamma(\alpha,\beta),\alpha,\beta >0$} & $\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},x\geq0$ & $\frac{\alpha}{\beta}$ & $\frac{\alpha}{\beta^2}$ & \makecell{ $\Gamma(\alpha)=(\alpha -1)!$ \\ $\Gamma(\alpha)=\int^\infty_0x^{\alpha-1}e^{-x}dx$} \\
+    \hline
+    \makecell{\textbf{Student's t} \\ $X\sim t_v,v>0$} & $\frac{1}{\sqrt{v}B(\frac{v}{2},\frac{1}{2})}(1+\frac{x^2}{v})^{-\frac{v+1}{2}}$ & $0$ & $\frac{v}{v-2}$ & \makecell{If $Z\sim N(0,1),Y\sim \chi^2_n$ \\ $\frac{Z}{\sqrt{Y/n}}\sim t_n$} \\
+    \hline
+    \multicolumn{5}{|l|}{PDF Symmetric at zero and has more mass in the tails (compare to the standard normal distribution)} \\
+    \multicolumn{5}{|l|}{When $n\to\infty$ it will converges to $N(0,1)$.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{Cauchy Distribution}: $X\sim t_1$ and its mean and var are undefined.} \\
+    \hline
+    \makecell{\textbf{Chi-Squared} \\ $X\sim \chi^2_v,v>0$} & $\frac{1}{2^{\frac{v}{2}}\Gamma(\frac{v}{2})}x^{\frac{v}{2}-1}e^{-\frac{x}{2}},x\geq0$ & $v$ & $2v$ & - \\
+    \hline
+    \multicolumn{5}{|l|}{If $X_i\sim N(0,1), \ then \  \sum X_i^2\sim \chi_n^2$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If $X\sim \chi^2_n,Y\sim \chi^2_m, \ then \ X+Y\sim \chi^2_{n+m}$} \\
+    \hline
+    {\textbf{F} \ $X\sim F(\lambda,v),v>0$} & $\frac{\lambda^{\frac{\lambda}{2}}v^{\frac{v}{2}}}{B(\frac{\lambda}{2},\frac{v}{2})}x^{\frac{\lambda}{2}-1}(\lambda x+v)^{-\frac{\lambda+v}{2}},x\geq0$ & $\frac{v}{v-2}$ & {\footnotesize $\frac{2v^2(\lambda+v-2)}{\lambda(v-2)^2(v-4)},v>4$} & \makecell{$Y_1,Y_2\sim\chi^2_{n_1},\chi^2_{n_2},X=\frac{Y_1/n_1}{Y_2/n_2}$ \\ $X\sim F_{n_1,n_2},X^{-1}\sim F_{n_2,n_1}$} \\
+    \hline
+    \multicolumn{5}{|l|}{ps: $f_{a,b;\alpha}=1/f_{a,b;1-\alpha}$} \\
+    \hline
+\end{longtable}
+
+
+\section{Review}
+
+\vspace{-0.4cm}
+\begin{multicols}{2}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Type & Type I error                         & Type II error                               \\
+        \hline
+        Def  & $\mathbb{P}(Rej \ H_0|H_0 \ is \ T)$ & $\mathbb{P}(Fail \ Rej \ H_0|H_0 \ is \ F)$ \\
+        \hline
+    \end{tabular}
+
+    \textbf{Significance Level}: $\alpha = \mathbb{P}(Rej \ H_0|H_0 \ is \ T)$
+
+    \columnbreak
+
+    \begin{tabular}{|c|c|c|}
+        \hline
+        -                 & $H_0$ is T                                 & $H_0$ is F                                \\
+        \hline
+        Fail to Rej $H_0$ & Right                                      & {\footnotesize Type II ($\beta$) 与size有关} \\
+        \hline
+        Rej $H_0$         & {\footnotesize Type I ($\alpha $) 与size无关} & Right (Power)                             \\
+        \hline
+    \end{tabular}
+
+\end{multicols}
+\vspace{-0.4cm}
+
+\textbf{P-value}: 1.One-side: $p=\mathbb{P}(T\geq t;T\sim H_0)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.Two-sides: $p=2\min\{\mathbb{P}(T\geq t;T\sim H_0),\mathbb{P}(T\leq t;T\sim H_0)\}$
+
+\textbf{Power of Test}: $\mathbb{P}$(Rej $H_0$|$H_0$ is F)$=1-\beta=\mathbb{P}(Z\in C|\mu=\mu^*)$ {\scriptsize $\cdot$ 1.Sample size $\uparrow$, Power $\uparrow$; \ \ \ \ \ \ 2.$\sigma^2$ $\downarrow$, Power $\uparrow$; \ \ \ \ \ \ 3.Effect size $|\theta_0-\theta^*|$ $\uparrow$, Power $\uparrow$; \ \ \ \ \ \ 4.$\alpha$$\uparrow$, Power $\uparrow$.}
+
+\textbf{Def of Confidence Interval (CI)}: $100(1-\alpha)\%$ Confidence Interval for $\theta$ is $[l(X),u(X)]$, $\mathbb{P}(l(X)<\theta<u(X))=1-\alpha.$
+
+\vspace{-0.30cm}
+\begin{longtable}[alignment]{|c|c|c|c|c|}
+    \hline
+    {\small (Convergence of r.v.)} Name & Definition & written as & \multicolumn{2}{c|}{Example} \\
+    \hline
+    {\small Convergence in Probability} & If $\lim F_{X_n}(x)=F_X(x)$ for all $x\in\mathbb{R}$. & $X_n\stackrel{d}{\to}X$ or $X_n\stackrel{d}{\to}F_X$ & CLT{\tiny 最弱}: & {\scriptsize 见下面} \\
+    \hline
+    {\small Convergence in Distribution} & If $\forall\epsilon>0,$ $\lim\mathbb{P}(|X_n-X|>\epsilon)=0$. & $X_n\stackrel{p}{\to}X$ & WLLN{\tiny 中等}: & \makecell{\scriptsize If $X_i\stackrel{i.i.d.}{\sim}F_X$, $\mathbb{E}[X_i]=\mu$. \\ \scriptsize $\Rightarrow$ \ \ $\bar{X}_n\stackrel{p}{\to}\mu$} \\
+    \hline
+    {\small Almost Sure Convergence} & If $\mathbb{P}(\lim X_n=X)=1$ & $X_n\stackrel{a.s.}{\to}X$ & SLLN{\tiny 最强}: & \makecell{\scriptsize If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$, \\ \scriptsize $Var[X_i]<\infty$. $\Rightarrow$ \ \ $\bar{X}_n\stackrel{a.s.}{\to}\mu$} \\
+    \hline
+\end{longtable}
+\vspace{-0.38cm}
+
+\textbf{Central Limit Theorem (CLT)}: If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$ and $Var[X_i]<\infty$. \ \ $\Rightarrow$ \ \ $\frac{\bar{X}_n-\mu}{\sqrt{\sigma^2/n}}=\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\stackrel{d}{\sim}N(0,1)$ \ \ \ {\tiny 样本均值的分布会趋近于正态分布}
+
+
+\section{Writting Format}
+
+\tiny
+
+\textbf{Distribution}: 产生新 distribution 的一种方法: 通过条件概率来. \ \ \ \ \ \ $\mathbb{P}(A|B)=\mathbb{P}[ (A\cap B) / B ]$
+
+\textbf{p-value}: p-value measures the plausibility that the data were generated under $H_0$. \ \ \ \textbf{Low p-value}: low p-value suggests $H_0$ is incompatible with the data and hence likely to be false.
+
+\textbf{CI}: The set of values (e.g.$\theta$) are not rejected at significance level $\alpha$ under $H_0$. \ \ \ If data are generated under $H_0$, there is a probability $(1-\alpha)$ for the true $\theta_0$ to be within the $(1-\alpha)100\%$ CI.
+
+\textbf{Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
+
+\textbf{Hypothesis Testing}: \ \ \
+\textbf{Steps}: $^1$ State $H_0,H_1$; $^2$ Select Test Statistic $T$; $^3$ distribution of $T$ under $H_0$; $^4$ observed test statistic; $^5$ critical value / region, p-value, or CI; $^6$ conclusion. \ \ \
+\textbf{Reject $H_0$}: We would reject $H_0$ in favour of the $H_1$. (So that ...) \ \ \
+\textbf{Fail to reject $H_0$}: We fail to reject $H_0$. Hence, there is strong evidence against the null hypothesis.
+
+\textbf{MLE}: \textbf{Using (Compare) Newton's Method $=(\ne)$ Scoring Method}: Because the second derivative of likelihood function doesn't (does) include the r.v.
+
+\textbf{MLE Inference Parameter|$\mathbb{P}(\theta<?)=\alpha$ is false}: We cannot make such probability statement. $\{\theta\}$ is a fixed value (but unknown).
+
+\textbf{Geoemtric Comparison of $T_{Score}$,$T_{Wald}$,$T_{LR}$}: \textbf{1}.$T_{Score}$ (Slope Comparison): Represents the slope of the likelihood function at $\theta_0$; A steeper slope indicates that the likelihood function is changing more rapidly at $theta_0$, which implies a greater difference between $\widehat{\theta}$ and $\theta_0$. \ \ \
+\textbf{2}.$T_{Wald}$ (Width Comparison): Compares the difference between $\widehat{\theta}$ and $\theta_0$. \ \ \
+\textbf{3}.$T_{LR}$ (Height Comparison): Compares the maximum likelihood value $L(\widehat{\theta})$ and the likelihood value at $\theta_0,L(\theta_0)$. A larger height difference indicates a greater discrepancy between $\widehat{\theta}$ and $\theta_0$ \ \ \ \ \ \ \ \ \
+\textbf{$T_{Score}$,$T_{Wald}$,$T_{LR}$ Other 部分公式可以近似的理由}: This is due to $\widehat{\theta}$ being a consistent estiamtor of $\theta_0$, and $J(\theta_0)$ being a consistent estimator of $\mathcal{I}(\theta_0)$
+
+
+\end{document}

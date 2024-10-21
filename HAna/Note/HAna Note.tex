@@ -1,0 +1,299 @@
+\documentclass[9pt]{article}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{ctex}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{makecell} % 换行
+
+% 使用分栏宏包
+\usepackage{multicol} 
+\setlength{\columnseprule}{0.4pt} % 分割线
+
+% 设置字体
+\usepackage{xcolor}
+\usepackage{unicode-math}
+\setmainfont{Cambria}
+\setmathfont{Cambria Math}
+
+% 调整页面布局
+\usepackage[a4paper, top=0.7cm, bottom=1cm, left=0.7cm, right=.7cm]{geometry}
+\setlength{\footskip}{15pt}
+
+% 设置页脚/页眉
+\usepackage{fancyhdr}
+\fancyfoot[C]{Copyright By Jingren Zhou | Page \thepage}
+\fancyhead[]{}
+\pagestyle{fancy}
+% 去除线
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 设置 section/subsection 之间的行间距
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+
+% 调整标题上下间距
+\usepackage{titling}
+\setlength{\droptitle}{-2.4cm} % 负值表示向上移动
+
+% 设置标题，作者，时间
+\title{HAna Note}
+\author{}
+\date{}
+
+% 正文
+\begin{document}
+
+
+% 标题
+\maketitle
+\thispagestyle{fancy}
+\vspace{-3.5cm}
+
+% 字体大小
+\fontsize{10pt}{11pt}\selectfont
+\setlength{\parindent}{0pt}
+
+
+\section{Basic Knowledge \& FPM} % Basic Knowledge
+
+\subsection{Definitions, Useful Tools \& Nested Intervals}
+
+\textbf{Def of $\lambda(I)$}: $\lambda((a,b))=\lambda([a,b))=\lambda((a,b])=\lambda([a,b])=b-a$. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
+
+\textbf{Def of limit superior and inferior}: $\limsup a_n:=\lim(sup_{k\geq n}a_k)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\liminf a_n:=\lim(inf_{k\geq n}a_k)$
+
+\textbf{Important Inequation}: {\small $|x+y|\leq|x|+|y| \ \ ; \ \ |x-y|\geq|x|-|y| \ \ ; \ \ ||x|-|y|| \leq|x \pm y|.$} \ \ \ \ \ \ \ $|sin(x)|\leq |x|$ {\tiny ps:need prove,By MVT}
+
+\textbf{Bernoulli's Inequality}: If $\alpha>0,\delta\geq-1$. Then $(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty)$
+
+\textbf{Def of Nested Interval}: Sequence $(I_n)_{n\in\mathbb{N}}$ is nested if $I_n\supseteq I_{n+1}$ for all $n\in\mathbb{N}$. \ \ \ \ \ $\cdot$ \textbf{MCT}: $UB\Rightarrow sup$ ; $LB\Rightarrow inf$.
+
+\textbf{Nested Interval Theorem}: If $(I_n)_{n\in\mathbb{N}}$ is nested closed bounded interval sequence $\Rightarrow$ $E:=\cap_nI_n\ne\emptyset$. \ \ \ \ {\small If $\lim\lambda(I_n)=0\Rightarrow E=a,a\in\mathbb{R}$ }
+
+
+\subsection{Infinite Sequence, Cauchy Sequence and Bolzano-Weierstrass Theorem}
+
+\textbf{Useful Seq Limit}: $\lim \frac{1}{n^p}=0,p>1$ \ ; \ $\lim a^n=0,|a|<1$ \ ; \ $\lim n^\frac{1}{n}=1$ \ ; \ $\lim a^\frac{1}{n}=1,a>0$
+
+\textbf{Subsequence Theorem}: In each case, the subsequence can be taken to be monotonic.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $\exists a \in \mathbb{R} \ s.t. \ \forall \varepsilon > 0$, there are infinitely many $n \in \mathbb{N} \ s.t. \ |x_n - a|<\varepsilon$ $\Leftrightarrow \ \exists$ subsequence of $(x_n) \ s.t. \ \lim\ x_{n_k}=a$
+    \item $(x_n)_{n \in \mathbb{N}}$ is not bounded above (below) $\Leftrightarrow$ \ $\exists$ subsequence of $x_n \ s.t. \ \lim x_{n_k}=\infty \ (-\infty)$
+    \item If $\lim x_n=L \Rightarrow \forall x_{n_k} \ , \lim x_{n_k}=L$
+\end{enumerate}
+
+\textbf{Cauchy Sequence}: Sequence $(a_n)_{n\in\mathbb{N}}$ is Cauchy iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ |a_n-a_m|<\varepsilon$ for all $m,n\geq N$. \ \ \ \ $\cdot$ \textbf{Convergent $\Leftrightarrow$ Cauchy}
+
+\textbf{Bolzano-Weierstrass Theorem}: Every \textit{bounded sequence} has a \textit{convergent subsequence}. {\scriptsize ps: In real number.}
+
+
+\subsection{Infinite Series and their theorems}
+
+$\cdot$ \textbf{p-Test}: $\sum \frac{1}{n^p}$ convergent iff $p>1$ \ \ \textbf{Root Test} \ \ \textbf{Ratio Test}$_{|n|^{1/n},|n+1/n|}$ \ \ \textbf{Geometric Series}: $\sum p^n$ converges iff $|p|<1$
+
+\textbf{Divergence Test}: If $\lim a_n\ne 0 \Rightarrow \sum a_n$ diverges. \ \ (If $\sum a_n$ convergent $\Rightarrow \lim a_n=0.$)
+
+\textbf{Comparison Test}: If $0<a_n<b_n$, $\sum b_n$ convergent $\Rightarrow \sum a_n$ also ; $\sum a_n$ divergent $\Rightarrow \sum b_n$ also.
+
+$\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L>0 \ \Rightarrow$ If $L\in(0,\infty)$: $\sum a_n$ convergent iff $\sum b_n$ also.
+
+\ \ \  If $L=0 : \sum b_n$ convergent $\Rightarrow \sum a_n$ also. \ \ $L=\infty : \sum b_n$ divergent $\Rightarrow \sum a_n$ also.
+
+\textbf{Integral Test}: Let $f:[1,\infty)\rightarrow\mathbb{R}$ is 非负递减, $a_n=f(n)$. Then $\sum a_n$ converges iff $\int_{1}^{\infty}f(x)dx<\infty.$
+
+\textbf{Absolutely Convergence}: $\sum a_n$ convergent absolutely iff $\sum |a_n|$ convergent. \ \ \textbf{If convergent abs $\Rightarrow$ convergent.}
+
+\textbf{Alternating Series Test}: If $a_n$ decreasing, $a_n\geq 0,\lim a_n = 0$. Then $\sum (-1)^{n-1}a_n$ convergent.
+
+\textbf{Cauchy's Condensation Test}: If $a_n\geq 0,a_n$ decreasing, $\Rightarrow \ [\ \sum a_n convergent \Leftrightarrow \sum 2^na_{2^n} \ also \ ]$
+
+\textbf{Cauchy Criterion for Series}: $\sum^\infty_{k=1}a_k$ converges iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n\geq m\geq N \ |\sum^{n}_{k=m+1}a_k|=|a_{m+1}+\cdots+a_n|<\varepsilon$.
+
+\textbf{Riemann Rearrangement Theorem}: If $\sum^\infty_{k=1}a_k$ is conditionally convergent. $\Rightarrow$ \ $\forall s\in\mathbb{R},\exists$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ \ s.t. $\sum_{n=1}^{\infty}a_{\sigma(n)}=s$.
+
+\textbf{Rearrangement for Abs Series}: If $\sum_{n=1}^{\infty}a_n$ is absolutely convergent. $\Rightarrow$ \ $\forall$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ , $\sum_{n=1}^{\infty}a_{\sigma(n)}=\sum_{n=1}^{\infty}a_n$.
+
+
+\subsection{Continuous, differentiable functions and their theorems}
+
+\textbf{Def of lim of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. 0<|x-x_0|<\delta, \Rightarrow |f(x)-L|<\varepsilon.$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{2}.$\forall x_n\ne x_0 \ s.t. \lim (x_n)=x_0, then \ \lim f(x_n)=L$.}
+
+\textbf{Def of cont of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. \ \forall x,|x-x_0|<\delta \ \Rightarrow |f(x)-f(x_0)|<\varepsilon.$ \ \ \textbf{2}.$\forall (x_n)_{n\in \mathbb{N}}$,$if \ \lim x_n = x_0 \ \Rightarrow \lim f(x_n)=f(x_0)$}
+
+\textbf{Def of diffi}: {\scriptsize \textbf{1}.$f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}$ \ \ \ \textbf{2}.$f'(a)=\lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}$.}
+
+\textbf{The Extreme Value Theorem}: If $f:[a,b]\to\mathbb{R}$ is continuous, then $f$ has a max and min value.
+
+\textbf{Intermediate Value Theorem}: $f:[a,b]\to\mathbb{R}$ is continuo,$f(a)\ne f(b)$, $y\in[f(a),f(b)]$.$\Rightarrow \exists c\in(a,b) \ s.t. f(c)=y$
+
+\textbf{IVT (for deriv) / (Darboux Theorem)}: If $f$ differentiable in $I$ $\Rightarrow\forall m\in(f'(a),f'(b))$ we have: $\exists c$ s.t. $f'(c)=m$
+
+\textbf{Rolle's Theorem}: If $f$ continuous on $[a,b]$, differentiable on $(a,b)$ and $f(a)=f(b)$ \ \ Then: $\exists c\in(a,b)$ s.t. $f'(c)=0$
+
+\textbf{Mean Value Theorem}: Let $f,g$ continuous on $[a,b]$ and differentiable on $(a,b)$: \ \ \ {\scriptsize ps: a=b时依然成立}
+
+$\cdot$ {\small \textbf{1}.$\exists c\in(a,b)$ s.t. $\frac{f(b)-f(a)}{b-a}=f'(c)$ \ \ \ \textbf{2}. $\exists c\in(a,b)$ s.t. $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$}
+
+\textbf{Theorem}: If $f$ is 1-1 and continuous $\Rightarrow$ f is strictly monotone. \ \ \ and $f^{-1}$ is continuous and strictly monotone.
+
+\textbf{Inverse Function Theorem}: Let $f$ differentiable in $I$ (open interval), and $\forall x,f'(x)\ne 0$:
+
+$\cdot$ \textbf{1.} $f(I)$ is open interval. \ \ \ \ \ \textbf{2.} $f$ is invertible. \ \ \ \ \ \textbf{3.} $f^{-1}$ is differentiable and $(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}$
+
+\textbf{Second Deriv Test}: $f$ twice continuously differentiable in $I$,$f'(x_0)=0$: \textbf{1.} $f''(x_0)>0$ $(<0)$ local min (max) point.
+
+
+\section{Uniformly \& Pointwise Convergence}
+
+\subsection{Pointwise Convergence}
+
+\textbf{Def of Pointwise Convergence}: {\scriptsize \textbf{1}.$f_n:E\to\mathbb{R}$ converge pointwise iff $\forall x\in E,\forall\varepsilon>0,\exists N_{\varepsilon,x} \ s.t. \ \forall n>N \ |f_n(x)-f(x)|<\varepsilon$ \ \ \textbf{2}.$\forall x\in E,\lim f_n(x)$ exists \ \ \textbf{3}.$f(x)=\lim f_n(x)$}
+
+$\cdot$ pointwise convergence do NOT preserve: \ continuity, differentiability, {\small $(\lim f_n)'\ne\lim f'_n$, $\int\lim f_n\ne\lim\int f_n$}
+
+
+\subsection{Uniformly Convergence}
+
+\textbf{Def of Graph}: $\Gamma(f):=\{(x,f(x))| x\in E\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
+
+\textbf{Def of Vertical Neighbourhood} $\mathcal{N}(f,\varepsilon):=\{(x,y)| x\in E,|y-f(x)|<\varepsilon\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
+
+\textbf{Def of Uniformly Convergence}: $f_n:E\to\mathbb{R}$ converge uniformly iff $\forall\varepsilon>0,\exists N_{\varepsilon} \ s.t. \ \forall n>N,\forall x\in E,|f_n(x)-f(x)|<\varepsilon$ \ {\scriptsize \textbf{Equvialent} to}
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $\lim\left[ \sup_{x\in E}|f_n(x)-f(x)| \right]=0$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$\textbf{Uniformly} $\Rightarrow$ \textbf{Pointwise}
+    \item \textbf{Vertical Neighbourhood Test}: $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n>N,\Gamma(f_n)\subset\mathcal{N}(f,\varepsilon)$
+\end{enumerate}
+
+\textbf{Uniformly Cauchy}: $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall x\in E, m,n>N \ |f_n(x)-f_m(x)|<\varepsilon$ \ \ {\scriptsize ps: $f_n:E\to\mathbb{R}$} \ \ \ \ \ \ {\scriptsize $\cdot$ \textbf{Converge uniformly} \ $\Leftrightarrow$ \ \textbf{Uniformly Cauchy}}
+
+\textbf{Sequence Test}: If $f_n:E\to\mathbb{R}$ converge uniformly to $f$. \ \ $\Rightarrow$ \ \ $\forall (x_n)_{n\in\mathbb{N}}\in E,\lim|f_n(x_n)-f(x_n)|=0${\tiny 测试不是时可以用}
+
+\textbf{Property of Uniformly Convergent}: Let $f_n,f,g:I\to\mathbb{R}$ Then: \ \ \ \ \ {\scriptsize NOT preserve: \ differentiable.} \ \ \ \ \ \ {\tiny ps: 2. \textbf{Termwise differentiation}}
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$. \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$
+    \item If $^1I$ is \underline{\textit{bounded open}}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.
+    \vspace{-4pt}
+    \item {\scriptsize\textcolor{red}{Cannot use now}}If $^1\lim f_n(x)=f(x)$ uniformly on \textit{closed interval} $[a,b]$, $^2$ $f_n$ integrable on $[a,b]$ \ \ $\Rightarrow$ \ \ $\lim \int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim f_n(x)dx$
+\end{enumerate}
+
+\textbf{Def of Series of Functions}: Let $f_n:E\to\mathbb{R}$; Def partial sum $s_n(x):=\sum_{k=1}^{n}f_k(x)$
+
+{\scriptsize \textbf{1}. $\sum f_n$ converge pointwise iff $s_n$ converge pointwise. \ \ \textbf{2}. $\sum f_n$ converge uniformly iff $s_n$ converge uniformly. \ \ \textbf{3}.$\sum f_n$ converge absolutely (pointwise) iff $\sum|f_n|$ converge (pointwise).}
+
+\textbf{Weierstrass M-Test}: {\small $f_n:E\to\mathbb{R}$, $\exists (M_n)_{n\in\mathbb{N}}\geq 0$ s.t. $^1\forall x\in E,\forall n\in\mathbb{N}:|f_n|<M_n$; $^2\sum M_n$ converges. \ \ $\Rightarrow$ \ \ $\sum f_n$ converge absolutely \& Uniformly.}
+
+
+\section{Power Series}
+
+\subsection{Introduction, Radius of Convergence, Continuity and Differentiability of Power Series}
+
+\textbf{Power Series}: A series from $\sum_{n=0}^{\infty}a_n(x-c)^n$ \ \ \ \textbf{Center}: $c$. \ \ \ \textbf{Coefficients}: $a_n$.
+
+\textbf{Radius of Convergence (R)}: For a power series $\sum a_n(x-c)^n$, there are three situations for it's radius of convergence:
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $R=0$ if $\sum a_n(x-c)^n$ converges only $x=c$ \ \ \ || \ \ \ $R=\infty$ if $\sum a_n(x-c)^n$ converges absolutely $\forall x\in\mathbb{R}$
+    \item $\exists R>0$ s.t. $\sum a_n(x-c)^n$ converges absolutely if $|x-c|<R$; diverges if $|x-c|>R$. \ \ \ || \ \ \ $R=\sup\{r\geq0:(a_nr^n)_{n\in\mathbb{N}} \ \underline{bounded}\}$
+\end{enumerate}
+
+\textbf{Theorem (Continuity, Uniformly and Differentiability)}: If $f(x)=\sum a_n(x-c)^n$ with $R>0$.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $f(x)$ continuous on $(c-R,c+R)$
+    \item $\forall 0<r<R,f(x)$ converges absolutely and uniformly on $[c-r,c+r]$
+    \item $\sum^\infty_{n=0} a_n(x-c)^n$ and $\sum^\infty_{n=1} na_n(x-c)^{n-1}$ have same $R$.
+    \item \textbf{Termwise differentiation}: $f(x)$ is differentiable on $(c-R,c+R)$ \ \ \ || \ \ \ $f'(x)=\sum^\infty_{n=1} na_n(x-c)^{n-1},x\in(c-R,c+R)$
+    \\ $\forall 0<r<R,f(x),f'(x)$ converges absolutely and uniformly on $[c-r,c+r]$
+    \item $f(x)$ is infinitely convergence on $(c-R,c+R)$ \ || \ $a_k=\frac{f^{(k)}(c)}{k!}$
+\end{enumerate}
+
+
+\subsection{The Exponential Function \& Real Analytic Function}
+
+\textbf{The Exponential Function}: $E(x):=\sum_{n=0}^{\infty}\frac{x^n}{n!}$ with $R=\infty$ \ \ \ \ \ \ {\scriptsize ps: usually denoted by $exp(x)$ or $e^x$}
+
+\textbf{Real Analytic Function}: $f:I\to\mathbb{R}$ is real analytic \ iff \ $\exists (a_n)_{n\in\mathbb{N}}$ s.t. $f(x)=\sum_{n=0}^{\infty}a_n(x-c)^n$ for $\forall x\in I$ \ \ \ {\footnotesize i.e. Series converges pointwise on I.}
+
+\textbf{Taylor Series}: Given $^1$\textit{Open Interval} $I$, $^2$\textit{infinitely differentiable} $f:I\to\mathbb{R}$. \ \ $\Rightarrow$ \ \ Taylor Series of $f$ at $c\in I$ $:=\sum_{n=0}^{\infty}\frac{f^{(n)}(c)}{n!}(x-c)^n$
+
+$\cdot$ {\footnotesize Not all infinitely differentiable functions are real analytic: e.g.$f(x)=\{e^{-1/x^2},x>0;0,x<0$}
+
+\textbf{Taylor's Theorem}: If $f:(a,b)\to\mathbb{R}$ is differentiable function at $x_0\in(a,b)$:
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $P_{n,f,x_0}(x):=f(x_0)+\sum_{k=1}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ \ \ \ (Taylor's polynomial of degree $n$ at $x_0$)
+    \vspace{-4pt}
+    \item If $f^{(n+1)}$ exists on $(a,b)$, then: $\exists \xi\in(x,x_0)$ s.t. $f(x)=P_{n,f,x_0}(x)+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$
+    \item Remainder $R_{n,f,x_0}:=f(x)-P_{n,f,x_0}$. \ \ \ || \ \ \ $f:I\to\mathbb{R}$ is real analytic iff $\lim R_{n,f,x_0}=0$ for $\forall x\in I$
+\end{enumerate}
+
+
+\section{Integration Theory \& Lebesgue Integration}
+
+\subsection{Introduction}
+
+\subsubsection{Definition of Integral and Step Function}
+
+\textbf{Types of Integration \& Fundamental Theorem of Calculus}: 
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Indefinite integrals}: Also called \textit{primitives} or \textit{anti-derivatives}. {\footnotesize ps: 不定积分}. || Definition: {\footnotesize 求导的逆运算} || e.g.$\int f'(x)dx=f(x)+c$
+    \item \textbf{Definite integrals}: {\footnotesize ps: 定积分} || Definition: {\footnotesize 函数在指定区域下的面积} || $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
+    \item \textbf{Fundamental Theorem of Calculus}: $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
+\end{enumerate}
+
+\textbf{Characteristic function $\chi_E$}: Given $E\subset\mathbb{R},\chi_E(x):=\{1,x\in E; \ 0,x\notin E.$ \ \ \ \ \ \ || {\footnotesize ps: $\lambda(I)=\sup I-\inf I$ \ \ \ | \ \ \ If $I=I_1\cup I_2,I_1\cap I_2=\emptyset\Rightarrow\lambda(I)=\lambda(I_1)+\lambda(I_2)$}
+
+\textbf{Def of Simple Integral}: \textbf{1}.$\int_{\mathbb{R}}\chi_I(x)dx:=\lambda(I)$ \ \ \ \ \ \ \textbf{2}. $\int_{\mathbb{R}}c\chi_I(x)dx:=c\lambda(I)$ \ \ \ \ \ \ \textbf{3}. $\int_{\mathbb{R}}\sum_jc_j\chi_{I_j}(x)dx=\sum_jc_j\lambda(I_j)$
+
+\textbf{Step Function}: \underline{non-negative} $f:\mathbb{R}\to[0,\infty)$ is a step function iff $f(x)=\sum_jc_j\chi_{I_j}(x)$ \ \ \ \ \ \ || \ \ \ \ \ \ Def: $\int_{\mathbb{R}}f(x)dx=\sum_jc_j\lambda(I_j)$
+
+
+\subsubsection{Open Set and Closed Set}
+
+\textbf{Open Set}: A set $S$ is open iff $\forall x\in S,\exists r>0, \ s.t. \ (x-r,x+r)\subseteq S$ \ \ \ \ \ \ {\footnotesize ps: Collection of all open subsets of $\mathbb{R}$ is called \textit{the Euclidean topology}}
+
+\textbf{$\cup$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Can Infinite) \ \ \ \ \ \ $\cup_{S\in\mathcal{U}}S$ is open.
+
+\textbf{$\cap$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cap_{S\in\mathcal{U}}S$ is open.
+
+\textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Rightarrow$ \ $S$ = \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
+
+\textbf{Connection with continuous function|open set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)>\lambda\}$ is open.
+
+\textbf{Closed Set}: A set $F\subseteq\mathbb{R}$ is \textit{closed} iff $\mathbb{R}\setminus F$ is open.
+
+\textbf{Connection with continuous function|open set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)\leq\lambda\}$ is closed.
+
+\textbf{Theorem}: If $F$ is closed set, $(x_n)_{n\in\mathbb{N}}\in F$ convergent. \ $\Rightarrow$ \ $x=\lim x_n\in F$
+
+
+\section{Appendix}
+
+\textbf{Trigonometric func}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$}
+
+\textbf{hyperbolic func}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
+
+\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
+
+\textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
+
+$\cdot$  {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
+
+$\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ || $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
+
+\textbf{Summation By Parts}: $\sum_{k=1}^{n}a_k(b_{k+1}-b_k)=(a_{n+1}b_{n+1}-a_1b_1)-\sum_{k=1}^{n}(a_{k+1}-a_k)b_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$
+
+\hspace{98pt} $\Rightarrow$ $\sum_{k=1}^{n}a_kb_k=a_{n+1}\sigma_{n+1}-\sum_{k=1}^{n}(a_{k+1}-a_k)\sigma_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$ \ \ \ $\sigma_k:=\sum_{j=1}^{k-1}b_j$
+
+\textbf{Common Power Series}: $\sum^\infty_{n=0} x^n=(1-x)^{-1}$ \ \ \ \ $\sum^\infty_{n=1} nx^{n-1}=(1-x)^{-2}$ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=2} n(n-1)x^{n-2}=2(1-x)^{-3}$ \ \ \ \ \ \ $R=1$ for all.
+
+\hspace{106pt} $\sum^\infty_{n=0}\frac{x^n}{n!}=e^{x}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=1}(-1)^{n+1}\frac{x^n}{n}=ln(x+1)$ \ \ \ $\sum^\infty_{n=1} \frac{x^n}{n}=-ln(1-x)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $R=\infty$ for all.
+
+\textbf{Sum of $\mathbf{n,n^2,n^3}$}: $\sum^n_{k=1}k=\frac{n(n+1)}{2}$ \ \ \ \ \ \ $\sum^n_{k=1}k^2=\frac{n(n+1)(2n+1)}{6}$ \ \ \ \ \ \ $\sum^n_{k=1}k^3=[\frac{n(n+1)}{2}]^2$
+
+\textbf{Useful Conterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$
+
+\end{document}
