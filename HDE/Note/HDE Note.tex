@@ -128,7 +128,7 @@ If $f_j  \ , \ \partial_{y_i}f_j:R_i \to \mathbb{R}$ are continuous. $\Rightarro
 
 \textbf{Def of Linear 1st ODEs}: $\mathbf{y}'(x) = P(x)\mathbf{y}(x) + \mathbf{g}(x)$, {\tiny $P$ is matrix-valued function.} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ \textbf{Homogeneous}: $\mathbf{g}(x)=\mathbf{0}$.
 
-$\cdot$ If $P_{ij}(x)$ and $\mathbf{g}(x)$ are continuous on $[\alpha,\beta]$ \ \ $\Rightarrow$ \ \ $\forall x_0\in(\alpha,\beta),\mathbf{y}(x_0)=\mathbf{y_0}.\exists! \ \mathbf{y}(x) \ in \ [\alpha,\beta]$ \ \ \ \  \ \ \ \ {\tiny In real function}
+$\cdot$ \textbf{Existence \& Uniqueness theorem {\tiny for real linear systems}} {\small If $P_{ij}(x)$ and $\mathbf{g}(x)$ are continuous on $[\alpha,\beta]$ \ \ $\Rightarrow$ \ \ $\forall x_0\in(\alpha,\beta),\mathbf{y}(x_0)=\mathbf{y_0}.\exists! \ \mathbf{y}(x) \ in \ [\alpha,\beta]$}
 
 
 \subsection{Homogeneous First-Order Linear Equations Systems}
@@ -139,13 +139,15 @@ $\cdot$ If $P_{ij}(x)$ and $\mathbf{g}(x)$ are continuous on $[\alpha,\beta]$ \ 
 
 \textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ \ $\cdot${\small $S:=\{\mathbf{y}(x)|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, and $dim(S)=n$ if $P_{ij}$ continuous.}
 
-\textbf{Wronskian at $x$}: $W[\mathbf{y}^{(j)}](x)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(x) & \cdots & y^{(n)}_1(x) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(x) & \cdots &y^{(n)}_n(x) \end{vmatrix}$}. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ If $W(x)\ne0$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}.
+\textbf{Wronskian at $x$}: $W[\mathbf{y}^{(j)}](x)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(x) & \cdots & y^{(n)}_1(x) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(x) & \cdots &y^{(n)}_n(x) \end{vmatrix}$}. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ If $W(x)\ne0$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. ps:经常用 Abel
+
+$\cdot$ Geoemtric Meaning: {\footnotesize Geometrically,$W$ is the volume spanned by the three vectors $x^{(1)}, x^{(2)}, x^{(3)}$; \ \ $t$增加或减小代表在 $x^{(i)}$方向上compress/stretch}
 
 \textbf{Fundamental Set of Solutions}: If $\{\mathbf{y}^{(j)}(x)\}$ linearly independent at $x\in[\alpha,\beta]$, it is FSoS for that interval.
 
 %$\cdot$ \textbf{Theorem}: If $\{\mathbf{y}^{(j)}(x)\}$ is FSoS in $x\in[a,b]$ $\Rightarrow$ any solution $\mathbf{y}(x)=\sum_{j}c_j\mathbf{y}^{(j)}(x)$ for some $c_j$ when $x\in[a,b]$.
 
-\textbf{Fundamental matrix $\Psi$}: If $\{\mathbf{y}^{(j)}(x)\}$ is FSoS. \ \ $\Rightarrow$ \ \ $\Psi(x)=[\mathbf{y}^{(1)}(x),...,\mathbf{y}^{(n)}(x)]$ and $\Psi'(x)=P(x)\Psi(x)$.
+\textbf{Fundamental matrix $\Psi$}: If $\{\mathbf{y}^{(j)}(x)\}$ is FSoS. \ \ $\Rightarrow$ \ \ $\Psi(x)=[\mathbf{y}^{(1)}(x),...,\mathbf{y}^{(n)}(x)]$ and $\Psi'(x)=P(x)\Psi(x)$. \ \ \ \ \ \ \ \ {\footnotesize \textbf{Matrix Method}}
 
 $\cdot$ $det[\Psi(x)]=W(x)\ne0$ \ \ \ \ \ \ \ \ \ $\cdot$ general solution: $\mathbf{y}(x)=\Psi(x)\mathbf{c},\mathbf{c}=(c_1,...,c_n)^T$ \ \ \ \ \ \ \ \ \ $\cdot$ If $\mathbf{y}(x_0)=\mathbf{y}_0$ \ $\Rightarrow$ \ $\mathbf{c}=\Psi^{-1}(x_0)\mathbf{y}_0$
 
@@ -171,7 +173,7 @@ $\cdot$ $det[\Psi(x)]=W(x)\ne0$ \ \ \ \ \ \ \ \ \ $\cdot$ general solution: $\ma
 
 \textbf{Solve $\mathbf{y}'=A\mathbf{y}$ (way 3)}: $\mathbf{y}(x)=e^{Ax}\mathbf{y}(0)$, \ $e^{Ax}=Te^{Dx}T^{-1}$ \ \ \ \ {\scriptsize ($e^{Ax}$ 是 \textbf{Fundamental matrix})}
 
-\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize or} $\mathbf{y}(x)=T\mathbf{z}(x)$ $\Rightarrow [\mathbf{y}'=A\mathbf{y}\Leftrightarrow\mathbf{z}'=D\mathbf{z}]$ with $\mathbf{z}=e^{Dx}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
+{\footnotesize \textbf{Matrix Method}} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize or} $\mathbf{y}(x)=T\mathbf{z}(x)$ $\Rightarrow [\mathbf{y}'=A\mathbf{y}\Leftrightarrow\mathbf{z}'=D\mathbf{z}]$ with $\mathbf{z}=e^{Dx}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
 
 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize ps} \textbf{1}. $e^{Ax}=\Psi(x)$ with $\Psi(0)=\mathbb{I}$ \ \ \textbf{2}. $e^{Ax}=\Psi(x)\Psi^{-1}(0)$
 \end{minipage}
