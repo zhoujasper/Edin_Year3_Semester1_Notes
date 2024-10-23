@@ -215,10 +215,6 @@ $\cdot$ \textbf{Generalised Likelihood Ratio Test}: $T_{GLR}=-2ln(LR)=2\left(\el
 
 \section{Bayesian Inference}
 
-% \vspace{-0.25cm}
-% \hspace{15pt}{\tiny * In this section, we will not distinguish between r.v.'s and associated realisations. }
-% \vspace{-0.15cm}
-
 \subsection{Bayesian Approach \& Definitions}
 
 \textbf{Basic Idea}: {\small Consider $\underline{\theta}$ as a \underline{r.v.}. \ \ \ \ \ \ \ \ \ \ \ Bayesian approach $\Rightarrow$ Probability are used to represent \underline{degree of believe} about the unknown $\underline{\theta}$}
@@ -296,6 +292,8 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     \hline
     \makecell{\textbf{Beta} \\ $X\sim Beta(\alpha,\beta),\alpha,\beta >0$} & $\frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)},x\in[0,1]$ & $\frac{\alpha}{\alpha +\beta}$ & $\frac{\alpha\beta}{(\alpha+\beta)^2(\alpha+\beta+1)}$ & $B(\alpha,\beta)=\frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha+\beta)}$ \\
     \hline
+    \multicolumn{5}{|l|}{When $Beta(\alpha,\beta)$ has maximum probability, $x=(\alpha-1)/(\alpha+\beta-2)$} \\
+    \hline
     \makecell{\textbf{Gamma} \\ $X\sim \Gamma(\alpha,\beta),\alpha,\beta >0$} & $\frac{\beta^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\beta x},x\geq0$ & $\frac{\alpha}{\beta}$ & $\frac{\alpha}{\beta^2}$ & \makecell{ $\Gamma(\alpha)=(\alpha -1)!$ \\ $\Gamma(\alpha)=\int^\infty_0x^{\alpha-1}e^{-x}dx$} \\
     \hline
     \makecell{\textbf{Student's t} \\ $X\sim t_v,v>0$} & $\frac{1}{\sqrt{v}B(\frac{v}{2},\frac{1}{2})}(1+\frac{x^2}{v})^{-\frac{v+1}{2}}$ & $0$ & $\frac{v}{v-2}$ & \makecell{If $Z\sim N(0,1),Y\sim \chi^2_n$ \\ $\frac{Z}{\sqrt{Y/n}}\sim t_n$} \\
@@ -307,14 +305,14 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     \hline
     \multicolumn{5}{|l|}{If $X_i\sim N(0,1), \ then \  \sum X_i^2\sim \chi_n^2$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If $X\sim \chi^2_n,Y\sim \chi^2_m, \ then \ X+Y\sim \chi^2_{n+m}$} \\
     \hline
-    {\textbf{F} \ $X\sim F(\lambda,v),v>0$} & $\frac{\lambda^{\frac{\lambda}{2}}v^{\frac{v}{2}}}{B(\frac{\lambda}{2},\frac{v}{2})}x^{\frac{\lambda}{2}-1}(\lambda x+v)^{-\frac{\lambda+v}{2}},x\geq0$ & $\frac{v}{v-2}$ & {\footnotesize $\frac{2v^2(\lambda+v-2)}{\lambda(v-2)^2(v-4)},v>4$} & \makecell{$Y_1,Y_2\sim\chi^2_{n_1},\chi^2_{n_2},X=\frac{Y_1/n_1}{Y_2/n_2}$ \\ $X\sim F_{n_1,n_2},X^{-1}\sim F_{n_2,n_1}$} \\
-    \hline
-    \multicolumn{5}{|l|}{ps: $f_{a,b;\alpha}=1/f_{a,b;1-\alpha}$} \\
+    \makecell{\textbf{F} \ $X\sim F(\lambda,v),v>0$ \\ ps: $f_{a,b;\alpha}=1/f_{a,b;1-\alpha}$} & $\frac{\lambda^{\frac{\lambda}{2}}v^{\frac{v}{2}}}{B(\frac{\lambda}{2},\frac{v}{2})}x^{\frac{\lambda}{2}-1}(\lambda x+v)^{-\frac{\lambda+v}{2}},x\geq0$ & $\frac{v}{v-2}$ & {\footnotesize $\frac{2v^2(\lambda+v-2)}{\lambda(v-2)^2(v-4)},v>4$} & \makecell{$Y_1,Y_2\sim\chi^2_{n_1},\chi^2_{n_2},X=\frac{Y_1/n_1}{Y_2/n_2}$ \\ $X\sim F_{n_1,n_2},X^{-1}\sim F_{n_2,n_1}$} \\
     \hline
 \end{longtable}
 
 
 \section{Review}
+
+\textbf{Law of Total Probability}: $\mathbb{P}(A)=\sum_{n}\mathbb{P}(A|B_n)\mathbb{P}(B_n)$ \ , \ $\cup_nB_n=\Omega \ , \ B_n$ disjoint
 
 \vspace{-0.4cm}
 \begin{multicols}{2}

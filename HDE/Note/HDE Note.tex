@@ -25,7 +25,7 @@
 
 % 设置页脚/页眉
 \usepackage{fancyhdr}
-\fancyfoot[C]{{\scriptsize $\xi_i,\eta_i$ 默认是向量 | } $\mathbf{v}_{\intercal}$ {\scriptsize 代表转置，如果后面也是就不再重复写} | Copyright By Jingren Zhou | Page \thepage}
+\fancyfoot[C]{{\footnotesize $\xi_i,\eta_i$ 默认是向量} | Copyright By Jingren Zhou | Page \thepage}
 \fancyhead[]{}
 \pagestyle{fancy}
 % 去除线
@@ -36,6 +36,7 @@
 \usepackage{titlesec}
 \titlespacing*{\section}{0pt}{0pt}{0pt}
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 % 调整标题上下间距
 \usepackage{titling}
@@ -59,159 +60,138 @@
 \fontsize{10pt}{11pt}\selectfont
 \setlength{\parindent}{0pt}
 
-
-\section{Basic Knowledge} % Basic Knowledge
+\section{Basic Knowledge \& SVCDE Methods for ODE}
 
 \subsection{Linear Algebra}
 
-\textbf{Operations of Matrix Determinant}: $det(kA)=k^ndet(A)$ ; \ $det(A^{-1})=det(A)^{-1}$ ; \ $(AB)^*=B^*A^*$ ; \ $det(A)=det(A^T)$.
+\textbf{Matrix Calculate}: $det(kA)=k^ndet(A)$ \ \ || \ \ $det(A^{-1})=det(A)^{-1}$ \ \ || \ \ $(AB)^*=B^*A^*$ \ \ || \ \ $det(A)=det(A^T)$.
 
-\textbf{Eigenvalue $\lambda$ and Eigenvector $\mathbf{x}$}: $A\mathbf{x}=\lambda\mathbf{x}$. \ \ 1.Using $det(A-\lambda I)=0$ to found $\lambda$. \ \ 2.Using $(A-\lambda I)\mathbf{x}=0$ to found $\mathbf{x}$.
+\textbf{Eigenvalue $\lambda$ \& Eigenvector $\mathbf{x}$}: Def: $A\mathbf{x}=\lambda\mathbf{x}$. \ \ \ \ \ \ \ \ \ \ \ \ Method: $^1det(A-\lambda I)=0\to\lambda$. \ \ \ $^2(A-\lambda I)\mathbf{x}=0\to\mathbf{x}$.
 
-$\cdot$ \textbf{Algebraic Multiplicity} of an eigenvalue: $\lambda$ 重复出现的次数. \ \ \ $\geq$ \ \ \ $\cdot$ \textbf{Geometric Multiplicity} of an eigenvalue: \# $\mathbf{x}$ under $\lambda$.
+$\cdot$ {\footnotesize \textbf{Algebraic Multiplicity (AM) of $\lambda$}: $\lambda$ 重复出现的次数. \ \ \ \ \ \ \ $\geq$ \ \ \ \ \ \ \ \textbf{Geometric Multiplicity (GM) of $\lambda$}: \# $\mathbf{x}$ under $\lambda$.}
 
-\textbf{Generalised Eigenvectors}: If $\lambda$ (AM>GM): Using $\xi_\lambda = (A-\lambda\mathbb{I})\eta_1,\eta_{n-1} = (A-\lambda\mathbb{I})\eta_{n}$ for each $\xi_\lambda$ to find all \textit{generalised eigenvectors}.
+$\cdot$ {\footnotesize \textbf{Generalised Eigenvectors}: If AM>GM: Using $\xi_\lambda = (A-\lambda\mathbb{I})\eta_1,\eta_{n-1} = (A-\lambda\mathbb{I})\eta_{n}$ for each $\xi_\lambda$. \ \ \ \ \ \ $\eta_j$ are \textit{generalised eigenvectors}.}
+
+
+\subsection{Calculus \& SVCDE Method for ODE}
+
+\textbf{Some Defs}: $\nabla F=(\partial_xF,\partial_yF,\partial_zF,...)$ \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{Simply Connected}: {\footnotesize 没有洞,相互连接的区域}. \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{$\partial D$}: {\footnotesize 区域 D 的边界.}
+
+\textbf{Method of Integrating Factors}: $y'+p(x)y=q(x)$. \ \ $\Rightarrow$ \ \ Integrating Factor:$\mu=e^{\int p(x)dx}$ \ , \ $\mu \ y=\int q(x)\cdot \mu \ dx$
+
+\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Calculate $ar^2+br+c=0$, \ \ \ \ {\footnotesize ps: $\Delta=b^2-4ac$, roots: $r_1,r_2$}
+
+$\cdot$ {\footnotesize 1. $\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ \ \ \ \ \ \ 2. $\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ \ \ \ \ \ \ 3. $\Delta<0$,$y=e^{\alpha x}[C_1cos(\beta x)+C_2sin(\beta x)]$ \ \ ps: $r_1,r_2 = \alpha\pm\beta i$}
+
+\textbf{non-Homogeneous 2nd ODE form}: $ay''+by'+c=g(x)$ \ \ $\Rightarrow$ \ \ $y=y_h+y_p$ \ \ \ {\footnotesize ps:$y_h$ is sol for $g(x)=0$.}
+
+$\cdot$ {\footnotesize Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=0}^{n}a_ix^i, \ \ B_n(x)=\sum_{i=0}^{n}b_ix^i, \ \ P_n(x)=\sum_{i=0}^{n}p_ix^i$.}
+
+{
+\footnotesize
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+   \item If $g(x)=P_n(x)$ \ $\Rightarrow$ \ $y_p=x^sA_n(x)$ \ , $s:= \ \ 0,(0\ne r_1,r_2); \ \ 1,(0 = r_1 \ or \ r_2); \ \ 2,(0 = r_1 = r_2).$
+   \item If $g(x)=Me^{kx}$ \ $\Rightarrow$ \ $y_p=Cx^se^{kx}$ \ , $s:= \ \ 0,(k\ne r_1,r_2); \ \ 1,(k = r_1 \ or \ r_2); \ \ 2,(k = r_1 = r_2).$
+   \item If $g(x)=Mcos(kx)+Nsin(kx)$ \ $\Rightarrow$ \ $y_p=x^s(C_1cos(kx)+C_2sin(kx))$ \ , $s:= \ \ 0,(r_1,r_2 \ne ik); \ \ 1,(r_1,r_2= ik).$
+   \item If $g(x)=$ product from 1,2,3. \ $\Rightarrow$ \ $y_p=$ corresponding product of $y_p$ ($x^s$ 只乘一次) \ , \ $s:=$ 令$y_p$与$y_c$没有相同项. ($\leq 2$)
+\end{enumerate}
+}
 
 
 \subsection{ODE / PDE Definitions}
 
-\textbf{Def of DEs / ODEs / PDEs}: Given independent variables ( $x_1,...,x_n$ ), functions ( $y_1(x_{j_1}),...,y_p(x_{j_p})$ ) and some derivatives (e.g. $\partial_s y_t$).
+\textbf{Def of DEs / ODEs / PDEs}: Given independent variables {\small ( $x_1,...,x_n$ )}, functions {\small ( $y_1(x_{j_1}),...,y_p(x_{j_p})$ )} and some derivatives {\small (e.g. $\partial_s y_t$).}
 
-$\cdot$ \textbf{DEs} if: $\mathcal{F}_i[y_r,...,\partial_{x_t}y_b,x_1,...,x_n]=0,\ \ \  i=s,s-1,...,1.$ \ \ \ $\cdot$ \textbf{ODEs}: $n=1$ {\small (无偏导)} \ \ $\cdot$ \textbf{PDEs}: $n>1$ {\small (有偏导)}
+$\cdot$ \textbf{DEs}: $\mathcal{F}_i[y_r,...,\partial_{x_t}y_b,x_1,...,x_n]=0,\ \ \  i=s,s-1,...,1.$ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \textbf{ODEs}: $n=1$ {\footnotesize (无偏导)} \ \ \ \ \ \ \ \textbf{PDEs}: $n>1$ {\footnotesize (有偏导)}
 
-\textbf{Def of Linear / Order}: Let $L$ be the terms by collecting all the $y_i(x_s)$ (dependent) terms. (e.g. $L=\frac{d^2}{dx^2}-x$ for $y''(x)-xy(x)=x^2$)
-
-$\cdot$ DE is \textbf{Linear} if: $L[a_1y_1+a_2y_2]=a_1L[y_1]+a_2L[y_2]$ \ \ \ \ ( OR: {\small 所有$y_i^{(n)}$是线性的} ) \ \ \ $\cdot$ \textbf{n-th order ODEs}: $\mathbf{y}^{(n)}(x)=\mathbf{F}(\mathbf{y}_{\intercal },\mathbf{y}',...,\mathbf{y}^{(n-1)},x)$
+\textbf{Def of Linear}: Let $L$ {\footnotesize 去掉 $y^{(n)}_i$ 的函数} {\scriptsize (e.g. $L=\frac{d^2}{dx^2}-x$ for $y''-xy=x^2$)} \ \ \ \ $\Rightarrow$ \ \ \ \ Linear if: $L[a_1y_1+a_2y_2]=a_1L[y_1]+a_2L[y_2]$
 
 
-\subsection{Calculus \& Single ODE / PDE Solution Method}
+\subsection{(ODE) Uniqueness Theorem \& Autonomous}
 
-\textbf{Gradient $\nabla$}: $\nabla F=(\partial_xF,\partial_yF,\partial_zF,...)$ \ \ \ \ \ \ \textbf{(non-)Simply Connected}: {\footnotesize (没)有洞,相互连接的区域} \ \ \ \ \ \ \textbf{$\partial D$}: D区域的边界
+\textbf{Existence \& Uniqueness Theorem (Real func)}: Given $\mathbf{y}'(t)=\mathbf{F}(t,\mathbf{y}^T)$, with $\mathbf{y}(t_0)=\mathbf{y_0}$. \ \ \ \ \ \ \ {\footnotesize Let $R_i=[t_0-\delta,t_0+\delta]\times\prod_j[y_{0_j}-\delta_j,y_{0_j}+\delta_j]$.}
 
-\textbf{Seperable 1st ODE form}: $\frac{dy}{dx}=\frac{f(x)}{g(y)}$. $\Rightarrow$ 直接解就行. \ \ \ \ \textbf{Linear 1st ODE form}: $y'+p(x)y=q(x)$. $\Rightarrow$ $e^{\int p(x)dx}y=\int q(x)\cdot e^{\int p(x)dx}dx$
+$\cdot$ If $F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'_i$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize Let $R'_i=[t_0-\varepsilon,t_0+\varepsilon]\times\prod_j[y_{0_j}-\varepsilon_j,y_{0_j}+\varepsilon_j]\subseteq R_i$.}
 
-\textbf{Homogeneous 2nd ODE with constant coefficients}: $ay''+by'+c=0$ $\Rightarrow$ Calculate $ar^2+br+c=0$ and $\Delta=b^2-4ac$.
-
-1. $\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ 2. $\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ 3. $\Delta<0$,$y=e^{\alpha x}(C_1cos(\beta x)+C_2sin(\beta x))$ ps: $r_1,r_2 = \alpha\pm\beta i$
-
-% \textbf{non-Homogeneous 2nd ODE with constant coefficients}: $ay''+by'+c=g(x)$ $\Rightarrow$ Solution = $y_c+y_p$ \ \ \ ps:$y_c$ is sol for $g(x)=0$.
-
-% $\cdot$ Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=0}^{n}a_ix^i, \ \ B_n(x)=\sum_{i=0}^{n}b_ix^i, \ \ P_n(x)=\sum_{i=0}^{n}p_ix^i$.
-
-% \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-%    \item If $g(x)=P_n(x)$ \ $\Rightarrow$ \ $y_p=x^sA_n(x)$ \ , $s:= \ \ 0,(0\ne r_1,r_2); \ \ 1,(0 = r_1 \ or \ r_2); \ \ 2,(0 = r_1 = r_2).$
-%    \item If $g(x)=Me^{kx}$ \ $\Rightarrow$ \ $y_p=Cx^se^{kx}$ \ , $s:= \ \ 0,(k\ne r_1,r_2); \ \ 1,(k = r_1 \ or \ r_2); \ \ 2,(k = r_1 = r_2).$
-%    \item If $g(x)=Mcos(kx)+Nsin(kx)$ \ $\Rightarrow$ \ $y_p=x^s(C_1cos(kx)+C_2sin(kx))$ \ , $s:= \ \ 0,(r_1,r_2 \ne ik); \ \ 1,(r_1,r_2= ik).$
-%    \item If $g(x)=$ product from 1,2,3. \ $\Rightarrow$ \ $y_p=$ corresponding product of $y_p$ ($x^s$ 只乘一次) \ , \ $s:=$ 令$y_p$与$y_c$没有相同项. ($\leq 2$)
-% \end{enumerate}
-
-% $\cdot$ Method of Variation of Parameters: Suppose $y_c(x)=C_1y_1(x)+C_2y_2(x)$. \ \ $W(y_1,y_2)=det$ {\scriptsize $\begin{pmatrix}y_1 & y_2 \\ y'_1 & y'_2 \end{pmatrix}$} (Wronskian)
-
-% \ \ \ \ \ \ Then $y_p=-y_1(x)\int\frac{y_2(x)g(x)}{aW(y_1,y_2)}dx + y_2(x)\int\frac{y_1(x)g(x)}{aW(y_1,y_2)}dx$.
+\textbf{Autonomous}: For $\mathbf{y}'(t)=\mathbf{f}(t,\mathbf{y}^T)$. \ \ \ \ \ \ If $\partial_x\mathbf{f}=\mathbf{0}$ $\Rightarrow$ autonomous. \ \ \ {\footnotesize or: $\mathbf{f}(t,\mathbf{y}^T)=\mathbf{f}(\mathbf{y}^T)$ {\tiny (不含$t$)}}
 
 
-\section{Systems of First-Order Linear Equations (ODEs)} % Systems of First-Order Linear Equations
+\section{Linear ODEs}
 
-\subsection{Introduce to First-Order ODEs}
+\textbf{n-th ODE $\rightarrow$ 1st ODEs}: For {\small $y^{(n)}=F(t,y,y',...,y^{(n-1)})$}. \ \ \ $\Rightarrow$ \ \ \ Let $x_i=y^{(i-1)}$. Then $x'_n=F(t,x_1,x_2,...,x_{n-1})$ {\footnotesize which is 1st ODE.}
 
-\vspace{-0.25cm}
-{\tiny * 此节只考虑 First-Order ,所有定理描述都是 First-Order version}
-\vspace{-0.15cm}
+\textbf{Def of Linear 1st ODEs}: $\mathbf{y}'(t) = P(t)\mathbf{y}(t) + \mathbf{g}(t)$ (\star), {\tiny $P$ is matrix-valued function.} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{Homogeneous}: $\mathbf{g}(t)=\mathbf{0}$.
 
-\textbf{n-th ODE $\rightarrow$ 1st ODE}: For $y^{(n)}=F(y,y',...,y^{(n-1)},x)$, Let $x_i=y^{(i-1)}$. Then $x'_n=F(x_1,x_2,...,x_{n-1})$ which is 1st ODE.
-
-\textbf{Existence \& Uniqueness Theorem}: Given $\mathbf{y}'(x)=\mathbf{f}(x,\mathbf{y}_{\intercal}),\mathbf{y}(x_0)=\mathbf{y_0}$. Let $R_i=[x_0-t,x_0+t]\times\prod_i[y_{0_i}-d_i,y_{0_i}+d_i]$.
-
-If $f_j  \ , \ \partial_{y_i}f_j:R_i \to \mathbb{R}$ are continuous. $\Rightarrow$  $\exists \delta>0$ s.t. 1st ODEs has \textit{unique solution} in $[x_0-\delta,x_0+\delta]$. \ \ \ \ {\tiny In real function}
-
-\textbf{Def of Autonomous}: For $\mathbf{y}'(x)=\mathbf{f}(x,\mathbf{y}_{\intercal})$. If $\partial_x\mathbf{f}=\mathbf{0}$ $\Rightarrow$ autonomous. \ \ {\scriptsize 即：$\mathbf{f}(x,\mathbf{y}_{\intercal})=\mathbf{f}(x)$ or $\mathbf{f}$ 不含$x$}
-
-\textbf{Def of Linear 1st ODEs}: $\mathbf{y}'(x) = P(x)\mathbf{y}(x) + \mathbf{g}(x)$, {\tiny $P$ is matrix-valued function.} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ \textbf{Homogeneous}: $\mathbf{g}(x)=\mathbf{0}$.
-
-$\cdot$ \textbf{Existence \& Uniqueness theorem {\tiny for real linear systems}} {\small If $P_{ij}(x)$ and $\mathbf{g}(x)$ are continuous on $[\alpha,\beta]$ \ \ $\Rightarrow$ \ \ $\forall x_0\in(\alpha,\beta),\mathbf{y}(x_0)=\mathbf{y_0}.\exists! \ \mathbf{y}(x) \ in \ [\alpha,\beta]$}
+\textbf{Existence \& Uniqueness Theorem}: If $P_{ij}$, $\mathbf{g}$ of (\star) continuous in $R$, $\mathbf{y}(t_0)=\mathbf{y}_0$ \ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'$ \ \ \ {\tiny $R'=[t_0-\varepsilon,t_0+\varepsilon]\subseteq R=[t_0-\delta,t_0+\delta]$}
 
 
-\subsection{Homogeneous First-Order Linear Equations Systems}
+\subsection{Homogeneous}
 
-\vspace{-0.25cm}
-{\tiny * 此节默认都是 $\mathbf{y}'(x) = P(x)\mathbf{y}(x)$ (\ast)  \ \ \ \ \ \ \ Solutions $\{\mathbf{y}^{(j)}\},j=1,...,n.$}
-\vspace{-0.15cm}
+\vspace{-3pt}
+\begin{center}
+    Solve: $\mathbf{y}'=P\mathbf{y}$ \ \ \ ||\ \ \ If $P$ constant, $P=A$ \ \ \ || \ \ \ If possible: $\lambda,\xi,\eta$ be eigenvalues, eigenvectors, generalised eigenvectors.
+\end{center}
+\vspace{-10pt}
 
-\textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ \ $\cdot${\small $S:=\{\mathbf{y}(x)|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, and $dim(S)=n$ if $P_{ij}$ continuous.}
+\textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize $S:=\{\mathbf{y}|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, $dim(S)=n$ if $P_{ij}$ continuous.}
 
-\textbf{Wronskian at $x$}: $W[\mathbf{y}^{(j)}](x)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(x) & \cdots & y^{(n)}_1(x) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(x) & \cdots &y^{(n)}_n(x) \end{vmatrix}$}. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ If $W(x)\ne0$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. ps:经常用 Abel
+\textbf{Wronskian at $x$}: $W[\mathbf{y}^{(1)},...,\mathbf{y}^{(n)}](t)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(t) & \cdots & y^{(n)}_1(t) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(t) & \cdots &y^{(n)}_n(t) \end{vmatrix}$}. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. {\footnotesize ps:经常用 Abel Theorem}
 
-$\cdot$ Geoemtric Meaning: {\footnotesize Geometrically,$W$ is the volume spanned by the three vectors $x^{(1)}, x^{(2)}, x^{(3)}$; \ \ $t$增加或减小代表在 $x^{(i)}$方向上compress/stretch}
+$\cdot$ Geoemtric Meaning: {\footnotesize Geometrically, $W$ is the volume spanned by the three vectors $y^{(1)}, y^{(2)}, y^{(3)}$; \ \ $t$ 增加或减小代表在 $y^{(i)}$方向上 compress/stretch.}
 
-\textbf{Fundamental Set of Solutions}: If $\{\mathbf{y}^{(j)}(x)\}$ linearly independent at $x\in[\alpha,\beta]$, it is FSoS for that interval.
+\textbf{Abel's Theorem}: If $W(t_0)\ne0$,$t_0\in I$ \ \ $\Rightarrow$ \ \ $\forall t\in I,W(t)\ne0$ \ \ || \ \ \textbf{Abel's Formula}: $W(t)=W(t_0)e^{\int^t_{t_0}tr[P(s)] ds};t_0,t\in I$ {\tiny $P(t)$ is continuous in $I$.}
 
-%$\cdot$ \textbf{Theorem}: If $\{\mathbf{y}^{(j)}(x)\}$ is FSoS in $x\in[a,b]$ $\Rightarrow$ any solution $\mathbf{y}(x)=\sum_{j}c_j\mathbf{y}^{(j)}(x)$ for some $c_j$ when $x\in[a,b]$.
+\textbf{Fundamental Set of Solutions (FSoS)}: If $\{\mathbf{y}^{(j)}(t)\}$ \textit{linearly independent} at $t\in I$, it is FSoS in $I$.
 
-\textbf{Fundamental matrix $\Psi$}: If $\{\mathbf{y}^{(j)}(x)\}$ is FSoS. \ \ $\Rightarrow$ \ \ $\Psi(x)=[\mathbf{y}^{(1)}(x),...,\mathbf{y}^{(n)}(x)]$ and $\Psi'(x)=P(x)\Psi(x)$. \ \ \ \ \ \ \ \ {\footnotesize \textbf{Matrix Method}}
-
-$\cdot$ $det[\Psi(x)]=W(x)\ne0$ \ \ \ \ \ \ \ \ \ $\cdot$ general solution: $\mathbf{y}(x)=\Psi(x)\mathbf{c},\mathbf{c}=(c_1,...,c_n)^T$ \ \ \ \ \ \ \ \ \ $\cdot$ If $\mathbf{y}(x_0)=\mathbf{y}_0$ \ $\Rightarrow$ \ $\mathbf{c}=\Psi^{-1}(x_0)\mathbf{y}_0$
-
-\textbf{Abel's Theorem}: If $W(x_0)\ne0$,$x_0\in I$ \ \ $\Rightarrow$ \ \ $\forall x\in I,W(x)\ne0$ \ \ \ {\tiny P(x) is continuous in $I$.}
-
-\textbf{Abel's Formula}: $W(x)=W(x_0)e^{\int^x_{x_0}tr[P(s)] ds};x_0,x\in I$ \ \ \ {\tiny P(x) is continuous in $I$.}
+\textbf{General Solution}: If $\{\mathbf{y}^{(j)}(t)\}_{j=1}^n$ is FSoS (Linearly Independent) \ \ $\Rightarrow$ \ \ General solution: $\mathbf{y}=\sum_{j=1}^nc_j\mathbf{y}_j$
 
 
-\subsection{Solve $\mathbf{y}'=A\mathbf{y}$}
+\subsubsection{Eigenvalue/vector Method ($A$ constant)}
 
-\vspace{-0.25cm}
-{\tiny * 此节默认都是 Given constant matrix $A$, $\mathbf{y}'=A\mathbf{y}$ (\star)  \ \ \ \ \ \ \ Calculate $\lambda_j,\xi_j$ of $A\xi=\lambda\xi$ (找 eigenvalue \& eigenvector) \ \ \ \ \ \ Let $T=[\xi_1,...,\xi_n],D=diag(\lambda_1,...,\lambda_n)$ (If it's possible)}
+\textbf{AM=GM|Real $\lambda$}: general solution: $\mathbf{y}=\sum_jc_je^{\lambda_jt}\xi_j$.
 
-\vspace{-0.25cm}
-{\tiny * Way 1-2 仅 Algebraic Multiplicity = Geometric Multiplicity}
-\vspace{-0.15cm}
+\textbf{AM=GM|Complex $\lambda$}: (ctd.) For $\lambda,\overline{\lambda}\in\mathbb{C}$. \ \ $\Rightarrow$ \ \ $e^{\lambda t}\xi=\mathbf{u}+\mathbf{v}i$. \ \ $\Rightarrow$ \ \ Independent sol: $\mathbf{u},\mathbf{v}$ \ \ $\Rightarrow$ \ \ General solution: $\mathbf{y} = c_1\mathbf{u} + c_2\mathbf{v} + \cdots$
 
-\begin{minipage}[t]{0.80\linewidth}
-\vspace{-1.8cm}
-\textbf{Solve $\mathbf{y}'=A\mathbf{y}$ (way 1)}: $\mathbf{y}=\sum_jc_je^{\lambda_jx}\xi_j$ \ (general solution)
-
-\textbf{Solve $\mathbf{y}'=A\mathbf{y}$ (way 2)}: {\tiny 接着1.} If $\exists(\lambda,\overline{\lambda})\in\mathbb{C}$. $\Rightarrow$ $e^{\lambda t}\xi=\mathbf{u}+\mathbf{v}i$. $\Rightarrow$ Corresponding sol: $c_1\mathbf{u}+c_2\mathbf{v}+\cdots$
-
-\textbf{Solve $\mathbf{y}'=A\mathbf{y}$ (way 3)}: $\mathbf{y}(x)=e^{Ax}\mathbf{y}(0)$, \ $e^{Ax}=Te^{Dx}T^{-1}$ \ \ \ \ {\scriptsize ($e^{Ax}$ 是 \textbf{Fundamental matrix})}
-
-{\footnotesize \textbf{Matrix Method}} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize or} $\mathbf{y}(x)=T\mathbf{z}(x)$ $\Rightarrow [\mathbf{y}'=A\mathbf{y}\Leftrightarrow\mathbf{z}'=D\mathbf{z}]$ with $\mathbf{z}=e^{Dx}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
-
-\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize ps} \textbf{1}. $e^{Ax}=\Psi(x)$ with $\Psi(0)=\mathbb{I}$ \ \ \textbf{2}. $e^{Ax}=\Psi(x)\Psi^{-1}(0)$
-\end{minipage}
-\begin{minipage}[t]{0.20\linewidth}
-
-\includegraphics[width=1.0\textwidth]{pic1.jpg}
-\end{minipage}
-
-\textbf{Exponential of a matrix}: Given $P=A$ constant matrix, then \ $e^{Ax}:=\sum_{n=0}^{\infty}\frac{(Ax)^n}{n!}=\mathbb{I}+Ax+\frac{1}{2!}A^2x^2+\cdots,=\lim_{n\to\infty}(\mathbb{I}+\frac{Ax}{n})^n$
-
-$\cdot$ Let $A,B$ be matrix. Then \textbf{1}. $e^{A+B}=e^{A}e^{B}$ if $AB=BA$ \ \ \ \textbf{2}. $e^{A\cdot0}=\mathbb{I}$ \ \ \ \textbf{3}. $\frac{d(e^{Ax})}{dx}=Ae^{Ax}$ {\scriptsize 和上面solve $\mathbf{y}'=A\mathbf{y}$相关}
-
-\textbf{Solve $\mathbf{y}'=A\mathbf{y}$ (way 4)}: {\tiny 接着1.}{\scriptsize (For each $\xi_\lambda$, under $\lambda$)} {\small $\mathbf{y}^{(1)}=e^{\lambda x}\xi_\lambda$ \ \ $\mathbf{y}^{(2)}=e^{\lambda x}(x\xi_\lambda+\eta_1)$ \ \ $\mathbf{y}^{(3)}=e^{\lambda x}(\frac{x^2}{2!}\xi_\lambda+x\eta_2+\eta_1)$, ... ,$y^{(n)}=e^{\lambda x}[\frac{x^{n-1}}{(n-1)!}\xi_\lambda+\sum_{i=0}^{n-2}\frac{x^{i}}{(i)!}\eta_{i+1}]$}
-
-{\scriptsize or 接着3} Let $T=[\lambda_1,...,\lambda_i,\eta^{(i)}_1,...,\lambda_j,\eta^{(j)}_1,...]$. \ $J=T^{-1}AT$ (Jordan form) \ \ \ $\mathbf{y}'=T\mathbf{z}$ $\Rightarrow [\mathbf{y}'=A\mathbf{y}\Leftrightarrow\mathbf{z}'=J\mathbf{z}]$,easy to solve $\mathbf{z}'=J\mathbf{z}$. {\tiny ps: $e^{J_i t}$ 见上图}
+\textbf{AM>GM}: (ctd.) {\scriptsize (For each $\xi_\lambda$, under $\lambda$)} {\small $\mathbf{y}^{(1)}=e^{\lambda t}\xi_\lambda$ \ \ $\mathbf{y}^{(2)}=e^{\lambda t}(t\xi_\lambda+\eta_1)$ \ \ $\mathbf{y}^{(3)}=e^{\lambda t}(\frac{t^2}{2!}\xi_\lambda+t\eta_2+\eta_1)$, ... ,$\mathbf{y}^{(n)}=e^{\lambda t}[\frac{t^{n-1}}{(n-1)!}\xi_\lambda+\sum_{i=0}^{n-2}\frac{t^{i}}{(i)!}\eta_{i+1}]$}
 
 
-\subsection{Solve $\mathbf{y}'=A\mathbf{y}+\mathbf{g}$}
+\subsubsection{Matrix Method | Exponential}
 
-\vspace{-0.25cm}
-{\tiny * 此节默认都是 Given constant matrix $A$, $\mathbf{y}'=A\mathbf{y}+\mathbf{g}$ (\star\star) \ \ \ \textbf{对于 Variation of Parameters 方法, A可以为P(任意矩阵函数)} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Calculate $\lambda_j,\xi_j$ of $A\xi=\lambda\xi$ \ \ \ \ \ \ Let $T=[\xi_1,...,\xi_n],D=diag(\lambda_1,...,\lambda_n)$ (If it's possible, or to Jordan form)}
+\textbf{Matrix Method}: $\mathbf{y}(t)=e^{At}\mathbf{y}(0)$ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize (分两种方法: 1.直接展开; 2.通过一些已有 property 计算. ps: $e^{At}=\Psi$)}
 
-\vspace{-0.25cm}
-{\tiny * 此节中，给出的都是如果是关于 initial value 的解时: 要 general solution 时, $\mathbf{y}_g$部分有关initial value的部分可以用$\mathbf{c}$代替, $\mathbf{y}_g$部分有关initial value 部分时,可以任意取值}
-\vspace{-0.15cm}
+$\cdot$ \textbf{Property|AM=GM}: \ $e^{At}=Te^{Dt}T^{-1}$ \ , \ $T=[\xi_1,...,\xi_n]$ \ , \ $D=diag(\lambda_1,...,\lambda_n)$ \ , \ $e^{Dt}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
 
-\textbf{Theorem}: General solution of (\star\star) is of the form: $\mathbf{y}=\sum_ic_i\mathbf{y}^{(i)}+\mathbf{y}_{p}$, \ \ where $\mathbf{y}^{(i)}$ is solution of (\star). \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\Downarrow$ 通常会让特解中积分后的常数c=0}
+\vspace{-20pt}
+$\cdot$ \textbf{Property|AM>GM}: \ $e^{At}=Te^{Jt}T^{-1}$ \ , \ $T=[\lambda_1,...,\lambda_i,\eta^{(i)}_1,...,\lambda_j,\eta^{(j)}_1,...]$ \ , \ $J=T^{-1}AT$ {\footnotesize (Jordan form)} \ , \ $e^{J_it}=e^{\lambda_i t}$ {\footnotesize $\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$}
+\vspace{-20pt}
 
-\textbf{Variation of Parameters}: $\mathbf{y}=\mathbf{y}_g+\mathbf{y}_p$; \ \ \ $\mathbf{y}_g=\Psi(x)\Psi^{-1}(x_0)\mathbf{y}(x_0)$; \ \ \ $\mathbf{y}_p=\Psi(x)\mathbf{u}(x),\mathbf{u}(x)=\int^x_{x_0}\Psi^{-1}(s)\mathbf{g}(s)ds$. \ \ {\scriptsize 经常$\Psi(x)\mathbf{u}'=\mathbf{g}$来找$\mathbf{u}$}
+\textbf{Diagonalisation Method}: (Ctd.) Let $\mathbf{y}=T\mathbf{x}$ \ \ $\Rightarrow \ \ \mathbf{x}'=J\mathbf{x}$ [{\footnotesize or} $\mathbf{x}'=D\mathbf{x}$] {\footnotesize 按前面方法解}
 
-\textbf{Diagonalisation {\footnotesize (matrix methods)}}: $^1$Let $\mathbf{y}=T\mathbf{z}$ \ \ \ $^2(\star\star)\Rightarrow \mathbf{z}'=D\mathbf{z}+T^{-1}\mathbf{g}=D\mathbf{z}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $z_i=c_ie^{r_ix}+\underline{e^{r_ix}\int^x_{x_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
+\textbf{Exponential of a matrix}: $e^{At}:=\sum_{n=0}^{\infty}\frac{(At)^n}{n!} \ = \ \mathbb{I}+At+\frac{1}{2!}A^2t^2+\cdots \ = \ \lim_{n\to\infty}(\mathbb{I}+\frac{At}{n})^n$
 
-\vspace{-6pt}
-{\scriptsize or,由上面 Way 4 得到 $T, J$. } $^1$Let $\mathbf{y}=T\mathbf{z}$ \ \ \ $^2(\star\star)\Rightarrow \mathbf{z}'=J\mathbf{z}+T^{-1}\mathbf{g}=J\mathbf{y}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;可能会遇到$y'+p(x)y=q(x)$的形式}
+$\cdot$ \textbf{Property}: $e^{A+B}=e^{A}e^{B}$ if $AB=BA$ \ \ \ || \ \ \ $e^{A\cdot0}=\mathbb{I}$ \ \ \ || \ \ \ $[e^{At}]'=Ae^{At}$
 
-\textbf{Undetermined Coefficients}: {\footnotesize when $\mathbf{g}(x)$ is \underline{polynomials}, or \underline{real/complex exponential}.} \ \ \ Let {\footnotesize $P_n(x)=\sum^n_{i=0}\mathbf{p}_ix^i,A_n(x)=\sum^n_{i=0}\mathbf{a}_ix^i$}
 
-$^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\mathbf{g}=P_n(x)\Rightarrow \mathbf{y}_p=A_n(x)$; If $\mathbf{g}=\mathbf{c}e^{kx}\Rightarrow \mathbf{y}_p=\mathbf{a}e^{kx}$)} \ $^2$ {\scriptsize 特殊: If $\mathbf{g}=\mathbf{c}e^{\lambda x}$,$\lambda$ is eigenvalue with $AM=n\Rightarrow \mathbf{y}_p=e^{\lambda x}\sum_{i=0}^{n}\mathbf{a}_ix^i$} \ $^3${\scriptsize 带入原方程得未知系数}
+\subsubsection{Matrix Method | Fundamental Matrix}
+
+\textbf{Fundamental matrix $\Psi$}: If $\{\mathbf{y}^{(j)}(t)\}$ is FSoS. \ \ $\Rightarrow$ \ \ $\Psi(t)=[\mathbf{y}^{(1)}(t),...,\mathbf{y}^{(n)}(t)]$.
+
+$\cdot$ \textbf{Property}: $\Psi'(t)=P(t)\Psi(t)$ (It's a sol). \ \ \ || \ \ \ $det[\Psi(t)]=W(t)\ne0$ \ \ \ || \ \ \ general solution: $\mathbf{y}=\Psi\mathbf{c}$ \ , \ $\mathbf{c}=\Psi^{-1}(t_0)\mathbf{y}_0$
+
+$\cdot$ \textbf{Relation with $e^{At}$}: $e^{At}=\Psi(t)$ with $\Psi(0)=\mathbb{I}$ \ \ \ || \ \ \ $e^{At}=\Psi(t)\Psi^{-1}(0)$
+
+
+\subsection{non-Homogeneous}
+
+\textbf{Theorem}: Solution of (\star): $\mathbf{y}=\sum_ic_i\mathbf{y}^{(i)}+\mathbf{y}_{p}$, \ \ where $\mathbf{y}^{(i)}$ is solution of it's Homogeneous. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\Downarrow$ 通常会让特解中积分后的常数c=0}
+
+\textbf{Variation of Parameters}: $\mathbf{y}=\mathbf{y}_g+\mathbf{y}_p$; \ \ \ $\mathbf{y}_g=\Psi(t)\Psi^{-1}(t_0)\mathbf{y}(t_0)$; \ \ \ $\mathbf{y}_p=\Psi(t)\mathbf{u}(t),\mathbf{u}(t)=\int^t_{t_0}\Psi^{-1}(s)\mathbf{g}(s)ds$. \ \ {\scriptsize 经常$\Psi(t)\mathbf{u}'=\mathbf{g}$来找$\mathbf{u}$}
+
+\textbf{Matrix methods|Diagonalisation}: $^1$Let $\mathbf{y}=T\mathbf{x}$ \ \ \ $^2(\star)\Rightarrow \mathbf{x}'=D\mathbf{x}+T^{-1}\mathbf{g}=D\mathbf{x}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $z_i=c_ie^{r_it}+\underline{e^{r_it}\int^t_{t_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
+
+\textbf{Undetermined Coefficients}: {\footnotesize when $\mathbf{g}(t)$ is \underline{polynomials}, or \underline{real/complex exponential}.} \ \ \ Let {\footnotesize $P_n(t)=\sum^n_{i=0}\mathbf{p}_it^i,A_n(t)=\sum^n_{i=0}\mathbf{a}_it^i$}
+
+$^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\mathbf{g}=P_n(t)\Rightarrow \mathbf{y}_p=A_n(t)$; If $\mathbf{g}=\mathbf{c}e^{kt}\Rightarrow \mathbf{y}_p=\mathbf{a}e^{kt}$)} \ $^2$ {\scriptsize 特殊: If $\mathbf{g}=\mathbf{c}e^{\lambda t}$,$\lambda$ is eigenvalue with $AM=n\Rightarrow \mathbf{y}_p=e^{\lambda t}\sum_{i=0}^{n}\mathbf{a}_it^i$} \ $^3${\scriptsize 带入原方程得未知系数}
 
 
 \subsection{Geometrical Interpretation \& Linear Approximation}
@@ -282,7 +262,7 @@ $\cdot$ If $A$ constant, write sol: $\mathbf{x}=c_1e^{r_1t}\xi_1+c_2e^{r_2t}\xi_
 \textbf{Some Defs}: {\scriptsize $Separatrix$:将不同区域分开的轨迹; \ \ \ $Basin \ of \ attraction$: 所有趋近critical point的轨迹.} \ \ \ {\tiny ps: In any nonlinear ODEs, it's important to determine the \textit{basin of attraction}.}
 
 
-\subsection{Non-Linear Methods}
+\section{Non-Linear ODE Methods}
 
 \vspace{-0.25cm}
 {\tiny * 此节中，Consider two-dimensional autonomous system: $x'=F(x,y)$, $y'=G(x,y)$ and $\mathbf{x}=(x,y)^T$ (\#) \ \ \ \ \ \ Lyapunov's: 不需要知道微分方程的确切解critical value. \ \ \ \ \ \ Poincaré-Bendixson:寻找limit cycle}
