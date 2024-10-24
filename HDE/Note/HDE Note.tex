@@ -313,7 +313,7 @@ $\cdot$ Property: If $f,g$ has same period $T$. \ $\Rightarrow$ \ $af(x)+bg(x)$ 
 
 \textbf{Eigenvalues \& Eigenfunctions}: If $D$ is a \textit{differential operator} \ $\Rightarrow$ \ If $Df=\lambda f$, then $\lambda$ is \textbf{Eigenvalue} and $f$ is \textbf{Eigenfunctions}
 
-\textbf{Inner Product}: $(f,g) =\int^b_{a}f(x)g(x)dx$ \ \ \ \ \ \ For funcs $f,g$ in $(a,b)$ \ \ \ \ || \ \ \ \ \textbf{Orthogonal}: $(f,g)=0$
+\textbf{Inner Product}: $(f,g) =\int^b_{a}f(x)\overline{g(x)}dx$ \ \ \ \ \ \ For funcs $f,g$ in $(a,b)$ \ \ \ \ || \ \ \ \ \textbf{Orthogonal}: $(f,g)=0$ \ \ \ \ || \ \ \ \ \textbf{Square Norm}: $(f,f)$.
 
 % $\cdot$ Speical Case: Let $C_n=cos(\frac{n\pi x}{L}),S_n=sin(\frac{n\pi x}{L})$. \ \ $\Rightarrow$ \ \ $(S_n,S_m)=(C_n,C_m)=L\delta_{mn}$ and $(S_n,C_m)=(C_m,S_n)=0$. \ \ \ \ {\footnotesize $n=1,2,...$, in $[-L,L]$}
 
@@ -342,7 +342,18 @@ $\cdot$ $n\to\infty$: {\footnotesize $^1$ Continuous points, Fourier approximati
 
 $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscillation (near discontinuous points) does \textit{not decrease}.
 
+
+\subsection{Other Results on Fourier Series}
+
 \textbf{Extension of a function}: {\scriptsize $f(x)$ know for $x\in[0,L]$ \ \ $\Rightarrow$ \ \ Even Ext.: $h(x)=\{f(x),[0,L]; \ f(-x),(-L,0)$ \ || \ Odd Ext.: $h(x)=\{f(x),(0,L); \ 0,x=\pm L,0; \ -f(-x),(-L,0)$}
+
+\textbf{Complex Form of Fourier Series}: {\small $f(x)=\sum_{-\infty}^{\infty}c_ne^{\frac{i \ n\pi x}{L}}$} \ \ || \ \ {\footnotesize $c_n=\frac{a_n-ib_n}{2};c_{-n}=\frac{a_n+ib_n}{2};c_0=\frac{a_0}{2},n>0$ \ \ || \ \ $a_0=2c_0;a_n=c_n+c_{-n};b_n=i(c_n-c_{-n})$}
+
+\textbf{Euler-Fourier Formula (Complex)}: {\small If ($\Uparrow$) of Periodic $f,(T=2L)$ converges in $[-L,L]$ \ \ $\Rightarrow$ \ \ $c_n=\frac{1}{2L}\int_{-L}^{L}f(x)e^{-\frac{i \ n\pi x}{L}}$} \ || \ $c_{-n}=\overline{c_n}$ if $f$ real.
+
+\textbf{Parseval's Theorem}: If $^1$ Periodic function $f$; $^2$ $f$ has convergent Fourier Series. 
+
+\hspace{93pt} {\small $\Rightarrow$ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$} \ \ \ {\footnotesize ps: 无限维的勾股定理}
 
 
 \section{Appendix}
