@@ -239,7 +239,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     \hline
     Name & Posterior Var & \multicolumn{2}{c|}{$C_{\alpha}=[a,b]$ \scriptsize $(1-\alpha)100\%$ Bayesian Credible Intervals (or Simply Credible Intervals)} \\
     \hline
-    {\scriptsize Single Para} & {\footnotesize $Var[\theta|\mathbf{y}]=\int_{\theta\in\Theta}(\theta-\mathbb{E}[\theta|\mathbf{y}])^2p(\theta|\mathbf{y})d\theta$} & \multicolumn{2}{l|}{\footnotesize $\mathbb{P}(a\leq\theta\leq b)=\int_{a}^{b}p(\theta|\mathbf{y})d\theta=1-\alpha$ \ \ \ \ \ \ ps: $\mathbb{P}(\theta<a|\mathbf{y})=\mathbb{P}(\theta>b|\mathbf{y})=\alpha/2$} \\
+    {\scriptsize Single Para} & {\footnotesize $Var[\theta|\mathbf{y}]=\int_{\theta\in\Theta}(\theta-\mathbb{E}[\theta|\mathbf{y}])^2p(\theta|\mathbf{y})d\theta$} & \multicolumn{2}{l|}{\footnotesize $\mathbb{P}(a\leq\theta\leq b|\mathbf{y})=\int_{a}^{b}p(\theta|\mathbf{y})d\theta=1-\alpha$ \ \ \ \ \ \ ps: $\mathbb{P}(\theta<a|\mathbf{y})=\mathbb{P}(\theta>b|\mathbf{y})=\alpha/2$} \\
     \hline
 \end{longtable}
 \vspace{-0.35cm}
@@ -266,17 +266,17 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     Distribution & PDF & Mean & Var & Other \\
     \hline
     \hline
-    {\textbf{Bernoulli} \ $X\sim Bern(p)$} & $p^{k}(1-p)^{1-k},k\in\{0,1\}$ & $p$ & $p(1-p)$ & {\small If $X_i$ are i.i.d. $\sum X_i\sim Bin(n,p)$} \\
+    {\textbf{Bernoulli} \ $X\sim Bern(p)$} & $p^{x}(1-p)^{1-x},x\in\{0,1\}$ & $p$ & $p(1-p)$ & {\small If $X_i$ are i.i.d. $\sum X_i\sim Bin(n,p)$} \\
     \hline
-    {\textbf{Binomial} \ $X\sim Bin(n,p)$} & $\binom{n}{k}p^k(1-p)^{n-k}$ & $np$ & $np(1-p)$ & \makecell{$X,Y\sim Bin(n,p),Bin(m,p)$ \\ $X+Y\sim Bin(n+m,p)$} \\
+    {\textbf{Binomial} \ $X\sim Bin(n,p)$} & $\binom{n}{x}p^x(1-p)^{n-x}$ & $np$ & $np(1-p)$ & \makecell{$X,Y\sim Bin(n,p),Bin(m,p)$ \\ $X+Y\sim Bin(n+m,p)$} \\
     \hline
     \multicolumn{2}{|l|}{\small For $X\sim Bin(n,p)$, $n\to\infty,p\to0,np\to \lambda$, \ \ \ \ then $X\sim Poission(\lambda)$} & \multicolumn{3}{l|}{\footnotesize For $X\sim Bin(n,p)$, $n\to\infty$ and pdf symmetric, $\Rightarrow$ $X\sim N(np,np(1-p))$} \\
     \hline
-    \makecell{\textbf{Geometric} \ $X\sim Geom(p)$} & $(1-p)^{k-1}p$ & $1/p$ & $(1-p)/p^2$ & $\mathbb{E}[X^2]=2/p^2$ \\
+    \makecell{\textbf{Geometric} \ $X\sim Geom(p)$} & $(1-p)^{x-1}p$ & $1/p$ & $(1-p)/p^2$ & $\mathbb{E}[X^2]=2/p^2$ \\
     \hline
-    \makecell{\small \textbf{Negative Binomial} $X\sim NB(r,p)$} & $\binom{r+k-1}{k}p^r(1-p)^{k}$ , $r\geq1$ & {\small $\frac{r(1-p)}{p}$} & {\small $\frac{r(1-p)}{p^2}$} &  \\
+    \makecell{\small \textbf{Negative Binomial} $X\sim NB(r,p)$} & $\binom{r+x-1}{x}(1-p)^rp^{x}$ , $r\geq1$ & {\small $\frac{rp}{1-p}$} & {\small $\frac{rp}{(1-p)^2}$} & {\footnotesize 或者$p=1-q$,注意!} \\
     \hline
-    {\textbf{Poission} \ $X\sim Po(\lambda)$} & $e^{-\lambda}\cdot \frac{\lambda^k}{k!}$ & $\lambda$ & $\lambda$ & $\mathbb{E}[X^2]=\lambda^2+\lambda$ \\
+    {\textbf{Poission} \ $X\sim Po(\lambda)$} & $e^{-\lambda}\cdot \frac{\lambda^x}{x!}$ & $\lambda$ & $\lambda$ & $\mathbb{E}[X^2]=\lambda^2+\lambda$ \\
     \hline
     \multicolumn{5}{|l|}{For $X,Y\sim Po(\lambda_1),Po(\lambda_2)$, then $X+Y\sim Po(\lambda_1+\lambda_1)$} \\
     \hline
