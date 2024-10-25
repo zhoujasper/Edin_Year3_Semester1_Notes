@@ -76,6 +76,7 @@
 
 \textbf{Nested Interval Theorem}: If $(I_n)_{n\in\mathbb{N}}$ is nested closed bounded interval sequence $\Rightarrow$ $E:=\cap_nI_n\ne\emptyset$. \ \ \ \ {\small If $\lim\lambda(I_n)=0\Rightarrow E=a,a\in\mathbb{R}$ }
 
+\textbf{Power Set $\mathcal{P}$}: $P(E)$ is the set of all subsets of $E$. \ \ \ \ \ \ \ \ \ ps: $\mathcal{P}(\mathbb{R})$ is the set of all subsets of $\mathbb{R}$.
 
 \subsection{Infinite Sequence, Cauchy Sequence and Bolzano-Weierstrass Theorem}
 
@@ -255,11 +256,11 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \textbf{Open Set}: A set $S$ is open iff $\forall x\in S,\exists r>0, \ s.t. \ (x-r,x+r)\subseteq S$ \ \ \ \ \ \ {\footnotesize ps: Collection of all open subsets of $\mathbb{R}$ is called \textit{the Euclidean topology}}
 
+\textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Leftrightarrow$ \ $S$ = \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
+
 \textbf{$\cup$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Can Infinite) \ \ \ \ \ \ $\cup_{S\in\mathcal{U}}S$ is open.
 
 \textbf{$\cap$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cap_{S\in\mathcal{U}}S$ is open.
-
-\textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Rightarrow$ \ $S$ = \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
 
 \textbf{Connection with continuous function|open set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)>\lambda\}$ is open.
 
@@ -268,6 +269,17 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \textbf{Connection with continuous function|open set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)\leq\lambda\}$ is closed.
 
 \textbf{Theorem}: If $F$ is closed set, $(x_n)_{n\in\mathbb{N}}\in F$ convergent. \ $\Rightarrow$ \ $x=\lim x_n\in F$
+
+
+\subsection{Lebesgue Measures}
+
+\textbf{Countably Additivity}: $(E_n)_{n\in\mathbb{N}}$ disjoint sets, $m$ be measure. \ \ $\Rightarrow$ \ \ Countably Additive if: $m(\cup_{n}E_n)=\sum m(E_n)$
+
+\textbf{Lebesgue Outer Measure}: $m^*(E):=\inf\left\{\sum_{n=1}^{\infty}\lambda(I_n) \ | \ E\subseteq\cup_{n=1}^{\infty}I_n,I_n \ is \ a \ open \ interval \right\}$ \ \ \ \ \ \ \ \ \ {\tiny ps: 本质是寻找到最小的\textit{区间}可以覆盖$E$,用前面$\lambda$的定义来定义"长度"}
+
+$\cdot$ \textbf{Lebesgue Outer Measure (Version 2)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
+
+$\cdot$ \textbf{Remark}: If it's impossible to find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$ \ \ \ \ \ \ || \ \ \ \ \ \ Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$
 
 
 \section{Appendix}
