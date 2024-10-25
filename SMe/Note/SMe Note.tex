@@ -96,7 +96,7 @@ $\cdot$ {\scriptsize Method: \textbf{1}.By def $\Rightarrow$ ratio not depend on
     \hline
     \multirow{2}{*}{\makecell{\footnotesize Score Func \\ \footnotesize / Vector \ \ U}} & {\footnotesize Single: $U(\theta,\mathbf{Y})=\ell'(\theta;\mathbf{Y})$} & $\mathbb{E}[U]=0$ & $Var[U]=\mathcal{I}(\theta)$ \\
     \cline{2-4}
-    & {\footnotesize Multiple: $\mathbf{U}(\theta)=[\partial_{\theta_1} \ell(\theta;\mathbf{Y}),...,\partial_{\theta_p} \ell(\theta;\mathbf{Y})]^T\in\mathbb{R}^p$} & $\mathbb{E}[\mathbf{U}]=\mathbf{0}$ & $Var[\mathbf{U}]=\mathbf{\mathcal{I}}(\theta)$ \ \ \ {\scriptsize $I_{j,k}=Cov(\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k})=\mathbb{E}[\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k}]$} \\
+    & {\footnotesize Multiple: $\mathbf{U}(\theta)=[\partial_{\theta_1} \ell(\theta;\mathbf{Y}),...,\partial_{\theta_p} \ell(\theta;\mathbf{Y})]^T\in\mathbb{R}^p$} & $\mathbb{E}[\mathbf{U}]=\mathbf{0}$ & $Var[\mathbf{U}]=\mathbf{\mathcal{I}}(\theta)$ \ \ {\scriptsize $I_{j,k}=Cov(\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k})=-\mathbb{E}[\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k}]$} \\
     \hline
     \multirow{2}{*}{CLT of U} & \multicolumn{3}{l|}{\footnotesize Single: $U(\theta_0;\mathbf{Y})\sim\mathcal{N}(0,\mathcal{I}(\theta_0))$,{\tiny $n\to\infty$}} \\
     \cline{2-4}
@@ -168,7 +168,7 @@ $\cdot$ {\scriptsize Method: \textbf{1}.By def $\Rightarrow$ ratio not depend on
     \hline
     Name & Test Statistic ({\small $T^2_{Score},T^2_{Wald},T_{LR}$}) & {\scriptsize Hypothesis} & (Confidence Region) CR \\
     \hline
-    Score Test & $\mathbf{U}(\theta_0)^T\mathbf{\mathcal{I}}^{-1}(\theta_0)\mathbf{U}(\theta_0)>z_{\alpha,p}$ & $\theta=\theta_0$ & $\{\theta:\mathbf{U}(\widehat{\theta})^T\mathbf{\mathcal{I}}^{-1}(\theta)\mathbf{U}(\theta)< z_{\alpha,p}\}$ \\
+    Score Test & $\mathbf{U}(\theta_0)^T\mathbf{\mathcal{I}}^{-1}(\theta_0)\mathbf{U}(\theta_0)>z_{\alpha,p}$ & $\theta=\theta_0$ & $\{\theta:\mathbf{U}(\widehat{\theta})^T\mathbf{\mathcal{I}}^{-1}(\theta)\mathbf{U}(\widehat{\theta})< z_{\alpha,p}\}$ \\
     \hline
     Wald Test & $(\widehat{\theta}-\theta_0)^T\mathbf{\mathcal{I}}(\theta_0)(\widehat{\theta}-\theta_0)>z_{\alpha,p}$ & $\theta=\theta_0$ & $\{\theta:(\widehat{\theta}-\theta)^T\mathbf{\mathcal{I}}(\theta)(\widehat{\theta}-\theta)<z_{\alpha,p}\}$ \\
     \hline
