@@ -78,6 +78,13 @@
 
 \textbf{Power Set $\mathcal{P}$}: $P(E)$ is the set of all subsets of $E$. \ \ \ \ \ \ \ \ \ ps: $\mathcal{P}(\mathbb{R})$ is the set of all subsets of $\mathbb{R}$.
 
+\textbf{Countable Set}: A set $E$ is countable if $\exists$ bijection $f:\mathbb{N}\to E$.
+
+$\cdot$ Properties: {\footnotesize \textbf{1}. Countable union of countable sets is countable. \ \ \ \textbf{2}. Product of finite countable sets is countable. \ \ \ \textbf{3}. Addition of finite countable sets is countable.}
+
+$\cdot$ \textbf{Exmaple}: $[0,1]$ is uncountable.
+
+
 \subsection{Infinite Sequence, Cauchy Sequence and Bolzano-Weierstrass Theorem}
 
 \textbf{Useful Seq Limit}: $\lim \frac{1}{n^p}=0,p>1$ \ ; \ $\lim a^n=0,|a|<1$ \ ; \ $\lim n^\frac{1}{n}=1$ \ ; \ $\lim a^\frac{1}{n}=1,a>0$
@@ -279,7 +286,26 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 $\cdot$ \textbf{Lebesgue Outer Measure (Version 2)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
 
+$\cdot$ \textbf{Special Case}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
+
 $\cdot$ \textbf{Remark}: If it's impossible to find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$ \ \ \ \ \ \ || \ \ \ \ \ \ Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$
+
+\textbf{Property of Lebesgue Outer Measure}: Let Set $E,F \ s.t. \ E\subseteq F\subset\mathbb{R}$. \ \ \ \ \ \ Emptyset: $\emptyset$
+
+$\cdot$ \textbf{1. Null Empty Set}: $m^*(\emptyset)=0$. \ \ \ \ \ \ \textbf{2. Monotonicity}: $m^*(E)\leq m^*(F)$. \ \ \ \ \ \ \textbf{3. Countable Subadditivity}: $m^*(\cup_{n=1}^{\infty}E_n)\leq\sum_{n=1}^{\infty}m^*(E_n)$.
+
+\textbf{Measure Zero}: A set $E$ is said to have \textit{measure zero} if $m^*(E)=0$. \hspace{200pt}  {\footnotesize e.g. Cantor Set. $\Downarrow$}
+
+$\cdot$ Every countable subset of $\mathbb{R}$ has measure zero. \ \ \ || \ \ \ {\footnotesize $E\subseteq\mathbb{R}$ countable, \ $\Rightarrow$ \ $E=\cup^\infty_{j=1}\{x_j\}$ {\scriptsize (Union of countable singletons)}} \ \ \ || \ \ \ {\footnotesize $\exists m^*(E)=0,E \ uncountable$}
+
+
+\subsection{Countable Additive for Lebesgue Measure}
+
+\textbf{Def of $dist(E,F)$}: $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$
+
+$\cdot$ \textbf{Lemma}: If $^1E,F$ are closed sets, $^2E\cap F=\emptyset$, $^3E$ bounded. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$
+
+\textbf{Theorem}: If $dist(E,F)>0$ \ \ $\Rightarrow$ \ \ $m^*(E\cup F)=m^*(E)+m^*(F)$.
 
 
 \section{Appendix}
@@ -307,5 +333,7 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ || $\mathbf{1\pm x^3}$: 
 \textbf{Sum of $\mathbf{n,n^2,n^3}$}: $\sum^n_{k=1}k=\frac{n(n+1)}{2}$ \ \ \ \ \ \ $\sum^n_{k=1}k^2=\frac{n(n+1)(2n+1)}{6}$ \ \ \ \ \ \ $\sum^n_{k=1}k^3=[\frac{n(n+1)}{2}]^2$
 
 \textbf{Useful Conterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$
+
+\textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
 
 \end{document}
