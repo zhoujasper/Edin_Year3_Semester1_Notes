@@ -278,7 +278,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \textbf{Theorem}: If $F$ is closed set, $(x_n)_{n\in\mathbb{N}}\in F$ convergent. \ $\Rightarrow$ \ $x=\lim x_n\in F$
 
 
-\subsection{Lebesgue Measures}
+\subsection{Lebesgue Outer Measures}
 
 \textbf{Countably Additivity}: $(E_n)_{n\in\mathbb{N}}$ disjoint sets, $m$ be measure. \ \ $\Rightarrow$ \ \ Countably Additive if: $m(\cup_{n}E_n)=\sum m(E_n)$
 
@@ -286,7 +286,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 $\cdot$ \textbf{Lebesgue Outer Measure (Version 2)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
 
-$\cdot$ \textbf{Special Case}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
+$\cdot$ \textbf{Lebesgue Outer Measure (Interval)}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
 
 $\cdot$ \textbf{Remark}: If it's impossible to find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$ \ \ \ \ \ \ || \ \ \ \ \ \ Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$
 
@@ -299,7 +299,7 @@ $\cdot$ \textbf{1. Null Empty Set}: $m^*(\emptyset)=0$. \ \ \ \ \ \ \textbf{2. M
 $\cdot$ Every countable subset of $\mathbb{R}$ has measure zero. \ \ \ || \ \ \ {\footnotesize $E\subseteq\mathbb{R}$ countable, \ $\Rightarrow$ \ $E=\cup^\infty_{j=1}\{x_j\}$ {\scriptsize (Union of countable singletons)}} \ \ \ || \ \ \ {\footnotesize $\exists m^*(E)=0,E \ uncountable$}
 
 
-\subsection{Countable Additive for Lebesgue Measure}
+\subsection{Countable Additive for Lebesgue Outer Measure}
 
 \textbf{Def of $dist(E,F)$}: $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$
 
@@ -307,11 +307,41 @@ $\cdot$ \textbf{Lemma}: If $^1E,F$ are nonempty closed sets, $^2E\cap F=\emptyse
 
 \textbf{Theorem}: If $dist(E,F)>0$ \ \ $\Rightarrow$ \ \ $m^*(E\cup F)=m^*(E)+m^*(F)$.
 
-\textbf{Theorem $\star$|Closed Sets}: If $(K_n)_{n\in\mathbb{N}}$ is disjoint, closed, \textit{bounded} sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
+\textbf{Theorem |Disjoint Closed Sets}: If $(K_n)_{n\in\mathbb{N}}$ is disjoint, closed, \textit{bounded} sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
 
-\textbf{Theorem $\star$|Open Sets}: If $(K_n)_{n\in\mathbb{N}}$ is disjoint, open sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
+\textbf{Theorem |Disjoint Open Sets}: If $(K_n)_{n\in\mathbb{N}}$ is disjoint, open sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
 
-\textbf{Theorem $\star$|Powerful}: If $(I_n)_{n\in\mathbb{N}}$ be disjoint intervals. \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}I_n)=\sum^\infty_{n=1} m^*(I_n)$
+\textbf{Theorem |Disjoint Intervals}: If $(I_n)_{n\in\mathbb{N}}$ be disjoint intervals. \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}I_n)=\sum^\infty_{n=1} m^*(I_n)$
+
+
+\subsection{Lebesgue Measurable Sets}
+
+\textbf{Lebesgue Measurable}: 
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Version 1}: A set $E\subseteq\mathbb{R}$ is \textit{Lebesgue measurable} if $\forall\varepsilon>0,\exists$ open set $U\subseteq\mathbb{R}$ s.t. $E\subseteq U$ and $m^*(U\setminus E)<\varepsilon$ \ \ \ {\tiny ps: 被open set 从外"恰好"包住}
+    \item \textbf{Version 2}: A set $E\subseteq\mathbb{R}$ is \textit{Lebesgue measurable} if $\forall\varepsilon>0,\exists$ closed set $U\subseteq\mathbb{R}$ s.t. $U\subseteq E$ and $m^*(E\setminus U)<\varepsilon$ \ \ \ {\tiny ps: 被closed set 从内"恰好"包住}
+\end{enumerate}
+
+$\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R}$.
+
+\textbf{Property of Lebesgue Measurable Sets}:
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Closed Set}: Any closed set is Lebesgue measurable. \ \ \ \ \ \ {\footnotesize ps: 由这个可以推导: interval / open set 也是}
+    \item \textbf{Measure Zero Set}: Any set of measure zero is Lebesgue measurable.
+    \item \textbf{Union}: if $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $E:=\cup^\infty_{n=1}E_n$ is \textit{Lebesgue Measurable}.
+    \item \textbf{Complement}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
+\end{enumerate}
+
+
+\subsection{Countable Additive \& Monotone Convergence for Lebesgue Measure}
+
+\textbf{Lebesgue Measure}: \textit{Lebesgue Measure} is a function $m:\mathcal{M}\to[0,\infty)$ s.t. $m(E):=m^*(E),\forall m\in\mathcal{M}$ \ \ \ \ \ \ {\scriptsize ps: $\mathcal{M}$ 是所有Lebesgue可测集合的集合}
+
+$\cdot$ \textbf{Property}: \textit{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}  \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize ps: 原来是 $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$,现在是 $m:\mathcal{M}\to[0,\infty)$}
+
+\textbf{Countable Additivity for Lebesgue Measure $\star$}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesuge Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
 
 
 \section{Appendix}
@@ -341,5 +371,7 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ || $\mathbf{1\pm x^3}$: 
 \textbf{Useful Conterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$
 
 \textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
+
+\textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$
 
 \end{document}
