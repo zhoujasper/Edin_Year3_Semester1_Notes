@@ -256,26 +256,38 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \textbf{Def of Simple Integral}: \textbf{1}.$\int_{\mathbb{R}}\chi_I(x)dx:=\lambda(I)$ \ \ \ \ \ \ \textbf{2}. $\int_{\mathbb{R}}c\chi_I(x)dx:=c\lambda(I)$ \ \ \ \ \ \ \textbf{3}. $\int_{\mathbb{R}}\sum_jc_j\chi_{I_j}(x)dx=\sum_jc_j\lambda(I_j)$
 
-\textbf{Step Function}: \underline{non-negative} $f:\mathbb{R}\to[0,\infty)$ is a step function iff $f(x)=\sum_jc_j\chi_{I_j}(x)$ \ \ \ \ \ \ || \ \ \ \ \ \ Def: $\int_{\mathbb{R}}f(x)dx=\sum_jc_j\lambda(I_j)$
+\textbf{Step Function}: \underline{non-negative} $f:\mathbb{R}\to[0,\infty)$ is a step function iff $f(x)=\sum_jc_j\chi_{I_j}(x)$ \ \ \ \ \ $\Rightarrow$ \ \ \ \ \ \ Def: $\int_{\mathbb{R}}f(x)dx=\sum_jc_j\lambda(I_j)$
 
 
 \subsubsection{Open Set and Closed Set}
 
 \textbf{Open Set}: A set $S$ is open iff $\forall x\in S,\exists r>0, \ s.t. \ (x-r,x+r)\subseteq S$ \ \ \ \ \ \ {\footnotesize ps: Collection of all open subsets of $\mathbb{R}$ is called \textit{the Euclidean topology}}
 
-\textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Leftrightarrow$ \ $S$ = \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
-
-\textbf{$\cup$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Can Infinite) \ \ \ \ \ \ $\cup_{S\in\mathcal{U}}S$ is open.
-
-\textbf{$\cap$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cap_{S\in\mathcal{U}}S$ is open.
-
-\textbf{Connection with continuous function|open set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)>\lambda\}$ is open.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Leftrightarrow$ \ $S$ = \textit{unique} \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
+    \item \textbf{$\cup$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Can Infinite) \ \ \ \ \ \ $\cup_{S\in\mathcal{U}}S$ is open.
+    \item \textbf{$\cap$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cap_{S\in\mathcal{U}}S$ is open.
+    \item \textbf{Find Open Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)>\lambda \ (or <\lambda) \ \}$ is open.
+    \item \textbf{Open Set $\to\cup$ Closed Set}: Any nonempty open set $U$ $\to$ countable union of \textit{disjoint closed} intervals. 
+\end{enumerate}
 
 \textbf{Closed Set}: A set $F\subseteq\mathbb{R}$ is \textit{closed} iff $\mathbb{R}\setminus F$ is open.
 
-\textbf{Connection with continuous function|open set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)\leq\lambda\}$ is closed.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{$\cup$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cup_{F\in\mathcal{F}}F$ is closed.
+    \item \textbf{$\cap$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Can Infinite) \ \ \ \ \ \ $\cap_{F\in\mathcal{F}}F$ is open.
+    \item \textbf{Find Closed Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)\leq\lambda \ (or\geq\lambda) \ (or =\lambda) \ \}$ is closed.
+    \item \textbf{Unbounded$\to\cup$Bounded}: Any closed set $F$ $\to$ countable union of \textit{bounded} closed intervals. \ \ \ {\footnotesize (Hint: $K_n=F\cap[-n,n]$)}
+\end{enumerate}
 
-\textbf{Theorem}: If $F$ is closed set, $(x_n)_{n\in\mathbb{N}}\in F$ convergent. \ $\Rightarrow$ \ $x=\lim x_n\in F$
+\textbf{Property|Open \& Closed Set}: Let $E$ be open set, $F$ be closed set.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
+    \item Only $\emptyset$ and $\mathbb{R}$ are both open and closed.
+    \item $\forall (E_n)_{n\in\mathbb{N}}$ \ \ $\Rightarrow$ \ \ $\exists$ disjoint $(F_n)_{n\in\mathbb{N}}$ s.t. $E_n\subseteq F_n$ and $\cup F_n=\cup E_n$. \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus\cup^{n-1}_{i=1}F_i$)}
+\end{enumerate}
+
+\textbf{Theorem}: If $F$ is closed set, \ \ $\Leftrightarrow$ \ \ $\forall(x_n)_{n\in\mathbb{N}}\in F$ convergent. $x=\lim x_n\in F$
 
 
 \subsection{Lebesgue Outer Measures}
@@ -284,34 +296,39 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \textbf{Lebesgue Outer Measure}: $m^*(E):=\inf\left\{\sum_{n=1}^{\infty}\lambda(I_n) \ | \ E\subseteq\cup_{n=1}^{\infty}I_n,I_n \ is \ a \ open \ interval \right\}$ \ \ \ \ \ \ \ \ \ {\tiny ps: 本质是寻找到最小的\textit{区间}可以覆盖$E$,用前面$\lambda$的定义来定义"长度"}
 
-$\cdot$ \textbf{Lebesgue Outer Measure (Version 2)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
-
-$\cdot$ \textbf{Lebesgue Outer Measure (Interval)}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
-
 $\cdot$ \textbf{Remark}: If it's impossible to find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$ \ \ \ \ \ \ || \ \ \ \ \ \ Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$
 
-\textbf{Property of Lebesgue Outer Measure}: Let Set $E,F \ s.t. \ E\subseteq F\subset\mathbb{R}$. \ \ \ \ \ \ Emptyset: $\emptyset$
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Lebesgue Outer Measure (Version 2)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
+    \item \textbf{Lebesgue Outer Measure (Interval)}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
+    \item \textbf{Useful Tool|By def}: $\forall E,\exists$ open interval $(I_n)_{n\in\mathbb{N}}$ s.t. $E\subseteq \cup I_n$ and $\sum\lambda(I_n)<m^*(E)+\varepsilon$
+    \item \textbf{Useful Tool|By def}: $\forall E,\exists$ open set $U$ s.t. $E\subseteq U$ and $m^*(U)<m^*(E)+\varepsilon$
+    \item \textbf{Useful Tool|Plus|By def}: $\forall E,\exists$ open intervals $(I_n)_{n\in\mathbb{N}}$, satisfy \ \ $^1${\footnotesize 第3条} \ \ $^2I_n\cap E\ne\emptyset$ \ \ $^3\lambda(I_n)<\delta$ \ \ $^4$
+    \item \textbf{Futher|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ \ \ \ || \ \ \ \ \ \ $m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$
+\end{enumerate}
 
-$\cdot$ \textbf{1. Null Empty Set}: $m^*(\emptyset)=0$. \ \ \ \ \ \ \textbf{2. Monotonicity}: $m^*(E)\leq m^*(F)$. \ \ \ \ \ \ \textbf{3. Countable Subadditivity}: $m^*(\cup_{n=1}^{\infty}E_n)\leq\sum_{n=1}^{\infty}m^*(E_n)$.
+\textbf{Properties of Lebesgue Outer Measure}: Let Set $E,F \ s.t. \ E\subseteq F\subset\mathbb{R}$. \ \ \ \ \ \ Emptyset: $\emptyset$
 
-\textbf{Measure Zero}: A set $E$ is said to have \textit{measure zero} if $m^*(E)=0$. \hspace{200pt}  {\footnotesize e.g. Cantor Set. $\Downarrow$}
-
-$\cdot$ Every countable subset of $\mathbb{R}$ has measure zero. \ \ \ || \ \ \ {\footnotesize $E\subseteq\mathbb{R}$ countable, \ $\Rightarrow$ \ $E=\cup^\infty_{j=1}\{x_j\}$ {\scriptsize (Union of countable singletons)}} \ \ \ || \ \ \ {\footnotesize $\exists m^*(E)=0,E \ uncountable$}
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Null Empty Set}: $m^*(\emptyset)=0$.
+    \item \textbf{Monotonicity}: $m^*(E)\leq m^*(F)$.
+    \item \textbf{Countable Subadditivity}: $m^*(\cup_{n=1}^{\infty}E_n)\leq\sum_{n=1}^{\infty}m^*(E_n)$.
+    \item Countable set $E$ \ \ $\Leftrightarrow$ \ \ $m^*(E)=0$ \ \ \ {\footnotesize Hint: $E=\cup^\infty_{j=1}\{x_j\}$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $\exists m^*(E)=0,E$ uncountable {\footnotesize (e.g.Cantor Set)}
+\end{enumerate}
 
 
 \subsection{Countable Additive for Lebesgue Outer Measure}
 
 \textbf{Def of $dist(E,F)$}: $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$
 
-$\cdot$ \textbf{Lemma}: If $^1E,F$ are nonempty closed sets, $^2E\cap F=\emptyset$, $^3E$ bounded. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Basic}: If $dist(E,F)>0$ \ \ $\Rightarrow$ \ \ $m^*(E\cup F)=m^*(E)+m^*(F)$.
+    
+    \vspace{-5pt}
+    $\cdot$ $^1E,F$ are nonempty \textit{closed} sets; \ \ $^2E\cap F=\emptyset$; \ \ $^3E$ \textit{bounded}. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$
 
-\textbf{Theorem}: If $dist(E,F)>0$ \ \ $\Rightarrow$ \ \ $m^*(E\cup F)=m^*(E)+m^*(F)$.
-
-\textbf{Theorem |Disjoint Closed Sets}: If $(K_n)_{n\in\mathbb{N}}$ is disjoint, closed, \textit{bounded} sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
-
-\textbf{Theorem |Disjoint Open Sets}: If $(K_n)_{n\in\mathbb{N}}$ is disjoint, open sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
-
-\textbf{Theorem |Disjoint Intervals}: If $(I_n)_{n\in\mathbb{N}}$ be disjoint intervals. \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}I_n)=\sum^\infty_{n=1} m^*(I_n)$
+    \item \textbf{Closed|Open|Interval Sets}: If $(K_n)_{n\in\mathbb{N}}$ is \textit{disjoint}, (Closed|Open|Interval), \textit{bounded} sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
+\end{enumerate}
 
 
 \subsection{Lebesgue Measurable Sets}
@@ -328,10 +345,11 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
 \textbf{Property of Lebesgue Measurable Sets}:
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Closed Set}: Any closed set is Lebesgue measurable. \ \ \ \ \ \ {\footnotesize ps: 由这个可以推导: interval / open set 也是}
-    \item \textbf{Measure Zero Set}: Any set of measure zero is Lebesgue measurable.
-    \item \textbf{Union}: if $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $E:=\cup^\infty_{n=1}E_n$ is \textit{Lebesgue Measurable}.
+    \item \textbf{Closed Set|Open Set|Interval}: Any closed set / open set / interval is Lebesgue measurable.
+    \item \textbf{Union $\cup$|Intersection $\cap$}: if $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $^1E:=\cup^\infty_{n=1}E_n$ \ \ $^2E:=\cap^\infty_{n=1}E_n$ is \textit{Lebesgue Measurable}.
     \item \textbf{Complement}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
+    \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
+    \item \textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
 \end{enumerate}
 
 
@@ -341,8 +359,14 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
 
 $\cdot$ \textbf{Property}: \textit{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}  \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize ps: 原来是 $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$,现在是 $m:\mathcal{M}\to[0,\infty)$}
 
-\textbf{Countable Additivity for Lebesgue Measure $\star$}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesuge Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
+\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesuge Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
 
+\textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesuge Measurable}.
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Increasing$\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
+    \item \textbf{decreasing$\downarrow$}: If $E_{n+1}\subseteq E_n$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus E,E=\cap E_n$)}
+\end{enumerate}
 
 \section{Appendix}
 
