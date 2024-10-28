@@ -68,7 +68,9 @@
 
 \textbf{Def of limit superior and inferior}: $\limsup a_n:=\lim(sup_{k\geq n}a_k)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\liminf a_n:=\lim(inf_{k\geq n}a_k)$
 
-\textbf{Important Inequation}: {\small $|x+y|\leq|x|+|y| \ \ ; \ \ |x-y|\geq|x|-|y| \ \ ; \ \ ||x|-|y|| \leq|x \pm y|.$} \ \ \ \ \ \ \ $|sin(x)|\leq |x|$ {\tiny ps:need prove,By MVT}
+\textbf{Important Inequation}: {\small $|x+y|\leq|x|+|y|$ \ \ \ || \ \ \ $|x-y|\geq|x|-|y|$ \ \ \ || \ \ \ $||x|-|y|| \leq|x \pm y|.$}
+
+\hspace{103pt} {\small $|sin(x)|\leq |x|$ {\tiny Hint:By MVT} \ \ \ || \ \ \ $ln(x)<x,x>0$ {\tiny (Hint: MVT)} \ \ \ || \ \ \ $1-cos(x)<|x|$ {\tiny (Hint: MVT)}}
 
 \textbf{Bernoulli's Inequality}: If $\alpha>0,\delta\geq-1$. Then $(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty)$
 
@@ -89,9 +91,9 @@ $\cdot$ \textbf{Exmaple}: $[0,1]$ is uncountable.
 
 \textbf{Useful Seq Limit}: $\lim \frac{1}{n^p}=0,p>1$ \ ; \ $\lim a^n=0,|a|<1$ \ ; \ $\lim n^\frac{1}{n}=1$ \ ; \ $\lim a^\frac{1}{n}=1,a>0$
 
-\textbf{Subsequence Theorem}: In each case, the subsequence can be taken to be monotonic.
+\textbf{Subsequence Theorem}: In each case, the subsequence can be taken to be \textit{monotonic}.
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item $\exists a \in \mathbb{R} \ s.t. \ \forall \varepsilon > 0$, there are infinitely many $n \in \mathbb{N} \ s.t. \ |x_n - a|<\varepsilon$ $\Leftrightarrow \ \exists$ subsequence of $(x_n) \ s.t. \ \lim\ x_{n_k}=a$
+    \item $\exists a \in \mathbb{R} \ s.t. \ \forall \varepsilon > 0$, there are infinitely many $n \in \mathbb{N} \ \ s.t. \ |x_n - a|<\varepsilon$ {\footnotesize ($\exists$ 聚点a)} \ \ $\Leftrightarrow \ \ \exists$ subsequence of $(x_n) \ s.t. \ \lim\ x_{n_k}=a$
     \item $(x_n)_{n \in \mathbb{N}}$ is not bounded above (below) $\Leftrightarrow$ \ $\exists$ subsequence of $x_n \ s.t. \ \lim x_{n_k}=\infty \ (-\infty)$
     \item If $\lim x_n=L \Rightarrow \forall x_{n_k} \ , \lim x_{n_k}=L$
 \end{enumerate}
@@ -267,7 +269,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
     \item \textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Leftrightarrow$ \ $S$ = \textit{unique} \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
     \item \textbf{$\cup$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Can Infinite) \ \ \ \ \ \ $\cup_{S\in\mathcal{U}}S$ is open.
     \item \textbf{$\cap$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cap_{S\in\mathcal{U}}S$ is open.
-    \item \textbf{Find Open Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)>\lambda \ (or <\lambda) \ \}$ is open.
+    \item \textbf{Find Open Set}: If $f:\mathbb{R}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ (or <\lambda) \ \}$ is open.
     \item \textbf{Open Set $\to\cup$ Closed Set}: Any nonempty open set $U$ $\to$ countable union of \textit{disjoint closed} intervals. 
 \end{enumerate}
 
@@ -276,7 +278,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{$\cup$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cup_{F\in\mathcal{F}}F$ is closed.
     \item \textbf{$\cap$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Can Infinite) \ \ \ \ \ \ $\cap_{F\in\mathcal{F}}F$ is open.
-    \item \textbf{Find Closed Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ $\Rightarrow$ $\{x\in\mathbb{R}:f(x)\leq\lambda \ (or\geq\lambda) \ (or =\lambda) \ \}$ is closed.
+    \item \textbf{Find Closed Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)\leq\lambda \ (or\geq\lambda) \ (or =\lambda) \ \}$ is closed.
     \item \textbf{Unbounded$\to\cup$Bounded}: Any closed set $F$ $\to$ countable union of \textit{bounded} closed intervals. \ \ \ {\footnotesize (Hint: $K_n=F\cap[-n,n]$)}
 \end{enumerate}
 
@@ -367,6 +369,7 @@ $\cdot$ \textbf{Property}: \textit{$\star$ All properties of Lebesgue Outer Meas
     \item \textbf{Increasing$\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
     \item \textbf{decreasing$\downarrow$}: If $E_{n+1}\subseteq E_n$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus E,E=\cap E_n$)}
 \end{enumerate}
+
 
 \section{Appendix}
 

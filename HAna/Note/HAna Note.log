@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  27 OCT 2024 22:19
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  28 OCT 2024 13:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -776,19 +776,19 @@ LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 71.
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 137.
+(Font)              scaled to size 7.00075pt on input line 139.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 137.
+(Font)              scaled to size 6.99925pt on input line 139.
  [1
 
 ] [2] [3] [4] (./HAna Note.aux) ) 
 Here is how much of TeX's memory you used:
  13736 strings out of 476683
  301986 string characters out of 5795227
- 1903012 words of memory out of 5000000
+ 1904012 words of memory out of 5000000
  33767 multiletter control sequences out of 15000+600000
  521283 words of font info for 138 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,11n,114p,367b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,114p,367b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on HAna Note.pdf (4 pages).
