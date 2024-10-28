@@ -244,6 +244,13 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 \end{longtable}
 \vspace{-0.35cm}
 
+\textbf{Bayesian Decision Theory}: {\footnotesize 目的: $^1$Estimating parameter $\theta$ \ \ $^2$Test Hypothesis about $\theta$ \ \ $^3$Find CI. \ \ \ \ \ \ {\scriptsize ps:后两种有很多种方法来判断}}
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item Choose a \textit{Loss Function} $Q(\widehat{\theta},\theta)$ {\scriptsize (损失函数,衡量估计值与真实值的差距; 贝叶斯决策的目的是最小化损失函数的期望)}
+    \item Minimises Posterior Expacted Loss Function: $\widehat{\theta}_Q(\mathbf{y})=\arg\min_{\widehat{\theta}}\mathbb{E}[Q(\widehat{\theta},\theta)|\mathbf{y}]=\int_{\theta\in\Theta}Q(\widehat{\theta},\theta)p(\theta|\mathbf{y})d\theta$
+\end{enumerate}
+
 
 \subsection{Exact Bayesian Inference with Conjugate priors}
 
@@ -259,6 +266,8 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 
 \subsection{Approximate Bayesian Inference}
+
+\textbf{Intractable Posterior}: {\footnotesize 算不出具体分布或不conjugate的model. For some models, the posterior distribution is intractable.}
 
 
 \section{Distribution Table} % Distribution Table
