@@ -97,6 +97,8 @@ $\cdot$ {\footnotesize Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=
 \end{enumerate}
 }
 
+\textbf{Euler Equation}: General: $a_nx^ny^{(n)}+a_{n-1}x^{n-1}y^{(n-1)}+\cdots+a_0y=0$ \ \ $\Rightarrow$ Seek Solution as: $y=x^\alpha$ \ \ \ \ $\Rightarrow$ solution: $y=\sum_ic_ix^{\alpha_i}$
+
 
 \subsection{ODE / PDE Definitions}
 
@@ -360,9 +362,9 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 \hspace{93pt} {\small $\Rightarrow$ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$} \ \ \ {\footnotesize ps: 无限维的勾股定理}
 
 
-\section{Linear $2nd$ Order PDEs by Separation of Variables}
+\section{Linear PDEs by Separation of Variables}
 
-\textbf{Requirement}: Suppose $u(x,t)=X(x)T(t)$! \ \ \ \ \ \ $\Rightarrow$ \ \ \ \ \ \ {\footnotesize 如果 PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$, $\lambda$ 是 Seperation Constant.}
+\textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ {\footnotesize If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ {\footnotesize 可以使用此方法!}
 
 {\small \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$}
 
@@ -371,6 +373,13 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 \hspace{81pt} {\footnotesize 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
 
 \textbf{Basic Idea|Inhomo}: {\footnotesize 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
+
+\textbf{Laplace Equation}: 2D:$\nabla^2u=\partial^2_xu+\partial^2_yu=0$ \ \ \ 3D: $\nabla^2u=\partial^2_xu+\partial^2_yu+\partial^2_zu=0$ \ \ \ \ \ \ Following are the method to solve:
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Rectangle}: {\scriptsize ($0\leq x\leq a,0\leq y\leq b$) with $u(x,0)=u(x,b)=u(0,y)=0 \ ; \ u(a,y)=f(y)$} \ \ \ \ \ \ {\footnotesize 直接按照Homo正常计算} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ {\footnotesize 可能用到 Euler Equation} 
+    \item \textbf{Circle}: {\scriptsize ($u(r=a,\theta)=f(\theta) \ ; \ u(r,\theta) \ bounded$)} \ \ \ {\footnotesize $^1\partial_{x}^2u+\partial^2_yu=0;x=rcos(\theta),y=rsin(\theta)$ 变极坐标 $R(r),\Theta(\theta)$} \ \ \ {\footnotesize $^2$ 一样的计算 + 条件 $\Theta(\theta+2\pi)=\Theta(\theta)$}
+\end{enumerate}
 
 
 \section{Appendix}
@@ -394,5 +403,7 @@ $\cdot$  {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $c
 $\cdot$ {\scriptsize Other Property: $^1$even + even = even; \ \ $^2$odd + odd = odd; \ \ $^3$even $\times$ even = even; \ \ $^4$odd $\times$ odd = even; \ \ $^5$even $\times$ odd = odd.}
 
 \textbf{Euler Formula}: {\footnotesize $e^{ix}=cos(x)+isin(x)$ \ \ \ || \ \ \ $e^{inx}=cos(nx)+isin(nx)$ \ \ \ || \ \ \ $cos(nx)=\frac{e^{inx}+e^{-inx}}{2}$ \ \ \ || \ \ \ $sin(nx)=\frac{e^{inx}-e^{-inx}}{2i}$}
+
+\textbf{Approximation} $sin(x)\approx x$ when $x\to0$ 
 
 \end{document}
