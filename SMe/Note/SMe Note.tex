@@ -96,7 +96,7 @@ $\cdot$ {\scriptsize Method: \textbf{1}.By def $\Rightarrow$ ratio not depend on
     \hline
     \multirow{2}{*}{\makecell{\footnotesize Score Func \\ \footnotesize / Vector \ \ U}} & {\footnotesize Single: $U(\theta,\mathbf{Y})=\ell'(\theta;\mathbf{Y})$} & $\mathbb{E}[U]=0$ & $Var[U]=\mathcal{I}(\theta)$ \\
     \cline{2-4}
-    & {\footnotesize Multiple: $\mathbf{U}(\theta)=[\partial_{\theta_1} \ell(\theta;\mathbf{Y}),...,\partial_{\theta_p} \ell(\theta;\mathbf{Y})]^T\in\mathbb{R}^p$} & $\mathbb{E}[\mathbf{U}]=\mathbf{0}$ & $Var[\mathbf{U}]=\mathbf{\mathcal{I}}(\theta)$ \ \ {\scriptsize $I_{j,k}=Cov(\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k})=-\mathbb{E}[\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k}]$} \\
+    & {\footnotesize Multiple: $\mathbf{U}(\theta)=[\partial_{\theta_1} \ell(\theta;\mathbf{Y}),...,\partial_{\theta_p} \ell(\theta;\mathbf{Y})]^T\in\mathbb{R}^p$} & $\mathbb{E}[\mathbf{U}]=\mathbf{0}$ & $Var[\mathbf{U}]=\mathbf{\mathcal{I}}(\theta)$ \ \ {\scriptsize $I_{j,k}=-Cov(\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k})=-\mathbb{E}[\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_j},\frac{\partial\ell(\theta,\mathbf{Y})}{\partial\theta_k}]$} \\
     \hline
     \multirow{2}{*}{CLT of U} & \multicolumn{3}{l|}{\footnotesize Single: $U(\theta_0;\mathbf{Y})\sim\mathcal{N}(0,\mathcal{I}(\theta_0))$,{\tiny $n\to\infty$}} \\
     \cline{2-4}
@@ -267,20 +267,31 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \subsection{Approximate Bayesian Inference}
 
-\textbf{Intractable Posterior}: {\footnotesize 算不出具体分布或不conjugate的model. For some models, the posterior distribution is intractable.}
+\textbf{Intractable Posterior}:  Non-Conjugate model. (not analytic, no closed-form)
 
 \textbf{Monte Carlo Methods}: Any func $g(\underline{\theta})$ || $I_g=\int_{\underline{\theta}\in\underline{\Theta}}g(\underline{\theta})p(\underline{\theta}|\mathbf{y})d\underline{\theta}\approx\frac{1}{M}\sum^M_{i=1}g(\underline{\theta}^{(i)})\stackrel{a.s.}{\to}I_g$ \ \ \ $\underline{\theta}^{(i)}\sim p(\underline{\theta}|\mathbf{y}),i=1,...,M$
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Importance Samplimg (IS)}: $^1$ Simulating samples from another distribution $q(\underline{\theta})$ (\textit{Proposal Distribution})
+    \item \textbf{Importance Sampling (IS)}: $^1$ Simulating samples from another distribution $q(\underline{\theta})$ (\textit{Proposal Distribution}) \ \ \ {\scriptsize Consistent, Biased for finite}
     
     \vspace{-5pt}
     {\small $^2w^{(i)}=\frac{\pi(\underline{\theta}^{(i)};\mathbf{y})}{q(\underline{\theta}^{(i)})} \ , \ \pi(\underline{\theta};\mathbf{y})=f(\mathbf{y}|\underline{\theta})p(\underline{\theta})$ \ \ \ $^3$ {\scriptsize IS estimator:} $\widehat{I}^M_g=\sum^M_{i=1}g(\underline{\theta}^{(i)})\overline{w}^{(i)}\stackrel{a.s.}{\to}I_g \ , \ $ {\scriptsize Normalized Weight:} $ \overline{w}^{(i)}=\frac{w^{(i)}}{\sum^M_{j=1}w^{(j)}}$ \ \ \ {\scriptsize $\underline{\theta}^{(i)}\sim q(\underline{\theta})$}} \ \ \ \ {\scriptsize ps: $\sum_{j=1}^{M}\overline{w}^{(j)}=1$}
 
+    {\scriptsize \textit{Remark}:  Choice of $q(\underline{\theta})$ is important. \ || \ $\hat{I}^M_g$ depends on: $^1$\# of $M$; $^2$mismatch between proposal and the integrand of the integral. Good if $q(\underline{\theta})\propto g(\underline{\theta})p(\underline{\theta}|\mathbf{y})$, difficult to achieve.:(}
+
     \item \textbf{Markov Chain Monte Carlo (MCMC)}: {\footnotesize MCMC 算法 通过 Markov Chain 生成样本,使得样本接近服从后验分布.(计算量大)}
 \end{enumerate}
 
-\textbf{Laplace Approximation}: {\footnotesize 用高斯分布来近似后验分布. 适用于后验分布是单峰的情况.}
+\textbf{Laplace Approximation}: {\tiny (最简单的估算posterior的方法)} {\small $p(\underline{\theta}|\mathbf{y})\approx\mathcal{N}(\underline{\theta}_{MAP};H^{-1}(\underline{\theta}_{MAP}))${\tiny 类似MLE的J} \ \ \ $H(\underline{\theta})=-\frac{d^2ln(p(\underline{\theta}|\mathbf{y}))}{d\underline{\theta}^2}$} \ \ \ {\scriptsize (适合$p(\underline{\theta}|\mathbf{y})$接近正态分布的时用)}
+
+\textbf{Variational Inference (VI)}: {\scriptsize $^1$Choose $q(\underline{\theta};\underline{\eta})$, $\underline{\eta}$是$q$的参数. \ \ $^2$选择衡量$p(\underline{\theta}|\mathbf{y}),q(\underline{\theta};\underline{\eta})$差异的方法 e.g.\textbf{KL divergence}: $KL(q(\underline{\theta};\underline{\eta})||p(\underline{\theta}|\mathbf{y}))=\int_{\theta\in\Theta}q(\underline{\theta};\underline{\eta})ln(\frac{q(\theta;\eta)}{p(\theta|\mathbf{y})})d\underline{\theta}$}
+
+\hspace{122pt}{\scriptsize $^3$优化参数(Find parameters to minimise the divergence): $\underline{\eta}^*=\arg\min_{\eta\in\mathcal{A}_\eta}KL(q(\underline{\theta};\underline{\eta})||p(\underline{\theta}|\mathbf{y}))$} \ \ $^4p(\underline{\theta}|\mathbf{y})\approx q(\underline{\theta};\underline{\eta}^*)$
+
+\textbf{Remark}: {\scriptsize Both Laplace Approximation \& Variation Inference approximate $p(\underline{\theta}|\mathbf{y})$ by a parameter family of distributions. || 拉普拉斯是正态分布家族,VI是更普遍的分布家族}
+
+
+\section{Linear Model}
 
 
 \section{Distribution Table} % Distribution Table
@@ -399,8 +410,6 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \textbf{CI}: The set of values (e.g.$\theta$) are not rejected at significance level $\alpha$ under $H_0$. \ \ \ If data are generated under $H_0$, there is a probability $(1-\alpha)$ for the true $\theta_0$ to be within the $(1-\alpha)100\%$ CI.
 
-\textbf{Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
-
 \textbf{Hypothesis Testing}: \ \ \
 \textbf{Steps}: $^1$ State $H_0,H_1$; $^2$ Select Test Statistic $T$; $^3$ distribution of $T$ under $H_0$; $^4$ observed test statistic; $^5$ critical value / region, p-value, or CI; $^6$ conclusion. \ \ \
 \textbf{Reject $H_0$}: We would reject $H_0$ in favour of the $H_1$. (So that ...) \ \ \
@@ -415,5 +424,6 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 \textbf{3}.$T_{LR}$ (Height Comparison): Compares the maximum likelihood value $L(\widehat{\theta})$ and the likelihood value at $\theta_0,L(\theta_0)$. A larger height difference indicates a greater discrepancy between $\widehat{\theta}$ and $\theta_0$ \ \ \ \ \ \ \ \ \
 \textbf{$T_{Score}$,$T_{Wald}$,$T_{LR}$ Other 部分公式可以近似的理由}: This is due to $\widehat{\theta}$ being a consistent estiamtor of $\theta_0$, and $J(\theta_0)$ being a consistent estimator of $\mathcal{I}(\theta_0)$
 
+\textbf{Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
 
 \end{document}
