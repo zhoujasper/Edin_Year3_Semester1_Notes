@@ -64,7 +64,7 @@
 
 % 完成进度: Note 1 / Note 8
 
-\section{ Sup Inf \& Set || Nested Intervals || Sequence \& Bolzano Weierstrass}
+\section{Sup Inf \& Set || Nested Intervals || Sequence \& Bolzano Weierstrass}
 
 \subsection{Supremum and Infimum \& Set}
 
@@ -90,9 +90,61 @@ $\cdot$ \textbf{Property}: Let $(E_n)_{n\in\mathbb{N}}$ be countable sets. \ \ $
 $\cdot$ \textbf{Proeprty}: $^1$If $\lim\lambda(I_n)=0\Rightarrow E=a$ \ \ $^2$\ex If $I_n=[a_n,b_n]$ \ \ $\Rightarrow$ \ \ $E=[\sup a_n,\inf b_n]$
 
 
-\subsection{Sequence \& Bolzano Weierstrass Theorem}
+\subsection{Sequence, Cauchy \& Bolzano Weierstrass Theorem}
 
-\textbf{Monotone Convergent Theorem (MCT)}: $\exists UB$ \ \ $\Rightarrow$ \ \ $\exists\sup$ \ \ \ ; \ \ \ $\exists LB$ \ \ $\Rightarrow$ \ \ $\exists\inf$
+\textbf{Useful Seq Limit}: $\lim \frac{1}{n^p}=0,p>1$ \ ; \ $\lim a^n=0,|a|<1$ \ ; \ $\lim n^\frac{1}{n}=1$ \ ; \ $\lim a^\frac{1}{n}=1,a>0$
+
+\textbf{Operation in Seq Limit}: \textit{Squeeze Theorem} ; \textit{Monotone Convergence Theorem (MCT)} ; $\lim \alpha x_n=\alpha\lim x_n$
+
+$\cdot$ $\lim (x_n + y_n)=\lim x_n + \lim y_n$ ; $\lim x_n \cdot y_n=\lim x_n \cdot \lim y_n$ ; $\lim \frac{x_n}{y_m}=\frac{\lim x_n}{\lim y_n},y_n \ne 0$
+
+\textbf{Comparison Theorem (For Seq)}: If $\lim x_n,y_n$ exist, and $x_n\leq y_n$ for all $n\geq N$ then $\lim x_n\leq\lim y_n.$
+
+\textbf{Cauchy Sequence}: Sequence $(a_n)_{n\in\mathbb{N}}$ is Cauchy iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ |a_n-a_m|<\varepsilon$ for all $m,n\geq N$. \ \ || \ \ \textbf{Convergent $\Leftrightarrow$ Cauchy}
+
+\textbf{Bolzano-Weierstrass Theorem}: Every \textit{bounded sequence} has a \textit{convergent subsequence}.
+
+\textbf{Def of limit superior and inferior}: $\limsup a_n:=\lim(sup_{k\geq n}a_k)$ \ \ || \ \ $\liminf a_n:=\lim(inf_{k\geq n}a_k)$
+
+$\cdot$ \textbf{Property}: If $(a_n)_{n\in\mathbb{N}}$ bounded. \ \ $\Rightarrow$ \ \ \ex$^1\exists (a_{n_k})\to\lim\sup a_n$ {\tiny Hint:$\exists a_{n_k},\sup_{j\geq k}a_j-\frac{1}{k}\leq a_{n_k}\leq\sup_{j\geq k}a_j,\sup_{j\geq n_k}a_j\leq\sup_{j\geq k}a_j$} \ \ \ex$^2\exists (a_{n_k})\to\lim\inf a_n$
+
+\hspace{157pt} \ex $^3\forall a_{n_k}\to a$ $\lim\inf a_n\leq a\leq\lim\sup a_n$
+
+\textbf{Subsequence Theorem}: In each case, the subsequence can be taken to be \textit{monotonic}.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item $\exists a \in \mathbb{R} \ s.t. \ \forall \varepsilon > 0$, there are infinitely many $n \in \mathbb{N} \ \ s.t. \ |x_n - a|<\varepsilon$ {\footnotesize ($\exists$ 聚点a)} \ \ $\Leftrightarrow \ \ \exists$ subsequence of $(x_n) \ s.t. \ \lim\ x_{n_k}=a$
+    \item $(x_n)_{n \in \mathbb{N}}$ is not bounded above (below) $\Leftrightarrow$ \ $\exists$ subsequence of $x_n \ s.t. \ \lim x_{n_k}=\infty \ (-\infty)$
+    \item If $\lim x_n=L \Rightarrow \forall x_{n_k} \ , \lim x_{n_k}=L$
+\end{enumerate}
+
+
+\section{Series || FPM continuous \& differentiable Functions Properties}
+
+\subsection{Series and Its Theorems}
+
+$\cdot$ \textbf{p-Test}: $\sum \frac{1}{n^p}$ convergent iff $p>1$ \ \ \textbf{Root Test} \ \ \textbf{Ratio Test}$_{|n|^{1/n},|n+1/n|}$ \ \ \textbf{Geometric Series}: $\sum p^n$ converges iff $|p|<1$
+
+\textbf{Divergence Test}: If $\lim a_n\ne 0 \Rightarrow \sum a_n$ diverges. \ \ (If $\sum a_n$ convergent $\Rightarrow \lim a_n=0.$)
+
+\textbf{Comparison Test}: If $0<a_n<b_n$, $\sum b_n$ convergent $\Rightarrow \sum a_n$ also ; $\sum a_n$ divergent $\Rightarrow \sum b_n$ also.
+
+$\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L>0 \ \Rightarrow$ If $L\in(0,\infty)$: $\sum a_n$ convergent iff $\sum b_n$ also.
+
+\ \ \  If $L=0 : \sum b_n$ convergent $\Rightarrow \sum a_n$ also. \ \ $L=\infty : \sum b_n$ divergent $\Rightarrow \sum a_n$ also.
+
+\textbf{Integral Test}: Let $f:[1,\infty)\rightarrow\mathbb{R}$ is 非负递减, $a_n=f(n)$. Then $\sum a_n$ converges iff $\int_{1}^{\infty}f(x)dx<\infty.$
+
+\textbf{Absolutely Convergence}: $\sum a_n$ convergent absolutely iff $\sum |a_n|$ convergent. \ \ \textbf{If convergent abs $\Rightarrow$ convergent.}
+
+\textbf{Alternating Series Test}: If $a_n$ decreasing, $a_n\geq 0,\lim a_n = 0$. Then $\sum (-1)^{n-1}a_n$ convergent.
+
+\textbf{Cauchy's Condensation Test}: If $a_n\geq 0,a_n$ decreasing, $\Rightarrow \ [\ \sum a_n convergent \Leftrightarrow \sum 2^na_{2^n} \ also \ ]$
+
+\textbf{Cauchy Criterion for Series}: $\sum^\infty_{k=1}a_k$ converges iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n\geq m\geq N \ |\sum^{n}_{k=m+1}a_k|=|a_{m+1}+\cdots+a_n|<\varepsilon$.
+
+\textbf{Riemann Rearrangement Theorem}: If $\sum^\infty_{k=1}a_k$ is conditionally convergent. $\Rightarrow$ \ $\forall s\in\mathbb{R},\exists$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ \ s.t. $\sum_{n=1}^{\infty}a_{\sigma(n)}=s$.
+
+\textbf{Rearrangement for Abs Series}: If $\sum_{n=1}^{\infty}a_n$ is absolutely convergent. $\Rightarrow$ \ $\forall$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ , $\sum_{n=1}^{\infty}a_{\sigma(n)}=\sum_{n=1}^{\infty}a_n$.
 
 
 \section{Appendix}
@@ -122,50 +174,7 @@ $\cdot$ \textbf{Proeprty}: $^1$If $\lim\lambda(I_n)=0\Rightarrow E=a$ \ \ $^2$\e
 
 $\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
 
-\textbf{Def of limit superior and inferior}: $\limsup a_n:=\lim(sup_{k\geq n}a_k)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\liminf a_n:=\lim(inf_{k\geq n}a_k)$
 
-
-\subsection{Infinite Sequence, Cauchy Sequence and Bolzano-Weierstrass Theorem}
-
-\textbf{Useful Seq Limit}: $\lim \frac{1}{n^p}=0,p>1$ \ ; \ $\lim a^n=0,|a|<1$ \ ; \ $\lim n^\frac{1}{n}=1$ \ ; \ $\lim a^\frac{1}{n}=1,a>0$
-
-\textbf{Subsequence Theorem}: In each case, the subsequence can be taken to be \textit{monotonic}.
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item $\exists a \in \mathbb{R} \ s.t. \ \forall \varepsilon > 0$, there are infinitely many $n \in \mathbb{N} \ \ s.t. \ |x_n - a|<\varepsilon$ {\footnotesize ($\exists$ 聚点a)} \ \ $\Leftrightarrow \ \ \exists$ subsequence of $(x_n) \ s.t. \ \lim\ x_{n_k}=a$
-    \item $(x_n)_{n \in \mathbb{N}}$ is not bounded above (below) $\Leftrightarrow$ \ $\exists$ subsequence of $x_n \ s.t. \ \lim x_{n_k}=\infty \ (-\infty)$
-    \item If $\lim x_n=L \Rightarrow \forall x_{n_k} \ , \lim x_{n_k}=L$
-\end{enumerate}
-
-\textbf{Cauchy Sequence}: Sequence $(a_n)_{n\in\mathbb{N}}$ is Cauchy iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ |a_n-a_m|<\varepsilon$ for all $m,n\geq N$. \ \ \ \ $\cdot$ \textbf{Convergent $\Leftrightarrow$ Cauchy}
-
-\textbf{Bolzano-Weierstrass Theorem}: Every \textit{bounded sequence} has a \textit{convergent subsequence}. {\scriptsize ps: In real number.}
-
-
-\subsection{Infinite Series and their theorems}
-
-$\cdot$ \textbf{p-Test}: $\sum \frac{1}{n^p}$ convergent iff $p>1$ \ \ \textbf{Root Test} \ \ \textbf{Ratio Test}$_{|n|^{1/n},|n+1/n|}$ \ \ \textbf{Geometric Series}: $\sum p^n$ converges iff $|p|<1$
-
-\textbf{Divergence Test}: If $\lim a_n\ne 0 \Rightarrow \sum a_n$ diverges. \ \ (If $\sum a_n$ convergent $\Rightarrow \lim a_n=0.$)
-
-\textbf{Comparison Test}: If $0<a_n<b_n$, $\sum b_n$ convergent $\Rightarrow \sum a_n$ also ; $\sum a_n$ divergent $\Rightarrow \sum b_n$ also.
-
-$\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L>0 \ \Rightarrow$ If $L\in(0,\infty)$: $\sum a_n$ convergent iff $\sum b_n$ also.
-
-\ \ \  If $L=0 : \sum b_n$ convergent $\Rightarrow \sum a_n$ also. \ \ $L=\infty : \sum b_n$ divergent $\Rightarrow \sum a_n$ also.
-
-\textbf{Integral Test}: Let $f:[1,\infty)\rightarrow\mathbb{R}$ is 非负递减, $a_n=f(n)$. Then $\sum a_n$ converges iff $\int_{1}^{\infty}f(x)dx<\infty.$
-
-\textbf{Absolutely Convergence}: $\sum a_n$ convergent absolutely iff $\sum |a_n|$ convergent. \ \ \textbf{If convergent abs $\Rightarrow$ convergent.}
-
-\textbf{Alternating Series Test}: If $a_n$ decreasing, $a_n\geq 0,\lim a_n = 0$. Then $\sum (-1)^{n-1}a_n$ convergent.
-
-\textbf{Cauchy's Condensation Test}: If $a_n\geq 0,a_n$ decreasing, $\Rightarrow \ [\ \sum a_n convergent \Leftrightarrow \sum 2^na_{2^n} \ also \ ]$
-
-\textbf{Cauchy Criterion for Series}: $\sum^\infty_{k=1}a_k$ converges iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n\geq m\geq N \ |\sum^{n}_{k=m+1}a_k|=|a_{m+1}+\cdots+a_n|<\varepsilon$.
-
-\textbf{Riemann Rearrangement Theorem}: If $\sum^\infty_{k=1}a_k$ is conditionally convergent. $\Rightarrow$ \ $\forall s\in\mathbb{R},\exists$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ \ s.t. $\sum_{n=1}^{\infty}a_{\sigma(n)}=s$.
-
-\textbf{Rearrangement for Abs Series}: If $\sum_{n=1}^{\infty}a_n$ is absolutely convergent. $\Rightarrow$ \ $\forall$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ , $\sum_{n=1}^{\infty}a_{\sigma(n)}=\sum_{n=1}^{\infty}a_n$.
 
 
 \subsection{Continuous, differentiable functions and their theorems}

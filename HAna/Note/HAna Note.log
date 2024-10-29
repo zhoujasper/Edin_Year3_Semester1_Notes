@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  29 OCT 2024 22:13
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  29 OCT 2024 22:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -775,40 +775,21 @@ LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
 (Font)              scaled to size 7.00075pt on input line 77.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 77.
+ [1
 
-./HAna Note.tex:105: Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.105 ...2}{l|}np$1-cos(x)<|x|$ {\tiny Hint: MVT}}
-                                                   \\
-I'm guessing that you meant to end an alignment here.
+]
+LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
+(Font)              scaled to size 9.00096pt on input line 198.
+LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
+(Font)              scaled to size 8.99904pt on input line 198.
+ [2] [3] [4] (./HAna Note.aux) ) 
+Here is how much of TeX's memory you used:
+ 13742 strings out of 476683
+ 302069 string characters out of 5795227
+ 1904012 words of memory out of 5000000
+ 33772 multiletter control sequences out of 15000+600000
+ 521291 words of font info for 139 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 89i,12n,114p,367b,396s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-./HAna Note.tex:106: Misplaced \cr.
-\reserved@c ->\ifnum 0=`{}\fi \cr 
-                                  
-l.106     \hline
-                
-I can't figure out why you would want to use a tab mark
-or \cr or \span just now. If something like a right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-./HAna Note.tex:106: Misplaced \noalign.
-\hline ->\noalign 
-                  {\ifnum 0=`}\fi \penalty \@M \futurelet \@let@token \LT@@h...
-l.106     \hline
-                
-I expect to see \noalign only after the \cr of
-an alignment. Proceed, and I'll ignore this case.
-
-./HAna Note.tex:107: Misplaced \omit.
-\multispan ->\omit 
-                   \@multispan 
-l.107 \end
-          {longtable}
-I expect to see \omit only after tab marks or the \cr of
-an alignment. Proceed, and I'll ignore this case.
-
-./HAna Note.tex:107: Misplaced \span.
-\sp@n ->\span 
+Output written on HAna Note.pdf (4 pages).
