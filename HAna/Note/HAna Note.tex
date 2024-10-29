@@ -280,6 +280,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
     \item \textbf{$\cap$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Can Infinite) \ \ \ \ \ \ $\cap_{F\in\mathcal{F}}F$ is open.
     \item \textbf{Find Closed Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)\leq\lambda \ (or\geq\lambda) \ (or =\lambda) \ \}$ is closed.
     \item \textbf{Unbounded$\to\cup$Bounded}: Any closed set $F$ $\to$ countable union of \textit{bounded} closed intervals. \ \ \ {\footnotesize (Hint: $K_n=F\cap[-n,n]$)}
+    \item \textbf{Sequencially Closed}: If $F$ is closed set, \ \ $\Leftrightarrow$ \ \ $\forall(x_n)_{n\in\mathbb{N}}\in F$ convergent. $x=\lim x_n\in F$
 \end{enumerate}
 
 \textbf{Property|Open \& Closed Set}: Let $E$ be open set, $F$ be closed set.
@@ -288,8 +289,6 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
     \item Only $\emptyset$ and $\mathbb{R}$ are both open and closed.
     \item $\forall (E_n)_{n\in\mathbb{N}}$ \ \ $\Rightarrow$ \ \ $\exists$ disjoint $(F_n)_{n\in\mathbb{N}}$ s.t. $E_n\subseteq F_n$ and $\cup F_n=\cup E_n$. \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus\cup^{n-1}_{i=1}F_i$)}
 \end{enumerate}
-
-\textbf{Theorem}: If $F$ is closed set, \ \ $\Leftrightarrow$ \ \ $\forall(x_n)_{n\in\mathbb{N}}\in F$ convergent. $x=\lim x_n\in F$
 
 
 \subsection{Lebesgue Outer Measures}
@@ -301,7 +300,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 $\cdot$ \textbf{Remark}: If it's impossible to find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$ \ \ \ \ \ \ || \ \ \ \ \ \ Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Lebesgue Outer Measure (Version 2)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
+    \item \textbf{Lebesgue Outer Measure (Open)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
     \item \textbf{Lebesgue Outer Measure (Interval)}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
     \item \textbf{Useful Tool|By def}: $\forall E,\exists$ open interval $(I_n)_{n\in\mathbb{N}}$ s.t. $E\subseteq \cup I_n$ and $\sum\lambda(I_n)<m^*(E)+\varepsilon$
     \item \textbf{Useful Tool|By def}: $\forall E,\exists$ open set $U$ s.t. $E\subseteq U$ and $m^*(U)<m^*(E)+\varepsilon$
@@ -367,7 +366,7 @@ $\cdot$ \textbf{Property}: \textit{$\star$ All properties of Lebesgue Outer Meas
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Increasing$\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
-    \item \textbf{decreasing$\downarrow$}: If $E_{n+1}\subseteq E_n$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus E,E=\cap E_n$)}
+    \item \textbf{decreasing$\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus E,E=\cap E_n$)}
 \end{enumerate}
 
 

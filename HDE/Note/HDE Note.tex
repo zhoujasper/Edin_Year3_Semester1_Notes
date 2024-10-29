@@ -313,6 +313,8 @@ $\cdot$ Property: If $f,g$ has same period $T$. \ $\Rightarrow$ \ $af(x)+bg(x)$ 
 
 \textbf{Eigenvalues \& Eigenfunctions}: If $D$ is a \textit{differential operator} \ $\Rightarrow$ \ If $Df=\lambda f$, then $\lambda$ is \textbf{Eigenvalue} and $f$ is \textbf{Eigenfunctions}
 
+$\cdot$ \textbf{Property}: {\footnotesize 对于微分方程: $Df=\lambda f$ \ \ $\Rightarrow$ \ \ solution: $f=\sum c_nf_n$ \ \ $f_n$ are Eigenfunctions}
+
 \textbf{Inner Product}: $(f,g) =\int^b_{a}f(x)\overline{g(x)}dx$ \ \ \ \ \ \ For funcs $f,g$ in $(a,b)$ \ \ \ \ || \ \ \ \ \textbf{Orthogonal}: $(f,g)=0$ \ \ \ \ || \ \ \ \ \textbf{Square Norm}: $(f,f)$.
 
 % $\cdot$ Speical Case: Let $C_n=cos(\frac{n\pi x}{L}),S_n=sin(\frac{n\pi x}{L})$. \ \ $\Rightarrow$ \ \ $(S_n,S_m)=(C_n,C_m)=L\delta_{mn}$ and $(S_n,C_m)=(C_m,S_n)=0$. \ \ \ \ {\footnotesize $n=1,2,...$, in $[-L,L]$}
@@ -347,6 +349,8 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 
 \textbf{Extension of a function}: {\scriptsize $f(x)$ know for $x\in[0,L]$ \ \ $\Rightarrow$ \ \ Even Ext.: $h(x)=\{f(x),[0,L]; \ f(-x),(-L,0)$ \ || \ Odd Ext.: $h(x)=\{f(x),(0,L); \ 0,x=\pm L,0; \ -f(-x),(-L,0)$}
 
+\hspace{110pt} {\small Even Extension: $a_n=\frac{2}{L}\int^L_0f(x)cos(\frac{n\pi x}{L})dx,b_n=0$ \ \ \ \ \ \ || \ \ \ \ \ \ Odd Extension: $b_n=\frac{2}{L}\int^L_0f(x)sin(\frac{n\pi x}{L})dx,a_n=0$}
+
 \textbf{Complex Form of Fourier Series}: {\small $f(x)=\sum_{-\infty}^{\infty}c_ne^{\frac{i \ n\pi x}{L}}$} \ \ || \ \ {\footnotesize $c_n=\frac{a_n-ib_n}{2};c_{-n}=\frac{a_n+ib_n}{2};c_0=\frac{a_0}{2},n>0$ \ \ || \ \ $a_0=2c_0;a_n=c_n+c_{-n};b_n=i(c_n-c_{-n})$}
 
 \textbf{Euler-Fourier Formula (Complex)}: {\small If ($\Uparrow$) of Periodic $f,(T=2L)$ converges in $[-L,L]$ \ \ $\Rightarrow$ \ \ $c_n=\frac{1}{2L}\int_{-L}^{L}f(x)e^{-\frac{i \ n\pi x}{L}}$} \ || \ $c_{-n}=\overline{c_n}$ if $f$ real.
@@ -354,6 +358,19 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 \textbf{Parseval's Theorem}: If $^1$ Periodic function $f$; $^2$ $f$ has convergent Fourier Series. 
 
 \hspace{93pt} {\small $\Rightarrow$ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$} \ \ \ {\footnotesize ps: 无限维的勾股定理}
+
+
+\section{Linear $2nd$ Order PDEs by Separation of Variables}
+
+\textbf{Requirement}: Suppose $u(x,t)=X(x)T(t)$! \ \ \ \ \ \ $\Rightarrow$ \ \ \ \ \ \ {\footnotesize 如果 PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$, $\lambda$ 是 Seperation Constant.}
+
+{\small \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$}
+
+\textbf{Basic Idea|Homo}: {\footnotesize 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
+
+\hspace{81pt} {\footnotesize 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
+
+\textbf{Basic Idea|Inhomo}: {\footnotesize 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
 
 
 \section{Appendix}
