@@ -269,8 +269,18 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \textbf{Intractable Posterior}: {\footnotesize 算不出具体分布或不conjugate的model. For some models, the posterior distribution is intractable.}
 
-\textbf{Monte Carlo Methods}: Any func $g(\underline{\theta})$ || $I_g=\int_{\underline{\theta}\in\underline{\Theta}}g(\underline{\theta})p(\underline{\theta}|\mathbf{y})d\underline{\theta}\approx\frac{1}{M}\sum^M_{i=1}g(\underline{\theta}^{(i)})$ \ \ \ $\underline{\theta}^{(i)}\sim p(\underline{\theta}|\mathbf{y}),i=1,...,M$ \ \ \ {\tiny (通过随机采样来逼近积分结果)}
+\textbf{Monte Carlo Methods}: Any func $g(\underline{\theta})$ || $I_g=\int_{\underline{\theta}\in\underline{\Theta}}g(\underline{\theta})p(\underline{\theta}|\mathbf{y})d\underline{\theta}\approx\frac{1}{M}\sum^M_{i=1}g(\underline{\theta}^{(i)})\stackrel{a.s.}{\to}I_g$ \ \ \ $\underline{\theta}^{(i)}\sim p(\underline{\theta}|\mathbf{y}),i=1,...,M$
 
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Importance Samplimg (IS)}: $^1$ Simulating samples from another distribution $q(\underline{\theta})$ (\textit{Proposal Distribution})
+    
+    \vspace{-5pt}
+    {\small $^2w^{(i)}=\frac{\pi(\underline{\theta}^{(i)};\mathbf{y})}{q(\underline{\theta}^{(i)})} \ , \ \pi(\underline{\theta};\mathbf{y})=f(\mathbf{y}|\underline{\theta})p(\underline{\theta})$ \ \ \ $^3$ {\scriptsize IS estimator:} $\widehat{I}^M_g=\sum^M_{i=1}g(\underline{\theta}^{(i)})\overline{w}^{(i)}\stackrel{a.s.}{\to}I_g \ , \ $ {\scriptsize Normalized Weight:} $ \overline{w}^{(i)}=\frac{w^{(i)}}{\sum^M_{j=1}w^{(j)}}$ \ \ \ {\scriptsize $\underline{\theta}^{(i)}\sim q(\underline{\theta})$}} \ \ \ \ {\scriptsize ps: $\sum_{j=1}^{M}\overline{w}^{(j)}=1$}
+
+    \item \textbf{Markov Chain Monte Carlo (MCMC)}: {\footnotesize MCMC 算法 通过 Markov Chain 生成样本,使得样本接近服从后验分布.(计算量大)}
+\end{enumerate}
+
+\textbf{Laplace Approximation}: {\footnotesize 用高斯分布来近似后验分布. 适用于后验分布是单峰的情况.}
 
 
 \section{Distribution Table} % Distribution Table
