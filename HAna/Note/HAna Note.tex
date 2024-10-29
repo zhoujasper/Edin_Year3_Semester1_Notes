@@ -41,6 +41,9 @@
 \usepackage{titling}
 \setlength{\droptitle}{-2.4cm} % 负值表示向上移动
 
+\newcommand{\ex}{{\tiny $^{^{^\oplus}}$}}
+\newcommand{\np}{{\tiny $^{^{^\ominus}}$}}
+
 % 设置标题，作者，时间
 \title{HAna Note}
 \author{}
@@ -59,32 +62,67 @@
 \fontsize{10pt}{11pt}\selectfont
 \setlength{\parindent}{0pt}
 
+% 完成进度: Note 1 / Note 8
+
+\section{ Sup Inf \& Set || Nested Intervals || Sequence \& Bolzano Weierstrass}
+
+\subsection{Supremum and Infimum \& Set}
+
+\textbf{Completeness Axiom}: If $\exists$ UP $\Rightarrow$ LUB (sup) ; If $\exists$ LB $\Rightarrow$ GLB (inf). \hspace{20pt} \textbf{Archimedean Property}: $\forall x \in \mathbb{R}^+ \Rightarrow \exists n\in \mathbb{N} \ s.t. \ n>x.$
+
+\textbf{Countable Set}: A set $E$ is countable if $\exists$ bijection $f:\mathbb{N}\to E$.
+
+$\cdot$ \textbf{Property}: Let $(E_n)_{n\in\mathbb{N}}$ be countable sets. \ \ $\Rightarrow$ \ \ $^1\bigcup E_n$ is countable. (Can infinite) \ \ $^2\prod E_n$ is countable. (Finite) \ \ $^3[0,1]$ uncountable.
+
+\ex\textbf{Dense Set}: Set $A$ is dense in $\mathbb{R}$ iff $\forall x\in\mathbb{R},\forall\varepsilon>0 \  \ \exists a\in A$ s.t. $|x-a|<\varepsilon$ \ \ \ \ \ \ {\scriptsize e.g.\ex $\mathbb{Q}$ is dense in $\mathbb{R}$}
+
+\ex\textbf{Power Set $\mathcal{P}$}: $P(E)$ is the set of all subsets of $E$. \ \ \ \ \ \ \ \ \ ps: $\mathcal{P}(\mathbb{R})$ is the set of all subsets of $\mathbb{R}$.
+
+
+\subsection{Nested Intervals}
+
+\textbf{Def of $\lambda(I)$}: Let $I$ be an interval. $\lambda(I):=\sup I - \inf I$ \ \ || \ \ $\lambda((a,b))=\lambda([a,b))=\lambda((a,b])=\lambda([a,b])=b-a$.
+
+\textbf{Nested Intervals}: Sequence $(I_n)_{n\in\mathbb{N}}$ is nested if $I_n\supseteq I_{n+1}$ ($\downarrow$) for all $n\in\mathbb{N}$.
+
+\textbf{Nested Interval Theorem}: If $(I_n)_{n\in\mathbb{N}}$ is nested \textit{closed bounded} interval sequence $\Rightarrow$ $E:=\bigcap I_n\ne\emptyset$.
+
+$\cdot$ \textbf{Proeprty}: $^1$If $\lim\lambda(I_n)=0\Rightarrow E=a$ \ \ $^2$\ex If $I_n=[a_n,b_n]$ \ \ $\Rightarrow$ \ \ $E=[\sup a_n,\inf b_n]$
+
+
+\subsection{Sequence \& Bolzano Weierstrass Theorem}
+
+\textbf{Monotone Convergent Theorem (MCT)}: $\exists UB$ \ \ $\Rightarrow$ \ \ $\exists\sup$ \ \ \ ; \ \ \ $\exists LB$ \ \ $\Rightarrow$ \ \ $\exists\inf$
+
+
+\section{Appendix}
+
+\textbf{Inequation}: \textit{Useful Property}: If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$
+\vspace{-10pt}
+\begin{longtable}{|l||l|l|l|l|}
+    \hline
+    \textbf{Triangular} & $|x+y|\leq|x|+|y|$ & $|x-y|\geq|x|-|y|$ & \multicolumn{2}{l|}{$||x|-|y|| \leq|x \pm y|.$} \\
+    \hline
+    \textbf{AM-GM \& Cauchy} & $a+b\geq2\sqrt{ab},a>0,b>0$ & $a^2+b^2\geq2ab$ & \multicolumn{2}{l|}{$(\sum a_nb_n)^2\leq\sum a^2_n\sum b^2_n$} \\
+    \hline
+    \textbf{Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
+    \hline
+    \textbf{\footnotesize 常见变换技巧} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
+    \hline
+\end{longtable}
+\vspace{-10pt}
+
+\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
+\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
+\textbf{Old}
 
 \section{Basic Knowledge \& FPM} % Basic Knowledge
 
 \subsection{Definitions, Useful Tools \& Nested Intervals}
 
-\textbf{Def of $\lambda(I)$}: $\lambda((a,b))=\lambda([a,b))=\lambda((a,b])=\lambda([a,b])=b-a$. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
+$\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
 
 \textbf{Def of limit superior and inferior}: $\limsup a_n:=\lim(sup_{k\geq n}a_k)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\liminf a_n:=\lim(inf_{k\geq n}a_k)$
-
-\textbf{Important Inequation}: {\small $|x+y|\leq|x|+|y|$ \ \ \ || \ \ \ $|x-y|\geq|x|-|y|$ \ \ \ || \ \ \ $||x|-|y|| \leq|x \pm y|.$}
-
-\hspace{103pt} {\small $|sin(x)|\leq |x|$ {\tiny Hint:By MVT} \ \ \ || \ \ \ $ln(x)<x,x>0$ {\tiny (Hint: MVT)} \ \ \ || \ \ \ $1-cos(x)<|x|$ {\tiny (Hint: MVT)}}
-
-\textbf{Bernoulli's Inequality}: If $\alpha>0,\delta\geq-1$. Then $(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty)$
-
-\textbf{Def of Nested Interval}: Sequence $(I_n)_{n\in\mathbb{N}}$ is nested if $I_n\supseteq I_{n+1}$ for all $n\in\mathbb{N}$. \ \ \ \ \ $\cdot$ \textbf{MCT}: $UB\Rightarrow sup$ ; $LB\Rightarrow inf$.
-
-\textbf{Nested Interval Theorem}: If $(I_n)_{n\in\mathbb{N}}$ is nested closed bounded interval sequence $\Rightarrow$ $E:=\cap_nI_n\ne\emptyset$. \ \ \ \ {\small If $\lim\lambda(I_n)=0\Rightarrow E=a,a\in\mathbb{R}$ }
-
-\textbf{Power Set $\mathcal{P}$}: $P(E)$ is the set of all subsets of $E$. \ \ \ \ \ \ \ \ \ ps: $\mathcal{P}(\mathbb{R})$ is the set of all subsets of $\mathbb{R}$.
-
-\textbf{Countable Set}: A set $E$ is countable if $\exists$ bijection $f:\mathbb{N}\to E$.
-
-$\cdot$ Properties: {\footnotesize \textbf{1}. Countable union of countable sets is countable. \ \ \ \textbf{2}. Product of finite countable sets is countable. \ \ \ \textbf{3}. Addition of finite countable sets is countable.}
-
-$\cdot$ \textbf{Exmaple}: $[0,1]$ is uncountable.
 
 
 \subsection{Infinite Sequence, Cauchy Sequence and Bolzano-Weierstrass Theorem}
