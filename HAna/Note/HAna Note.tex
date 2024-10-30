@@ -33,7 +33,7 @@
 
 % 设置 section/subsection 之间的行间距
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{0pt}{0pt}
+\titlespacing*{\section}{0pt}{0pt}{-3pt}
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
 \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
@@ -118,11 +118,11 @@ $\cdot$ \textbf{Property}: If $(a_n)_{n\in\mathbb{N}}$ bounded. \ \ $\Rightarrow
 \end{enumerate}
 
 
-\section{Series || FPM continuous \& differentiable Functions Properties}
+\section{Series}
 
-\subsection{Series and Its Theorems}
+\textbf{Cauchy Criterion for Series}: $\sum^\infty_{k=1}a_k$ converges \ \ $\Leftrightarrow$ \ \ $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n\geq m\geq N \ |\sum^{n}_{k=m+1}a_k|=|a_{m+1}+\cdots+a_n|<\varepsilon$.
 
-$\cdot$ \textbf{p-Test}: $\sum \frac{1}{n^p}$ convergent iff $p>1$ \ \ \textbf{Root Test} \ \ \textbf{Ratio Test}$_{|n|^{1/n},|n+1/n|}$ \ \ \textbf{Geometric Series}: $\sum p^n$ converges iff $|p|<1$
+\textbf{p-Test}: $\sum \frac{1}{n^p}$ convergent iff $p>1$ \ \ \textbf{Root Test} \ \ \textbf{Ratio Test}$_{|n|^{1/n},|n+1/n|}$ \ \ \textbf{Geometric Series}: $\sum p^n$ converges iff $|p|<1$
 
 \textbf{Divergence Test}: If $\lim a_n\ne 0 \Rightarrow \sum a_n$ diverges. \ \ (If $\sum a_n$ convergent $\Rightarrow \lim a_n=0.$)
 
@@ -140,11 +140,57 @@ $\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L
 
 \textbf{Cauchy's Condensation Test}: If $a_n\geq 0,a_n$ decreasing, $\Rightarrow \ [\ \sum a_n convergent \Leftrightarrow \sum 2^na_{2^n} \ also \ ]$
 
-\textbf{Cauchy Criterion for Series}: $\sum^\infty_{k=1}a_k$ converges iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n\geq m\geq N \ |\sum^{n}_{k=m+1}a_k|=|a_{m+1}+\cdots+a_n|<\varepsilon$.
-
 \textbf{Riemann Rearrangement Theorem}: If $\sum^\infty_{k=1}a_k$ is conditionally convergent. $\Rightarrow$ \ $\forall s\in\mathbb{R},\exists$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ \ s.t. $\sum_{n=1}^{\infty}a_{\sigma(n)}=s$.
 
 \textbf{Rearrangement for Abs Series}: If $\sum_{n=1}^{\infty}a_n$ is absolutely convergent. $\Rightarrow$ \ $\forall$ bijection $\sigma:\mathbb{N}\to\mathbb{N}$ , $\sum_{n=1}^{\infty}a_{\sigma(n)}=\sum_{n=1}^{\infty}a_n$.
+
+
+\section{Continuous \& Differentiable Functions Properties}
+
+\textbf{Def of lim of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. 0<|x-x_0|<\delta, \Rightarrow |f(x)-L|<\varepsilon.$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{2}.$\forall x_n\ne x_0 \ s.t. \lim (x_n)=x_0, then \ \lim f(x_n)=L$.}
+
+\textbf{Def of cont of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. \ \forall x,|x-x_0|<\delta \ \Rightarrow |f(x)-f(x_0)|<\varepsilon.$ \ \ \textbf{2}.$\forall (x_n)_{n\in \mathbb{N}}$,$if \ \lim x_n = x_0 \ \Rightarrow \lim f(x_n)=f(x_0)$}
+
+\textbf{Def of diffi}: {\scriptsize \textbf{1}.$f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}$ \ \ \ \textbf{2}.$f'(a)=\lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}$.}
+
+\textbf{The Extreme Value Theorem (EVT)}: If $f:[a,b]\to\mathbb{R}$ is continuous, then $f$ has a max and min value.
+
+\textbf{Intermediate Value Theorem (IVT)}: $f:[a,b]\to\mathbb{R}$ is continuo,$f(a)\ne f(b)$, $y\in[f(a),f(b)]$.$\Rightarrow \exists c\in(a,b) \ s.t. f(c)=y$
+
+\textbf{IVT (for deriv) / (Darboux Theorem)}: If $f$ differentiable in $I$ $\Rightarrow\forall m\in(f'(a),f'(b))$ we have: $\exists c$ s.t. $f'(c)=m$
+
+\textbf{Rolle's Theorem}: If $f$ continuous on $[a,b]$, differentiable on $(a,b)$ and $f(a)=f(b)$ \ \ Then: $\exists c\in(a,b)$ s.t. $f'(c)=0$
+
+\textbf{Mean Value Theorem (MVT)}: Let $f,g$ continuous on $[a,b]$ and differentiable on $(a,b)$: \ \ \ {\scriptsize ps: a=b时依然成立}
+
+$\cdot$ {\small \textbf{1}.$\exists c\in(a,b)$ s.t. $\frac{f(b)-f(a)}{b-a}=f'(c)$ \ \ \ \textbf{2}. $\exists c\in(a,b)$ s.t. $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$}
+
+\textbf{Theorem}: If $f$ is 1-1 and continuous $\Rightarrow$ f is strictly monotone. \ \ \ and $f^{-1}$ is continuous and strictly monotone.
+
+\textbf{Inverse Function Theorem}: Let $f$ differentiable in $I$ (open interval), and $\forall x,f'(x)\ne 0$:
+
+$\cdot$ \textbf{1.} $f(I)$ is open interval. \ \ \ \ \ \textbf{2.} $f$ is invertible. \ \ \ \ \ \textbf{3.} $f^{-1}$ is differentiable and $(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}$
+
+\textbf{Second Deriv Test}: $f$ twice continuously differentiable in $I$,$f'(x_0)=0$: \textbf{1.} $f''(x_0)>0$ $(<0)$ local min (max) point.
+
+
+\section{Pointwise \& Uniformly Convergence}
+
+\subsection{Pointwise Convergence}
+
+\textbf{Pointwise Convergence}: Let $(f_n)_{n\in\mathbb{N}}$ be a sequence of functions. $f_n:E\to\mathbb{R}$ converge pointwise to $f:E\to\mathbb{R}$ if: \ \ {\scriptsize 不加说明默认pointwise}
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Version 1}: $\forall x\in E,\forall\varepsilon>0,\exists N_{\varepsilon,x} \ s.t. \ \forall n>N \ |f_n(x)-f(x)|<\varepsilon$
+    \item \textbf{Version 2}: $\forall x\in E,\lim f_n(x)$ exists and $\lim f_n(x)=f(x)$
+\end{enumerate}
+
+\textbf{pointwise convergence do NOT preserve}: \textit{continuity}, \ \ \textit{differentiability}, \ \ $(\lim f_n)'\ne\lim f'_n$, \ \ $\int\lim f_n\ne\lim\int f_n$
+
+$\cdot$ Corresponding Counterexamples: $^1$
+
+
+\subsection{Uniformly Convergence}
 
 
 \section{Appendix}
@@ -159,14 +205,37 @@ $\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L
     \hline
     \textbf{Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
     \hline
-    \textbf{\footnotesize 常见变换技巧} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
+    \textbf{\footnotesize 常见变换技巧1} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
+    \hline
+    \textbf{\footnotesize 常见变换技巧2} & \np$\frac{1}{k}\leq ln(x)-ln(x-1)$ {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} &  & \multicolumn{2}{l|}{} \\
     \hline
 \end{longtable}
 \vspace{-10pt}
 
+\ex\textbf{和差化积/积化和差}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$} \ {\tiny Hint: 和差角公式相加减}
+
+\textbf{Hyperbolic Function}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
+
+\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
+
+\textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
+
+\hspace{65pt} {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \hspace{18pt} $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
+
+\textbf{Interchanging the Order of Summation}: $\sum_{n=1}^{p}\sum_{m=1}^{q}f(n,m)=\sum_{m=1}^{q}\sum_{n=1}^{p}f(n,m)$ \ \ \ \ \ \ || \ex $\sum_{k=0}^{n}\sum_{i=0}^{k}=\sum_{i=0}^{k}\sum_{k=i}^{n}$ {\tiny Hint: 列出来看or画图}
+
+\ex\textbf{Summation By Parts}: $\sum_{k=1}^{n}a_k(b_{k+1}-b_k)=(a_{n+1}b_{n+1}-a_1b_1)-\sum_{k=1}^{n}(a_{k+1}-a_k)b_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$
+
+\hspace{102pt} $\Rightarrow$ $\sum_{k=1}^{n}a_kb_k=a_{n+1}\sigma_{n+1}-\sum_{k=1}^{n}(a_{k+1}-a_k)\sigma_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$ \ \ \ $\sigma_k:=\sum_{j=1}^{k-1}b_j$
+
+
+
 \noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
 \noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
 \textbf{Old}
+
+
+
 
 \section{Basic Knowledge \& FPM} % Basic Knowledge
 
@@ -174,45 +243,6 @@ $\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L
 
 $\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
 
-
-
-
-\subsection{Continuous, differentiable functions and their theorems}
-
-\textbf{Def of lim of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. 0<|x-x_0|<\delta, \Rightarrow |f(x)-L|<\varepsilon.$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{2}.$\forall x_n\ne x_0 \ s.t. \lim (x_n)=x_0, then \ \lim f(x_n)=L$.}
-
-\textbf{Def of cont of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. \ \forall x,|x-x_0|<\delta \ \Rightarrow |f(x)-f(x_0)|<\varepsilon.$ \ \ \textbf{2}.$\forall (x_n)_{n\in \mathbb{N}}$,$if \ \lim x_n = x_0 \ \Rightarrow \lim f(x_n)=f(x_0)$}
-
-\textbf{Def of diffi}: {\scriptsize \textbf{1}.$f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}$ \ \ \ \textbf{2}.$f'(a)=\lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}$.}
-
-\textbf{The Extreme Value Theorem}: If $f:[a,b]\to\mathbb{R}$ is continuous, then $f$ has a max and min value.
-
-\textbf{Intermediate Value Theorem}: $f:[a,b]\to\mathbb{R}$ is continuo,$f(a)\ne f(b)$, $y\in[f(a),f(b)]$.$\Rightarrow \exists c\in(a,b) \ s.t. f(c)=y$
-
-\textbf{IVT (for deriv) / (Darboux Theorem)}: If $f$ differentiable in $I$ $\Rightarrow\forall m\in(f'(a),f'(b))$ we have: $\exists c$ s.t. $f'(c)=m$
-
-\textbf{Rolle's Theorem}: If $f$ continuous on $[a,b]$, differentiable on $(a,b)$ and $f(a)=f(b)$ \ \ Then: $\exists c\in(a,b)$ s.t. $f'(c)=0$
-
-\textbf{Mean Value Theorem}: Let $f,g$ continuous on $[a,b]$ and differentiable on $(a,b)$: \ \ \ {\scriptsize ps: a=b时依然成立}
-
-$\cdot$ {\small \textbf{1}.$\exists c\in(a,b)$ s.t. $\frac{f(b)-f(a)}{b-a}=f'(c)$ \ \ \ \textbf{2}. $\exists c\in(a,b)$ s.t. $\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(c)}{g'(c)}$}
-
-\textbf{Theorem}: If $f$ is 1-1 and continuous $\Rightarrow$ f is strictly monotone. \ \ \ and $f^{-1}$ is continuous and strictly monotone.
-
-\textbf{Inverse Function Theorem}: Let $f$ differentiable in $I$ (open interval), and $\forall x,f'(x)\ne 0$:
-
-$\cdot$ \textbf{1.} $f(I)$ is open interval. \ \ \ \ \ \textbf{2.} $f$ is invertible. \ \ \ \ \ \textbf{3.} $f^{-1}$ is differentiable and $(f^{-1})'(y)=\frac{1}{f'(f^{-1}(y))}$
-
-\textbf{Second Deriv Test}: $f$ twice continuously differentiable in $I$,$f'(x_0)=0$: \textbf{1.} $f''(x_0)>0$ $(<0)$ local min (max) point.
-
-
-\section{Uniformly \& Pointwise Convergence}
-
-\subsection{Pointwise Convergence}
-
-\textbf{Def of Pointwise Convergence}: {\scriptsize \textbf{1}.$f_n:E\to\mathbb{R}$ converge pointwise iff $\forall x\in E,\forall\varepsilon>0,\exists N_{\varepsilon,x} \ s.t. \ \forall n>N \ |f_n(x)-f(x)|<\varepsilon$ \ \ \textbf{2}.$\forall x\in E,\lim f_n(x)$ exists \ \ \textbf{3}.$f(x)=\lim f_n(x)$}
-
-$\cdot$ pointwise convergence do NOT preserve: \ continuity, differentiability, {\small $(\lim f_n)'\ne\lim f'_n$, $\int\lim f_n\ne\lim\int f_n$}
 
 
 \subsection{Uniformly Convergence}
@@ -423,21 +453,11 @@ $\cdot$ Example:
 
 \section{Appendix}
 
-\textbf{Trigonometric func}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$}
 
-\textbf{hyperbolic func}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
 
-\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
 
-\textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
-
-$\cdot$  {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
 
 $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ || $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
-
-\textbf{Summation By Parts}: $\sum_{k=1}^{n}a_k(b_{k+1}-b_k)=(a_{n+1}b_{n+1}-a_1b_1)-\sum_{k=1}^{n}(a_{k+1}-a_k)b_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$
-
-\hspace{98pt} $\Rightarrow$ $\sum_{k=1}^{n}a_kb_k=a_{n+1}\sigma_{n+1}-\sum_{k=1}^{n}(a_{k+1}-a_k)\sigma_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$ \ \ \ $\sigma_k:=\sum_{j=1}^{k-1}b_j$
 
 \textbf{Common Power Series}: $\sum^\infty_{n=0} x^n=(1-x)^{-1}$ \ \ \ \ $\sum^\infty_{n=1} nx^{n-1}=(1-x)^{-2}$ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=2} n(n-1)x^{n-2}=2(1-x)^{-3}$ \ \ \ \ \ \ $R=1$ for all.
 
