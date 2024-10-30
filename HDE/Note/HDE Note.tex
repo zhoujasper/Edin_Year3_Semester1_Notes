@@ -79,9 +79,9 @@ $\cdot$ {\footnotesize \textbf{Generalised Eigenvectors}: If AM>GM: Using $\xi_\
 
 \textbf{Method of Integrating Factors}: $y'+p(x)y=q(x)$. \ \ $\Rightarrow$ \ \ Integrating Factor:$\mu=e^{\int p(x)dx}$ \ , \ $\mu \ y=\int q(x)\cdot \mu \ dx$
 
-\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Calculate $ar^2+br+c=0$, \ \ \ \ {\footnotesize ps: $\Delta=b^2-4ac$, roots: $r_1,r_2$}
+\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Calculate $ar^2+br+c=0$, \ \ \ \ {\footnotesize ps: $\Delta=b^2-4ac$, roots: $r_1,r_2$} \ \ {\scriptsize ps:$y''\pm\lambda y=0$见附录}
 
-$\cdot$ {\footnotesize 1. $\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ \ \ \ \ \ \ 2. $\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ \ \ \ \ \ \ 3. $\Delta<0$,$y=e^{\alpha x}[C_1cos(\beta x)+C_2sin(\beta x)]$ \ \ ps: $r_1,r_2 = \alpha\pm\beta i$}
+$\cdot$ {\footnotesize $^1\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ \ $^2\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ \ $^3\Delta<0$,$y=e^{\alpha x}[C_1cos(\beta x)+C_2sin(\beta x)]$ \ \ ps: $r_1,r_2 = \alpha\pm\beta i$}
 
 \textbf{non-Homogeneous 2nd ODE form}: $ay''+by'+c=g(x)$ \ \ $\Rightarrow$ \ \ $y=y_h+y_p$ \ \ \ {\footnotesize ps:$y_h$ is sol for $g(x)=0$.}
 
@@ -372,6 +372,8 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 
 \hspace{81pt} {\footnotesize 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
 
+\hspace{81pt} $\cdot$ Remark: {\footnotesize $^1$化简中可以使用正比简化计算 \ \ \ \ \ \ $^2$对$n$的取值为$1,2,3,...$ \ \ \ \ \ \ $^3$对$\lambda$的取值让出现$sin,cos$时为正不容易出错,或注意正负号}
+
 \textbf{Basic Idea|Inhomo}: {\footnotesize 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
 
 \textbf{Laplace Equation}: 2D:$\nabla^2u=\partial^2_xu+\partial^2_yu=0$ \ \ \ 3D: $\nabla^2u=\partial^2_xu+\partial^2_yu+\partial^2_zu=0$ \ \ \ \ \ \ Following are the method to solve:
@@ -407,6 +409,9 @@ $\cdot$ {\scriptsize Other Property: $^1$even + even = even; \ \ $^2$odd + odd =
 
 \textbf{Euler Formula}: {\footnotesize $e^{ix}=cos(x)+isin(x)$ \ \ \ || \ \ \ $e^{inx}=cos(nx)+isin(nx)$ \ \ \ || \ \ \ $cos(nx)=\frac{e^{inx}+e^{-inx}}{2}$ \ \ \ || \ \ \ $sin(nx)=\frac{e^{inx}-e^{-inx}}{2i}$}
 
+\textbf{Slove $y''+\lambda y=0$}: {\footnotesize $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0:y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$}
+
 \textbf{Approximation} $sin(x)\approx x$ when $x\to0$ 
+
 
 \end{document}
