@@ -1,4 +1,4 @@
-\documentclass[9pt]{article}
+\documentclass[8pt]{extarticle}
 
 \usepackage{graphicx} % Required for inserting images
 \usepackage{amsmath}
@@ -34,13 +34,22 @@
 
 % 设置 section/subsection 之间的行间距
 \usepackage{titlesec}
+
+\titleformat{\section}
+  {\fontsize{9pt}{9pt}\bfseries} % 字体大小为 9pt，加粗
+  {\thesection}{1em}{} % section 编号和标题之间的间距
+
+\titleformat{\subsection}
+  {\fontsize{8pt}{8pt}\bfseries} % 字体大小为 9pt，加粗
+  {\thesubsection}{1em}{} % section 编号和标题之间的间距
+
 \titlespacing*{\section}{0pt}{0pt}{0pt}
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
 \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 % 调整标题上下间距
 \usepackage{titling}
-\setlength{\droptitle}{-2.4cm} % 负值表示向上移动
+\setlength{\droptitle}{-1.9cm} % 负值表示向上移动
 
 % 设置标题，作者，时间
 \title{HDE Note}
@@ -50,36 +59,37 @@
 % 正文
 \begin{document}
 
+\setlist[enumerate,1]{left=5pt}
 
 % 标题
 \maketitle
 \thispagestyle{fancy}
-\vspace{-3.5cm}
+\vspace{-2.5cm}
 
 % 字体大小
-\fontsize{10pt}{11pt}\selectfont
 \setlength{\parindent}{0pt}
+\footnotesize
 
 \section{Basic Knowledge \& SVCDE Methods for ODE}
 
-\subsection{Linear Algebra}
+
+\begin{minipage}[t]{0.6\textwidth}
+
+\subsection{Linear Algebra || Calculus || SVCDE Method for ODE}
 
 \textbf{Matrix Calculate}: $det(kA)=k^ndet(A)$ \ \ || \ \ $det(A^{-1})=det(A)^{-1}$ \ \ || \ \ $(AB)^*=B^*A^*$ \ \ || \ \ $det(A)=det(A^T)$.
 
-\textbf{Eigenvalue $\lambda$ \& Eigenvector $\mathbf{x}$}: Def: $A\mathbf{x}=\lambda\mathbf{x}$. \ \ \ \ \ \ \ \ \ \ \ \ Method: $^1det(A-\lambda I)=0\to\lambda$. \ \ \ $^2(A-\lambda I)\mathbf{x}=0\to\mathbf{x}$.
+$\cdot$ \textbf{Eigenvalue $\lambda$ \& Eigenvector $\mathbf{x}$}: Def: $A\mathbf{x}=\lambda\mathbf{x}$. \ \ || \ \ Method: $^1det(A-\lambda I)=0\to\lambda$. \ \ $^2(A-\lambda I)\mathbf{x}=0\to\mathbf{x}$.
 
-$\cdot$ {\footnotesize \textbf{Algebraic Multiplicity (AM) of $\lambda$}: $\lambda$ 重复出现的次数. \ \ \ \ \ \ \ $\geq$ \ \ \ \ \ \ \ \textbf{Geometric Multiplicity (GM) of $\lambda$}: \# $\mathbf{x}$ under $\lambda$.}
-
-$\cdot$ {\footnotesize \textbf{Generalised Eigenvectors}: If AM>GM: Using $\xi_\lambda = (A-\lambda\mathbb{I})\eta_1,\eta_{n-1} = (A-\lambda\mathbb{I})\eta_{n}$ for each $\xi_\lambda$. \ \ \ \ \ \ $\eta_j$ are \textit{generalised eigenvectors}.}
-
-
-\subsection{Calculus \& SVCDE Method for ODE}
+$\cdot$ \textbf{Arithmetic Manipulate (AM) $\lambda$}: $\lambda$ 重复出现的次数. \ \ $\geq$ \ \ \textbf{Geoemtric Manipulate (GM) of $\lambda$}: \# $\mathbf{x}$ under $\lambda$.
+    
+$\cdot$ \textbf{Generalised Eigenvectors}: If AM>GM: Using $\xi_\lambda = (A-\lambda\mathbb{I})\eta_1,\eta_{n-1} = (A-\lambda\mathbb{I})\eta_{n}$ for each $\xi_\lambda$. \ \ \ \ \ \ $\eta_j$ are \textit{generalised eigenvectors}.
 
 \textbf{Some Defs}: $\nabla F=(\partial_xF,\partial_yF,\partial_zF,...)$ \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{Simply Connected}: {\footnotesize 没有洞,相互连接的区域}. \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{$\partial D$}: {\footnotesize 区域 D 的边界.}
 
 \textbf{Method of Integrating Factors}: $y'+p(x)y=q(x)$. \ \ $\Rightarrow$ \ \ Integrating Factor:$\mu=e^{\int p(x)dx}$ \ , \ $\mu \ y=\int q(x)\cdot \mu \ dx$
 
-\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Calculate $ar^2+br+c=0$, \ \ \ \ {\footnotesize ps: $\Delta=b^2-4ac$, roots: $r_1,r_2$} \ \ {\scriptsize ps:$y''\pm\lambda y=0$见附录}
+\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Characteristic $ar^2+br+c=0$, \ \ \ \ {\footnotesize Roots: $r_1,r_2$} \ \ {\scriptsize ps:$y''\pm\lambda y=0$见附录}
 
 $\cdot$ {\footnotesize $^1\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ \ $^2\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ \ $^3\Delta<0$,$y=e^{\alpha x}[C_1cos(\beta x)+C_2sin(\beta x)]$ \ \ ps: $r_1,r_2 = \alpha\pm\beta i$}
 
@@ -99,88 +109,107 @@ $\cdot$ {\footnotesize Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=
 
 \textbf{Euler Equation}: General: $a_nx^ny^{(n)}+a_{n-1}x^{n-1}y^{(n-1)}+\cdots+a_0y=0$ \ \ $\Rightarrow$ Seek Solution as: $y=x^\alpha$ \ \ \ \ $\Rightarrow$ solution: $y=\sum_ic_ix^{\alpha_i}$
 
-
-\subsection{ODE / PDE Definitions}
-
-\textbf{Def of DEs / ODEs / PDEs}: Given independent variables {\small ( $x_1,...,x_n$ )}, functions {\small ( $y_1(x_{j_1}),...,y_p(x_{j_p})$ )} and some derivatives {\small (e.g. $\partial_s y_t$).}
-
-$\cdot$ \textbf{DEs}: $\mathcal{F}_i[y_r,...,\partial_{x_t}y_b,x_1,...,x_n]=0,\ \ \  i=s,s-1,...,1.$ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \textbf{ODEs}: $n=1$ {\footnotesize (无偏导)} \ \ \ \ \ \ \ \textbf{PDEs}: $n>1$ {\footnotesize (有偏导)}
-
-\textbf{Def of Linear}: Let $L$ {\footnotesize 去掉 $y^{(n)}_i$ 的函数} {\scriptsize (e.g. $L=\frac{d^2}{dx^2}-x$ for $y''-xy=x^2$)} \ \ \ \ $\Rightarrow$ \ \ \ \ Linear if: $L[a_1y_1+a_2y_2]=a_1L[y_1]+a_2L[y_2]$
+\end{minipage}
+\hfill
+\vrule width 0.3pt % 1pt 宽度的分割线
+\hfill
+\begin{minipage}[t]{0.39\textwidth}
 
 
-\subsection{(ODE) Uniqueness Theorem \& Autonomous}
+\subsection{Linear || (ODE) Uniqueness Theorem || Autonomous}
 
-\textbf{Existence \& Uniqueness Theorem (Real func)}: Given $\mathbf{y}'(t)=\mathbf{F}(t,\mathbf{y}^T)$, with $\mathbf{y}(t_0)=\mathbf{y_0}$. \ \ \ \ \ \ \ {\footnotesize Let $R_i=[t_0-\delta,t_0+\delta]\times\prod_j[y_{0_j}-\delta_j,y_{0_j}+\delta_j]$.}
+\textbf{Def of Linear}: Let $L$ {\footnotesize 去掉 $y^{(n)}_i$ 的函数} {\scriptsize (e.g. $L=\frac{d^2}{dx^2}-x$ for $y''-xy=x^2$)} 
 
-$\cdot$ If $F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'_i$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize Let $R'_i=[t_0-\varepsilon,t_0+\varepsilon]\times\prod_j[y_{0_j}-\varepsilon_j,y_{0_j}+\varepsilon_j]\subseteq R_i$.}
+\hspace{28pt} $\Rightarrow$ \ \ Linear if: $L[a_1y_1+a_2y_2]=a_1L[y_1]+a_2L[y_2]$
 
-\textbf{Autonomous}: For $\mathbf{y}'(t)=\mathbf{f}(t,\mathbf{y}^T)$. \ \ \ \ \ \ If $\partial_x\mathbf{f}=\mathbf{0}$ $\Rightarrow$ autonomous. \ \ \ {\footnotesize or: $\mathbf{f}(t,\mathbf{y}^T)=\mathbf{f}(\mathbf{y}^T)$ {\tiny (不含$t$)}}
+\textbf{Existence \& Uniqueness Theorem (Real func)}:
+
+$\cdot$ $^1\mathbf{y}'(t)=\mathbf{F}(t,\mathbf{y}^T)$, $\mathbf{y}(t_0)=\mathbf{y_0}$. \ \ \ \ \ \ \ {\footnotesize Let $R_i=[t_0-\delta,t_0+\delta]\times\prod_j[y_{0_j}-\delta_j,y_{0_j}+\delta_j]$.}
+
+$\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'_i$
+
+\hspace{85pt} $R'_i=[t_0-\varepsilon,t_0+\varepsilon]\times\prod_j[y_{0_j}-\varepsilon_j,y_{0_j}+\varepsilon_j]\subseteq R_i$.
+
+\textbf{Autonomous}: For $\mathbf{y}'(t)=\mathbf{f}(t,\mathbf{y}^T)$. \ \ $\partial_x\mathbf{f}=\mathbf{0}$ $\Rightarrow$ autonomous. \ \ \ {\footnotesize or: $\mathbf{f}(t,\mathbf{y}^T)=\mathbf{f}(\mathbf{y}^T)$}
 
 
 \section{Linear ODEs}
 
-\textbf{n-th ODE $\rightarrow$ 1st ODEs}: For {\small $y^{(n)}=F(t,y,y',...,y^{(n-1)})$}. \ \ \ $\Rightarrow$ \ \ \ Let $x_i=y^{(i-1)}$. Then $x'_n=F(t,x_1,x_2,...,x_{n-1})$ {\footnotesize which is 1st ODE.}
+\textbf{n-th ODE $\rightarrow$ 1st ODEs}: For {\small $y^{(n)}=F(t,y,y',...,y^{(n-1)})$}. \ \ \ $\Rightarrow$ \ \ \ Let $x_i=y^{(i-1)}$.
 
-\textbf{Def of Linear 1st ODEs}: $\mathbf{y}'(t) = P(t)\mathbf{y}(t) + \mathbf{g}(t)$ (\star), {\tiny $P$ is matrix-valued function.} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textbf{Homogeneous}: $\mathbf{g}(t)=\mathbf{0}$.
+\textbf{Def of Linear 1st ODEs}: $\mathbf{y}'(t) = P(t)\mathbf{y}(t) + \mathbf{g}(t)$ (\star), {\tiny $P$ is matrix-valued function.}
 
-\textbf{Existence \& Uniqueness Theorem}: If $P_{ij}$, $\mathbf{g}$ of (\star) continuous in $R$, $\mathbf{y}(t_0)=\mathbf{y}_0$ \ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'$ \ \ \ {\tiny $R'=[t_0-\varepsilon,t_0+\varepsilon]\subseteq R=[t_0-\delta,t_0+\delta]$}
+\hspace{137pt} \textbf{Homogeneous}: $\mathbf{g}(t)=\mathbf{0}$.
+
+\textbf{Existence \& Uniqueness Theorem}: If $P_{ij}$, $\mathbf{g}$ of (\star) continuous in $R$, $\mathbf{y}(t_0)=\mathbf{y}_0$
+
+\ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'$ \ \ \ {\tiny $R'=[t_0-\varepsilon,t_0+\varepsilon]\subseteq R=[t_0-\delta,t_0+\delta]$}
+
+\end{minipage}
 
 
 \subsection{Homogeneous}
 
-\vspace{-3pt}
-\begin{center}
-    Solve: $\mathbf{y}'=P\mathbf{y}$ \ \ \ ||\ \ \ If $P$ constant, $P=A$ \ \ \ || \ \ \ If possible: $\lambda,\xi,\eta$ be eigenvalues, eigenvectors, generalised eigenvectors.
-\end{center}
-\vspace{-10pt}
+\begin{minipage}[t]{0.60\textwidth}
 
-\textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize $S:=\{\mathbf{y}|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, $dim(S)=n$ if $P_{ij}$ continuous.}
+    \textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ || \ \ {\footnotesize $S:=\{\mathbf{y}|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, $dim(S)=n$ if $P_{ij}$ continuous.}
 
-\textbf{Wronskian at $x$}: $W[\mathbf{y}^{(1)},...,\mathbf{y}^{(n)}](t)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(t) & \cdots & y^{(n)}_1(t) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(t) & \cdots &y^{(n)}_n(t) \end{vmatrix}$}. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. {\footnotesize ps:经常用 Abel Theorem}
+    \textbf{Fundamental Set of Solutions (FSoS)}: If $\{\mathbf{y}^{(j)}(t)\}$ \textit{linearly independent} at $t\in I$, it is FSoS in $I$.
 
-$\cdot$ Geoemtric Meaning: {\footnotesize Geometrically, $W$ is the volume spanned by the three vectors $y^{(1)}, y^{(2)}, y^{(3)}$; \ \ $t$ 增加或减小代表在 $y^{(i)}$方向上 compress/stretch.}
+    \textbf{General Solution}: If $\{\mathbf{y}^{(j)}(t)\}_{j=1}^n$ is FSoS (Linearly Independent) \ \ $\Rightarrow$ \ \ General solution: $\mathbf{y}=\sum_{j=1}^nc_j\mathbf{y}_j$
 
-\textbf{Abel's Theorem}: If $W(t_0)\ne0$,$t_0\in I$ \ \ $\Rightarrow$ \ \ $\forall t\in I,W(t)\ne0$ \ \ || \ \ \textbf{Abel's Formula}: $W(t)=W(t_0)e^{\int^t_{t_0}tr[P(s)] ds};t_0,t\in I$ {\tiny $P(t)$ is continuous in $I$.}
+    \subsubsection{Eigenvalue/vector Method ($A$ constant)}
 
-\textbf{Fundamental Set of Solutions (FSoS)}: If $\{\mathbf{y}^{(j)}(t)\}$ \textit{linearly independent} at $t\in I$, it is FSoS in $I$.
+    \textbf{AM=GM|Real $\lambda$}: general solution: $\mathbf{y}=\sum_jc_je^{\lambda_jt}\xi_j$.
+    
+    \textbf{AM=GM|Complex $\lambda$}: (ctd.) For $\lambda,\overline{\lambda}\in\mathbb{C}$. \ \ $\Rightarrow$ \ \ $e^{\lambda t}\xi=\mathbf{u}+\mathbf{v}i$. \ \ $\Rightarrow$ \ \ Independent sol: $\mathbf{u},\mathbf{v}$ \ \ $\Rightarrow$ \ \ General solution: $\mathbf{y} = c_1\mathbf{u} + c_2\mathbf{v} + \cdots$
+    
+    \textbf{AM>GM}: (ctd.) {\scriptsize (For each $\xi_\lambda$, under $\lambda$)} $\mathbf{y}^{(1)}=e^{\lambda t}\xi_\lambda$ \ \ $\mathbf{y}^{(2)}=e^{\lambda t}(t\xi_\lambda+\eta_1)$ \ \ $\mathbf{y}^{(3)}=e^{\lambda t}(\frac{t^2}{2!}\xi_\lambda+t\eta_2+\eta_1)$, ... {\tiny 类似泰勒展开}
 
-\textbf{General Solution}: If $\{\mathbf{y}^{(j)}(t)\}_{j=1}^n$ is FSoS (Linearly Independent) \ \ $\Rightarrow$ \ \ General solution: $\mathbf{y}=\sum_{j=1}^nc_j\mathbf{y}_j$
+    \subsubsection{Matrix Method | Exponential}
 
+    \textbf{Matrix Method}: $\mathbf{y}(t)=e^{At}\mathbf{y}(0)$ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize (分两种方法: 1.直接展开; 2.通过一些已有 property 计算. ps: $e^{At}=\Psi$)}
 
-\subsubsection{Eigenvalue/vector Method ($A$ constant)}
+    $\cdot$ \textbf{Property|AM=GM}: \ $e^{At}=Te^{Dt}T^{-1}$ \ , \ $T=[\xi_1,...,\xi_n]$ \ , \ $D=diag(\lambda_1,...,\lambda_n)$ \ , \ $e^{Dt}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
 
-\textbf{AM=GM|Real $\lambda$}: general solution: $\mathbf{y}=\sum_jc_je^{\lambda_jt}\xi_j$.
+    $\cdot$ \textbf{Property|AM>GM}: \ $e^{At}=Te^{Jt}T^{-1}$ \ , \ $T=[\lambda_1,...,\lambda_i,\eta^{(i)}_1,...,\lambda_j,\eta^{(j)}_1,...]$ \ , \ $J=T^{-1}AT$ {\footnotesize (Jordan form)} \ , \ $e^{J_it}=$ 见右边
 
-\textbf{AM=GM|Complex $\lambda$}: (ctd.) For $\lambda,\overline{\lambda}\in\mathbb{C}$. \ \ $\Rightarrow$ \ \ $e^{\lambda t}\xi=\mathbf{u}+\mathbf{v}i$. \ \ $\Rightarrow$ \ \ Independent sol: $\mathbf{u},\mathbf{v}$ \ \ $\Rightarrow$ \ \ General solution: $\mathbf{y} = c_1\mathbf{u} + c_2\mathbf{v} + \cdots$
-
-\textbf{AM>GM}: (ctd.) {\scriptsize (For each $\xi_\lambda$, under $\lambda$)} {\small $\mathbf{y}^{(1)}=e^{\lambda t}\xi_\lambda$ \ \ $\mathbf{y}^{(2)}=e^{\lambda t}(t\xi_\lambda+\eta_1)$ \ \ $\mathbf{y}^{(3)}=e^{\lambda t}(\frac{t^2}{2!}\xi_\lambda+t\eta_2+\eta_1)$, ... ,$\mathbf{y}^{(n)}=e^{\lambda t}[\frac{t^{n-1}}{(n-1)!}\xi_\lambda+\sum_{i=0}^{n-2}\frac{t^{i}}{(i)!}\eta_{i+1}]$}
-
-
-\subsubsection{Matrix Method | Exponential}
-
-\textbf{Matrix Method}: $\mathbf{y}(t)=e^{At}\mathbf{y}(0)$ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize (分两种方法: 1.直接展开; 2.通过一些已有 property 计算. ps: $e^{At}=\Psi$)}
-
-$\cdot$ \textbf{Property|AM=GM}: \ $e^{At}=Te^{Dt}T^{-1}$ \ , \ $T=[\xi_1,...,\xi_n]$ \ , \ $D=diag(\lambda_1,...,\lambda_n)$ \ , \ $e^{Dt}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
-
-\vspace{-20pt}
-$\cdot$ \textbf{Property|AM>GM}: \ $e^{At}=Te^{Jt}T^{-1}$ \ , \ $T=[\lambda_1,...,\lambda_i,\eta^{(i)}_1,...,\lambda_j,\eta^{(j)}_1,...]$ \ , \ $J=T^{-1}AT$ {\footnotesize (Jordan form)} \ , \ $e^{J_it}=e^{\lambda_i t}$ {\footnotesize $\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$}
-\vspace{-20pt}
-
-\textbf{Diagonalisation Method}: (Ctd.) Let $\mathbf{y}=T\mathbf{x}$ \ \ $\Rightarrow \ \ \mathbf{x}'=J\mathbf{x}$ [{\footnotesize or} $\mathbf{x}'=D\mathbf{x}$] {\footnotesize 按前面方法解}
-
-\textbf{Exponential of a matrix}: $e^{At}:=\sum_{n=0}^{\infty}\frac{(At)^n}{n!} \ = \ \mathbb{I}+At+\frac{1}{2!}A^2t^2+\cdots \ = \ \lim_{n\to\infty}(\mathbb{I}+\frac{At}{n})^n$
-
-$\cdot$ \textbf{Property}: $e^{A+B}=e^{A}e^{B}$ if $AB=BA$ \ \ \ || \ \ \ $e^{A\cdot0}=\mathbb{I}$ \ \ \ || \ \ \ $[e^{At}]'=Ae^{At}$
+    \textbf{Diagonalisation Method}: (Ctd.) Let $\mathbf{y}=T\mathbf{x}$ \ \ $\Rightarrow \ \ \mathbf{x}'=J\mathbf{x}$ [{\footnotesize or} $\mathbf{x}'=D\mathbf{x}$] {\footnotesize 按前面方法解}
 
 
-\subsubsection{Matrix Method | Fundamental Matrix}
+    \subsubsection{Matrix Method | Fundamental Matrix}
 
-\textbf{Fundamental matrix $\Psi$}: If $\{\mathbf{y}^{(j)}(t)\}$ is FSoS. \ \ $\Rightarrow$ \ \ $\Psi(t)=[\mathbf{y}^{(1)}(t),...,\mathbf{y}^{(n)}(t)]$.
+    \textbf{Fundamental matrix $\Psi$}: If $\{\mathbf{y}^{(j)}(t)\}$ is FSoS. \ \ $\Rightarrow$ \ \ $\Psi(t)=[\mathbf{y}^{(1)}(t),...,\mathbf{y}^{(n)}(t)]$.
 
-$\cdot$ \textbf{Property}: $\Psi'(t)=P(t)\Psi(t)$ (It's a sol). \ \ \ || \ \ \ $det[\Psi(t)]=W(t)\ne0$ \ \ \ || \ \ \ general solution: $\mathbf{y}=\Psi\mathbf{c}$ \ , \ $\mathbf{c}=\Psi^{-1}(t_0)\mathbf{y}_0$
+    $\cdot$ \textbf{Property}: $\Psi'(t)=P(t)\Psi(t)$ (It's a sol). \ \ \ || \ \ \ $det[\Psi(t)]=W(t)\ne0$ \ \ \ || \ \ \ general solution: $\mathbf{y}=\Psi\mathbf{c}$ \ , \ $\mathbf{c}=\Psi^{-1}(t_0)\mathbf{y}_0$
 
-$\cdot$ \textbf{Relation with $e^{At}$}: $e^{At}=\Psi(t)$ with $\Psi(0)=\mathbb{I}$ \ \ \ || \ \ \ $e^{At}=\Psi(t)\Psi^{-1}(0)$
+    $\cdot$ \textbf{Relation with $e^{At}$}: $e^{At}=\Psi(t)$ with $\Psi(0)=\mathbb{I}$ \ \ \ || \ \ \ $e^{At}=\Psi(t)\Psi^{-1}(0)$
+
+\end{minipage}
+\hfill
+\vrule width 0.3pt
+\hfill
+\begin{minipage}[t]{0.39\textwidth}
+
+    Solve: $\mathbf{y}'=P\mathbf{y}$ \ || \ If $P$ constant, $P=A$ \ || \ $\lambda,\xi,\eta$ be 特征值/向量/广义特征向量. \\
+
+    \textbf{Abel's Theorem}: If $W(t_0)\ne0$,$t_0\in I$ \ \ $\Rightarrow$ \ \ $\forall t\in I,W(t)\ne0$
+
+    \textbf{Abel's Formula}: $W(t)=W(t_0)e^{\int^t_{t_0}tr[P(s)] ds};t_0,t\in I$ {\tiny $P(t)$ is continuous in $I$.}
+
+    \textbf{Wronskian at $x$}: $W[\mathbf{y}^{(1)},...,\mathbf{y}^{(n)}](t)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(t) & \cdots & y^{(n)}_1(t) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(t) & \cdots &y^{(n)}_n(t) \end{vmatrix}$}.
+
+    $\cdot$ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. {\footnotesize ps:经常用 Abel Theorem} \\ \\
+
+    $e^{J_it}=e^{\lambda_i t}\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$ \\ \\
+
+    \textbf{Exponential of Matrix}: $e^{At}:=\sum_{n=0}^{\infty}\frac{(At)^n}{n!} \ = \ \mathbb{I}+At+\frac{1}{2!}A^2t^2+\cdots$
+
+    \hspace{115pt} $:= \ \lim\limits_{n\to\infty}(\mathbb{I}+\frac{At}{n})^n$
+
+    $\cdot$ \textbf{Property}: $e^{A+B}=e^{A}e^{B}$ if $AB=BA$ \ \ \ || \ \ \ $e^{A\cdot0}=\mathbb{I}$ \ \ \ || \ \ \ $[e^{At}]'=Ae^{At}$
+
+\end{minipage}
 
 
 \subsection{non-Homogeneous}
@@ -198,65 +227,77 @@ $^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\
 
 \subsection{Geometrical Interpretation \& Linear Approximation}
 
-\vspace{-0.25cm}
+\vspace{-2pt}
 {\tiny * 此节中，Consider nonlinear autonomous system: $x'=F(x,y),y'=G(x,y)$ (\ast\ast)}
-\vspace{-0.15cm}
+\vspace{-2pt}
 
-\textbf{Phase Plane}: {\small $O_{xy}$ referred as phase plane. \ \ \ \textbf{Trajectories}: Sol of ODE. $\mathbf{x}(t)=(x(t),y(t))^T$ {\tiny direction $(dx/dt,dy/dt)$} \ \ \ \textbf{Phases Portrait}:{\scriptsize 一组有代表性的轨迹}}
+\begin{minipage}[t]{0.71\textwidth}
 
-\textbf{Critical Point (Equilibrium Point)}: $\mathbf{x}_0=(x_0,y_0)$ is critical point iff $[x'=F(\mathbf{x}_0)=0,y'=G(\mathbf{x}_0)=0]$ {\scriptsize or} $[\mathbf{x}'=\mathbf{0}]$ {\tiny (critical point外变化简单)}
+    \textbf{Stable}: Critical Point $\mathbf{x}_0$ is stable \ \ iff \ \ $\forall\varepsilon>0,\exists\delta>0$ s.t. $\forall$ sols $\mathbf{x}(t)$ with $||\mathbf{x}(0)-\mathbf{x}_0||<\delta$, then $||\mathbf{x}(t)-\mathbf{x}_0||<\varepsilon$,$\forall t\geq0$ \ \ || \ \ 直观理解: 开始近 $\to$ 保持近.
 
-\textbf{Stable}: Critical Point $\mathbf{x}_0$ is stable \ \ iff \ \ $\forall\varepsilon>0,\exists\delta>0$ s.t. $\forall$ sols $\mathbf{x}(t)$ with $||\mathbf{x}(0)-\mathbf{x}_0||<\delta$, then $||\mathbf{x}(t)-\mathbf{x}_0||<\varepsilon$,$\forall t\geq0$
+    \textbf{Attracting}: Critical point $\mathbf{x}_0$ is attracting \ \ iff \ \ $\exists\delta>0$ s.t. $\forall$ sols $\mathbf{x}(t)$ with $||\mathbf{x}(0)-\mathbf{x}_0||<\delta$ satisfies: $\lim_{t\to\infty}\mathbf{x}(t)=\mathbf{x}_0$ \ \ || \ \ 直观理解: 开始近 $\to$ 不断趋向.
 
-$\cdot$ {\footnotesize 直观理解:一开始离 critical point 很近,那么随着时间推移也会保持在 critical point 附近. \ \ \ ps:attrcting 是会趋近于 critical point.}
+    \textbf{Asymptotically Stable}: Critical point $\mathbf{x}_0$ is asy.stab \ \ iff \ \ $^1$ Stable, $^2$ Attracting.
 
-\textbf{Attracting}: Critical point $\mathbf{x}_0$ is attracting \ \ iff \ \ $\exists\delta>0$ s.t. $\forall$ sols $\mathbf{x}(t)$ with $||\mathbf{x}(0)-\mathbf{x}_0||<\delta$ satisfies: $\lim_{t\to\infty}\mathbf{x}(t)=\mathbf{x}_0$
+    \textbf{Theorem}: If $\mathbf{x}_\ast(t)=(x_\ast,y_\ast)$ s.t. $F(\mathbf{x}_\ast),G(\mathbf{x}_\ast)\ne0$. \ \ $\Rightarrow$ \ \ $\exists H$ s.t. $H(x,y)=(\tilde{x},\tilde{y}),\tilde{x}'=1,\tilde{y}'=0$ {\tiny H is a smooth change of variable function in neighbourhood of $\mathbf{x}_\ast$}
 
-\textbf{Asymptotically Stable}: Critical point $\mathbf{x}_0$ is asy.stab \ \ iff \ \ $^1$ Stable, $^2$ Attracting.
+    \textbf{Non-Linear $\to$ Linear}: For system (\ast\ast), assume $\mathbf{x}_0=(x_0,y_0)$ is critical point. \ $\Rightarrow$ \ $\mathbf{u}=\mathbf{x}-\mathbf{x}_0$, then $\mathbf{u}'\approx A\mathbf{u}${\tiny \ Linear;} {\tiny $A=\begin{pmatrix}\partial_xF(\mathbf{x}_0) & \partial_yF(\mathbf{x}_0) \\ \partial_xG(\mathbf{x}_0) & \partial_yG(\mathbf{x}_0) \\ \end{pmatrix}$} {\tiny Jacobian}
 
-\textbf{Theorem}: If $\mathbf{x}_\ast(t)=(x_\ast,y_\ast)$ s.t. $F(\mathbf{x}_\ast),G(\mathbf{x}_\ast)\ne0$. \ \ $\Rightarrow$ \ \ $\exists H$ s.t. $H(x,y)=(\tilde{x},\tilde{y}),\tilde{x}'=1,\tilde{y}'=0$ {\tiny H is a smooth change of variable function in neighbourhood of $\mathbf{x}_\ast$}
+\end{minipage}
+\hfill
+\vrule width 0.3pt
+\hfill
+\begin{minipage}[t]{0.28\textwidth}
 
-\textbf{Non-Linear $\to$ Linear}: For system (\ast\ast), assume $\mathbf{x}_0=(x_0,y_0)$ is critical point. \ $\Rightarrow$ \ $\mathbf{u}=\mathbf{x}-\mathbf{x}_0$, then $\mathbf{u}'\approx A\mathbf{u}${\tiny \ Linear;} {\tiny $A=\begin{pmatrix}\partial_xF(\mathbf{x}_0) & \partial_yF(\mathbf{x}_0) \\ \partial_xG(\mathbf{x}_0) & \partial_yG(\mathbf{x}_0) \\ \end{pmatrix}$} {\tiny Jacobian}
+    \textbf{Phase Plane}: $O_{xy}$ referred as phase plane. 
+    
+    \textbf{Trajectories}: Sol of ODE. $\mathbf{x}(t)=(x(t),y(t))^T$
+    
+    \textbf{Phases Portrait}: 一组有代表性的轨迹
+
+    \textbf{Critical Point (Equilibrium Point)}:
+    
+    $[x'=F(\mathbf{x}_0)=0,y'=G(\mathbf{x}_0)=0]$ {\scriptsize or} $[\mathbf{x}'=\mathbf{0}]$
+    
+    \hspace{60pt} {\tiny (critical point外变化简单)}
+
+\end{minipage}
 
 
 \subsection{Classification of Critical Points}
 
-\vspace{-0.25cm}
+\vspace{-2pt}
 {\tiny * 此节中，Consider linear system: $\mathbf{x}'=A\mathbf{x}$. \ \ \ \ \ \ Critical Point(s): when $\mathbf{x}'=A\mathbf{x}=\mathbf{0}$}
-\vspace{-0.15cm}
+\vspace{-2pt}
 
-\textbf{Classification of Critical Points at $(x_0,y_0)$ (Linear)}: Let $r_1,r_2$ be sol of $det(A-\lambda I)=0$. \ \ \ \ \ \ $\cdot$ $\mathbb{C}:r=\lambda\pm i\mu(\mu>0)$
-
-$\cdot$ If $A$ constant, write sol: $\mathbf{x}=c_1e^{r_1t}\xi_1+c_2e^{r_2t}\xi_2$ \ \ \ \ \ \ $\cdot GM=1$: $\mathbf{x}=c_1e^{rt}\xi+c_2e^{rt}(t\xi+\eta)$ \ \ \ \ \ \ $\cdot$ AL: Almost Linear Systems.
+\textbf{Classification of Critical Points at $(x_0,y_0)$ (Linear)}: \ \ \ \ $r_1,r_2$ be sol of $det(A-\lambda I)=0$. \ \ || \ \ $\mathbb{C}:r=\lambda\pm i\mu(\mu>0)$ \ \ || \ \ If $A$ constant, write sol: $\mathbf{x}=c_1e^{r_1t}\xi_1+c_2e^{r_2t}\xi_2$ \ \ || \ \ $GM=1$: $\mathbf{x}=c_1e^{rt}\xi+c_2e^{rt}(t\xi+\eta)$
 
 \vspace{-8pt}
-\begin{longtable}{|c|c|c|l|l|}
+\begin{longtable}{|c|l|l|l|l|l|}
     \hline
-    {\tiny $\mathbb{R} / \mathbb{C}$} & {\scriptsize Condition || Stability} & Type || Name & Phase Plane Description & Other \\
+    {\tiny $\mathbb{R} / \mathbb{C}$} & {\scriptsize Condition || Stability} & Type || Name & Phase Plane Description & Other &  \\
     \hline
-    \multirow{7}{*}{$\mathbb{R}$} & {\scriptsize $r_1<r_2<0$ || asy.stab} & {\small N || NSk} & {\tiny 向原点,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_2\ne0,t\to\infty$:$\xi_2$主导方向; \ $c_2=0,t\to\infty$:$\xi_1$主导方向} \\
+    \multirow{7}{*}{$\mathbb{R}$} & {\scriptsize $r_1<r_2<0$ || asy.stab} & {\small N || NSk} & {\tiny 向原点,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_2\ne0,t\to\infty$:$\xi_2$主导方向; \ $c_2=0,t\to\infty$:$\xi_1$主导方向} & \multirow{10}{*}{\tiny \makecell{PS: \\ \textbf{N} = Node \\ \textbf{PN} = Proper Node \\ \textbf{IN} = Improper \\ or: Degenerate Node \\ \textbf{SP} = Saddle Point \\ \textbf{SpP} = spiral point \\ or: Focus Point \\ \textbf{C} = Center \\ \textbf{NSk} = Nodal Sink \\ \textbf{NSo} = Nodal Source}} \\
     \cline{2-5}
-    & {\scriptsize $r_1>r_2>0$ || unstable} & {\small N || NSo} & {\tiny 原点向外,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_1\ne0,t\to\infty$:$\xi_1$主导方向; \ $c_1=0,t\to\infty$:$\xi_2$主导方向} \\
+    & {\scriptsize $r_1>r_2>0$ || unstable} & {\small N || NSo} & {\tiny 原点向外,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_1\ne0,t\to\infty$:$\xi_1$主导方向; \ $c_1=0,t\to\infty$:$\xi_2$主导方向} & \\
     \cline{2-5}
-    & {\scriptsize $r_1>0>r_2$ || unstable} & SP || SP & \makecell{\scriptsize $t\to\infty$,$\xi_1$从原点向外,$\xi_2$从外向原点 \\ \scriptsize and: 像$y=\pm\frac{1}{x}$,同进同出} & \makecell{\scriptsize $t\to\pm\infty:|\mathbf{x}|\to\infty$; \ \ \ \ \ $t\to\infty:c_1,c_2\ne0,|\mathbf{x}|\to\infty$,$\xi_1$主导; \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\ \scriptsize $t\to\infty:c_2=0,|\mathbf{x}|\to\infty$,$\xi_1$主导; \ \ \ \ $t\to\infty:c_1=0,|\mathbf{x}|\to0$,$\xi_2$主导} \\
+    & {\scriptsize $r_1>0>r_2$ || unstable} & SP || SP & \makecell{\scriptsize $t\to\infty$,$\xi_1$从原点向外,$\xi_2$从外向原点 \\ \scriptsize and: 像$y=\pm\frac{1}{x}$,同进同出} & \makecell{\scriptsize $t\to\pm\infty:|\mathbf{x}|\to\infty$; \ \ \ \ \ $t\to\infty:c_1,c_2\ne0,|\mathbf{x}|\to\infty$,$\xi_1$主导; \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\ \scriptsize $t\to\infty:c_2=0,|\mathbf{x}|\to\infty$,$\xi_1$主导; \ \ \ \ $t\to\infty:c_1=0,|\mathbf{x}|\to0$,$\xi_2$主导} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2<0$, {\tiny GM=2} || {\tiny asy.stab}} & {\small PN || {\scriptsize PN or Stable Star}} & {\scriptsize \underline{直线}向原点} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} \\
+    & {\scriptsize $r_1=r_2<0$, {\tiny GM=2} || {\tiny asy.stab}} & {\small PN || {\scriptsize PN or Stable Star}} & {\scriptsize \underline{直线}向原点} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2>0$, {\tiny GM=2} || {\tiny unstable}} & {\small PN || {\scriptsize PN or Unstable Star}} & {\scriptsize \underline{直线}从原点向外} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} \\
+    & {\scriptsize $r_1=r_2>0$, {\tiny GM=2} || {\tiny unstable}} & {\small PN || {\scriptsize PN or Unstable Star}} & {\scriptsize \underline{直线}从原点向外} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2<0$, {\tiny GM=1} || {\tiny asy.stab}} & {\small IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Stable)}}} & {\scriptsize S曲线,向原点} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} \\
+    & {\scriptsize $r_1=r_2<0$, {\tiny GM=1} || {\tiny asy.stab}} & {\small IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Stable)}}} & {\scriptsize S曲线,向原点} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2>0$, {\tiny GM=1} || {\tiny unstable}} & {\small IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Unstable)}}} & {\scriptsize S曲线,从原点向外} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} \\
+    & {\scriptsize $r_1=r_2>0$, {\tiny GM=1} || {\tiny unstable}} & {\small IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Unstable)}}} & {\scriptsize S曲线,从原点向外} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} & \\
+    \cline{1-5}
+    \multirow{3}{*}{$\mathbb{C}$} & {\scriptsize $\lambda\ne0,\lambda>0$ || unstable} & {\small SpP || Unstable Focus} & {\scriptsize 向外椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} & \\
+    \cline{2-5}
+    & {\scriptsize $\lambda\ne0,\lambda<0$ || asy.stab} & {\small SpP || Stable Focus} & {\scriptsize 向内椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} & \\
+    \cline{2-5}
+    & {\scriptsize $\lambda=0$ || stable {\tiny (AL:Indeterminate)}} & {\small C {\scriptsize (AL:C or SpP)} || C} & {\scriptsize 椭圆(elliptical) and 半长轴$\xi$实部方向} & {\scriptsize Bounded trajectory \ \ \ or \ \ \ $\exists$ Periodic Trajectories} & \\
     \hline
-    \multirow{3}{*}{$\mathbb{C}$} & {\scriptsize $\lambda\ne0,\lambda>0$ || unstable} & {\small SpP || Unstable Focus} & {\scriptsize 向外椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} \\
-    \cline{2-5}
-    & {\scriptsize $\lambda\ne0,\lambda<0$ || asy.stab} & {\small SpP || Stable Focus} & {\scriptsize 向内椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} \\
-    \cline{2-5}
-    & {\scriptsize $\lambda=0$ || stable {\tiny (AL:Indeterminate)}} & {\small C {\scriptsize (AL:C or SpP)} || C} & {\scriptsize 椭圆(elliptical) and 半长轴$\xi$实部方向} & {\scriptsize Bounded trajectory \ \ \ or \ \ \ $\exists$ Periodic Trajectories} \\
-    \hline
-    \multicolumn{5}{|l|}{\scriptsize ps: N = Node | PN = Proper Node | IN = Improper / Degenerate Node | SP = Saddle Point | SpP = spiral (focus) point | C = Center | NSk = Nodal Sink | NSo = Nodal Source} \\
-    \hline
-    \multicolumn{5}{|l|}{\scriptsize For Almost Linear systems (见2.5): $\mathbf{u}'=A\mathbf{u}+\underline{\eta}$, 如果 linear Approximation (去掉$\underline{\eta}$),按照 Linear 考虑. \ \ \ \ \ \ 如果不去$\underline{\eta}$,按照去掉的算$r_1,r_2$, Type 按照 正常 / (AL) 的来.{\tiny(图像会到$(0,0)$)}} \\
+    \multicolumn{6}{|l|}{\textbf{AL}: Almost Linear Sys. || For Almost Linear systems: $\mathbf{u}'=A\mathbf{u}+\underline{\eta}$, 如果 linear Approximation (去掉$\underline{\eta}$),按照 Linear 考虑. \ \ \ \ \ \ 如果不去$\underline{\eta}$,按照去掉的算$r_1,r_2$, Type 按照 正常 / (AL) 的来.{\tiny(图像会到$(0,0)$)}} \\
     \hline
 \end{longtable}
 \vspace{-0.4cm}
@@ -266,79 +307,89 @@ $\cdot$ If $A$ constant, write sol: $\mathbf{x}=c_1e^{r_1t}\xi_1+c_2e^{r_2t}\xi_
 
 \section{Non-Linear ODE Methods}
 
-\vspace{-0.25cm}
+\vspace{-2pt}
 {\tiny * 此节中，Consider two-dimensional autonomous system: $x'=F(x,y)$, $y'=G(x,y)$ and $\mathbf{x}=(x,y)^T$ (\#) \ \ \ \ \ \ Lyapunov's: 不需要知道微分方程的确切解critical value. \ \ \ \ \ \ Poincaré-Bendixson:寻找limit cycle}
-\vspace{-0.15cm}
+\vspace{-2pt}
 
-\textbf{Positive (Negative) [semi-]definite}: Function $E:D\subset\mathbb{R}^2\to\mathbb{R}$ is positive (negative) [semi-]definite iff: \ \ {\tiny ps: positive [semi-]definite 正(半)定}
+\begin{minipage}[t]{0.71\textwidth}
 
-\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $^1E(\mathbf{x}_0)=0$, $^2\forall\mathbf{x}\in D,\textbf{x}\ne\mathbf{x}_0,E(x,y)>0$ \ {\scriptsize or $(E(x,y)<0)$ \ or \ $[E(x,y)\geq0]$} \ \ {\tiny ps: Neighbourhood 领域}
+    \textbf{Lyapunov Stability Theorem}: {\scriptsize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists$ 正定 且 连续 $ E:D\subset\mathbb{R}^2\to\mathbb{R},E(\mathbf{x}_0)=0$; || $^4\frac{dE}{dt}=\nabla E\cdot\mathbf{x}'=\partial_x E\cdot F+\partial_y E\cdot G$ 负(半)定 on $D\setminus\mathbf{x}_0(D)$} $\Rightarrow$ {\footnotesize $\mathbf{x_0}$ asp.(stab)}
 
-\textbf{Isolated Critical Point}: Critical Point $\mathbf{x}_0$ \textit{isolated} iff $\exists$ Neighbourhood containing no other critical points. \ \ \ \ \ \ \ \ \ \ \ {\footnotesize $\downarrow \Rightarrow E:$Lyapunov function}
+    $\cdot$ \textbf{Lyapunov function}: 符合上面 1-4 条件的
+    
+    \textbf{Lyapunov Instability Theorem}: {\footnotesize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists E:D\subset\mathbb{R}^2\to\mathbb{R},\partial_i E$ 连续,$E(\mathbf{x}_0)=0$; $^4\forall${\tiny 领域}$\mathbf{x}_0,\exists\mathbf{x}_1 \ E(\mathbf{x}_1)>0$; || $^5\frac{dE}{dt}$ 正定 on $D$ $\Rightarrow$ $\mathbf{x_0}$ unstable} \\
+    
+    \textbf{Periodic Solution}: {\scriptsize Soln $\mathbf{x}$ has: $\mathbf{x}(t+T)=\mathbf{x}(t),\forall x$}.  || {\scriptsize 闭合曲线 $\Leftrightarrow$ Periodic sol} || {\scriptsize Periodic Solution + 附近有吸引或排斥 $\Rightarrow$ Limit Cycle} || {\scriptsize when $\dot{r}=0,\dot{\theta}=const.$ Periodic sol}
+    
+    \textbf{Limit cycle}: {\scriptsize Limit cycle $\Rightarrow$ Periodic Solution} || Def $t\to\pm\infty,\exists$ non-closed trajectory asymptotes to it. {\scriptsize (inside or outside)} \ \ \ \ \ \ {\scriptsize ps: It's Orbital Stability}
+    \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+        \item Limit cycle is: $^1$asy.stab: $\forall$ trajectories asy. it; \ \ \ $^2$semistable: $\exists$ trajectories {\footnotesize 单方向 进/出}; \ \ \ $^3$unstable: $\forall$ trajectories away from it.
+        \item \textbf{Theorem (If $\exists$ limit cycle / closed)}: {\footnotesize $^1F,G${\scriptsize 一阶偏导连续} in simply connected $D$; $^2\exists$ {\scriptsize 极限环/封闭环} (\star) in $D$. \ $\Rightarrow$ \ $^1\exists$ CP in (\star); $^2$If $\exists!$ CP in (\star), it's not SP}.
+        \item \textbf{Theorem (No limit cycle / closed)}: {\footnotesize $^1F,G$一阶偏导连续 in simply connected $D$; $^2\partial_xF+\partial_yG$符号不变 on D \ $\Rightarrow$ \ No closed trajectory in D.}
+        \\ {\footnotesize 2的推论: $^1$If simple connected $D$ no CP \ $\Rightarrow$ \ No closed trajectory in D. \ \ \ \ \ \ $^2$If simple connected D has unique CP \ $\Rightarrow$ \ No closed trajectory in D}
+    \end{enumerate}
+    
+    \textbf{Poincaré-Bendixson Theorem}: {\footnotesize $^1F,G$一阶偏导连续 in $D$; \ \ $^2\exists D_1\subset D$ bounded; \ \ $^3R=D_1\cup\partial D_1$ has NO CP; \ || \ $^4$ $\exists$ soln $\mathbf{x}\in R$, $\forall t\geq t_0$ \ $\Rightarrow$}
+    
+    \hspace{78pt} $\Rightarrow$ $^1\exists$ closed trajectory. \ \ \ \ \ \ $^2$ Either \textit{$\mathbf{x}$ sprial towards a Periodic trajectory.} \ or \ \textit{$\mathbf{x}$ periodic} $^3R$ is not simply connected
+    
+    \textbf{Find Trapping Region / Limit Cycle}: {\scriptsize \textbf{trapping region}: 符合上面定理2-4除CP的region. \ \ \ \ Method: \textit{polar coordinate}, 计算$r^2=x^2+y^2$ 对 $t$的求导, 寻找$r\dot{r}\geq0$ or $r\dot{r}\leq0$}
+    
 
-\textbf{Lyapunov Stability Theorem}: {\scriptsize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists$ 正定 且 连续 $ E:D\subset\mathbb{R}^2\to\mathbb{R},E(\mathbf{x}_0)=0$; || $^4\frac{dE}{dt}=\nabla E\cdot\mathbf{x}'=\partial_x E\cdot F+\partial_y E\cdot G$ 负(半)定 on $D\setminus\mathbf{x}_0(D)$} $\Rightarrow$ {\footnotesize $\mathbf{x_0}$ asp.(stab)}
+\end{minipage}
+\hfill
+\vrule width 0.3pt
+\hfill
+\begin{minipage}[t]{0.28\textwidth}
 
-$\cdot$ \textbf{Look for function $E$}: {\footnotesize Way 1: May be energy, but not always. \ \ \ \ \ \ Way 2: \textit{e.g.} $E=ax^{2n}+by^{2m}$,$E=a(x+y)^{2n}+by^{2m}$ \ ps: $\frac{dE}{dt}=\nabla E\cdot\mathbf{x}'$}
+    \textbf{Positive (Negative) [semi-]definite}: 
+    
+    $E:D\subset\mathbb{R}^2\to\mathbb{R}$ is positive (negative) [semi-]definite iff: 
+    
+    $^1E(\mathbf{x}_0)=0$
+    
+    $^2\forall\mathbf{x}\in D,\textbf{x}\ne\mathbf{x}_0,E(x,y)>0$ \ {\scriptsize or $(E(x,y)<0)$ \ or \ $[E(x,y)\geq0]$} \\
 
-\textbf{Lyapunov Instability Theorem}: {\footnotesize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists E:D\subset\mathbb{R}^2\to\mathbb{R},\partial_i E$ 连续,$E(\mathbf{x}_0)=0$; $^4\forall${\tiny 领域}$\mathbf{x}_0,\exists\mathbf{x}_1 \ E(\mathbf{x}_1)>0$; || $^5\frac{dE}{dt}$ 正定 on $D$ $\Rightarrow$ $\mathbf{x_0}$ unstable}
+    ps: Neighbourhood 领域 \\
 
-\textbf{Periodic Solution}: {\scriptsize Soln $\mathbf{x}$ has: $\mathbf{x}(t+T)=\mathbf{x}(t),\forall x$}.  || {\scriptsize 闭合曲线 $\Leftrightarrow$ Periodic sol} || {\scriptsize Periodic Solution + 附近有吸引或排斥 $\Rightarrow$ Limit Cycle} || {\scriptsize when $\dot{r}=0,\dot{\theta}=const.$ Periodic sol}
+    \textbf{Isolated Critical Point}: Critical Point $\mathbf{x}_0$ \textit{isolated} iff:
+    
+    $\exists$ Neighbourhood containing no other critical points.
 
-\textbf{Limit cycle}: {\scriptsize Limit cycle $\Rightarrow$ Periodic Solution} || Def $t\to\pm\infty,\exists$ non-closed trajectory asymptotes to it. {\scriptsize (inside or outside)} \ \ \ \ \ \ {\scriptsize ps: It's Orbital Stability}
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item Limit cycle is: $^1$asy.stab: $\forall$ trajectories asy. it; \ \ \ $^2$semistable: $\exists$ trajectories {\footnotesize 单方向 进/出}; \ \ \ $^3$unstable: $\forall$ trajectories away from it.
-    \item \textbf{Theorem (If $\exists$ limit cycle / closed)}: {\footnotesize $^1F,G${\scriptsize 一阶偏导连续} in simply connected $D$; $^2\exists$ {\scriptsize 极限环/封闭环} (\star) in $D$. \ $\Rightarrow$ \ $^1\exists$ CP in (\star); $^2$If $\exists!$ CP in (\star), it's not SP}.
-    \item \textbf{Theorem (No limit cycle / closed)}: {\footnotesize $^1F,G$一阶偏导连续 in simply connected $D$; $^2\partial_xF+\partial_yG$符号不变 on D \ $\Rightarrow$ \ No closed trajectory in D.}
-    \\ {\footnotesize 2的推论: $^1$If simple connected $D$ no CP \ $\Rightarrow$ \ No closed trajectory in D. \ \ \ \ \ \ $^2$If simple connected D has unique CP \ $\Rightarrow$ \ No closed trajectory in D}
-\end{enumerate}
-
-\textbf{Poincaré-Bendixson Theorem}: {\footnotesize $^1F,G$一阶偏导连续 in $D$; \ \ $^2\exists D_1\subset D$ bounded; \ \ $^3R=D_1\cup\partial D_1$ has NO CP; \ || \ $^4$ $\exists$ soln $\mathbf{x}\in R$, $\forall t\geq t_0$ \ $\Rightarrow$}
-
-\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize $\Rightarrow$ $^1\exists$ closed trajectory. \ \ \ \ \ \ $^2$ Either \textit{$\mathbf{x}$ sprial towards a Periodic trajectory.} \ or \ \textit{$\mathbf{x}$ periodic}} \ \ \ \ \ \ {\footnotesize $^3R$ is not simply connected}
-
-$\cdot$ \textbf{Find Trapping Region}: {\scriptsize \textbf{trapping region}: 符合上面定理2-4除CP的region. \ \ \ \ Method: Consider \textit{polar coordinate}, 计算$r^2=x^2+y^2$ 对 $t$的求导, 寻找$r\dot{r}\geq0$ or $r\dot{r}\leq0$}
+\end{minipage}
 
 
 \section{Fourier Series}
 
-\vspace{-0.25cm}
+\vspace{-2pt}
 \hspace{20pt}{\tiny * BVPs 可能没有解/一个解/无数解; IVP 只会有一个解}
-\vspace{-0.15cm}
+\vspace{-2pt}
 
 \subsection{Function Space, Eigenfunctions, Periodic Function and Orthogonal Function}
 
-\textbf{Periodic Functions}: Function $f(x)$ is Periodic iff $f(x+T)=f(x),\forall x$. \ \ \ \textbf{Period}: T. \ \ \ \textbf{Fundamental Period}: The smallest possible T.
-
-$\cdot$ Property: If $f,g$ has same period $T$. \ $\Rightarrow$ \ $af(x)+bg(x)$ also has period $T$. \ \ \ || \ \ \ For $sin(\omega x),cos(\omega x)$: $T=2\pi/\omega$
+\textbf{Periodic Functions}: Function $f(x)$ is Periodic iff $f(x+T)=f(x),\forall x$. \ \ \ \textbf{Period}: T. \ \ \ \textbf{Fundamental Period}: The smallest possible T. \ \ || \ \ \textbf{Property}: If $f,g$ has same period $T$. \ $\Rightarrow$ \ $af(x)+bg(x)$ also has period $T$.
 
 \textbf{Differential Operators}: Any linear combination of $n$-th derivatives defines a linear map or linear operator. \ \ \ \ \ \ {\tiny e.g. $p(x)\frac{d}{dx}+\frac{d^2}{dx^2}:y\mapsto p(x)\frac{dy}{dx}+\frac{d^2y}{dx^2}$}
 
-\textbf{Eigenvalues \& Eigenfunctions}: If $D$ is a \textit{differential operator} \ $\Rightarrow$ \ If $Df=\lambda f$, then $\lambda$ is \textbf{Eigenvalue} and $f$ is \textbf{Eigenfunctions}
+\textbf{Eigenvalues \& Eigenfunctions}: If $D$ is a \textit{differential operator} \ $\Rightarrow$ \ If $Df=\lambda f$, then $\lambda$ is \textbf{Eigenvalue} and $f$ is \textbf{Eigenfunctions} \ \ \ || \ \ \ \textbf{Property}: {\tiny 对于微分方程}: $Df=\lambda f$ \ \ $\Rightarrow$ \ \ solution: $f=\sum c_nf_n$ \ \ $f_n$ are Eigenfunctions
 
-$\cdot$ \textbf{Property}: {\footnotesize 对于微分方程: $Df=\lambda f$ \ \ $\Rightarrow$ \ \ solution: $f=\sum c_nf_n$ \ \ $f_n$ are Eigenfunctions}
-
-\textbf{Inner Product}: $(f,g) =\int^b_{a}f(x)\overline{g(x)}dx$ \ \ \ \ \ \ For funcs $f,g$ in $(a,b)$ \ \ \ \ || \ \ \ \ \textbf{Orthogonal}: $(f,g)=0$ \ \ \ \ || \ \ \ \ \textbf{Square Norm}: $(f,f)$.
-
-% $\cdot$ Speical Case: Let $C_n=cos(\frac{n\pi x}{L}),S_n=sin(\frac{n\pi x}{L})$. \ \ $\Rightarrow$ \ \ $(S_n,S_m)=(C_n,C_m)=L\delta_{mn}$ and $(S_n,C_m)=(C_m,S_n)=0$. \ \ \ \ {\footnotesize $n=1,2,...$, in $[-L,L]$}
-
-\textbf{Kronecker delta}: $\delta_{mn}=\{0,m\ne n; \ 1,m=n.$
+\textbf{Inner Product}: $(f,g) =\int^b_{a}f(x)\overline{g(x)}dx$ \ \ \ \ \ \ For funcs $f,g$ in $(a,b)$ \ \ \ \ || \ \ \ \ \textbf{Orthogonal}: $(f,g)=0$ \ \ \ \ || \ \ \ \ \textbf{Square Norm}: $(f,f)$. \ \ \ || \ \ \ \textbf{Kronecker delta}: $\delta_{mn}=\{0,m\ne n; \ 1,m=n.$
 
 
 \subsection{Fourier Series}
 
-\textbf{Fourier Series}: Periodic function with $T=2L$ \ , \ $f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_ncos(\frac{n\pi x}{L})+b_nsin(\frac{n\pi x}{L})\right)$ (*) \ \ \ {\scriptsize where $a_0,a_n,b_n$ are Fourier Coefficients.}
+\textbf{Fourier Series}: Periodic function with $T=2L$ \ , \ $f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_ncos(\frac{n\pi x}{L})+b_nsin(\frac{n\pi x}{L})\right)$ (*)
 
-\textbf{Euler-Fourier Formulas}: Suppose (*) converges in the interval $[-L,L]$. Then:
+$\cdot$ \textbf{Euler-Fourier Formulas}: Suppose (*) converges in the interval $[-L,L]$. Then: $a_n=\frac{1}{L}\int^L_{-L}f(x)cos(\frac{n\pi x}{L})dx$ \ \ \ \ \ \ \ \ $b_n=\frac{1}{L}\int^L_{-L}f(x)sin(\frac{n\pi x}{L})dx$ \ \ \ \ \ \ \ \ $a_0=\frac{1}{L}\int^L_{-L}f(x)dx$ {\scriptsize (Average Value of $f$ over $2L$)}
 
-\hspace{116pt}$a_n=\frac{1}{L}\int^L_{-L}f(x)cos(\frac{n\pi x}{L})dx$ \ \ \ \ \ \ \ \ $b_n=\frac{1}{L}\int^L_{-L}f(x)sin(\frac{n\pi x}{L})dx$ \ \ \ \ \ \ \ \ $a_0=\frac{1}{L}\int^L_{-L}f(x)dx$ {\scriptsize (Average Value of $f$ over $2L$)}
-
-\textbf{Piecewise Continuous}: {\footnotesize $f(x)$ piecewise continuous on $[a,b]$ \ \ iff \ \ $\exists a=x_0<\cdots<x_n=b$ s.t. $^1f(x)$ continuous $\forall x\in(x_{i-1},x_i)$ $^2 f(x_i^{\pm})=\lim_{x\to x_i^{\pm}}f(x)$ finite.}
+\vspace{2pt}
+\textbf{Piecewise Continuous}: {\footnotesize $f(x)$ piecewise continuous on $[a,b]$ \ \ iff \ \ $\exists a=x_0<\cdots<x_n=b$ s.t. \ \ \ $^1f(x)$ continuous $\forall x\in(x_{i-1},x_i)$ \ \ \ $^2 f(x_i^{\pm})=\lim_{x\to x_i^{\pm}}f(x)$ finite.}
 
 \textbf{Fourier Convergence Theorem}: If $^1f,f'$ piecewise continuous on $[-L,L]$,$^2f(x+2L)=f(x)$. \ \ $\Rightarrow$ \ \ Fourier Series of $f$ converges.
 
 $\cdot$ Futhermore, Let Fourier Series of $f$ is $F$. \ \ \ \ $F(x)\to f(x)$, $f(x)$ continuous; $F(x)\to\frac{f(x^+)+f(x^-)}{2}$, $f(x)$ discontinuous.
 
-\textbf{Theorem}: Fourier Series for piecewise continuous functions can be \underline{Integrated term-by-term} to \underline{Convergent} Fourier Seires.
+\textbf{Term-By-Term Integration}: Fourier Series for \textit{piecewise continuous} functions can be \underline{Integrated term-by-term} to \underline{Convergent} Fourier Seires.
 
 \textbf{Finite Truncation (Partial Sum)}: {\footnotesize Finite Truncation of Fourier Series is: $s_k=\frac{a_0}{2}+\sum_{n=1}^{k}\left(a_ncos(\frac{n\pi x}{L})+b_nsin(\frac{n\pi x}{L})\right)$ \ \ || \ \  \textbf{Error}: $e_N=s_N-f(x)$}
 
@@ -349,24 +400,22 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 
 \subsection{Other Results on Fourier Series}
 
-\textbf{Extension of a function}: {\scriptsize $f(x)$ know for $x\in[0,L]$ \ \ $\Rightarrow$ \ \ Even Ext.: $h(x)=\{f(x),[0,L]; \ f(-x),(-L,0)$ \ || \ Odd Ext.: $h(x)=\{f(x),(0,L); \ 0,x=\pm L,0; \ -f(-x),(-L,0)$}
+\textbf{Extension of a function}: $f(x)$ know for $x\in[0,L]$ \ \ $\Rightarrow$ \ \ Even Ext.: $h(x)=\{f(x),[0,L]; \ f(-x),(-L,0)$ \ \ \ \ \ || \ \ \ \ \ Odd Ext.: $h(x)=\{f(x),(0,L); \ 0,x=\pm L,0; \ -f(-x),(-L,0)$
 
-\hspace{110pt} {\small Even Extension: $a_n=\frac{2}{L}\int^L_0f(x)cos(\frac{n\pi x}{L})dx,b_n=0$ \ \ \ \ \ \ || \ \ \ \ \ \ Odd Extension: $b_n=\frac{2}{L}\int^L_0f(x)sin(\frac{n\pi x}{L})dx,a_n=0$}
+\hspace{140pt} Even Ext: $a_n=\frac{2}{L}\int^L_0f(x)cos(\frac{n\pi x}{L})dx,b_n=0$ \ \ || \ \ \ \ Odd Ext: $b_n=\frac{2}{L}\int^L_0f(x)sin(\frac{n\pi x}{L})dx,a_n=0$
 
-\textbf{Complex Form of Fourier Series}: {\small $f(x)=\sum_{-\infty}^{\infty}c_ne^{\frac{i \ n\pi x}{L}}$} \ \ || \ \ {\footnotesize $c_n=\frac{a_n-ib_n}{2};c_{-n}=\frac{a_n+ib_n}{2};c_0=\frac{a_0}{2},n>0$ \ \ || \ \ $a_0=2c_0;a_n=c_n+c_{-n};b_n=i(c_n-c_{-n})$}
+\textbf{Complex Form of Fourier Series}: $f(x)=\sum_{-\infty}^{\infty}c_ne^{\frac{i \ n\pi x}{L}}$ \ \ || \ \ $c_n=\frac{a_n-ib_n}{2};c_{-n}=\frac{a_n+ib_n}{2};c_0=\frac{a_0}{2},n>0$ \ \ || \ \ $a_0=2c_0;a_n=c_n+c_{-n};b_n=i(c_n-c_{-n})$
 
-\textbf{Euler-Fourier Formula (Complex)}: {\small If ($\Uparrow$) of Periodic $f,(T=2L)$ converges in $[-L,L]$ \ \ $\Rightarrow$ \ \ $c_n=\frac{1}{2L}\int_{-L}^{L}f(x)e^{-\frac{i \ n\pi x}{L}}$} \ || \ $c_{-n}=\overline{c_n}$ if $f$ real.
+$\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f,(T=2L)$ converges in $[-L,L]$ \ \ $\Rightarrow$ \ \ $c_n=\frac{1}{2L}\int_{-L}^{L}f(x)e^{-\frac{i \ n\pi x}{L}}$ \ || \ $c_{-n}=\overline{c_n}$ if $f$ real.
 
-\textbf{Parseval's Theorem}: If $^1$ Periodic function $f$; $^2$ $f$ has convergent Fourier Series. 
-
-\hspace{93pt} {\small $\Rightarrow$ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$} \ \ \ {\footnotesize ps: 无限维的勾股定理}
+\textbf{Parseval's Theorem}: If $^1$ Periodic function $f$; $^2$ $f$ has convergent Fourier Series.  \ \ \ $\Rightarrow$ \ \ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$ \ \ \ \footnotesize ps: 无限维的勾股定理
 
 
 \section{Linear PDEs by Separation of Variables}
 
 \textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ {\footnotesize If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ {\footnotesize 可以使用此方法!}
 
-{\small \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$}
+\ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$
 
 \textbf{Basic Idea|Homo}: {\footnotesize 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
 
@@ -389,31 +438,29 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 
 \section{Appendix}
 
-\textbf{Trigonometric func}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$}
+\scriptsize
 
-$\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^2(x)=cos^2(x)-sin^2(x)$ \ \ \ $cos(x)=\sqrt{\frac{1+cos(2x)}{2}}$ \ \ \ $sin(x)=\sqrt{\frac{1-cos(2x)}{2}}$}
+\textbf{Wronskian Geoemtric Meaning}: Geometrically, $W$ is the volume spanned by the three vectors $y^{(1)}, y^{(2)}, y^{(3)}$; \ \ $t$ 增加或减小代表在 $y^{(i)}$方向上 compress/stretch.
 
-\textbf{hyperbolic func}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
+\textbf{和差化积/积化和差}: s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$ \ \ || \ \ $sin(2x)=2sin(x)cos(x)$ \ \ $cos(2x)=2cos^2(x)-1$ \ \ $cos(x)=\sqrt{\frac{1+cos(2x)}{2}}$ \ \ $sin(x)=\sqrt{\frac{1-cos(2x)}{2}}$
 
-\hspace{72pt} $\cdot$ {\footnotesize $\sinh(x \pm y) = \sinh(x)\cosh(y) \pm \cosh(x)\sinh(y)$ \ \ \ \ \ \ $\cosh(x \pm y) = \cosh(x)\cosh(y) \pm \sinh(x)\sinh(y)$}
+\textbf{Hyperbolic Func}: $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$ \ \ || \ \ $\sinh(x \pm y) = \sinh(x)\cosh(y) \pm \cosh(x)\sinh(y)$ \ \ \ \ \ \ $\cosh(x \pm y) = \cosh(x)\cosh(y) \pm \sinh(x)\sinh(y)$
 
-\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
+$\cdot$ $sinh(x)$ 单调递增, odd, iff $x=0,sinh(x)=0$ \ \ \ \ \ \ $cosh(x)$ $x>0$ 单调递增, even \ \ \ \ \ \ || $sinh(2x)=2sinh(x)cosh(x)$ \ \ \ \ \ \ $cosh(2x)=cosh^2(x)+sinh^2(x)$
 
-\textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
+\textbf{Common Int}: $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$ \hspace{60pt} $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$
 
-$\cdot$  {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
+\textbf{Common Der}: $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$. \ \ || \ \ $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$.
 
 \textbf{Polar Coordinate}: $x=rcos(\theta)$,$y=rsin(\theta)$ \ \ \ \ \ \ we have: $r\dot{r}=x\dot{x}+y\dot{y}$ \ , \ $y\dot{x}-x\dot{y}=-r^2\dot{\theta}$
 
 \textbf{Explain of Fourier Series}: {\scriptsize In application, it's decomposition of signal into infinite (countable) waves; each wave $cos(\frac{n\pi x}{L}),cos(\frac{m\pi x}{L})$ has discrete period; $a_n,b_m$ correspond to amplitudes of waves.} \ \ \ || \ \ \ {\scriptsize In vector algebra, it's a space of periodic functions; $f$ corresponds to an arbitrary vector $\mathbf{v}$; orthogonal basis $\{1, cos(\frac{n\pi x}{L}), sin(\frac{m\pi x}{L})\}$; $a_n,b_m$ correspond to coefficient of each components of basis.}
 
-\textbf{Even \& Odd Function}: {\scriptsize Even: $f(-x)=f(x)$; \ \ \ Odd: $f(-x)=-f(x)$. \ \ \ || \ \ \ Property: $^1f(x)$ odd: $\int_{-L}^{L}f(x)dx=0$ \ \ \ $^2f(x)$ even: $\int_{-L}^{L}f(x)dx=2\int_{0}^{L}f(x)dx$}
+\textbf{Even \& Odd Function}: Even: $f(-x)=f(x)$; \ \ Odd: $f(-x)=-f(x)$. \ \ || \ \ Property: $^1f(x)$ odd: $\int_{-L}^{L}f(x)dx=0$ \ \ $^2f(x)$ even: $\int_{-L}^{L}f(x)dx=2\int_{0}^{L}f(x)dx$ \ \ || \ \ $^1$eve + eve = eve; \ \ $^2$odd + odd = odd; \ \ $^3$eve $\times$ eve = eve; \ \ $^4$odd $\times$ odd = eve; \ \ $^5$eve $\times$ odd = odd.
 
-$\cdot$ {\scriptsize Other Property: $^1$even + even = even; \ \ $^2$odd + odd = odd; \ \ $^3$even $\times$ even = even; \ \ $^4$odd $\times$ odd = even; \ \ $^5$even $\times$ odd = odd.}
+\textbf{Euler Formula}: { $e^{ix}=cos(x)+isin(x)$ \ \ \ || \ \ \ $e^{inx}=cos(nx)+isin(nx)$ \ \ \ || \ \ \ $cos(nx)=\frac{e^{inx}+e^{-inx}}{2}$ \ \ \ || \ \ \ $sin(nx)=\frac{e^{inx}-e^{-inx}}{2i}$}
 
-\textbf{Euler Formula}: {\footnotesize $e^{ix}=cos(x)+isin(x)$ \ \ \ || \ \ \ $e^{inx}=cos(nx)+isin(nx)$ \ \ \ || \ \ \ $cos(nx)=\frac{e^{inx}+e^{-inx}}{2}$ \ \ \ || \ \ \ $sin(nx)=\frac{e^{inx}-e^{-inx}}{2i}$}
-
-\textbf{Slove $y''+\lambda y=0$}: {\footnotesize $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0:y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$}
+\textbf{Solve $y''+\lambda y=0$}: { $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0:y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \textbf{Solve $y'+\beta y=0$}: { $y=c_1e^{-\beta x}$}
 
 \textbf{Approximation} $sin(x)\approx x$ when $x\to0$ 
 

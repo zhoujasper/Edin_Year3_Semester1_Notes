@@ -187,86 +187,32 @@ $\cdot$ \textbf{1.} $f(I)$ is open interval. \ \ \ \ \ \textbf{2.} $f$ is invert
 
 \textbf{Pointwise Convergence NOT Preserve}: $^1$\textit{continuity}, \ \ $^2$\textit{differentiability}, \ \ $^3(\lim f_n)'\ne\lim f'_n$, \ \ $^4\int\lim f_n\ne\lim\int f_n$
 
-$\cdot$ {\footnotesize 对应反例}: {\tiny $^1f_n:[0,1]\to\mathbb{R}:=\begin{cases} 0,0\leq x\leq \frac{1}{2}-\frac{1}{2n} \\ nx-\frac{n-1}{2},\frac{1}{2}-\frac{1}{2n}\leq x\leq \frac{1}{2}+\frac{1}{2n} \\ 1,\frac{1}{2}+\frac{1}{2n} \leq x\leq 1 \end{cases}$} \ \ {\scriptsize $^2f_n:(-1,1)\to\mathbb{R}:=\sqrt{x^2+\frac{1}{n}}$} \ \ {\scriptsize $^3f_n:(-1,1)\to\mathbb{R}:=\frac{sin(nx)}{n}$} \ \ {\scriptsize $^4f_n:(0,1]\to\mathbb{R}:=\begin{cases} n,0<x\leq\frac{1}{n} \\ 0,\frac{1}{n}<x\leq1 \end{cases}$}
+$\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$} \ \ {\scriptsize $^2f_n:(-1,1)\to\mathbb{R}:=\sqrt{x^2+\frac{1}{n}}$} \ \ {\scriptsize $^3f_n:(-1,1)\to\mathbb{R}:=\frac{sin(nx)}{n}$} \ \ {\scriptsize $^4f_n:(0,1]\to\mathbb{R}:=\begin{cases} n,0<x\leq\frac{1}{n} \\ 0,\frac{1}{n}<x\leq1 \end{cases}$}
 
 
 \subsection{Uniformly Convergence}
 
+\textbf{Graph}: $\Gamma(f):=\{(x,f(x))| x\in E\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
 
-\section{Appendix}
+\textbf{Vertical Neighbourhood} $\mathcal{N}(f,\varepsilon):=\{(x,y)| x\in E,|y-f(x)|<\varepsilon\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
 
-\textbf{Inequation}: \textit{Useful Property}: If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$
-\vspace{-10pt}
-\begin{longtable}{|l||l|l|l|l|}
-    \hline
-    \textbf{Triangular} & $|x+y|\leq|x|+|y|$ & $|x-y|\geq|x|-|y|$ & \multicolumn{2}{l|}{$||x|-|y|| \leq|x \pm y|.$} \\
-    \hline
-    \textbf{AM-GM \& Cauchy} & $a+b\geq2\sqrt{ab},a>0,b>0$ & $a^2+b^2\geq2ab$ & \multicolumn{2}{l|}{$(\sum a_nb_n)^2\leq\sum a^2_n\sum b^2_n$} \\
-    \hline
-    \textbf{Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
-    \hline
-    \textbf{\footnotesize 常见变换技巧1} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
-    \hline
-    \textbf{\footnotesize 常见变换技巧2} & \np$\frac{1}{k}\leq ln(x)-ln(x-1)$ {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} &  & \multicolumn{2}{l|}{} \\
-    \hline
-\end{longtable}
-\vspace{-10pt}
-
-\ex\textbf{和差化积/积化和差}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$} \ {\tiny Hint: 和差角公式相加减}
-
-\textbf{Hyperbolic Function}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
-
-\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
-
-\textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
-
-\hspace{65pt} {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \hspace{18pt} $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
-
-\textbf{Interchanging the Order of Summation}: $\sum_{n=1}^{p}\sum_{m=1}^{q}f(n,m)=\sum_{m=1}^{q}\sum_{n=1}^{p}f(n,m)$ \ \ \ \ \ \ || \ex $\sum_{k=0}^{n}\sum_{i=0}^{k}=\sum_{i=0}^{k}\sum_{k=i}^{n}$ {\tiny Hint: 列出来看or画图}
-
-\ex\textbf{Summation By Parts}: $\sum_{k=1}^{n}a_k(b_{k+1}-b_k)=(a_{n+1}b_{n+1}-a_1b_1)-\sum_{k=1}^{n}(a_{k+1}-a_k)b_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$
-
-\hspace{102pt} $\Rightarrow$ $\sum_{k=1}^{n}a_kb_k=a_{n+1}\sigma_{n+1}-\sum_{k=1}^{n}(a_{k+1}-a_k)\sigma_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$ \ \ \ $\sigma_k:=\sum_{j=1}^{k-1}b_j$
-
-
-
-\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
-\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
-\textbf{Old}
-
-
-
-
-\section{Basic Knowledge \& FPM} % Basic Knowledge
-
-\subsection{Definitions, Useful Tools \& Nested Intervals}
-
-$\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
-
-
-
-\subsection{Uniformly Convergence}
-
-\textbf{Def of Graph}: $\Gamma(f):=\{(x,f(x))| x\in E\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
-
-\textbf{Def of Vertical Neighbourhood} $\mathcal{N}(f,\varepsilon):=\{(x,y)| x\in E,|y-f(x)|<\varepsilon\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
-
-\textbf{Def of Uniformly Convergence}: $f_n:E\to\mathbb{R}$ converge uniformly iff $\forall\varepsilon>0,\exists N_{\varepsilon} \ s.t. \ \forall n>N,\forall x\in E,|f_n(x)-f(x)|<\varepsilon$ \ {\scriptsize \textbf{Equvialent} to}
+\textbf{Uniformly Convergence}: $f_n:E\to\mathbb{R}$ converge uniformly iff: \hspace{50pt} || \ \ \textbf{Uniformly} $\Rightarrow$ \textbf{Pointwise}
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item $\lim\left[ \sup_{x\in E}|f_n(x)-f(x)| \right]=0$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cdot$\textbf{Uniformly} $\Rightarrow$ \textbf{Pointwise}
-    \item \textbf{Vertical Neighbourhood Test}: $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n>N,\Gamma(f_n)\subset\mathcal{N}(f,\varepsilon)$
+    \item \textbf{Version 1}: $\forall\varepsilon>0,\exists N_{\varepsilon} \ s.t. \ \forall n>N,\forall x\in E,|f_n(x)-f(x)|<\varepsilon$
+    \item \textbf{Version 2}: $\lim\left[ \sup_{x\in E}|f_n(x)-f(x)| \right]=0$
+    \item \textbf{Version 3 | Uniformly Cauchy}: $\forall\varepsilon>0,\exists N_\varepsilon\in\mathbb{N} \ s.t. \ \forall x\in E, m,n>N \ |f_n(x)-f_m(x)|<\varepsilon$ \ \ \ || \ \ \ {\small \textbf{Converge Unif} \ $\Leftrightarrow$ \ \textbf{Unif Cauchy}}
+    \item \textbf{Version 4 | Vertical Neighbourhood Test}: $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n>N,\Gamma(f_n)\subset\mathcal{N}(f,\varepsilon)$
 \end{enumerate}
 
-\textbf{Uniformly Cauchy}: $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall x\in E, m,n>N \ |f_n(x)-f_m(x)|<\varepsilon$ \ \ {\scriptsize ps: $f_n:E\to\mathbb{R}$} \ \ \ \ \ \ {\scriptsize $\cdot$ \textbf{Converge uniformly} \ $\Leftrightarrow$ \ \textbf{Uniformly Cauchy}}
+\textbf{Sequence Test}: If $f_n:E\to\mathbb{R}$ converge uniformly to $f$. \ \ $\Rightarrow$ \ \ If $(x_n)_{n\in\mathbb{N}}\in E,\lim|f_n(x_n)-f(x_n)|=0$ \ \ {\footnotesize 不能当作 $\forall x_n$}
 
-\textbf{Sequence Test}: If $f_n:E\to\mathbb{R}$ converge uniformly to $f$. \ \ $\Rightarrow$ \ \ $\forall (x_n)_{n\in\mathbb{N}}\in E,\lim|f_n(x_n)-f(x_n)|=0${\tiny 测试不是时可以用}
-
-\textbf{Property of Uniformly Convergent}: Let $f_n,f,g:I\to\mathbb{R}$ Then: \ \ \ \ \ {\scriptsize NOT preserve: \ differentiable.} \ \ \ \ \ \ {\tiny ps: 2. \textbf{Termwise differentiation}}
+\textbf{Properties of Uniformly Convergent}: Let $f_n,f,g:I\to\mathbb{R}$ Then: \ \ \ \ \ {\scriptsize NOT preserve: \ differentiable.}
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$. \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$
-    \item If $^1I$ is \underline{\textit{bounded open}}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.
+    \item \textbf{Continuous}: {\footnotesize If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$.} \hspace{80pt} {\footnotesize $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$}
+    \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.}
     \vspace{-4pt}
     \item {\scriptsize\textcolor{red}{Cannot use now}}If $^1\lim f_n(x)=f(x)$ uniformly on \textit{closed interval} $[a,b]$, $^2$ $f_n$ integrable on $[a,b]$ \ \ $\Rightarrow$ \ \ $\lim \int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim f_n(x)dx$
+    \item \ex If $f_n:[a,b]\to\mathbb{R}$,$g_n:[a,b]\to\mathbb{R}$ converge uniformly. \ \ $\Rightarrow$ \ \ $\frac{f_n}{g_n}$ converge uniformly also. \ \ {\footnotesize ps:$(a,b)$不行} \ \ \ \ \ \ {\tiny Hint: $f_ng-fg_n=f_ng-fg+fg-fg_n$}
 \end{enumerate}
 
 \textbf{Def of Series of Functions}: Let $f_n:E\to\mathbb{R}$; Def partial sum $s_n(x):=\sum_{k=1}^{n}f_k(x)$
@@ -278,30 +224,35 @@ $\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
 
 \section{Power Series}
 
-\subsection{Introduction, Radius of Convergence, Continuity and Differentiability of Power Series}
+\subsection{Power Series, Radius of Convergence, Continuity and Differentiability}
 
 \textbf{Power Series}: A series from $\sum_{n=0}^{\infty}a_n(x-c)^n$ \ \ \ \textbf{Center}: $c$. \ \ \ \textbf{Coefficients}: $a_n$.
 
 \textbf{Radius of Convergence (R)}: For a power series $\sum a_n(x-c)^n$, there are three situations for it's radius of convergence:
+
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item $R=0$ if $\sum a_n(x-c)^n$ converges only $x=c$ \ \ \ || \ \ \ $R=\infty$ if $\sum a_n(x-c)^n$ converges absolutely $\forall x\in\mathbb{R}$
-    \item $\exists R>0$ s.t. $\sum a_n(x-c)^n$ converges absolutely if $|x-c|<R$; diverges if $|x-c|>R$. \ \ \ || \ \ \ $R=\sup\{r\geq0:(a_nr^n)_{n\in\mathbb{N}} \ \underline{bounded}\}$
+    \item $R=0$ if $\sum a_n(x-c)^n$ converges only $x=c$.
+    \item $R=\infty$ if $\sum a_n(x-c)^n$ converges absolutely $\forall x\in\mathbb{R}$.
+    \item $\exists R>0$ s.t. $\sum a_n(x-c)^n$ converges absolutely if $|x-c|<R$; diverges if $|x-c|>R$.
+    \item \textbf{All-In-One}: $R=\sup\{r\geq0:(a_nr^n)_{n\in\mathbb{N}} \ is \ \underline{bounded}\}$
 \end{enumerate}
 
-\textbf{Theorem (Continuity, Uniformly and Differentiability)}: If $f(x)=\sum a_n(x-c)^n$ with $R>0$.
+\textbf{Properties | In Radius of Convergence}: Assume $f(x)=\sum a_n(x-c)^n$ with $R>0$.
+
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item $f(x)$ continuous on $(c-R,c+R)$
-    \item $\forall 0<r<R,f(x)$ converges absolutely and uniformly on $[c-r,c+r]$
-    \item $\sum^\infty_{n=0} a_n(x-c)^n$ and $\sum^\infty_{n=1} na_n(x-c)^{n-1}$ have same $R$.
-    \item \textbf{Termwise differentiation}: $f(x)$ is differentiable on $(c-R,c+R)$ \ \ \ || \ \ \ $f'(x)=\sum^\infty_{n=1} na_n(x-c)^{n-1},x\in(c-R,c+R)$
-    \\ $\forall 0<r<R,f(x),f'(x)$ converges absolutely and uniformly on $[c-r,c+r]$
-    \item $f(x)$ is infinitely convergence on $(c-R,c+R)$ \ || \ $a_k=\frac{f^{(k)}(c)}{k!}$
+    \item \textbf{Continuous}: $f(x)$ continuous on $(c-R,c+R)$.
+    \item \textbf{Convergence}: $\forall 0<r<R, \ \ \ f(x)$ converges absolutely \& uniformly on $[c-r,c+r]$.
+    \item \textbf{Preserve R}: $\sum^\infty_{n=0} a_n(x-c)^n$ and $\sum^\infty_{n=1} na_n(x-c)^{n-1}$ have same $R$. \ \ {\footnotesize ps: 即求导R不变}
+    \item \textbf{Termwise differentiation}: $f(x)$ is differentiable on $(c-R,c+R)$ \ \ \ || \ \ \ $^1f'(x)=\sum^\infty_{n=1} na_n(x-c)^{n-1},x\in(c-R,c+R)$ \\
+    $^2\forall 0<r<R, \ \ \ f'(x)$ converges absolutely and uniformly on $[c-r,c+r]$. \ \ \ \ \ \ \ \ {\footnotesize ps: 即可以对里面求导}
+    \item \textbf{Coefficients \& Diff}: $^1f(x)$ is \textit{infinitely differentiable} on $(c-R,c+R)$ \ \  \ || \ \ \ $^2a_k=\frac{f^{(k)}(c)}{k!}$
+    \item \ex\textbf{Uniqueness}: If $\sum a_n(x-c)^n=\sum b_n(x-c)^n$ for $\forall x\in\mathbb{R},|x-c|<r_0$ \ \ $\Rightarrow$ \ \ $a_n=b_n$
 \end{enumerate}
 
 
-\subsection{The Exponential Function \& Real Analytic Function}
+\subsection{Exponential Function \& Real Analytic Function}
 
-\textbf{The Exponential Function}: $E(x):=\sum_{n=0}^{\infty}\frac{x^n}{n!}$ with $R=\infty$ \ \ \ \ \ \ {\scriptsize ps: usually denoted by $exp(x)$ or $e^x$}
+\textbf{Exponential Function}: $E(x):=\sum_{n=0}^{\infty}\frac{x^n}{n!}$ with $R=\infty$ \ \ \ \ \ \ {\scriptsize ps: usually denoted by $exp(x)$ or $e^x$}
 
 \textbf{Real Analytic Function}: $f:I\to\mathbb{R}$ is real analytic \ iff \ $\exists (a_n)_{n\in\mathbb{N}}$ s.t. $f(x)=\sum_{n=0}^{\infty}a_n(x-c)^n$ for $\forall x\in I$ \ \ \ {\footnotesize i.e. Series converges pointwise on I.}
 
@@ -318,11 +269,83 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \end{enumerate}
 
 
+\section{Open \& Closed Sets}
+
+
+\section{Lebesgue Outer Measure || Lebesgue Measurable || Lebesgue Measure}
+
+
+\section{Lebesgue Integral}
+
+
+
+
+\section{Appendix}
+
+\textbf{Inequation}: \textit{Useful Property}: If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$
+\vspace{-10pt}
+\begin{longtable}{|l||l|l|l|l|}
+    \hline
+    \textbf{Triangular} & $|x+y|\leq|x|+|y|$ & $|x-y|\geq|x|-|y|$ & \multicolumn{2}{l|}{$||x|-|y|| \leq|x \pm y|.$} \\
+    \hline
+    \textbf{AM-GM \& Cauchy} & $a+b\geq2\sqrt{ab},a>0,b>0$ & $a^2+b^2\geq2ab$ & \multicolumn{2}{l|}{$(\sum a_nb_n)^2\leq\sum a^2_n\sum b^2_n$} \\
+    \hline
+    \textbf{Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
+    \hline
+    \textbf{\footnotesize 常见变换技巧1} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
+    \hline
+    \textbf{\footnotesize 常见变换技巧2} & \np{\small $\frac{1}{k}\leq ln(x)-ln(x-1)$} \ \ \ \ {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} & \multicolumn{3}{l|}{\small $|a_n||x-c|^n=|a_n|\rho^n\cdot\frac{|x-c|^n}{\rho^n} \ , \ |x-c|<\rho<R$} \\
+    \hline
+\end{longtable}
+\vspace{-10pt}
+
+\ex\textbf{{\footnotesize 和差化积/积化和差}}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$} \ {\tiny Hint: 和差角公式相加减}
+
+$\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^2(x)=cos^2(x)-sin^2(x)$ \ \ \ $cos(x)=\sqrt{\frac{1+cos(2x)}{2}}$ \ \ \ $sin(x)=\sqrt{\frac{1-cos(2x)}{2}}$}
+
+\textbf{Hyperbolic Func}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
+
+\hspace{72pt} $\cdot$ {\footnotesize $\sinh(x \pm y) = \sinh(x)\cosh(y) \pm \cosh(x)\sinh(y)$ \ \ \ \ \ \ $\cosh(x \pm y) = \cosh(x)\cosh(y) \pm \sinh(x)\sinh(y)$}
+
+\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
+
+\textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
+
+\hspace{65pt} {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \hspace{18pt} $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
+
+\textbf{Interchanging the Order of Summation}: $\sum_{n=1}^{p}\sum_{m=1}^{q}f(n,m)=\sum_{m=1}^{q}\sum_{n=1}^{p}f(n,m)$ \ \ \ \ \ \ || \ex $\sum_{k=0}^{n}\sum_{i=0}^{k}=\sum_{i=0}^{k}\sum_{k=i}^{n}$ {\tiny Hint: 列出来看or画图}
+
+\ex\textbf{Summation By Parts}: $\sum_{k=1}^{n}a_k(b_{k+1}-b_k)=(a_{n+1}b_{n+1}-a_1b_1)-\sum_{k=1}^{n}(a_{k+1}-a_k)b_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$
+
+\hspace{102pt} $\Rightarrow$ $\sum_{k=1}^{n}a_kb_k=a_{n+1}\sigma_{n+1}-\sum_{k=1}^{n}(a_{k+1}-a_k)\sigma_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$ \ \ \ $\sigma_k:=\sum_{j=1}^{k-1}b_j$
+
+$\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \ \ $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
+
+\textbf{Useful Conterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$
+
+\ex\textbf{Common Power Series}: $\sum^\infty_{n=0} x^n=(1-x)^{-1}$ \ \ \ \ $\sum^\infty_{n=1} nx^{n-1}=(1-x)^{-2}$ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=2} n(n-1)x^{n-2}=2(1-x)^{-3}$ \ \ \ \ \ \ $R=1$ for all.
+
+\ex\hspace{106pt} $\sum^\infty_{n=0}\frac{x^n}{n!}=e^{x}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=1}(-1)^{n+1}\frac{x^n}{n}=ln(x+1)$ \ \ \ $\sum^\infty_{n=1} \frac{x^n}{n}=-ln(1-x)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $R=\infty$ for all.
+
+\textbf{Sum of $\mathbf{n,n^2,n^3}$}: $\sum^n_{k=1}k=\frac{n(n+1)}{2}$ \ \ \ \ \ \ $\sum^n_{k=1}k^2=\frac{n(n+1)(2n+1)}{6}$ \ \ \ \ \ \ $\sum^n_{k=1}k^3=[\frac{n(n+1)}{2}]^2$
+
+\textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
+
+\textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$
+
+\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
+\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
+
+
+
+
 \section{Integration Theory \& Lebesgue Integration}
 
 \subsection{Introduction}
 
 \subsubsection{Definition of Integral and Step Function}
+
+$\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
 
 \textbf{Types of Integration \& Fundamental Theorem of Calculus}: 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
@@ -450,25 +473,5 @@ $\cdot$ \textbf{Property}: \textit{$\star$ All properties of Lebesgue Outer Meas
 
 $\cdot$ Example: 
 
-
-\section{Appendix}
-
-
-
-
-
-$\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ || $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
-
-\textbf{Common Power Series}: $\sum^\infty_{n=0} x^n=(1-x)^{-1}$ \ \ \ \ $\sum^\infty_{n=1} nx^{n-1}=(1-x)^{-2}$ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=2} n(n-1)x^{n-2}=2(1-x)^{-3}$ \ \ \ \ \ \ $R=1$ for all.
-
-\hspace{106pt} $\sum^\infty_{n=0}\frac{x^n}{n!}=e^{x}$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\sum^\infty_{n=1}(-1)^{n+1}\frac{x^n}{n}=ln(x+1)$ \ \ \ $\sum^\infty_{n=1} \frac{x^n}{n}=-ln(1-x)$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $R=\infty$ for all.
-
-\textbf{Sum of $\mathbf{n,n^2,n^3}$}: $\sum^n_{k=1}k=\frac{n(n+1)}{2}$ \ \ \ \ \ \ $\sum^n_{k=1}k^2=\frac{n(n+1)(2n+1)}{6}$ \ \ \ \ \ \ $\sum^n_{k=1}k^3=[\frac{n(n+1)}{2}]^2$
-
-\textbf{Useful Conterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$
-
-\textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
-
-\textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$
 
 \end{document}
