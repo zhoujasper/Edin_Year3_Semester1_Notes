@@ -25,7 +25,7 @@
 
 % 设置页脚/页眉
 \usepackage{fancyhdr}
-\fancyfoot[C]{{\footnotesize $\xi_i,\eta_i$ 默认是向量} | Copyright By Jingren Zhou | Page \thepage}
+\fancyfoot[C]{{ $\xi_i,\eta_i$ 默认是向量} | Copyright By Jingren Zhou | Page \thepage}
 \fancyhead[]{}
 \pagestyle{fancy}
 % 去除线
@@ -85,20 +85,20 @@ $\cdot$ \textbf{Arithmetic Manipulate (AM) $\lambda$}: $\lambda$ 重复出现的
     
 $\cdot$ \textbf{Generalised Eigenvectors}: If AM>GM: Using $\xi_\lambda = (A-\lambda\mathbb{I})\eta_1,\eta_{n-1} = (A-\lambda\mathbb{I})\eta_{n}$ for each $\xi_\lambda$. \ \ \ \ \ \ $\eta_j$ are \textit{generalised eigenvectors}.
 
-\textbf{Some Defs}: $\nabla F=(\partial_xF,\partial_yF,\partial_zF,...)$ \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{Simply Connected}: {\footnotesize 没有洞,相互连接的区域}. \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{$\partial D$}: {\footnotesize 区域 D 的边界.}
+\textbf{Some Defs}: $\nabla F=(\partial_xF,\partial_yF,\partial_zF,...)$ \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{Simply Connected}: { 没有洞,相互连接的区域}. \ \ \ \ \ \ || \ \ \ \ \ \ \textbf{$\partial D$}: { 区域 D 的边界.}
 
 \textbf{Method of Integrating Factors}: $y'+p(x)y=q(x)$. \ \ $\Rightarrow$ \ \ Integrating Factor:$\mu=e^{\int p(x)dx}$ \ , \ $\mu \ y=\int q(x)\cdot \mu \ dx$
 
-\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Characteristic $ar^2+br+c=0$, \ \ \ \ {\footnotesize Roots: $r_1,r_2$} \ \ {\scriptsize ps:$y''\pm\lambda y=0$见附录}
+\textbf{Homogeneous 2nd ODE form}: $ay''+by'+c=0$ \ \ $\Rightarrow$ \ \ Characteristic $ar^2+br+c=0$, \ \ \ \ { Roots: $r_1,r_2$} \ \ {\scriptsize ps:$y''\pm\lambda y=0$见附录}
 
-$\cdot$ {\footnotesize $^1\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ \ $^2\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ \ $^3\Delta<0$,$y=e^{\alpha x}[C_1cos(\beta x)+C_2sin(\beta x)]$ \ \ ps: $r_1,r_2 = \alpha\pm\beta i$}
+$\cdot$ { $^1\Delta>0$,$y=C_1e^{r_1x}+C_2e^{r_2x}$; \ \ \ $^2\Delta=0$,$y=(C_1+C_2x)e^{rx}$; \ \ \ $^3\Delta<0$,$y=e^{\alpha x}[C_1cos(\beta x)+C_2sin(\beta x)]$ \ \ ps: $r_1,r_2 = \alpha\pm\beta i$}
 
-\textbf{non-Homogeneous 2nd ODE form}: $ay''+by'+c=g(x)$ \ \ $\Rightarrow$ \ \ $y=y_h+y_p$ \ \ \ {\footnotesize ps:$y_h$ is sol for $g(x)=0$.}
+\textbf{non-Homogeneous 2nd ODE form}: $ay''+by'+c=g(x)$ \ \ $\Rightarrow$ \ \ $y=y_h+y_p$ \ \ \ { ps:$y_h$ is sol for $g(x)=0$.}
 
-$\cdot$ {\footnotesize Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=0}^{n}a_ix^i, \ \ B_n(x)=\sum_{i=0}^{n}b_ix^i, \ \ P_n(x)=\sum_{i=0}^{n}p_ix^i$.}
+$\cdot$ { Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=0}^{n}a_ix^i, \ \ B_n(x)=\sum_{i=0}^{n}b_ix^i, \ \ P_n(x)=\sum_{i=0}^{n}p_ix^i$.}
 
 {
-\footnotesize
+
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
    \item If $g(x)=P_n(x)$ \ $\Rightarrow$ \ $y_p=x^sA_n(x)$ \ , $s:= \ \ 0,(0\ne r_1,r_2); \ \ 1,(0 = r_1 \ or \ r_2); \ \ 2,(0 = r_1 = r_2).$
    \item If $g(x)=Me^{kx}$ \ $\Rightarrow$ \ $y_p=Cx^se^{kx}$ \ , $s:= \ \ 0,(k\ne r_1,r_2); \ \ 1,(k = r_1 \ or \ r_2); \ \ 2,(k = r_1 = r_2).$
@@ -118,24 +118,24 @@ $\cdot$ {\footnotesize Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=
 
 \subsection{Linear || (ODE) Uniqueness Theorem || Autonomous}
 
-\textbf{Def of Linear}: Let $L$ {\footnotesize 去掉 $y^{(n)}_i$ 的函数} {\scriptsize (e.g. $L=\frac{d^2}{dx^2}-x$ for $y''-xy=x^2$)} 
+\textbf{Def of Linear}: Let $L$ { 去掉 $y^{(n)}_i$ 的函数} {\scriptsize (e.g. $L=\frac{d^2}{dx^2}-x$ for $y''-xy=x^2$)} 
 
 \hspace{28pt} $\Rightarrow$ \ \ Linear if: $L[a_1y_1+a_2y_2]=a_1L[y_1]+a_2L[y_2]$
 
 \textbf{Existence \& Uniqueness Theorem (Real func)}:
 
-$\cdot$ $^1\mathbf{y}'(t)=\mathbf{F}(t,\mathbf{y}^T)$, $\mathbf{y}(t_0)=\mathbf{y_0}$. \ \ \ \ \ \ \ {\footnotesize Let $R_i=[t_0-\delta,t_0+\delta]\times\prod_j[y_{0_j}-\delta_j,y_{0_j}+\delta_j]$.}
+$\cdot$ $^1\mathbf{y}'(t)=\mathbf{F}(t,\mathbf{y}^T)$, $\mathbf{y}(t_0)=\mathbf{y_0}$. \ \ \ \ \ \ \ { Let $R_i=[t_0-\delta,t_0+\delta]\times\prod_j[y_{0_j}-\delta_j,y_{0_j}+\delta_j]$.}
 
 $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \ $\Rightarrow$ \ \ $\exists$ \underline{unique} solution $\mathbf{y}$ in $R'_i$
 
 \hspace{85pt} $R'_i=[t_0-\varepsilon,t_0+\varepsilon]\times\prod_j[y_{0_j}-\varepsilon_j,y_{0_j}+\varepsilon_j]\subseteq R_i$.
 
-\textbf{Autonomous}: For $\mathbf{y}'(t)=\mathbf{f}(t,\mathbf{y}^T)$. \ \ $\partial_x\mathbf{f}=\mathbf{0}$ $\Rightarrow$ autonomous. \ \ \ {\footnotesize or: $\mathbf{f}(t,\mathbf{y}^T)=\mathbf{f}(\mathbf{y}^T)$}
+\textbf{Autonomous}: For $\mathbf{y}'(t)=\mathbf{f}(t,\mathbf{y}^T)$. \ \ $\partial_x\mathbf{f}=\mathbf{0}$ $\Rightarrow$ autonomous. \ \ \ { or: $\mathbf{f}(t,\mathbf{y}^T)=\mathbf{f}(\mathbf{y}^T)$}
 
 
 \section{Linear ODEs}
 
-\textbf{n-th ODE $\rightarrow$ 1st ODEs}: For {\small $y^{(n)}=F(t,y,y',...,y^{(n-1)})$}. \ \ \ $\Rightarrow$ \ \ \ Let $x_i=y^{(i-1)}$.
+\textbf{n-th ODE $\rightarrow$ 1st ODEs}: For  $y^{(n)}=F(t,y,y',...,y^{(n-1)})$. \ \ \ $\Rightarrow$ \ \ \ Let $x_i=y^{(i-1)}$.
 
 \textbf{Def of Linear 1st ODEs}: $\mathbf{y}'(t) = P(t)\mathbf{y}(t) + \mathbf{g}(t)$ (\star), {\tiny $P$ is matrix-valued function.}
 
@@ -152,7 +152,7 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
 \begin{minipage}[t]{0.60\textwidth}
 
-    \textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ || \ \ {\footnotesize $S:=\{\mathbf{y}|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, $dim(S)=n$ if $P_{ij}$ continuous.}
+    \textbf{Principle of Superposition}: If $\mathbf{y}_i$ are solutions $\Rightarrow \ \sum_ic_i\mathbf{y}_i$ also. \ \ || \ \ { $S:=\{\mathbf{y}|\mathbf{y}'=P\mathbf{y}\}$ is a \textit{linear space}, $dim(S)=n$ if $P_{ij}$ continuous.}
 
     \textbf{Fundamental Set of Solutions (FSoS)}: If $\{\mathbf{y}^{(j)}(t)\}$ \textit{linearly independent} at $t\in I$, it is FSoS in $I$.
 
@@ -168,13 +168,13 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
     \subsubsection{Matrix Method | Exponential}
 
-    \textbf{Matrix Method}: $\mathbf{y}(t)=e^{At}\mathbf{y}(0)$ \ \ \ \ \ \ \ \ \ \ \ {\footnotesize (分两种方法: 1.直接展开; 2.通过一些已有 property 计算. ps: $e^{At}=\Psi$)}
+    \textbf{Matrix Method}: $\mathbf{y}(t)=e^{At}\mathbf{y}(0)$ \ \ \ \ \ \ \ \ \ \ \ { (分两种方法: 1.直接展开; 2.通过一些已有 property 计算. ps: $e^{At}=\Psi$)}
 
     $\cdot$ \textbf{Property|AM=GM}: \ $e^{At}=Te^{Dt}T^{-1}$ \ , \ $T=[\xi_1,...,\xi_n]$ \ , \ $D=diag(\lambda_1,...,\lambda_n)$ \ , \ $e^{Dt}=diag(e^{\lambda_1t},...,e^{\lambda_nt})$
 
-    $\cdot$ \textbf{Property|AM>GM}: \ $e^{At}=Te^{Jt}T^{-1}$ \ , \ $T=[\lambda_1,...,\lambda_i,\eta^{(i)}_1,...,\lambda_j,\eta^{(j)}_1,...]$ \ , \ $J=T^{-1}AT$ {\footnotesize (Jordan form)} \ , \ $e^{J_it}=$ 见右边
+    $\cdot$ \textbf{Property|AM>GM}: \ $e^{At}=Te^{Jt}T^{-1}$ \ , \ $T=[\lambda_1,...,\lambda_i,\eta^{(i)}_1,...,\lambda_j,\eta^{(j)}_1,...]$ \ , \ $J=T^{-1}AT$ { (Jordan form)} \ , \ $e^{J_it}=$ 见右边
 
-    \textbf{Diagonalisation Method}: (Ctd.) Let $\mathbf{y}=T\mathbf{x}$ \ \ $\Rightarrow \ \ \mathbf{x}'=J\mathbf{x}$ [{\footnotesize or} $\mathbf{x}'=D\mathbf{x}$] {\footnotesize 按前面方法解}
+    \textbf{Diagonalisation Method}: (Ctd.) Let $\mathbf{y}=T\mathbf{x}$ \ \ $\Rightarrow \ \ \mathbf{x}'=J\mathbf{x}$ [{ or} $\mathbf{x}'=D\mathbf{x}$] { 按前面方法解}
 
 
     \subsubsection{Matrix Method | Fundamental Matrix}
@@ -199,7 +199,7 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
     \textbf{Wronskian at $x$}: $W[\mathbf{y}^{(1)},...,\mathbf{y}^{(n)}](t)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(t) & \cdots & y^{(n)}_1(t) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(t) & \cdots &y^{(n)}_n(t) \end{vmatrix}$}.
 
-    $\cdot$ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. {\footnotesize ps:经常用 Abel Theorem} \\ \\
+    $\cdot$ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. { ps:经常用 Abel Theorem} \\ \\
 
     $e^{J_it}=e^{\lambda_i t}\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$ \\ \\
 
@@ -220,7 +220,7 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
 \textbf{Matrix methods|Diagonalisation}: $^1$Let $\mathbf{y}=T\mathbf{x}$ \ \ \ $^2(\star)\Rightarrow \mathbf{x}'=D\mathbf{x}+T^{-1}\mathbf{g}=D\mathbf{x}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $z_i=c_ie^{r_it}+\underline{e^{r_it}\int^t_{t_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
 
-\textbf{Undetermined Coefficients}: {\footnotesize when $\mathbf{g}(t)$ is \underline{polynomials}, or \underline{real/complex exponential}.} \ \ \ Let {\footnotesize $P_n(t)=\sum^n_{i=0}\mathbf{p}_it^i,A_n(t)=\sum^n_{i=0}\mathbf{a}_it^i$}
+\textbf{Undetermined Coefficients}: { when $\mathbf{g}(t)$ is \underline{polynomials}, or \underline{real/complex exponential}.} \ \ \ Let { $P_n(t)=\sum^n_{i=0}\mathbf{p}_it^i,A_n(t)=\sum^n_{i=0}\mathbf{a}_it^i$}
 
 $^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\mathbf{g}=P_n(t)\Rightarrow \mathbf{y}_p=A_n(t)$; If $\mathbf{g}=\mathbf{c}e^{kt}\Rightarrow \mathbf{y}_p=\mathbf{a}e^{kt}$)} \ $^2$ {\scriptsize 特殊: If $\mathbf{g}=\mathbf{c}e^{\lambda t}$,$\lambda$ is eigenvalue with $AM=n\Rightarrow \mathbf{y}_p=e^{\lambda t}\sum_{i=0}^{n}\mathbf{a}_it^i$} \ $^3${\scriptsize 带入原方程得未知系数}
 
@@ -277,25 +277,25 @@ $^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\
     \hline
     {\tiny $\mathbb{R} / \mathbb{C}$} & {\scriptsize Condition || Stability} & Type || Name & Phase Plane Description & Other &  \\
     \hline
-    \multirow{7}{*}{$\mathbb{R}$} & {\scriptsize $r_1<r_2<0$ || asy.stab} & {\small N || NSk} & {\tiny 向原点,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_2\ne0,t\to\infty$:$\xi_2$主导方向; \ $c_2=0,t\to\infty$:$\xi_1$主导方向} & \multirow{10}{*}{\tiny \makecell{PS: \\ \textbf{N} = Node \\ \textbf{PN} = Proper Node \\ \textbf{IN} = Improper \\ or: Degenerate Node \\ \textbf{SP} = Saddle Point \\ \textbf{SpP} = spiral point \\ or: Focus Point \\ \textbf{C} = Center \\ \textbf{NSk} = Nodal Sink \\ \textbf{NSo} = Nodal Source}} \\
+    \multirow{7}{*}{$\mathbb{R}$} & {\scriptsize $r_1<r_2<0$ || asy.stab} &  N || NSk & {\tiny 向原点,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_2\ne0,t\to\infty$:$\xi_2$主导方向; \ $c_2=0,t\to\infty$:$\xi_1$主导方向} & \multirow{10}{*}{\tiny \makecell{PS: \\ \textbf{N} = Node \\ \textbf{PN} = Proper Node \\ \textbf{IN} = Improper \\ or: Degenerate Node \\ \textbf{SP} = Saddle Point \\ \textbf{SpP} = spiral point \\ or: Focus Point \\ \textbf{C} = Center \\ \textbf{NSk} = Nodal Sink \\ \textbf{NSo} = Nodal Source}} \\
     \cline{2-5}
-    & {\scriptsize $r_1>r_2>0$ || unstable} & {\small N || NSo} & {\tiny 原点向外,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_1\ne0,t\to\infty$:$\xi_1$主导方向; \ $c_1=0,t\to\infty$:$\xi_2$主导方向} & \\
+    & {\scriptsize $r_1>r_2>0$ || unstable} &  N || NSo & {\tiny 原点向外,$\xi_2$直线,$\xi_1$曲线,and $\xi_1$周围$y=\pm x^3$} & {\scriptsize $c_1\ne0,t\to\infty$:$\xi_1$主导方向; \ $c_1=0,t\to\infty$:$\xi_2$主导方向} & \\
     \cline{2-5}
     & {\scriptsize $r_1>0>r_2$ || unstable} & SP || SP & \makecell{\scriptsize $t\to\infty$,$\xi_1$从原点向外,$\xi_2$从外向原点 \\ \scriptsize and: 像$y=\pm\frac{1}{x}$,同进同出} & \makecell{\scriptsize $t\to\pm\infty:|\mathbf{x}|\to\infty$; \ \ \ \ \ $t\to\infty:c_1,c_2\ne0,|\mathbf{x}|\to\infty$,$\xi_1$主导; \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \\ \scriptsize $t\to\infty:c_2=0,|\mathbf{x}|\to\infty$,$\xi_1$主导; \ \ \ \ $t\to\infty:c_1=0,|\mathbf{x}|\to0$,$\xi_2$主导} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2<0$, {\tiny GM=2} || {\tiny asy.stab}} & {\small PN || {\scriptsize PN or Stable Star}} & {\scriptsize \underline{直线}向原点} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} & \\
+    & {\scriptsize $r_1=r_2<0$, {\tiny GM=2} || {\tiny asy.stab}} &  PN || {\scriptsize PN or Stable Star} & {\scriptsize \underline{直线}向原点} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2>0$, {\tiny GM=2} || {\tiny unstable}} & {\small PN || {\scriptsize PN or Unstable Star}} & {\scriptsize \underline{直线}从原点向外} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} & \\
+    & {\scriptsize $r_1=r_2>0$, {\tiny GM=2} || {\tiny unstable}} &  PN || {\scriptsize PN or Unstable Star} & {\scriptsize \underline{直线}从原点向外} & {\scriptsize 直线, $u_1/u_2$ is $t$ independent} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2<0$, {\tiny GM=1} || {\tiny asy.stab}} & {\small IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Stable)}}} & {\scriptsize S曲线,向原点} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} & \\
+    & {\scriptsize $r_1=r_2<0$, {\tiny GM=1} || {\tiny asy.stab}} &  IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Stable)}} & {\scriptsize S曲线,向原点} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} & \\
     \cline{2-5}
-    & {\scriptsize $r_1=r_2>0$, {\tiny GM=1} || {\tiny unstable}} & {\small IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Unstable)}}} & {\scriptsize S曲线,从原点向外} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} & \\
+    & {\scriptsize $r_1=r_2>0$, {\tiny GM=1} || {\tiny unstable}} &  IN {\tiny(AL:Type: SpP)} || {\scriptsize IN {\tiny (Unstable)}} & {\scriptsize S曲线,从原点向外} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty,\xi$主导 \ \ \ \ \ \ ps:旋转方向大体和$\eta+c_2\xi$方向相同} & \\
     \cline{1-5}
-    \multirow{3}{*}{$\mathbb{C}$} & {\scriptsize $\lambda\ne0,\lambda>0$ || unstable} & {\small SpP || Unstable Focus} & {\scriptsize 向外椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} & \\
+    \multirow{3}{*}{$\mathbb{C}$} & {\scriptsize $\lambda\ne0,\lambda>0$ || unstable} &  SpP || Unstable Focus & {\scriptsize 向外椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to\infty$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} & \\
     \cline{2-5}
-    & {\scriptsize $\lambda\ne0,\lambda<0$ || asy.stab} & {\small SpP || Stable Focus} & {\scriptsize 向内椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} & \\
+    & {\scriptsize $\lambda\ne0,\lambda<0$ || asy.stab} &  SpP || Stable Focus & {\scriptsize 向内椭圆(elliptical)螺旋} & {\scriptsize $t\to\infty,|\mathbf{x}|\to0$ \ \ \ {\tiny ps:考虑$A=(a,b;c,d)$,如果bc>0,顺时针，如果bc<0,逆时针}} & \\
     \cline{2-5}
-    & {\scriptsize $\lambda=0$ || stable {\tiny (AL:Indeterminate)}} & {\small C {\scriptsize (AL:C or SpP)} || C} & {\scriptsize 椭圆(elliptical) and 半长轴$\xi$实部方向} & {\scriptsize Bounded trajectory \ \ \ or \ \ \ $\exists$ Periodic Trajectories} & \\
+    & {\scriptsize $\lambda=0$ || stable {\tiny (AL:Indeterminate)}} &  C {\scriptsize (AL:C or SpP)} || C & {\scriptsize 椭圆(elliptical) and 半长轴$\xi$实部方向} & {\scriptsize Bounded trajectory \ \ \ or \ \ \ $\exists$ Periodic Trajectories} & \\
     \hline
     \multicolumn{6}{|l|}{\textbf{AL}: Almost Linear Sys. || For Almost Linear systems: $\mathbf{u}'=A\mathbf{u}+\underline{\eta}$, 如果 linear Approximation (去掉$\underline{\eta}$),按照 Linear 考虑. \ \ \ \ \ \ 如果不去$\underline{\eta}$,按照去掉的算$r_1,r_2$, Type 按照 正常 / (AL) 的来.{\tiny(图像会到$(0,0)$)}} \\
     \hline
@@ -313,23 +313,23 @@ $^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\
 
 \begin{minipage}[t]{0.71\textwidth}
 
-    \textbf{Lyapunov Stability Theorem}: {\scriptsize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists$ 正定 且 连续 $ E:D\subset\mathbb{R}^2\to\mathbb{R},E(\mathbf{x}_0)=0$; || $^4\frac{dE}{dt}=\nabla E\cdot\mathbf{x}'=\partial_x E\cdot F+\partial_y E\cdot G$ 负(半)定 on $D\setminus\mathbf{x}_0(D)$} $\Rightarrow$ {\footnotesize $\mathbf{x_0}$ asp.(stab)}
+    \textbf{Lyapunov Stability Theorem}: {\scriptsize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists$ 正定 且 连续 $ E:D\subset\mathbb{R}^2\to\mathbb{R},E(\mathbf{x}_0)=0$; || $^4\frac{dE}{dt}=\nabla E\cdot\mathbf{x}'=\partial_x E\cdot F+\partial_y E\cdot G$ 负(半)定 on $D\setminus\mathbf{x}_0(D)$} $\Rightarrow$ { $\mathbf{x_0}$ asp.(stab)}
 
     $\cdot$ \textbf{Lyapunov function}: 符合上面 1-4 条件的
     
-    \textbf{Lyapunov Instability Theorem}: {\footnotesize $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists E:D\subset\mathbb{R}^2\to\mathbb{R},\partial_i E$ 连续,$E(\mathbf{x}_0)=0$; $^4\forall${\tiny 领域}$\mathbf{x}_0,\exists\mathbf{x}_1 \ E(\mathbf{x}_1)>0$; || $^5\frac{dE}{dt}$ 正定 on $D$ $\Rightarrow$ $\mathbf{x_0}$ unstable} \\
+    \textbf{Lyapunov Instability Theorem}: { $^1$(\#); $^2$ICP $\mathbf{x}_0\in D$; $^3\exists E:D\subset\mathbb{R}^2\to\mathbb{R},\partial_i E$ 连续,$E(\mathbf{x}_0)=0$; $^4\forall${\tiny 领域}$\mathbf{x}_0,\exists\mathbf{x}_1 \ E(\mathbf{x}_1)>0$; || $^5\frac{dE}{dt}$ 正定 on $D$ $\Rightarrow$ $\mathbf{x_0}$ unstable} \\
     
     \textbf{Periodic Solution}: {\scriptsize Soln $\mathbf{x}$ has: $\mathbf{x}(t+T)=\mathbf{x}(t),\forall x$}.  || {\scriptsize 闭合曲线 $\Leftrightarrow$ Periodic sol} || {\scriptsize Periodic Solution + 附近有吸引或排斥 $\Rightarrow$ Limit Cycle} || {\scriptsize when $\dot{r}=0,\dot{\theta}=const.$ Periodic sol}
     
     \textbf{Limit cycle}: {\scriptsize Limit cycle $\Rightarrow$ Periodic Solution} || Def $t\to\pm\infty,\exists$ non-closed trajectory asymptotes to it. {\scriptsize (inside or outside)} \ \ \ \ \ \ {\scriptsize ps: It's Orbital Stability}
     \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-        \item Limit cycle is: $^1$asy.stab: $\forall$ trajectories asy. it; \ \ \ $^2$semistable: $\exists$ trajectories {\footnotesize 单方向 进/出}; \ \ \ $^3$unstable: $\forall$ trajectories away from it.
-        \item \textbf{Theorem (If $\exists$ limit cycle / closed)}: {\footnotesize $^1F,G${\scriptsize 一阶偏导连续} in simply connected $D$; $^2\exists$ {\scriptsize 极限环/封闭环} (\star) in $D$. \ $\Rightarrow$ \ $^1\exists$ CP in (\star); $^2$If $\exists!$ CP in (\star), it's not SP}.
-        \item \textbf{Theorem (No limit cycle / closed)}: {\footnotesize $^1F,G$一阶偏导连续 in simply connected $D$; $^2\partial_xF+\partial_yG$符号不变 on D \ $\Rightarrow$ \ No closed trajectory in D.}
-        \\ {\footnotesize 2的推论: $^1$If simple connected $D$ no CP \ $\Rightarrow$ \ No closed trajectory in D. \ \ \ \ \ \ $^2$If simple connected D has unique CP \ $\Rightarrow$ \ No closed trajectory in D}
+        \item Limit cycle is: $^1$asy.stab: $\forall$ trajectories asy. it; \ \ \ $^2$semistable: $\exists$ trajectories { 单方向 进/出}; \ \ \ $^3$unstable: $\forall$ trajectories away from it.
+        \item \textbf{Theorem (If $\exists$ limit cycle / closed)}: { $^1F,G${\scriptsize 一阶偏导连续} in simply connected $D$; $^2\exists$ {\scriptsize 极限环/封闭环} (\star) in $D$. \ $\Rightarrow$ \ $^1\exists$ CP in (\star); $^2$If $\exists!$ CP in (\star), it's not SP}.
+        \item \textbf{Theorem (No limit cycle / closed)}: { $^1F,G${\scriptsize 一阶偏导连续} in simply connected $D$; $^2\partial_xF+\partial_yG${\scriptsize 符号不变} on D \ $\Rightarrow$ \ No closed trajectory in D.}
+        \\ { 2的推论: $^1$If simple connected $D$ no CP \ $\Rightarrow$ \ No closed trajectory in D. \ \ \ \ \ \ $^2$If simple connected D has unique CP \ $\Rightarrow$ \ No closed trajectory in D}
     \end{enumerate}
     
-    \textbf{Poincaré-Bendixson Theorem}: {\footnotesize $^1F,G$一阶偏导连续 in $D$; \ \ $^2\exists D_1\subset D$ bounded; \ \ $^3R=D_1\cup\partial D_1$ has NO CP; \ || \ $^4$ $\exists$ soln $\mathbf{x}\in R$, $\forall t\geq t_0$ \ $\Rightarrow$}
+    \textbf{Poincaré-Bendixson Theorem}: { $^1F,G${\scriptsize 一阶偏导连续} in $D$; \ \ $^2\exists D_1\subset D$ bounded; \ \ $^3R=D_1\cup\partial D_1$ has NO CP; \ || \ $^4$ $\exists$ soln $\mathbf{x}\in R$, $\forall t\geq t_0$ \ $\Rightarrow$}
     
     \hspace{78pt} $\Rightarrow$ $^1\exists$ closed trajectory. \ \ \ \ \ \ $^2$ Either \textit{$\mathbf{x}$ sprial towards a Periodic trajectory.} \ or \ \textit{$\mathbf{x}$ periodic} $^3R$ is not simply connected
     
@@ -383,7 +383,7 @@ $^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\
 $\cdot$ \textbf{Euler-Fourier Formulas}: Suppose (*) converges in the interval $[-L,L]$. Then: $a_n=\frac{1}{L}\int^L_{-L}f(x)cos(\frac{n\pi x}{L})dx$ \ \ \ \ \ \ \ \ $b_n=\frac{1}{L}\int^L_{-L}f(x)sin(\frac{n\pi x}{L})dx$ \ \ \ \ \ \ \ \ $a_0=\frac{1}{L}\int^L_{-L}f(x)dx$ {\scriptsize (Average Value of $f$ over $2L$)}
 
 \vspace{2pt}
-\textbf{Piecewise Continuous}: {\footnotesize $f(x)$ piecewise continuous on $[a,b]$ \ \ iff \ \ $\exists a=x_0<\cdots<x_n=b$ s.t. \ \ \ $^1f(x)$ continuous $\forall x\in(x_{i-1},x_i)$ \ \ \ $^2 f(x_i^{\pm})=\lim_{x\to x_i^{\pm}}f(x)$ finite.}
+\textbf{Piecewise Continuous}: { $f(x)$ piecewise continuous on $[a,b]$ \ \ iff \ \ $\exists a=x_0<\cdots<x_n=b$ s.t. \ \ \ $^1f(x)$ continuous $\forall x\in(x_{i-1},x_i)$ \ \ \ $^2 f(x_i^{\pm})=\lim_{x\to x_i^{\pm}}f(x)$ finite.}
 
 \textbf{Fourier Convergence Theorem}: If $^1f,f'$ piecewise continuous on $[-L,L]$,$^2f(x+2L)=f(x)$. \ \ $\Rightarrow$ \ \ Fourier Series of $f$ converges.
 
@@ -391,9 +391,9 @@ $\cdot$ Futhermore, Let Fourier Series of $f$ is $F$. \ \ \ \ $F(x)\to f(x)$, $f
 
 \textbf{Term-By-Term Integration}: Fourier Series for \textit{piecewise continuous} functions can be \underline{Integrated term-by-term} to \underline{Convergent} Fourier Seires.
 
-\textbf{Finite Truncation (Partial Sum)}: {\footnotesize Finite Truncation of Fourier Series is: $s_k=\frac{a_0}{2}+\sum_{n=1}^{k}\left(a_ncos(\frac{n\pi x}{L})+b_nsin(\frac{n\pi x}{L})\right)$ \ \ || \ \  \textbf{Error}: $e_N=s_N-f(x)$}
+\textbf{Finite Truncation (Partial Sum)}: { Finite Truncation of Fourier Series is: $s_k=\frac{a_0}{2}+\sum_{n=1}^{k}\left(a_ncos(\frac{n\pi x}{L})+b_nsin(\frac{n\pi x}{L})\right)$ \ \ || \ \  \textbf{Error}: $e_N=s_N-f(x)$}
 
-$\cdot$ $n\to\infty$: {\footnotesize $^1$ Continuous points, Fourier approximation of $f(x)$ is better ($|e_n|$ decrease). \ $^2$ Discontinuous points, oscillation of Fourier series get smaller.}
+$\cdot$ $n\to\infty$: { $^1$ Continuous points, Fourier approximation of $f(x)$ is better ($|e_n|$ decrease). \ $^2$ Discontinuous points, oscillation of Fourier series get smaller.}
 
 $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscillation (near discontinuous points) does \textit{not decrease}.
 
@@ -408,28 +408,28 @@ $\cdot$ \textbf{Gibbs Phenomenon}: The Amplitude of the \textit{largest} oscilla
 
 $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f,(T=2L)$ converges in $[-L,L]$ \ \ $\Rightarrow$ \ \ $c_n=\frac{1}{2L}\int_{-L}^{L}f(x)e^{-\frac{i \ n\pi x}{L}}$ \ || \ $c_{-n}=\overline{c_n}$ if $f$ real.
 
-\textbf{Parseval's Theorem}: If $^1$ Periodic function $f$; $^2$ $f$ has convergent Fourier Series.  \ \ \ $\Rightarrow$ \ \ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$ \ \ \ \footnotesize ps: 无限维的勾股定理
+\textbf{Parseval's Theorem}: If $^1$ Periodic function $f$; $^2$ $f$ has convergent Fourier Series.  \ \ \ $\Rightarrow$ \ \ \ Square Norm $(f,f)=\int_{-L}^{L}|f(x)|^2dx=2L\sum_{-\infty}^{\infty}|c_n|^2=L\left[\frac{|a_0|^2}{2}+\sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2)\right]$ \ \ \  ps: 无限维的勾股定理
 
 
 \section{Linear PDEs by Separation of Variables}
 
-\textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ {\footnotesize If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ {\footnotesize 可以使用此方法!}
+\textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
 
 \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$
 
-\textbf{Basic Idea|Homo}: {\footnotesize 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
+\textbf{Basic Idea|Homo}: { 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
 
-\hspace{81pt} {\footnotesize 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
+\hspace{81pt} { 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
 
-\hspace{81pt} $\cdot$ Remark: {\footnotesize $^1$化简中可以使用正比简化计算 \ \ \ \ \ \ $^2$对$n$的取值为$1,2,3,...$ \ \ \ \ \ \ $^3$对$\lambda$的取值让出现$sin,cos$时为正不容易出错,或注意正负号}
+\hspace{81pt} $\cdot$ Remark: { $^1$化简中可以使用正比简化计算 \ \ \ \ \ \ $^2$对$n$的取值为$1,2,3,...$ \ \ \ \ \ \ $^3$对$\lambda$的取值让出现$sin,cos$时为正不容易出错,或注意正负号}
 
-\textbf{Basic Idea|Inhomo}: {\footnotesize 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
+\textbf{Basic Idea|Inhomo}: { 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
 
 \textbf{Laplace Equation}: 2D:$\nabla^2u=\partial^2_xu+\partial^2_yu=0$ \ \ \ 3D: $\nabla^2u=\partial^2_xu+\partial^2_yu+\partial^2_zu=0$ \ \ \ \ \ \ Following are the method to solve:
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Rectangle}: {\scriptsize ($0\leq x\leq a,0\leq y\leq b$) with $u(x,0)=u(x,b)=u(0,y)=0 \ ; \ u(a,y)=f(y)$} \ \ \ \ \ \ {\footnotesize 直接按照Homo正常计算} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ {\footnotesize 可能用到 Euler Equation} 
-    \item \textbf{Circle}: {\scriptsize ($u(r=a,\theta)=f(\theta) \ ; \ u(r,\theta) \ bounded$)} \ \ \ {\footnotesize $^1\partial_{x}^2u+\partial^2_yu=0;x=rcos(\theta),y=rsin(\theta)$ 变极坐标 $R(r),\Theta(\theta)$} \ \ \ {\footnotesize $^2$ 一样的计算 + 条件 $\Theta(\theta+2\pi)=\Theta(\theta)$}
+    \item \textbf{Rectangle}: {\scriptsize ($0\leq x\leq a,0\leq y\leq b$) with $u(x,0)=u(x,b)=u(0,y)=0 \ ; \ u(a,y)=f(y)$} \ \ \ \ \ \ { 直接按照Homo正常计算} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ { 可能用到 Euler Equation} 
+    \item \textbf{Circle}: {\scriptsize ($u(r=a,\theta)=f(\theta) \ ; \ u(r,\theta) \ bounded$)} \ \ \ { $^1\partial_{x}^2u+\partial^2_yu=0;x=rcos(\theta),y=rsin(\theta)$ 变极坐标 $R(r),\Theta(\theta)$} \ \ \ { $^2$ 一样的计算 + 条件 $\Theta(\theta+2\pi)=\Theta(\theta)$}
 \end{enumerate}
 
 

@@ -293,6 +293,33 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \section{Linear Model}
 
+\subsection{Simple Linear Model (With One Predictor)}
+
+\textbf{Model}: {\small $Y_i=\mu_i+\varepsilon_i$ \ , \ $\mu_i=\beta x_i$ \ \ \ $i=1,2,..,n$ \ \ \ || \ \ \ Suppose $^1\varepsilon_i$ independent \ \ \ $^2\mathbb{E}[\varepsilon_i]=0$ \ \ \ $^3Var[\varepsilon_i]=\sigma^2$} || {\footnotesize $Y_i$ response variable, $x$ predictor variable.}
+
+\vspace{-10pt}
+{
+\footnotesize
+\begin{longtable}{|c||l|l|}
+    \hline
+    Least Square (LS) Estimation & RSS{\tiny Residual Sum of Squares }: $S(\beta)=\sum(y_i-\mu_i)^2=\sum(y_i-x_i\beta)^2$ & LS Method: $\widehat{\beta}_i=\arg\min_{\beta}S(\beta)$ \ \ \ {\tiny ps: 求偏导=0} || $\widehat{\beta}=\frac{\sum x_iy_i}{\sum x_i^2}$ \\
+    \hline
+    $\mathbb{E}[\widehat{\beta}],Var[\widehat{\beta}],\widehat{Var[\widehat{\beta}]}$ & $\mathbb{E}[\widehat{\beta}]=\beta${\tiny ,unbiased} \ \ || \ \ $Var[\widehat{\beta}]=\sigma^2_{\widehat{\beta}}=(\sum x^2_i)^{-1}\sigma^2$ {\tiny ($\sigma^2$ known)} & $\widehat{Var[\widehat{\beta}]}=\widehat{\sigma^2}_{\widehat{\beta}}=(\sum x^2_i)^{-1}\cdot\widehat{\sigma^2}$ \ \ \ || \ \ \ $\widehat{\sigma^2}=\frac{1}{n-1}\sum(y-x_i\widehat{\beta})^2$ \\
+    \hline
+    CI \\
+    \hline
+    $H_0,H_1$ Test \\
+    \hline
+    Other & fitted Values: $\hat{\mu}_i=x_i\hat{\beta}$ \ \ || \ \ Residual: $$
+    \hline
+\end{longtable}
+}
+\vspace{-10pt}
+
+
+\subsection{General Linear Model}
+
+
 
 \section{Distribution Table} % Distribution Table
 
@@ -424,6 +451,8 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 \textbf{3}.$T_{LR}$ (Height Comparison): Compares the maximum likelihood value $L(\widehat{\theta})$ and the likelihood value at $\theta_0,L(\theta_0)$. A larger height difference indicates a greater discrepancy between $\widehat{\theta}$ and $\theta_0$ \ \ \ \ \ \ \ \ \
 \textbf{$T_{Score}$,$T_{Wald}$,$T_{LR}$ Other 部分公式可以近似的理由}: This is due to $\widehat{\theta}$ being a consistent estiamtor of $\theta_0$, and $J(\theta_0)$ being a consistent estimator of $\mathcal{I}(\theta_0)$
 
-\textbf{Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
+\textbf{Normal Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
+
+\textbf{Linear Model}: \textbf{LS Estimation}: $S(\beta)$ small: $\mu_i$ relatively close to the $y_i$; \ \ Large: $\mu_i$ far from their corresponding $y_i$. \ \ \ || \ \ \ \textbf{Meaning of $\varepsilon$}: The random component of the model is intended to capture the fact that if we gathered a replicate set of data, the $\beta_i$ (coefficient) would not change, but the $Y_i$ would, as a result of different measurement errors.
 
 \end{document}
