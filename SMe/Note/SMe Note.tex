@@ -325,8 +325,12 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 
 \textbf{Lamma|$\mathbb{E}$,$Var$ in Matrix}: If \ r.v. \ $\mathbf{v}$ \ , \ $\mathbf{A},\mathbf{b}$ constant \ \ $\Rightarrow$ \ \ $^1\mathbb{E}[\mathbf{A}\mathbf{v}+\mathbf{b}]=\mathbf{A}\mathbb{E}[\mathbf{v}] + \mathbf{b}$ \ \ \ $^2Var[\mathbf{Av+b}]=\mathbf{A}Var[\mathbf{v}]\mathbf{A}^T$
 
+\textbf{Metric Predictor}: {\scriptsize 设计矩阵 用 连续观测值.} \ \ \ || \ \ \ \textbf{Factor Predictor}: {\scriptsize 离散数据 用 指示函数(0/1)填满,每个"小组"对应一个指示函数.}
+
 
 \subsection{Linear Model Theory}
+
+\textbf{Least Square (LS) Approach}:
 
 
 \subsection{Check || Intervals || Testing}
@@ -478,6 +482,9 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 
 \textbf{Normal Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
 
-\textbf{Linear Model}: \textbf{LS Estimation}: $S(\beta)$ small: $\mu_i$ relatively close to the $y_i$; \ \ Large: $\mu_i$ far from their corresponding $y_i$. \ \ \ || \ \ \ \textbf{Meaning of $\varepsilon$}: The random component of the model is intended to capture the fact that if we gathered a replicate set of data, the $\beta_i$ (coefficient) would not change, but the $Y_i$ would, as a result of different measurement errors.
+\textbf{Linear Model}: 
+\textbf{LS Estimation}: $S(\beta)$ small: $\mu_i$ relatively close to the $y_i$; \ \ Large: $\mu_i$ far from their corresponding $y_i$. \ \ \ || \ \ \ 
+\textbf{Meaning of $\varepsilon$}: The random component of the model is intended to capture the fact that if we gathered a replicate set of data, the $\beta_i$ (coefficient) would not change, but the $Y_i$ would, as a result of different measurement errors. \ \ \ || \ \ \ 
+\textbf{Why Use Least Square to estimate $\underline{\beta}$}: Most of time, Linear Model can be a system of $n$ equations with $p$ parameters with $n>p$. In this case, the system is overdetermined and there is no exact solution. The least square method is used to find the best solution.
 
 \end{document}

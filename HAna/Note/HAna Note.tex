@@ -271,14 +271,60 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \section{Open \& Closed Sets}
 
+\begin{multicols}{2}
+
+\textbf{Open Set}: Set $E$ is open iff $\forall x\in E,\exists r>0, \ s.t. \ (x-r,x+r)\subseteq E$
+
+\begin{enumerate}[itemsep=-3pt, topsep=-2pt]
+    \item \textbf{$\cup$ of open sets}: {\footnotesize $(E_n)$ are open sets (Infinite). \ \ $\Rightarrow$ \ \  $\bigcup E_n$ is open.}
+    \item \textbf{$\cap$ of open sets}: {\footnotesize $(E_n)$ are open sets (Finite). \ \ $\Rightarrow$ \ \  $\bigcap E_n$ is open.}
+    \item \textbf{Find Open Set}: \\
+    {\footnotesize If $f:\mathbb{R}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ $ {\tiny (or $<\lambda$)} $ \ \}$ is open.}
+    \item \textbf{Structure of open sets}: \hspace{20pt} {\footnotesize $\Downarrow$ \np can be disjoint} \ \ {\tiny Hint: $I'_k=\bigcup I_n\setminus\bigcup^k_{i=1} I'_{i}$} \\
+    {\small $E$ is a nonempty open set \ $\Leftrightarrow$ \ $E$ = $\bigcup I_n$ , $I_n$ is open interval. (Unique)}
+\end{enumerate}
+
+\columnbreak
+
+\textbf{Closed Set}: Set $F\subseteq\mathbb{R}$ is closed iff $\mathbb{R}\setminus F$ is open.
+
+\begin{enumerate}[itemsep=-3pt, topsep=-2pt]
+    \item \textbf{$\cup$ of closed sets}: {\footnotesize $(F_n)$ are closed sets (Finite). \ \ $\Rightarrow$ \ \  $\bigcup F_n$ is closed.}
+    \item \textbf{$\cap$ of closed sets}: {\footnotesize $(F_n)$ are closed sets (Infinite). \ \ $\Rightarrow$ \ \  $\bigcap F_n$ is closed.}
+    \item \textbf{Find Closed Set}: \\
+    {\footnotesize If $f:\mathbb{R}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)\leq\lambda \ $ {\tiny (or $\geq\lambda$) \ (or $=\lambda$)} $ \ \}$ is closed.}
+    \item \textbf{Sequencially Closed}: \\
+    {\small If $F$ is closed set, \ \ $\Leftrightarrow$ \ \ $\forall(x_n)_{n\in\mathbb{N}}\in F$ convergent. $x=\lim x_n\in F$}
+\end{enumerate}
+
+\end{multicols}
+\vspace{-10pt}
+
+
+\ex\textbf{Open Set $\to\bigcup$ Closed Set}: {\small Nonempty open set $E$ $\to$ union of \textit{disjoint closed} intervals.} \ \ {\tiny Hint:$^1$Structure of open set. $^2$ each open interval $(a,b)=\bigcup[a+\frac{1}{n},b-\frac{1}{n}]$. $^3$ closed set$\to$disjoint.}
+
+\ex\textbf{Unbounded$\to\cup$ Bounded}: Any closed / open set $F$ $\to$ countable union of \textit{bounded} closed / open sets. \ \ {\tiny (Hint: $K_n=F\cap[-n,n]$ \ $K_n=F\cap(-n,n)$)}
+
+\ex\textbf{Both Open \& Closed}: Only $\emptyset$ and $\mathbb{R}$ are both open and closed.
+
 
 \section{Lebesgue Outer Measure || Lebesgue Measurable || Lebesgue Measure}
 
 
+
+
+
 \section{Lebesgue Integral}
 
+\subsection{Step Function || Characteristic Function || Definition of Integral}
 
+\textbf{Characteristic Function}: $\chi_E(x):=\{ 1,x\in E \ \ ; \ \ 0,x\notin E$ \ \ \ ; \ \ \ $E\subset\mathbb{R}$
 
+\textbf{Simple Integral Definitions}: $\int_{\mathbb{R}} \chi_I(x) \, dx = \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}} c \chi_I(x) \, dx = c \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}}\sum c_j\chi_{I_j}(x)dx=\sum c_j\lambda(I_j)$
+
+\textbf{Step Function}: $f:\mathbb{R}\to[0,\infty)$ is a (non-negative) step function if $f(x)=\sum c_j\chi_{I_j}(x)$ \ \ \ \ \ \ for some $c_j$ and $\chi_{I_j}$
+
+$\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exists c_n,I_n$ s.t. $I_n$ \textit{disjoint} and $f(x)=\sum c_n\chi_{I_n}(x)$
 
 \section{Appendix}
 
@@ -333,6 +379,8 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 
 \textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$
 
+\ex$E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
+
 \noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
 \noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
 
@@ -340,55 +388,6 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 
 
 \section{Integration Theory \& Lebesgue Integration}
-
-\subsection{Introduction}
-
-\subsubsection{Definition of Integral and Step Function}
-
-$\cdot$ \textbf{Def of $\chi_I(x)$}: $\chi_I(x):=\mathbb{1}_{x\in I}$
-
-\textbf{Types of Integration \& Fundamental Theorem of Calculus}: 
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Indefinite integrals}: Also called \textit{primitives} or \textit{anti-derivatives}. {\footnotesize ps: 不定积分}. || Definition: {\footnotesize 求导的逆运算} || e.g.$\int f'(x)dx=f(x)+c$
-    \item \textbf{Definite integrals}: {\footnotesize ps: 定积分} || Definition: {\footnotesize 函数在指定区域下的面积} || $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
-    \item \textbf{Fundamental Theorem of Calculus}: $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
-\end{enumerate}
-
-\textbf{Characteristic function $\chi_E$}: Given $E\subset\mathbb{R},\chi_E(x):=\{1,x\in E; \ 0,x\notin E.$ \ \ \ \ \ \ || {\footnotesize ps: $\lambda(I)=\sup I-\inf I$ \ \ \ | \ \ \ If $I=I_1\cup I_2,I_1\cap I_2=\emptyset\Rightarrow\lambda(I)=\lambda(I_1)+\lambda(I_2)$}
-
-\textbf{Def of Simple Integral}: \textbf{1}.$\int_{\mathbb{R}}\chi_I(x)dx:=\lambda(I)$ \ \ \ \ \ \ \textbf{2}. $\int_{\mathbb{R}}c\chi_I(x)dx:=c\lambda(I)$ \ \ \ \ \ \ \textbf{3}. $\int_{\mathbb{R}}\sum_jc_j\chi_{I_j}(x)dx=\sum_jc_j\lambda(I_j)$
-
-\textbf{Step Function}: \underline{non-negative} $f:\mathbb{R}\to[0,\infty)$ is a step function iff $f(x)=\sum_jc_j\chi_{I_j}(x)$ \ \ \ \ \ $\Rightarrow$ \ \ \ \ \ \ Def: $\int_{\mathbb{R}}f(x)dx=\sum_jc_j\lambda(I_j)$
-
-
-\subsubsection{Open Set and Closed Set}
-
-\textbf{Open Set}: A set $S$ is open iff $\forall x\in S,\exists r>0, \ s.t. \ (x-r,x+r)\subseteq S$ \ \ \ \ \ \ {\footnotesize ps: Collection of all open subsets of $\mathbb{R}$ is called \textit{the Euclidean topology}}
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Structure of open sets}: If $S$ is a nonempty open set \ $\Leftrightarrow$ \ $S$ = \textit{unique} \underline{countable} \textit{union} of \underline{disjoint} \textit{open intervals}. {\tiny ps:即 open set = $\cup$ open intervals}
-    \item \textbf{$\cup$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Can Infinite) \ \ \ \ \ \ $\cup_{S\in\mathcal{U}}S$ is open.
-    \item \textbf{$\cap$ of open sets}: Let $\mathcal{U}$ be collection of some open sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cap_{S\in\mathcal{U}}S$ is open.
-    \item \textbf{Find Open Set}: If $f:\mathbb{R}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ (or <\lambda) \ \}$ is open.
-    \item \textbf{Open Set $\to\cup$ Closed Set}: Any nonempty open set $U$ $\to$ countable union of \textit{disjoint closed} intervals. 
-\end{enumerate}
-
-\textbf{Closed Set}: A set $F\subseteq\mathbb{R}$ is \textit{closed} iff $\mathbb{R}\setminus F$ is open.
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{$\cup$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Finite) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\cup_{F\in\mathcal{F}}F$ is closed.
-    \item \textbf{$\cap$ of closed sets}: Let $\mathcal{F}$ be collection of some closed sets. (Can Infinite) \ \ \ \ \ \ $\cap_{F\in\mathcal{F}}F$ is open.
-    \item \textbf{Find Closed Set}: If $f:\underline{\mathbb{R}}\to\mathbb{R}$ continuous \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)\leq\lambda \ (or\geq\lambda) \ (or =\lambda) \ \}$ is closed.
-    \item \textbf{Unbounded$\to\cup$Bounded}: Any closed set $F$ $\to$ countable union of \textit{bounded} closed intervals. \ \ \ {\footnotesize (Hint: $K_n=F\cap[-n,n]$)}
-    \item \textbf{Sequencially Closed}: If $F$ is closed set, \ \ $\Leftrightarrow$ \ \ $\forall(x_n)_{n\in\mathbb{N}}\in F$ convergent. $x=\lim x_n\in F$
-\end{enumerate}
-
-\textbf{Property|Open \& Closed Set}: Let $E$ be open set, $F$ be closed set.
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item $E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
-    \item Only $\emptyset$ and $\mathbb{R}$ are both open and closed.
-    \item $\forall (E_n)_{n\in\mathbb{N}}$ \ \ $\Rightarrow$ \ \ $\exists$ disjoint $(F_n)_{n\in\mathbb{N}}$ s.t. $E_n\subseteq F_n$ and $\cup F_n=\cup E_n$. \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus\cup^{n-1}_{i=1}F_i$)}
-\end{enumerate}
 
 
 \subsection{Lebesgue Outer Measures}
