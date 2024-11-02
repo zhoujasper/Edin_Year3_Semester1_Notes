@@ -111,7 +111,7 @@ $\cdot$ { Method of Undetermined Coefficients: Let $A_n(x)=\sum_{i=0}^{n}a_ix^i,
 
 \end{minipage}
 \hfill
-\vrule width 0.3pt % 1pt 宽度的分割线
+\vrule width 0.3pt
 \hfill
 \begin{minipage}[t]{0.39\textwidth}
 
@@ -413,27 +413,76 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 
 \section{Linear PDEs by Separation of Variables}
 
-\textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
+\vspace{-16pt}
+\begin{minipage}[t]{0.74\textwidth}
+    \textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
 
-\ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$
+    \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$
 
-\textbf{Basic Idea|Homo}: { 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
+    \textbf{Basic Idea|Homo}: { 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
 
-\hspace{81pt} { 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
+    \hspace{49pt} { 5. 解另一个得到特征函数$T_n$ \ $\Rightarrow$ \ 6. 特征函数$X_nT_n$ linear combination得到$u$. \ 7. 代boundary 条件 用Euler-Fourier得到的系数.}
 
-\hspace{81pt} $\cdot$ Remark: { $^1$化简中可以使用正比简化计算 \ \ \ \ \ \ $^2$对$n$的取值为$1,2,3,...$ \ \ \ \ \ \ $^3$对$\lambda$的取值让出现$sin,cos$时为正不容易出错,或注意正负号}
+    \hspace{49pt} $\cdot$ Remark: { $^1$化简中可以使用正比简化计算 \ \ \ \ \ \ $^2$对$n$的取值为$1,2,3,...$ \ \ \ \ \ \ $^3$对$\lambda$的取值让出现$sin,cos$时为正不容易出错,或注意正负号}
 
-\textbf{Basic Idea|Inhomo}: { 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
+    \textbf{Basic Idea|Inhomo}: { 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
 
-\textbf{Laplace Equation}: 2D:$\nabla^2u=\partial^2_xu+\partial^2_yu=0$ \ \ \ 3D: $\nabla^2u=\partial^2_xu+\partial^2_yu+\partial^2_zu=0$ \ \ \ \ \ \ Following are the method to solve:
+    \textbf{Laplace Equation}: 2D:$\nabla^2u=\partial^2_xu+\partial^2_yu=0$ \ \ \ 3D: $\nabla^2u=\partial^2_xu+\partial^2_yu+\partial^2_zu=0$ \ \ \ \ \ \ Following are the method to solve:
 
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Rectangle}: {\scriptsize ($0\leq x\leq a,0\leq y\leq b$) with $u(x,0)=u(x,b)=u(0,y)=0 \ ; \ u(a,y)=f(y)$} \ \ \ \ \ \ { 直接按照Homo正常计算} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ { 可能用到 Euler Equation} 
-    \item \textbf{Circle}: {\scriptsize ($u(r=a,\theta)=f(\theta) \ ; \ u(r,\theta) \ bounded$)} \ \ \ { $^1\partial_{x}^2u+\partial^2_yu=0;x=rcos(\theta),y=rsin(\theta)$ 变极坐标 $R(r),\Theta(\theta)$} \ \ \ { $^2$ 一样的计算 + 条件 $\Theta(\theta+2\pi)=\Theta(\theta)$}
-\end{enumerate}
+    \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+        \item \textbf{Rectangle}: {\scriptsize ($0\leq x\leq a,0\leq y\leq b$) with $u(x,0)=u(x,b)=u(0,y)=0 \ ; \ u(a,y)=f(y)$} \ \ \ \ \ \ { 直接按照Homo正常计算} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\Downarrow$ { 可能用到 Euler Equation} 
+        \item \textbf{Circle}: {\scriptsize ($u(r=a,\theta)=f(\theta) \ ; \ u(r,\theta) \ bounded$)} \ \ \ { $^1\partial_{x}^2u+\partial^2_yu=0;x=rcos(\theta),y=rsin(\theta)$ 变极坐标 $R(r),\Theta(\theta)$} \ \ \ { $^2$ 一样的计算 + 条件 $\Theta(\theta+2\pi)=\Theta(\theta)$}
+    \end{enumerate}
+    
+\end{minipage}
+\hfill
+\vrule width 0.3pt
+\hfill
+\begin{minipage}{0.25\textwidth}
+
+    \textbf{Heat eqn}: $\frac{\partial}{\partial t}u=\alpha^2\frac{\partial^2u}{\partial x^2}$ - Parabolic
+
+    \textbf{Wave eqn}: $\frac{\partial^2}{\partial t^2}u=\alpha^2\frac{\partial^2u}{\partial x^2}$ - Hyperbolic
+
+    \textbf{Laplace eqn}: $\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0$ - Elliptical
+\end{minipage}
 
 
-\section{Sturm-Liouville Theory}
+
+\section{Sturm-Liouville Theory \ \ (Another 'Fourier')}
+
+\subsection{Sturm-Liouville Theory}
+
+\textbf{Sturm-Liouville (SL) Problem}: Form: $-(p(x)y')'+q(x)y=\lambda r(x)y \ , \ 0\leq x\leq 1$ \ , \ $p,r>0$ \ \ || \ \ With: $a_1y(0)+a_2y'(0)=b_1y(1)+b_2y'(1)=0$ \ \ || \ \ Assume: $p,p',q,r$ continuous. \ \ || \textbf{weight function}: $r(x)$.
+
+$\cdot$ $\Rightarrow$ Let \textit{Linear Operator}: $\mathcal{L}(y):=-(p(x)y')'+q(x)y$ \ \ \ $\Rightarrow$ \ \ \ Problem becomes: $\mathcal{L}(y)=\lambda r(x)y$ \ \ {\tiny (It's a Eigenvalue Problem $\mathcal{L}(\Psi_n)=\lambda_n r(x)\Psi_n$)} \ \ $\Rightarrow$ \ \ $\forall$ solutions $u,v$ with (二阶导连续) of SL Problem: $(\mathcal{L}(u),v)=(u,\mathcal{L}(v))$ !!!
+
+$\cdot$ \textbf{Properties|Real|Orthogonal}: In SL Problem: $^1$ $\lambda_n$, $\Psi_n$ are \textit{real}; \ \ \ \ \ || \ \ \ \ \ $^2$ Eigenfunctions $\Psi_1,\Psi_2$ with $\lambda_1\ne\lambda_2$. \textbf{Modified Inner Product}: $\langle \Psi_1,\Psi_2 \rangle=\int^1_0 r(x)\Psi_1\Psi_2 dx=0$ \ \ {\tiny $i.e.\Psi_1,\Psi_2$ orthogonal.}
+
+$\cdot$ \textbf{Properties|Simple|Ordered}: In SL Problem: $^3$ $\lambda_n$ are \textit{simple}: \ \ $\forall\lambda_n$ has \textit{unique} $\Psi_n$; \ \ \ \ \ || \ \ \ \ \ $^4\lambda_n$ are \textit{Ordered}: $\lambda_1<\lambda_2<\cdots<\lambda_n\to\infty$ as $n\to\infty$
+
+\textbf{Normalisation of Eigenfunction}: $^1\Psi_n$ normalised if: $\langle \Psi_n,\Psi_n \rangle=1$ \ \ \ || \ \ \ $^2$ Method (Normalised $\Psi_n$): $\Phi_n=\frac{1}{\sqrt{\langle \Psi_n,\Psi_n \rangle}}\Psi_n=[\int^1_0r(x)\Psi^2_1]^{-1/2}$
+
+\textbf{Sturm-Liouville Convergence Theorem}: If $f,f'$ are piecewise continuous on $[0,1]$ \ \ $\Rightarrow$ \ \ $F(x)=\sum_{n=1}^{\infty}c_n\Phi_n$ converges. \ \ \ || \ \ \ $\Phi_n$ are \textit{orthonormal} eigenfunction of a Sturm-Liouville problem.
+
+$\cdot$ Futhermore, $^1F\to f$ when $f$ is continuous; \ \ \ \ \ \ $^2F\to\frac{f(x^+)+f(x^-)}{2}$ when $f$ is discontinuous. \ \ {\tiny 边界点右边界条件决定} \ \ \ \ \ \ \textbf{Calculate Coefficients}: $c_n=\langle f,\Phi_n\rangle=\int^1_0r(x)f(x)\Phi_n(x)dx$
+
+\textbf{Parseval's Identity}: $f,f'$ are piecewise continuous on $[0,1]$ \ \ $\Rightarrow$ \ \ $\langle f,f\rangle=\int^1_0f^2(x)r(x)dx=\sum^{\infty}_{n=1}c^2_n$
+
+
+\subsection{General Boundary eigenvalue problem || Non-Homogeneous Boundary Value Problems}
+
+\vspace{-2pt}
+\textbf{General Boundary eigenvalue problem}: $\mathcal{L}(y)=\lambda r(x)y \ , \ 0<x<1$ \ \ || \ With $n-th$ order operator: $\mathcal{L}(y)=p_n(x)\frac{d^ny}{dx^n}+\cdots+p_1(x)\frac{dy}{dx}+p_0(x)y$ \ \ \ || \ \ \ {\tiny Assume $n$ linear Homogeneous Boundary conditions at the endpoints.}
+
+$\cdot$ $\Rightarrow$ And suppose that $(\mathcal{L}(u),v )=( u,\mathcal{L}(v) )$ $\leftarrow$(\textbf{Self-Adjoint Operator})$\to\mathcal{L}$ must be \underline{even order}. \ \ \ || \ \ \ \textbf{Properties}: $^1$ Infinite eigenvalues. \ \ $^2$ Orthogonal eigenfunctions. \ \ $^3$ {\tiny 类似Fourier可以将任意函数用级数展开.}
+
+\textbf{Non-Homogeneous BVP|Sturm-Liouville}: $\mathcal{L}(y)=\mu r(x)y+f(x)$ \ \ \ where $^1\mathcal{L}$ is Sturm-Liouville operator. ({\tiny 就是符合前面SL Problem operator的定义 + conditions}) \ \ $^2\mu$ is constant.
+
+$\cdot$ $\Rightarrow$ Let $\lambda_n,\Phi_n$ be eigenvalues \& orthonormal eigenfunctions of $\mathcal{L}(y)=\lambda r(x)y$. \ \ \ || \ \ \ Method: \textbf{Green's Function}: $G(x,z)=\sum_{n=1}^{\infty}\frac{\Phi_n(x)\Phi_n(z)}{\lambda_n-\mu}$ \ {\tiny ($\mu\ne\lambda_n$)} \ \ $\Rightarrow$ \ \ Solution: $y(x)=\int^1_0G(x,z)f(z)dz$ \ {\tiny ($\mu\ne\lambda_n$)}
+
+\vspace{-2pt}
+$\cdot$ (Ctd.) $^1$ If $\mu\ne\lambda_n$ $\Rightarrow$ unique solution. \ \ $^2$ If $\exists m,\mu=\lambda_m$: Let $c_n=\int^1_0f(x)\Phi_n(x)dx$ \ \ $\Rightarrow$ \ \ Case I ($c_m=0$): Let $b_n=\frac{c_n}{\lambda_n-\mu}${\tiny $,n\ne m$} \ \ $y(x)=\sum_{n=1,n\ne m}^\infty [b_n\Phi_n(x)]+b_m\Phi_m(x),b_m\in\mathbb{R}$ \ \ \ \ \ \ Case II ($c_m\ne0$): {\tiny No Solution.}
 
 
 \section{Appendix}
@@ -460,7 +509,7 @@ $\cdot$ $sinh(x)$ 单调递增, odd, iff $x=0,sinh(x)=0$ \ \ \ \ \ \ $cosh(x)$ $
 
 \textbf{Euler Formula}: { $e^{ix}=cos(x)+isin(x)$ \ \ \ || \ \ \ $e^{inx}=cos(nx)+isin(nx)$ \ \ \ || \ \ \ $cos(nx)=\frac{e^{inx}+e^{-inx}}{2}$ \ \ \ || \ \ \ $sin(nx)=\frac{e^{inx}-e^{-inx}}{2i}$}
 
-\textbf{Solve $y''+\lambda y=0$}: { $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0:y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \textbf{Solve $y'+\beta y=0$}: { $y=c_1e^{-\beta x}$}
+\textbf{Solve $y''+\lambda y=0$}: { $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0(\mathbb{C}):y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \textbf{Solve $y'+\beta y=0$}: { $y=c_1e^{-\beta x}$}
 
 \textbf{Approximation} $sin(x)\approx x$ when $x\to0$ 
 
