@@ -33,8 +33,8 @@
 
 % 设置 section/subsection 之间的行间距
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{0pt}{-3pt}
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\section}{0pt}{-3pt}{-3pt}
+\titlespacing*{\subsection}{0pt}{-3pt}{-3pt}
 \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 % 调整标题上下间距
@@ -70,7 +70,7 @@
 
 \textbf{Completeness Axiom}: If $\exists$ UP $\Rightarrow$ LUB (sup) ; If $\exists$ LB $\Rightarrow$ GLB (inf). \hspace{20pt} \textbf{Archimedean Property}: $\forall x \in \mathbb{R}^+ \Rightarrow \exists n\in \mathbb{N} \ s.t. \ n>x.$
 
-\textbf{Countable Set}: A set $E$ is countable if $\exists$ bijection $f:\mathbb{N}\to E$.
+\textbf{Countable Set}: A set $E$ is countable if $\exists$ bijection $f:\mathbb{N}\to E$. \ \ \ \ \ \ \ \ \ ps: $[0,1]$ is uncountable.
 
 $\cdot$ \textbf{Property}: Let $(E_n)_{n\in\mathbb{N}}$ be countable sets. \ \ $\Rightarrow$ \ \ $^1\bigcup E_n$ is countable. (Can infinite) \ \ $^2\prod E_n$ is countable. (Finite) \ \ $^3[0,1]$ uncountable.
 
@@ -310,8 +310,101 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \section{Lebesgue Outer Measure || Lebesgue Measurable || Lebesgue Measure}
 
+\textbf{Countably Additivity}: $(E_n)_{n\in\mathbb{N}}$ disjoint sets, $m$ be measure. \ \ $\Rightarrow$ \ \ Countably Additive if: $m(\cup_{n}E_n)=\sum m(E_n)$
 
 
+\subsection{Lebesgue Outer Measure}
+
+\textbf{Lebesgue Outer Measure ($m^*$)}: Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$ \ \ \ \ \ \ \ \ \ {\scriptsize ps: 本质是寻找到最小的\textit{区间}可以覆盖$E$,用前面$\lambda$的定义来定义"长度"}
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Version 1|Open Intervals}: $m^*(E):=\inf\left\{\sum_{n=1}^{\infty}\lambda(I_n) \ | \ E\subseteq\cup_{n=1}^{\infty}I_n,I_n \ is \ a \ open \ interval \right\}$
+    \item \textbf{Version 2|Open Sets}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
+    \item \textbf{Remark}: If we cannot find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$.
+\end{enumerate}
+
+\vspace{-12pt}
+\begin{multicols}{2}
+
+    $\cdot$ \textbf{Basic 3 Properties}: Let Set $E,F \ s.t. \ E\subseteq F\subset\mathbb{R}$.
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Null Empty Set}: $m^*(\emptyset)=0$.
+    \item \textbf{Monotonicity}: $m^*(E)\leq m^*(F)$.
+    \item \textbf{Countable Subadditivity}: $m^*(\cup_{n=1}^{\infty}E_n)\leq\sum_{n=1}^{\infty}m^*(E_n)$.
+\end{enumerate}
+
+\columnbreak
+
+\textbf{Useful Properties|By Def of inf}: Let $E$ be a set, $m^*(E)<\infty$
+
+Then $\forall\varepsilon>0,\forall\delta>0$: $\exists (I_n)_{n\in\mathbb{N}}$ , $I_n$ open intervals s.t.: \ex
+
+{\footnotesize $^1E\subseteq\bigcup I_n$ \ | \ $^2m^*(E)\leq\sum \lambda(I_n)<m^*(E)+\varepsilon$ \ | \ $^3I_n\cap E=\emptyset,\forall n$ \ | \ $^4\lambda(I_n)<\delta,\forall n$}
+
+{\footnotesize $^5I_n\cap E\nsubseteq I_k,\forall n\ne k.$} \ {\scriptsize $\leftarrow$无覆盖项} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize 无无关项$\uparrow$} \ \ \ \ {\scriptsize ps: 也使用与是open set的.}
+
+\end{multicols}
+\vspace{-12pt}
+
+$\cdot$ \textbf{More Properties}:
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Interval}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$.
+    \item \textbf{Countable}: Any Countable set $E$ \ \ $\Rightarrow$ \ \ $m^*(E)=0$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\exists m^*(E)=0,E$ uncountable {\footnotesize (e.g.Cantor Set (Closed Set))}
+    \item \ex\textbf{Futher|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ \ \ \ || \ \ \ \ \ \ \ex$m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$ , $I_n$ intervals.
+\end{enumerate}
+
+\textbf{Def of $\mathbf{dist(E,F)}$}: {\footnotesize $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$} \ \ \ || \ \ \ \textbf{Property}: {\footnotesize $^1E,F$ are nonempty \textit{closed} sets; \ \ $^2E\cap F=\emptyset$; \ \ $^3E$ \textit{bounded}. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$}
+
+\textbf{Countable Additivity|Outer Measure}:
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Basic}: If $dist(E,F)>0$ \ \ $\Rightarrow$ \ \ $m^*(E\cup F)=m^*(E)+m^*(F)$.
+
+    \item \textbf{Closed|Open|Interval Sets}: If $(K_n)_{n\in\mathbb{N}}$ is \textit{disjoint}, (Closed (\textit{bdd}) \ | \ Open \ | \ Interval), sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
+\end{enumerate}
+
+
+\subsection{Lebesgue Measurable}
+
+\textbf{Lebesgue Measurable}: 
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Version 1}: A set $E\subseteq\mathbb{R}$ is \textit{Lebesgue measurable} if $\forall\varepsilon>0,\exists$ open set $U\subseteq\mathbb{R}$ s.t. $E\subseteq U$ and $m^*(U\setminus E)<\varepsilon$ \ \ \ {\tiny ps: 被open set 从外"恰好"包住}
+    \item \textbf{Version 2}: A set $E\subseteq\mathbb{R}$ is \textit{Lebesgue measurable} if $\forall\varepsilon>0,\exists$ closed set $U\subseteq\mathbb{R}$ s.t. $U\subseteq E$ and $m^*(E\setminus U)<\varepsilon$ \ \ \ {\tiny ps: 被closed set 从内"恰好"包住}
+\end{enumerate}
+
+$\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R}$.
+
+\textbf{Property of Lebesgue Measurable Sets}:
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Closed Set|Open Set|Interval}: Any closed set / open set / interval is Lebesgue measurable.
+    \item \textbf{Union $\cup$|\ex Intersection $\cap$}: If $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ Also: $^1E:=\cup^\infty_{n=1}E_n$ \ \ \ex$^2E:=\cap^\infty_{n=1}E_n$. \ \ {\tiny Hint: $(\bigcap E_n)^C=\bigcup E_n^C$}
+    \item \textbf{Complement $E^C$}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
+    \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
+    \item \ex\textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
+\end{enumerate}
+
+
+\subsection{Lebesgue Measure}
+
+\textbf{Lebesgue Measure}: \textit{Lebesgue Measure} is a function $m:\mathcal{M}\to[0,\infty)$ s.t. $m(E):=m^*(E),\forall m\in\mathcal{M}$ \ \ \ \ \ \ {\tiny ps: 原来是 $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$, 现在是 $m:\mathcal{M}\to[0,\infty)$}
+
+$\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}
+
+\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesuge Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
+
+\textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesuge Measurable}.
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Increasing $\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
+    \vspace{-5pt}
+    \item \ex\textbf{decreasing $\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\tiny (Hint: $F_n:=E_n\setminus E,E=\cap E_n;m(F_n\cup E)=m(E_n)$)}
+\end{enumerate}
+
+\textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not contabilty additive set. }
 
 
 \section{Lebesgue Integral}
@@ -325,6 +418,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \textbf{Step Function}: $f:\mathbb{R}\to[0,\infty)$ is a (non-negative) step function if $f(x)=\sum c_j\chi_{I_j}(x)$ \ \ \ \ \ \ for some $c_j$ and $\chi_{I_j}$
 
 $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exists c_n,I_n$ s.t. $I_n$ \textit{disjoint} and $f(x)=\sum c_n\chi_{I_n}(x)$
+
 
 \section{Appendix}
 
@@ -380,97 +474,6 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 \textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$
 
 \ex$E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
-
-\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
-\noindent\makebox[\textwidth]{\line(1,0){\textwidth}}
-
-
-
-
-\section{Integration Theory \& Lebesgue Integration}
-
-
-\subsection{Lebesgue Outer Measures}
-
-\textbf{Countably Additivity}: $(E_n)_{n\in\mathbb{N}}$ disjoint sets, $m$ be measure. \ \ $\Rightarrow$ \ \ Countably Additive if: $m(\cup_{n}E_n)=\sum m(E_n)$
-
-\textbf{Lebesgue Outer Measure}: $m^*(E):=\inf\left\{\sum_{n=1}^{\infty}\lambda(I_n) \ | \ E\subseteq\cup_{n=1}^{\infty}I_n,I_n \ is \ a \ open \ interval \right\}$ \ \ \ \ \ \ \ \ \ {\tiny ps: 本质是寻找到最小的\textit{区间}可以覆盖$E$,用前面$\lambda$的定义来定义"长度"}
-
-$\cdot$ \textbf{Remark}: If it's impossible to find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$ \ \ \ \ \ \ || \ \ \ \ \ \ Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Lebesgue Outer Measure (Open)}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
-    \item \textbf{Lebesgue Outer Measure (Interval)}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$
-    \item \textbf{Useful Tool|By def}: $\forall E,\exists$ open interval $(I_n)_{n\in\mathbb{N}}$ s.t. $E\subseteq \cup I_n$ and $\sum\lambda(I_n)<m^*(E)+\varepsilon$
-    \item \textbf{Useful Tool|By def}: $\forall E,\exists$ open set $U$ s.t. $E\subseteq U$ and $m^*(U)<m^*(E)+\varepsilon$
-    \item \textbf{Useful Tool|Plus|By def}: $\forall E,\exists$ open intervals $(I_n)_{n\in\mathbb{N}}$, satisfy \ \ $^1${\footnotesize 第3条} \ \ $^2I_n\cap E\ne\emptyset$ \ \ $^3\lambda(I_n)<\delta$ \ \ $^4$
-    \item \textbf{Futher|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ \ \ \ || \ \ \ \ \ \ $m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$
-\end{enumerate}
-
-\textbf{Properties of Lebesgue Outer Measure}: Let Set $E,F \ s.t. \ E\subseteq F\subset\mathbb{R}$. \ \ \ \ \ \ Emptyset: $\emptyset$
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Null Empty Set}: $m^*(\emptyset)=0$.
-    \item \textbf{Monotonicity}: $m^*(E)\leq m^*(F)$.
-    \item \textbf{Countable Subadditivity}: $m^*(\cup_{n=1}^{\infty}E_n)\leq\sum_{n=1}^{\infty}m^*(E_n)$.
-    \item Countable set $E$ \ \ $\Leftrightarrow$ \ \ $m^*(E)=0$ \ \ \ {\footnotesize Hint: $E=\cup^\infty_{j=1}\{x_j\}$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $\exists m^*(E)=0,E$ uncountable {\footnotesize (e.g.Cantor Set)}
-\end{enumerate}
-
-
-\subsection{Countable Additive for Lebesgue Outer Measure}
-
-\textbf{Def of $dist(E,F)$}: $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Basic}: If $dist(E,F)>0$ \ \ $\Rightarrow$ \ \ $m^*(E\cup F)=m^*(E)+m^*(F)$.
-    
-    \vspace{-5pt}
-    $\cdot$ $^1E,F$ are nonempty \textit{closed} sets; \ \ $^2E\cap F=\emptyset$; \ \ $^3E$ \textit{bounded}. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$
-
-    \item \textbf{Closed|Open|Interval Sets}: If $(K_n)_{n\in\mathbb{N}}$ is \textit{disjoint}, (Closed|Open|Interval), \textit{bounded} sets \ \ $\Rightarrow$ \ \ $m^*(\cup^\infty_{n}K_n)=\sum^\infty_{n=1} m^*(K_n)$
-\end{enumerate}
-
-
-\subsection{Lebesgue Measurable Sets}
-
-\textbf{Lebesgue Measurable}: 
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Version 1}: A set $E\subseteq\mathbb{R}$ is \textit{Lebesgue measurable} if $\forall\varepsilon>0,\exists$ open set $U\subseteq\mathbb{R}$ s.t. $E\subseteq U$ and $m^*(U\setminus E)<\varepsilon$ \ \ \ {\tiny ps: 被open set 从外"恰好"包住}
-    \item \textbf{Version 2}: A set $E\subseteq\mathbb{R}$ is \textit{Lebesgue measurable} if $\forall\varepsilon>0,\exists$ closed set $U\subseteq\mathbb{R}$ s.t. $U\subseteq E$ and $m^*(E\setminus U)<\varepsilon$ \ \ \ {\tiny ps: 被closed set 从内"恰好"包住}
-\end{enumerate}
-
-$\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R}$.
-
-\textbf{Property of Lebesgue Measurable Sets}:
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Closed Set|Open Set|Interval}: Any closed set / open set / interval is Lebesgue measurable.
-    \item \textbf{Union $\cup$|Intersection $\cap$}: if $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $^1E:=\cup^\infty_{n=1}E_n$ \ \ $^2E:=\cap^\infty_{n=1}E_n$ is \textit{Lebesgue Measurable}.
-    \item \textbf{Complement}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
-    \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
-    \item \textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
-\end{enumerate}
-
-
-\subsection{Countable Additive \& Monotone Convergence for Lebesgue Measure}
-
-\textbf{Lebesgue Measure}: \textit{Lebesgue Measure} is a function $m:\mathcal{M}\to[0,\infty)$ s.t. $m(E):=m^*(E),\forall m\in\mathcal{M}$ \ \ \ \ \ \ {\scriptsize ps: $\mathcal{M}$ 是所有Lebesgue可测集合的集合}
-
-$\cdot$ \textbf{Property}: \textit{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}  \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize ps: 原来是 $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$,现在是 $m:\mathcal{M}\to[0,\infty)$}
-
-\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesuge Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
-
-\textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesuge Measurable}.
-
-\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Increasing$\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
-    \item \textbf{decreasing$\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\footnotesize (Hint: $F_n:=E_n\setminus E,E=\cap E_n$)}
-\end{enumerate}
-
-\textbf{Vitali Set}: $\exists A\subseteq\mathbb{R}$ and $\exists$ disjoint $E_j\subseteq\mathbb{R}$ s.t. $A$ is not \textit{Lebesgue measurable} and $m^*(\cup E_j)\ne\sum_{j}m^*(E_j)$ \ \ \ || \ \ \ {\scriptsize ps: Vitali Set is a set that is not Lebesgue measurable.}
-
-$\cdot$ Example: 
 
 
 \end{document}
