@@ -453,36 +453,36 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 
 \subsection{Sturm-Liouville Theory}
 
-\textbf{Sturm-Liouville (SL) Problem}: Form: $-(p(x)y')'+q(x)y=\lambda r(x)y \ , \ 0\leq x\leq 1$ \ , \ $p,r>0$ \ \ || \ \ With: $a_1y(0)+a_2y'(0)=b_1y(1)+b_2y'(1)=0$ \ \ || \ \ Assume: $p,p',q,r$ continuous. \ \ || \textbf{weight function}: $r(x)$.
+\textbf{Sturm-Liouville (SL) Problem}: Form: $-(p(x)y')'+q(x)y=\lambda r(x)y \ , \ 0\leq x\leq 1$ \ , \ $p,r>0$ \ \ || \ \ With: $a_1y(a)+a_2y'(a)=b_1y(b)+b_2y'(b)=0$ \ \ || \ \ Assume: $p,p',q,r$ continuous. \ \ || \textbf{weight function}: $r(x)$.
 
 $\cdot$ $\Rightarrow$ Let \textit{Linear Operator}: $\mathcal{L}(y):=-(p(x)y')'+q(x)y$ \ \ \ $\Rightarrow$ \ \ \ Problem becomes: $\mathcal{L}(y)=\lambda r(x)y$ \ \ {\tiny (It's a Eigenvalue Problem $\mathcal{L}(\Psi_n)=\lambda_n r(x)\Psi_n$)} \ \ $\Rightarrow$ \ \ $\forall$ solutions $u,v$ with (二阶导连续) of SL Problem: $(\mathcal{L}(u),v)=(u,\mathcal{L}(v))$ !!!
 
-$\cdot$ \textbf{Properties|Real|Orthogonal}: In SL Problem: $^1$ $\lambda_n$, $\Psi_n$ are \textit{real}; \ \ \ \ \ || \ \ \ \ \ $^2$ Eigenfunctions $\Psi_1,\Psi_2$ with $\lambda_1\ne\lambda_2$. \textbf{Modified Inner Product}: $\langle \Psi_1,\Psi_2 \rangle=\int^1_0 r(x)\Psi_1\Psi_2 dx=0$ \ \ {\tiny $i.e.\Psi_1,\Psi_2$ orthogonal.}
+$\cdot$ \textbf{Properties|Real|Orthogonal}: In SL Problem: $^1$ $\lambda_n$, $\Psi_n$ are \textit{real}; \ \ \ \ \ || \ \ \ \ \ $^2$ Eigenfunctions $\Psi_1,\Psi_2$ with $\lambda_1\ne\lambda_2$. \textbf{Modified Inner Product}: $\langle \Psi_1,\Psi_2 \rangle=\int^b_a r(x)\Psi_1\Psi_2 dx=0$ \ \ {\tiny $i.e.\Psi_1,\Psi_2$ orthogonal.}
 
-$\cdot$ \textbf{Properties|Simple|Ordered}: In SL Problem: $^3$ $\lambda_n$ are \textit{simple}: \ \ $\forall\lambda_n$ has \textit{unique} $\Psi_n$; \ \ \ \ \ || \ \ \ \ \ $^4\lambda_n$ are \textit{Ordered}: $\lambda_1<\lambda_2<\cdots<\lambda_n\to\infty$ as $n\to\infty$
+$\cdot$ \textbf{Properties|Simple|Ordered}: In SL Problem: $^3$ $\lambda_n$ are \textit{simple}: \ \ $\forall\lambda_n$ has \textit{unique} $\Psi_n$; \ \ \ \ \ || \ \ \ \ \ $^4\lambda_n$ are \textit{Ordered}: $\lambda_1<\lambda_2<\cdots<\lambda_n<\cdots\to\infty$ as $n\to\infty$
 
-\textbf{Normalisation of Eigenfunction}: $^1\Psi_n$ normalised if: $\langle \Psi_n,\Psi_n \rangle=1$ \ \ \ || \ \ \ $^2$ Method (Normalised $\Psi_n$): $\Phi_n=\frac{1}{\sqrt{\langle \Psi_n,\Psi_n \rangle}}\Psi_n=[\int^1_0r(x)\Psi^2_1]^{-1/2}$
+\textbf{Normalisation of Eigenfunction}: $^1\Psi_n$ normalised if: $\langle \Psi_n,\Psi_n \rangle=1$ \ \ \ || \ \ \ $^2$ Method (Normalised $\Psi_n$): $\Phi_n=\frac{1}{\sqrt{\langle \Psi_n,\Psi_n \rangle}}\Psi_n=[\int^b_ar(x)\Psi^2_1dx]^{-1/2}$
 
 \textbf{Sturm-Liouville Convergence Theorem}: If $f,f'$ are piecewise continuous on $[0,1]$ \ \ $\Rightarrow$ \ \ $F(x)=\sum_{n=1}^{\infty}c_n\Phi_n$ converges. \ \ \ || \ \ \ $\Phi_n$ are \textit{orthonormal} eigenfunction of a Sturm-Liouville problem.
 
-$\cdot$ Futhermore, $^1F\to f$ when $f$ is continuous; \ \ \ \ \ \ $^2F\to\frac{f(x^+)+f(x^-)}{2}$ when $f$ is discontinuous. \ \ {\tiny 边界点右边界条件决定} \ \ \ \ \ \ \textbf{Calculate Coefficients}: $c_n=\langle f,\Phi_n\rangle=\int^1_0r(x)f(x)\Phi_n(x)dx$
+$\cdot$ Futhermore, $^1F\to f$ when $f$ is continuous; \ \ \ \ \ \ $^2F\to\frac{f(x^+)+f(x^-)}{2}$ when $f$ is discontinuous. \ \ {\tiny 边界点右边界条件决定} \ \ \ \ \ \ \textbf{Calculate Coefficients}: $c_n=\langle f,\Phi_n\rangle=\int^b_ar(x)f(x)\Phi_n(x)dx$
 
-\textbf{Parseval's Identity}: $f,f'$ are piecewise continuous on $[0,1]$ \ \ $\Rightarrow$ \ \ $\langle f,f\rangle=\int^1_0f^2(x)r(x)dx=\sum^{\infty}_{n=1}c^2_n$
+\textbf{Parseval's Identity}: $f,f'$ are piecewise continuous on $[a,b]$ \ \ $\Rightarrow$ \ \ $\langle f,f\rangle=\int^b_af^2(x)r(x)dx=\sum^{\infty}_{n=1}c^2_n$
 
 
 \subsection{General Boundary eigenvalue problem || Non-Homogeneous Boundary Value Problems}
 
 \vspace{-2pt}
-\textbf{General Boundary eigenvalue problem}: $\mathcal{L}(y)=\lambda r(x)y \ , \ 0<x<1$ \ \ || \ With $n-th$ order operator: $\mathcal{L}(y)=p_n(x)\frac{d^ny}{dx^n}+\cdots+p_1(x)\frac{dy}{dx}+p_0(x)y$ \ \ \ || \ \ \ {\tiny Assume $n$ linear Homogeneous Boundary conditions at the endpoints.}
+\textbf{General Boundary eigenvalue problem}: $\mathcal{L}(y)=\lambda r(x)y \ , \ a<x<b$ \ \ || \ With $n-th$ order operator: $\mathcal{L}(y)=p_n(x)\frac{d^ny}{dx^n}+\cdots+p_1(x)\frac{dy}{dx}+p_0(x)y$ \ \ \ || \ \ \ {\tiny Assume $n$ linear Homogeneous Boundary conditions at the endpoints.}
 
 $\cdot$ $\Rightarrow$ And suppose that $(\mathcal{L}(u),v )=( u,\mathcal{L}(v) )$ $\leftarrow$(\textbf{Self-Adjoint Operator})$\to\mathcal{L}$ must be \underline{even order}. \ \ \ || \ \ \ \textbf{Properties}: $^1$ Infinite eigenvalues. \ \ $^2$ Orthogonal eigenfunctions. \ \ $^3$ {\tiny 类似Fourier可以将任意函数用级数展开.}
 
 \textbf{Non-Homogeneous BVP|Sturm-Liouville}: $\mathcal{L}(y)=\mu r(x)y+f(x)$ \ \ \ where $^1\mathcal{L}$ is Sturm-Liouville operator. ({\tiny 就是符合前面SL Problem operator的定义 + conditions}) \ \ $^2\mu$ is constant.
 
-$\cdot$ $\Rightarrow$ Let $\lambda_n,\Phi_n$ be eigenvalues \& orthonormal eigenfunctions of $\mathcal{L}(y)=\lambda r(x)y$. \ \ \ || \ \ \ Method: \textbf{Green's Function}: $G(x,z)=\sum_{n=1}^{\infty}\frac{\Phi_n(x)\Phi_n(z)}{\lambda_n-\mu}$ \ {\tiny ($\mu\ne\lambda_n$)} \ \ $\Rightarrow$ \ \ Solution: $y(x)=\int^1_0G(x,z)f(z)dz$ \ {\tiny ($\mu\ne\lambda_n$)}
+$\cdot$ $\Rightarrow$ Let $\lambda_n,\Phi_n$ be eigenvalues \& orthonormal eigenfunctions of $\mathcal{L}(y)=\lambda r(x)y$. \ \ \ || \ \ \ Method: \textbf{Green's Function}: $G(x,z)=\sum_{n=1}^{\infty}\frac{\Phi_n(x)\Phi_n(z)}{\lambda_n-\mu}$ \ {\tiny ($\mu\ne\lambda_n$)} \ \ $\Rightarrow$ \ \ Solution: $y(x)=\int^b_aG(x,z)f(z)dz$ \ {\tiny ($\mu\ne\lambda_n$)}
 
 \vspace{-2pt}
-$\cdot$ (Ctd.) $^1$ If $\mu\ne\lambda_n$ $\Rightarrow$ unique solution. \ \ $^2$ If $\exists m,\mu=\lambda_m$: Let $c_n=\int^1_0f(x)\Phi_n(x)dx$ \ \ $\Rightarrow$ \ \ Case I ($c_m=0$): Let $b_n=\frac{c_n}{\lambda_n-\mu}${\tiny $,n\ne m$} \ \ $y(x)=\sum_{n=1,n\ne m}^\infty [b_n\Phi_n(x)]+b_m\Phi_m(x),b_m\in\mathbb{R}$ \ \ \ \ \ \ Case II ($c_m\ne0$): {\tiny No Solution.}
+$\cdot$ (Ctd.) $^1$ If $\mu\ne\lambda_n$ $\Rightarrow$ unique solution. \ \ $^2$ If $\exists m,\mu=\lambda_m$: Let $c_n=\int^b_af(x)\Phi_n(x)dx$ \ \ $\Rightarrow$ \ \ Case I ($c_m=0$): Let $b_n=\frac{c_n}{\lambda_n-\mu}${\tiny $,n\ne m$} \ \ $y(x)=\sum_{n=1,n\ne m}^\infty [b_n\Phi_n(x)]+b_m\Phi_m(x),b_m\in\mathbb{R}$ \ \ \ \ \ \ Case II ($c_m\ne0$): {\tiny No Solution.}
 
 
 \section{Appendix}
