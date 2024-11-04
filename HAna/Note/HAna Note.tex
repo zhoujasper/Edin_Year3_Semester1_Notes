@@ -353,6 +353,7 @@ $\cdot$ \textbf{More Properties}:
     \item \textbf{Interval}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$.
     \item \textbf{Countable}: Any Countable set $E$ \ \ $\Rightarrow$ \ \ $m^*(E)=0$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\exists m^*(E)=0,E$ uncountable {\footnotesize (e.g.Cantor Set (Closed Set))}
     \item \ex\textbf{Futher|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ \ \ \ || \ \ \ \ \ \ \ex$m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$ , $I_n$ intervals.
+    \item \ex\textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$
 \end{enumerate}
 
 \textbf{Def of $\mathbf{dist(E,F)}$}: {\footnotesize $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$} \ \ \ || \ \ \ \textbf{Property}: {\footnotesize $^1E,F$ are nonempty \textit{closed} sets; \ \ $^2E\cap F=\emptyset$; \ \ $^3E$ \textit{bounded}. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$}
@@ -384,7 +385,7 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
     \item \textbf{Union $\cup$|\ex Intersection $\cap$}: If $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ Also: $^1E:=\cup^\infty_{n=1}E_n$ \ \ \ex$^2E:=\cap^\infty_{n=1}E_n$. \ \ {\tiny Hint: $(\bigcap E_n)^C=\bigcup E_n^C$}
     \item \textbf{Complement $E^C$}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
     \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
-    \item \ex\textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
+    \item \ex\textbf{Translation Invariance}: $m(E)=m(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
 \end{enumerate}
 
 
@@ -404,7 +405,9 @@ $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Meas
     \item \ex\textbf{decreasing $\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\tiny (Hint: $F_n:=E_n\setminus E,E=\cap E_n;m(F_n\cup E)=m(E_n)$)}
 \end{enumerate}
 
-\textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not contabilty additive set. }
+\textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not contabilty additive set. } 
+
+$\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\mathbb{R}\}$, choose a number $x_B\in B\cap[0,1]$ \ \ \ $A:=\{x_B:x_B\in B\}$ \ \ \ $^1$A is not Lebesgue Measurable Set. \ \ \ $^2E:=\bigcup_{q\in\mathbb{Q}\cap[-1,1]}(q+A)$ not Contabilty Additive.}
 
 
 \section{Lebesgue Integral}
