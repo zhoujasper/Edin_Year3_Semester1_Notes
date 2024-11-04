@@ -34,8 +34,8 @@
 
 % 设置 section/subsection 之间的行间距
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{0pt}{0pt}
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
+\titlespacing*{\section}{0pt}{-3pt}{-3pt}
+\titlespacing*{\subsection}{0pt}{-2pt}{-2pt}
 
 % 调整标题上下间距
 \usepackage{titling}
@@ -214,6 +214,7 @@ $\cdot$ \textbf{Generalised Likelihood Ratio Test}: $T_{GLR}=-2ln(LR)=2\left(\el
 
 
 \section{Bayesian Inference}
+\vspace{-5pt}
 
 \subsection{Bayesian Approach \& Definitions}
 
@@ -289,9 +290,11 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 \hspace{122pt}{\scriptsize $^3$优化参数(Find parameters to minimise the divergence): $\underline{\eta}^*=\arg\min_{\eta\in\mathcal{A}_\eta}KL(q(\underline{\theta};\underline{\eta})||p(\underline{\theta}|\mathbf{y}))$ \ \ $^4p(\underline{\theta}|\mathbf{y})\approx q(\underline{\theta};\underline{\eta}^*)$}
 
 \textbf{Remark}: {\scriptsize Both Laplace Approximation \& Variation Inference approximate $p(\underline{\theta}|\mathbf{y})$ by a parameter family of distributions. || 拉普拉斯是正态分布家族,VI是更普遍的分布家族}
+\vspace{-5pt}
 
 
 \section{Linear Model}
+\vspace{-5pt}
 
 \subsection{Simple Linear Model (With One Predictor)}
 
@@ -317,20 +320,62 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \subsection{General Linear Model}
 
-\textbf{Linear Model}: $Y_i=\mu_i+\varepsilon_i$ \ , \ $i=1,2,..,n$ \ \ || {\footnotesize Relationship between Parameters: $\underline{\beta}\in\mathbb{R}^p=(\beta_0,...,\beta_{p-1})$ and response are linear.}
+\textbf{Linear Model}: $Y_i=\mu_i+\varepsilon_i$ \ , \ $i=1,2,..,n$ \ \ $\mu=f(\beta)$ \ \ || \ \ {\footnotesize $f(\beta)$ linear.} \ \ || \ \ {\footnotesize $\varepsilon_i\stackrel{i.i.d.}{\sim}$ distribution. \ \ \ $\mathbb{E}[\varepsilon_i]=0$ \ \ \ $Var[\varepsilon_i]=\sigma^2$}
 
 $\cdot$ \textbf{Matrix Expression}: $\underline{\mathbf{y}}=\mathbf{X}\underline{\beta}+\underline{\varepsilon}$ \ \ || \ \ {\scriptsize Response Vector: $\underline{\mathbf{y}}$ \ | \ Design / Model Matrix: $\mathbf{X}$ \ | \ Parameters / Coefficients: $\underline{\beta}$ \ | \ Additive Noise Vector: $\underline{\varepsilon}$}
 
 $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\widehat{\beta}}$ \ \ \ | \ \ \ Estimated / Fitted Value Mean Vector: $\underline{\widehat{\mu}}=\mathbf{X}\underline{\widehat{\beta}}$ \ \ \ | \ \ \ Estimated / Fitted Residual Vector: $\underline{\widehat{\varepsilon}}=\mathbf{\underline{y}}-\underline{\widehat{\mu}}$}
 
-\textbf{Lamma|$\mathbb{E}$,$Var$ in Matrix}: If \ r.v. \ $\mathbf{v}$ \ , \ $\mathbf{A},\mathbf{b}$ constant \ \ $\Rightarrow$ \ \ $^1\mathbb{E}[\mathbf{A}\mathbf{v}+\mathbf{b}]=\mathbf{A}\mathbb{E}[\mathbf{v}] + \mathbf{b}$ \ \ \ $^2Var[\mathbf{Av+b}]=\mathbf{A}Var[\mathbf{v}]\mathbf{A}^T$
+\textbf{Lamma|$\mathbb{E}$ , $Var$ in Matrix}: {\footnotesize If \ r.v. \ $\mathbf{v}$ \ , \ $\mathbf{A},\mathbf{b}$ constant \ \ $\Rightarrow$ \ \ $^1\mathbb{E}[\mathbf{A}\mathbf{v}+\mathbf{b}]=\mathbf{A}\mathbb{E}[\mathbf{v}] + \mathbf{b}$ \ \ \ $^2Var[\mathbf{Av+b}]=\mathbf{A}Var[\mathbf{v}]\mathbf{A}^T$}
 
 \textbf{Metric Predictor}: {\scriptsize 设计矩阵 用 连续观测值.} \ \ \ || \ \ \ \textbf{Factor Predictor}: {\scriptsize 离散数据 用 指示函数(0/1)填满,每个"小组"对应一个指示函数.}
 
 
 \subsection{Linear Model Theory}
 
-\textbf{Least Square (LS) Approach}:
+{\footnotesize
+\vspace{-10pt}
+\begin{longtable}{|l||l|l|l|l|l|}
+    \hline
+    Orthonormal Matrix $\mathcal{Q}$ & \multicolumn{2}{l|}{ Def: $\mathcal{Q}$:= columns and rows are orthonormal vectors.} & {\footnotesize $\mathcal{Q}^T=\mathcal{Q}^{-1}$} & $\mathcal{Q}\mathcal{Q}^T=\mathcal{Q}^T\mathcal{Q}=I_n$ & $\forall\mathbf{v},||\mathbf{v}||^2=||\mathcal{Q}\mathbf{v}||^2=||\mathcal{Q}^T\mathbf{v}||^2$ \\
+    \hline
+    $\mathbf{QR}$ Decomposition & $\forall \ \mathbf{X}\in\mathbb{R}^{n\times p}$ \ $\Rightarrow$ \ $\mathbf{X}=\mathcal{Q}\begin{pmatrix}\mathbf{R} \\ 0 \end{pmatrix}=\mathbf{QR}$ & \multicolumn{4}{l|}{\scriptsize $\mathbf{R}\in\mathbb{R}^{p\times p}$ is \textit{upper triangular matrix}; \ \ $\mathcal{Q}\in\mathbb{R}^{n\times n}$ is \textit{orthonormal matrix}; \ \ $\mathcal{Q}$前$p$列等于$\mathbf{Q}\in\mathbb{R}^{n\times p}$ } \\
+    \hline
+    \hline
+    Least Square (LS) & \multicolumn{4}{l|}{\scriptsize $RSS:=S(\underline{\beta})=\sum^n_{i=1} \varepsilon^2_i(\underline{\beta})=\sum^n_{i=0}(y_i-\mu_i(\underline{\beta}))^2=||\mathbf{y}-\underline{\mu}||^2=||\mathbf{y}-\mathbf{X}\underline{\beta}||^2=||\underline{\varepsilon}(\underline{\beta})||^2$} & {\scriptsize $\widehat{\underline{\beta}}=\arg\min_\beta S(\beta)=\arg\min_\beta||\mathbf{f}-\mathbf{R}\underline{\beta}||^2$} \\
+    \hline
+    QR Method of LS & \multicolumn{5}{l|}{\scriptsize Let $^1\mathcal{Q}$ be orthonormal matrix \ \ \ $^2\mathbf{X}=\mathbf{QR}$ \ \ \ $^3\mathcal{Q}^T\mathbf{y}=\begin{pmatrix}\mathbf{f}\in\mathbb{R}^p \\ \mathbf{r}\in\mathbb{R}^{n-p} \end{pmatrix}$ \ \ $\Rightarrow$ \ \ $S(\underline{\beta})=||\mathcal{Q}^T\underline{\varepsilon}(\underline{\beta})||^2=\cdots=||\mathbf{f}-\mathbf{R}\underline{\beta}||^2+||\mathbf{r}||^2$} \\
+    \hline
+    {\scriptsize QR Method (ctd.)} & \multicolumn{4}{l|}{ If $\mathbf{R}$ full rank: \ \ $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{f}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ \ \ \ $RSS=||\mathbf{r}||^2=||\underline{\varepsilon}(\underline{\widehat{\beta}})||^2=||\mathbf{y}-\mathbf{X}\underline{\widehat{\beta}}||^2$} & $\mathbf{f}=\mathbf{Q}^T\mathbf{y}$ (if $n=p$) \\
+    \hline
+\end{longtable}
+\vspace{-10pt}
+}
+
+\textbf{More Inference of LS}:
+
+{\footnotesize
+\vspace{-15pt}
+\begin{longtable}[alignment]{|l||l|l|l|l|}
+    \hline
+    Matrix Method of LS & \multicolumn{2}{l|}{$S(\underline{\beta})=(\mathbf{y}-\mathbf{X}\underline{\beta})^T(\mathbf{y}-\mathbf{X}\underline{\beta})=\mathbf{y}^T\mathbf{y}-2\mathbf{y}^T\mathbf{X}\underline{\beta}+\underline{\beta}^T\mathbf{X}^T\mathbf{X}\underline{\beta}$} & $\underline{\widehat{\beta}}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$ & $\mathbf{V}_{\underline{\widehat{\beta}}}=Var[\widehat{\underline{\beta}}]=(\mathbf{X^T}\mathbf{X})^{-1}\sigma^2$ \\
+    \hline
+    \hline
+    \textbf{Influence / Hat Matrix} $\mathbf{A}$ & $\mathbf{A}=\mathbf{Q}\mathbf{Q}^T=\mathbf{A}^2=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T$ & \multicolumn{3}{l|}{\# of (identifiable) parameters = $tr(\mathbf{A})=tr(\mathbf{Q}\mathbf{Q}^T)=tr(I_p)=p$} \\
+    \hline
+    $Var[\mathbf{y}]$ , $Var[\mathbf{f}]$ , $\widehat{\underline{\mu}}$ , $\widehat{\underline{\beta}}$ & $Var[\mathbf{y}]=Cov(\underline{\varepsilon},\underline{\varepsilon})=\sigma^2I_n$ & $Var[\mathbf{f}]=\mathbf{Q}^T\mathbf{Q}\sigma^2=\mathbf{}I_p$ & $\underline{\hat{\mu}}=\mathbf{X}\widehat{\underline{\beta}}=\mathbf{A}\mathbf{y}$ & $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ \\
+    \hline
+    $\mathbf{V}_{\underline{\widehat{\beta}}}$ , $\mathbf{V}_{\widehat{\underline{\varepsilon}}}$ , $\mathbf{V}_{\widehat{\underline{\mu}}}$ \ \ || \ \ $\underline{\widehat{\mu}}$ dist & $\mathbf{V}_{\widehat{\underline{\beta}}}=Var[\widehat{\underline{\beta}}]=\mathbf{R}^{-1}\mathbf{R}^{-T}\sigma^2$ & $\mathbf{V}_{\widehat{\underline{\varepsilon}}}=Var[\underline{\widehat{\varepsilon}}]=(I_n-\mathbf{A})\sigma^2$ & $\mathbf{V}_{\widehat{\underline{\mu}}}=Var[\underline{\widehat{\mu}}]=\mathbf{A}\sigma^2$ & $\widehat{\underline{\mu}}$ {\tiny is Degenerate Normal (退化正太分布,$\Sigma$不满秩)} \\
+    \hline
+    $\mathbb{E}[\widehat{\underline{\beta}}]$ , $\mathbb{E}[\underline{\widehat{\varepsilon}}]$ , $\mathbb{E}[\widehat{\underline{\mu}}]$ \ \ || \ \ $\underline{\widehat{\varepsilon}}$ dist & $\mathbb{E}[\widehat{\underline{\beta}}]=\underline{\beta}$ {\tiny unbiased} & $\mathbb{E}[\underline{\widehat{\varepsilon}}]=0$ & $\mathbb{E}[\widehat{\underline{\mu}}]=\mu$ {\tiny (unbiased)} & $\widehat{\underline{\varepsilon}}$ {\tiny is Degenerate Normal (退化正太分布,$\Sigma$不满秩)} \\
+    \hline
+    \multicolumn{5}{|l|}{If $\mathbf{X}^T\mathbf{X}$ is diagonal \ \ $\Rightarrow$ \ \ $\mathbf{X}$ is called Orthogonal. \ \ $\Rightarrow$ In this Case: $\mathbf{V}_{\underline{\widehat{\beta}}}$ diagonal \ \ $\Rightarrow$ \ \ $\beta_i$ independent.} \\
+    \hline
+\end{longtable}
+\vspace{-15pt}
+}
+
+\textbf{Prediction | PI}: {\footnotesize Create a \underline{Prediction Matrix}: $\mathbf{X}^*$} {\scriptsize ($\mathbf{X}^*$形式和$\mathbf{X}$保持一直,数据变为按拟合后的每个点的数据)} \ \ $\Rightarrow$ \ \ {\footnotesize $\underline{\widehat{\mu}}^*=\mathbf{X}^*\underline{\widehat{\beta}}$ \ , \ $\underline{\widehat{\mu}}^*\sim\mathcal{N}(\underline{\mu}^*,X^*(X^TX)^{-1}(X^*)^T\sigma^2)$}
 
 
 \subsection{Check || Intervals || Testing}
