@@ -311,7 +311,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     \hline
     \makecell{$H_0,H_1$ Test || CI} & $T= (\widehat{\beta}- \beta_0) \ / \ Var(\widehat{\beta})\sim\mathcal{N}(0,1)$ \ \ {\tiny ($\sigma^2$ known)} & $T=(\widehat{\beta}-\beta_0) \ / \ \widehat{Var(\widehat{\beta})}\sim t_{n-1}$ \ \ {\tiny ($\sigma^2$ unknown)} \\
     \hline
-    Other & Fitted Values: $\hat{\mu}_i=x_i\hat{\beta}$ \ \ || \ \ Residuals: $\widehat{\varepsilon_i}=y_i-\widehat{\mu}_i$ & For CI / $H_0/H_1$ Test: Assume $\varepsilon_i\sim\mathcal{N}(0,\sigma^2)$ \\
+    Other & \textbf{Fitted Values}: $\hat{\mu}_i=x_i\hat{\beta}$ \ \ || \ \ \textbf{Residuals}: $\widehat{\varepsilon_i}=y_i-\widehat{\mu}_i$ & For CI / $H_0/H_1$ Test: Assume $\varepsilon_i\sim\mathcal{N}(0,\sigma^2)$ \\
     \hline
 \end{longtable}
 }
@@ -324,7 +324,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 $\cdot$ \textbf{Matrix Expression}: $\underline{\mathbf{y}}=\mathbf{X}\underline{\beta}+\underline{\varepsilon}$ \ \ || \ \ {\scriptsize Response Vector: $\underline{\mathbf{y}}$ \ | \ Design / Model Matrix: $\mathbf{X}$ \ | \ Parameters / Coefficients: $\underline{\beta}$ \ | \ Additive Noise Vector: $\underline{\varepsilon}$}
 
-$\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\widehat{\beta}}$ \ \ \ | \ \ \ Estimated / Fitted Value Mean Vector: $\underline{\widehat{\mu}}=\mathbf{X}\underline{\widehat{\beta}}$ \ \ \ | \ \ \ Estimated / Fitted Residual Vector: $\underline{\widehat{\varepsilon}}=\mathbf{\underline{y}}-\underline{\widehat{\mu}}$}
+$\cdot$ \textbf{Some Defs}: {\footnotesize \textbf{Parameter Estimates}: $\underline{\widehat{\beta}}$ \ \ \ | \ \ \ \textbf{Estimated / Fitted Value Mean Vector}: $\underline{\widehat{\mu}}=\mathbf{X}\underline{\widehat{\beta}}$ \ \ \ | \ \ \ \textbf{Estimated / Fitted Residual} Vector: $\underline{\widehat{\varepsilon}}=\mathbf{\underline{y}}-\underline{\widehat{\mu}}$}
 
 \textbf{Lamma|$\mathbb{E}$ , $Var$ in Matrix}: {\footnotesize If \ r.v. \ $\mathbf{v}$ \ , \ $\mathbf{A},\mathbf{b}$ constant \ \ $\Rightarrow$ \ \ $^1\mathbb{E}[\mathbf{A}\mathbf{v}+\mathbf{b}]=\mathbf{A}\mathbb{E}[\mathbf{v}] + \mathbf{b}$ \ \ \ $^2Var[\mathbf{Av+b}]=\mathbf{A}Var[\mathbf{v}]\mathbf{A}^T$}
 
@@ -346,7 +346,7 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
     \hline
     QR Method of LS & \multicolumn{5}{l|}{\scriptsize Let $^1\mathcal{Q}$ be orthonormal matrix \ \ \ $^2\mathbf{X}=\mathbf{QR}$ \ \ \ $^3\mathcal{Q}^T\mathbf{y}=\begin{pmatrix}\mathbf{f}\in\mathbb{R}^p \\ \mathbf{r}\in\mathbb{R}^{n-p} \end{pmatrix}$ \ \ $\Rightarrow$ \ \ $S(\underline{\beta})=||\mathcal{Q}^T\underline{\varepsilon}(\underline{\beta})||^2=\cdots=||\mathbf{f}-\mathbf{R}\underline{\beta}||^2+||\mathbf{r}||^2$} \\
     \hline
-    {\scriptsize QR Method (ctd.)} & \multicolumn{4}{l|}{ If $\mathbf{R}$ full rank: \ \ $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{f}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ \ \ \ $RSS=||\mathbf{r}||^2=||\underline{\varepsilon}(\underline{\widehat{\beta}})||^2=||\mathbf{y}-\mathbf{X}\underline{\widehat{\beta}}||^2$} & ps:$\mathbf{f}=\mathbf{Q}^T\mathbf{y}$ \ \ \ || \ \ \ $\mathbf{Q}^T\mathbf{Q}=I_p$, $\mathbf{Q}\mathbf{Q}^T\ne I$  \\
+    {\scriptsize QR Method (ctd.)} & If $\mathbf{R}$ 满秩: \ \ $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{f}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ & \multicolumn{3}{l|}{\scriptsize $RSS=||\mathbf{r}||^2=||\underline{\varepsilon}(\underline{\widehat{\beta}})||^2=||\mathbf{y}-\mathbf{X}\underline{\widehat{\beta}}||^2$ \ \ \ $RSE=\frac{RSS}{n-p}=\widehat{\sigma}^2$} & ps:$\mathbf{f}=\mathbf{Q}^T\mathbf{y}$ \ \ \ || \ \ \ $\mathbf{Q}^T\mathbf{Q}=I_p$, $\mathbf{Q}\mathbf{Q}^T\ne I$  \\
     \hline
 \end{longtable}
 \vspace{-10pt}
@@ -380,34 +380,78 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 
 \subsection{CI / Hypothesis Testing}
 
-\textbf{Normality Assumption}: Assume that $\underline{\varepsilon}\sim\mathcal{N}(0,\sigma^2I_n)$ \ \ $\Rightarrow$ \ \ $^1\mathbf{y}\sim\mathcal{N}(\mathbf{X}\underline{\beta},I_n\sigma^2)$ \ \ \ $^2\underline{\widehat{\beta}}\sim\mathcal{N}(\underline{\beta},\mathbf{V}_{\underline{\widehat{\beta}}})$ \ \ \ \ || \ \ \ \ {\small 对于 Normal, LS $\underline{\widehat{\beta}}$ = MLE $\underline{\widehat{\beta}}$}
+\textbf{Normality Assumption}: Assume that $\underline{\varepsilon}\sim\mathcal{N}(0,\sigma^2I_n)$ \ \ $\Rightarrow$ \ \ $^1\mathbf{y}\sim\mathcal{N}(\mathbf{X}\underline{\beta},I_n\sigma^2)$ \ \ \ $^2\underline{\widehat{\beta}}\sim\mathcal{N}(\underline{\beta},\mathbf{V}_{\underline{\widehat{\beta}}})$ \ \ \ || \ \ \textbf{\small 对于 Normal, LS $\underline{\widehat{\beta}}$ = MLE $\underline{\widehat{\beta}}$}
 
 \vspace{-13pt}
 {\footnotesize
 \begin{longtable}{|c||l|l||l|l|}
     \hline
-    {\scriptsize $\mathbf{V}_{\mathcal{Q}^T\mathbf{y}}$ , $\mathbb{E}[\mathcal{Q}^T\mathbf{y}]$ || $\widehat{\sigma}^2$ , $\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}$ } & $\mathbf{V}_{\mathcal{Q}^T\mathbf{y}}=Var[\mathcal{Q}^T\mathbf{y}]=I_n\sigma^2$ & {\tiny $\mathbb{E}[\mathcal{Q}^T\mathbf{y}]=\mathbb{E}\left[\begin{pmatrix}\mathbf{f} \\ \mathbf{r}\end{pmatrix}\right]=\begin{pmatrix}\mathbf{R} \\ \mathbf{0}\end{pmatrix}\underline{\beta}$} & $\widehat{\sigma}^2=\frac{||\mathbf{r}||^2}{n-p}$ {\tiny (unbiased)} & $\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}=\mathbf{R}^{-1}\mathbf{R}^{-T}\widehat{\sigma}^2$ \\
+    {\scriptsize $\mathbf{V}_{\mathcal{Q}^T\mathbf{y}}$ , $\mathbb{E}[\mathcal{Q}^T\mathbf{y}]$ || $\widehat{\sigma}^2$ , $\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}$ } & $\mathbf{V}_{\mathcal{Q}^T\mathbf{y}}=Var[\mathcal{Q}^T\mathbf{y}]=I_n\sigma^2$ & {\tiny $\mathbb{E}[\mathcal{Q}^T\mathbf{y}]=\mathbb{E}\left[\begin{pmatrix}\mathbf{f} \\ \mathbf{r}\end{pmatrix}\right]=\begin{pmatrix}\mathbf{R} \\ \mathbf{0}\end{pmatrix}\underline{\beta}$} & $\widehat{\sigma}^2=\frac{||\mathbf{r}||^2}{n-p}$ {\tiny (unbiased)} & $\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}=\mathbf{R}^{-1}\mathbf{R}^{-T}\widehat{\sigma}^2$ \ {\tiny (unbiased)} \ \ \ \ \ \ || \ \ \ {\scriptsize $\underline{\widehat{\beta}},\widehat{\sigma}^2$ independent} \\
     \hline
-    $\mathbf{f,r}$ Distribution & \multicolumn{2}{l||}{ {\scriptsize Known $\sigma^2$:} \ \ $\mathbf{f}\sim\mathcal{N}(\mathbf{R}\underline{\beta},I_p\sigma^2)$ \ \ \ $\mathbf{r}\sim\mathcal{N}(\mathbf{0},I_{n-p}\sigma^2)$} & \multicolumn{2}{l|}{ {\scriptsize Unknown $\sigma^2$:} } \\
+    $\mathbf{f,r}$ Distribution & \multicolumn{2}{l||}{ {\scriptsize Known $\sigma^2$:} \ \ $\mathbf{f}\sim\mathcal{N}(\mathbf{R}\underline{\beta},I_p\sigma^2)$ \ \ \ $\mathbf{r}\sim\mathcal{N}(\mathbf{0},I_{n-p}\sigma^2)$} & \multicolumn{2}{l|}{ {\scriptsize Unknown $\sigma^2$:} $\widehat{\sigma}_{\widehat{\beta}_i}=\sigma_{\widehat{\beta}_i}\widehat{\sigma} / \sigma$ \ \ || \ \ $\widehat{\sigma}_{\widehat{\beta}_i}=\sqrt{[\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}]_{ii}}$ \ \ \ $\sigma_{\widehat{\beta}_i}=\sqrt{[\mathbf{V}_{\underline{\widehat{\beta}}}]_{ii}}$ } \\
     \hline
-    Test Statistic & \multicolumn{2}{l||}{\scriptsize $T_{known \ \sigma^2}(\mathbf{Y})=\frac{1}{\sigma^2}||\mathbf{r}||^2=\frac{1}{\sigma^2}\sum^{n-p}_{i=1}r_i^2\sim\chi^2_{n-p}$} & \multicolumn{2}{l|}{\scriptsize $T_{unknown \ \sigma^2}(\mathbf{Y})=$} \\
+    Test Statistic & \multicolumn{2}{l||}{\scriptsize For $\underline{\beta}${\tiny 整体}: \ \ $T_{known \ \sigma^2}(\mathbf{Y})=\frac{1}{\sigma^2}||\mathbf{r}||^2=\frac{1}{\sigma^2}\sum^{n-p}_{i=1}r_i^2\sim\chi^2_{n-p}$} & \multicolumn{2}{l|}{\scriptsize For $\beta_i$ {\tiny 个体}: \ \ $T_{unknown \ \sigma^2}(\mathbf{Y})=(\widehat{\beta}_i-\beta_i)/ \widehat{\sigma}_{\widehat{\beta}_i}\sim t_{n-p}$} \\
+    \hline
 \end{longtable}
 }
-\vspace{-13pt}
+\vspace{-9pt}
+
+\textbf{Testing Constraints in the Model}: {\footnotesize 如果我们只是想对一部分 $\beta_i$ 进行假设检验$H_0,H_1$. 使用此方法.}
+
+{
+\setlength{\parindent}{0pt}
+\footnotesize
+\vspace{-12pt}
+\begin{multicols}{3}
+
+$^1$ Create Selection Matrix $\mathbf{C}\in\mathbb{R}^{q\times p}$ {\tiny $q$检验个数,$p$参数总数}
+    
+\ \ \ e.g. $\mathbf{C}=\begin{pmatrix}1 & 0 & 0 \\ 0 & 1 & 0\end{pmatrix}$ {\tiny 如果我们要检验 $\beta_1,\beta_2$ 但总数有3个参数.}
+
+$^2$ Create $\mathbf{d}$ s.t. $\mathbf{C}\underline{\beta}=\mathbf{d}$ \ \ \ \ \ \ {\tiny $\mathbf{d}$ 即我们希望检验$\beta_i$的数值.}
+
+\columnbreak
+
+$^3$ Under $H_0$: {\tiny $\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d}\sim\mathcal{N}(\mathbf{0},\mathbf{C}\mathbf{V}_{\underline{\widehat{\beta}}}\mathbf{C}^T)$} \ \ || \ \ {\tiny $H_0:\mathbf{C}\underline{\beta}=\mathbf{d}$ vs $H_1:\mathbf{C}\underline{\beta}\ne\mathbf{d}$}
+
+\hspace{40pt} {\tiny $\mathbf{C}\mathbf{V}_{\underline{\widehat{\beta}}}\mathbf{C}^T=\mathbf{L}^T\mathbf{L}$ (Cholesky Decomposition)}
+
+\hspace{40pt} {\tiny $\mathbf{L}^{-T}(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})\sim\mathcal{N}(\mathbf{0},I_q)$}
+
+\hspace{40pt} $\star$ {\tiny $RSS_{reduced}=S(\underline{\widehat{\beta}}_{reduced})$ \ \ \ \ \ \ $RSS_{full}=S(\underline{\widehat{\beta}}_{full})$}
+
+\columnbreak
+
+$^4$ Test Statistic:
+
+{\tiny ($\sigma^2$ known):} {\scriptsize $T(\mathbf{Y})=(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})^T(\mathbf{C}\mathbf{V}_{\underline{\widehat{\beta}}}\mathbf{C}^T)^{-1}(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})\sim\chi^2_{q}$}
+
+{\tiny ($\sigma^2$ unknown):} {\scriptsize $T(\mathbf{Y})=\frac{1}{q}(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})^T(\mathbf{C}\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}\mathbf{C}^T)^{-1}(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})\sim F_{q,n-p}$}
+
+\hspace{21pt} {\scriptsize (if $\mathbf{d=0}$) $=\frac{(RSS_{reduced}-RSS_{full})/q}{RSS_{full}/(n-p)}\sim F_{q,n-p}$}
+
+\end{multicols}
+\vspace{-12pt}
+}
 
 
 \subsection{Assumptions || Diagnostics}
 
-{
-\footnotesize
+\textbf{$R^2$ , $R^2_{adj}$ Metric}: $R^2=1-\frac{\frac{1}{n}RSS}{\frac{1}{n}\sum^n_{i=1}(y_i-\overline{y})^2}=1-\frac{\frac{1}{n}\sum^n_{i=1}\widehat{\varepsilon}_i^2}{\frac{1}{n}\sum^n_{i=1}(y_i-\overline{y})^2}$ \ \ {\scriptsize $RSS=S(\underline{\widehat{\beta}}_{full})$} \ \ \ \ {\tiny (接近1,拟合效果好)} || \ \ \ \ $R^2_{adj}=1-\frac{\frac{1}{n-p}\sum^n_{i=1}\widehat{\varepsilon}^2_i}{\frac{1}{n-1}\sum^n_{i=1}(y_i-\overline{y})^2}$ \ \ \ \ {\tiny (avoid biased of $R^2$)}
+
 \textbf{Graphical Assessment}
+{\footnotesize
 \begin{enumerate}[itemsep=-3pt, topsep=0pt]
-    \item Residuals vs Fitted (Check linear assumption): $(\hat{y}_i,e_i)$ , $e_i=y_i-\hat{y}_i$ , $\hat{y}_i=\hat{\alpha}+\hat{\beta}x_i$ \\ 
-    {\scriptsize 在0附近,越靠0越好。 \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ 离0远: something missing in the model. || 有趋势: Not Constant Var.} \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ {\scriptsize ps: 点在整张图均匀分布$\to$constant variance}
+    \item Residuals vs Fitted (Check linear assumption): $(\widehat{\mu}_i,\widehat{\varepsilon}_i)$ \\
+    {\tiny $^1$ 平均值线在0附近,越靠0越好. ($\Rightarrow\mathbb{E}[\widehat{\varepsilon}_i]=0$) \ \ \ || \ \ \ $^2$ 有趋势/系统性(systematic pattern in the mean of the residuals): violate the independence assumption.} \ \ \ || \ \ \ 
+    {\tiny ps: 点在整张图均匀分布$\to$constant variance}
     \item Scale-Location (Check constant variance assumption): $(\hat{y}_i,\sqrt{|e^*_i|})$, $e^*_i=\frac{e_i}{s_e}$ \ \ \ \ \text{\footnotesize 越靠近0.82越好.(around a constant value)}
     \item Normal QQ-Plot (Check Normal Assumption): $(z_i,e^*_i)$ , $z_i=\Phi^{-1}(\frac{i-0.5}{n})$
+    \item Residuals vs Leverage (Check influential points): $(\mathbf{A}_{ii},\widehat{\varepsilon}_i/(\widehat{\sigma}\sqrt{1-\mathbf{A}_{ii}}))$ {\scriptsize high leverage points: x轴上远离大多数数据点.{\tiny (对拟合结果影响大)} \ \ \ \ \ 超过cook's distance 认为影响大.}
 \end{enumerate}
 }
+
+\textbf{Check balance of quantiles}: {\footnotesize 检查残差的分布是否对称.} Method \ 1: $|\frac{\widehat{\underline{\varepsilon}}_{median}}{\widehat{\sigma}}|$ \ \ Method \ 2: $|\frac{\widehat{\underline{\varepsilon}}_{Q3}-\widehat{\underline{\varepsilon}}_{Q1}}{\widehat{\sigma}}|$ {\tiny small $\Rightarrow$ weak evidence against residuals not being symmetric}
 
 
 \section{Distribution Table} % Distribution Table
@@ -506,14 +550,14 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
     \hline
     {\small Convergence in Probability} & If $\lim F_{X_n}(x)=F_X(x)$ for all $x\in\mathbb{R}$. & $X_n\stackrel{d}{\to}X$ or $X_n\stackrel{d}{\to}F_X$ & CLT{\tiny 最弱}: & {\scriptsize 见下面} \\
     \hline
-    {\small Convergence in Distribution} & If $\forall\epsilon>0,$ $\lim\mathbb{P}(|X_n-X|>\epsilon)=0$. & $X_n\stackrel{p}{\to}X$ & WLLN{\tiny 中等}: & \makecell{\scriptsize If $X_i\stackrel{i.i.d.}{\sim}F_X$, $\mathbb{E}[X_i]=\mu$. \\ \scriptsize $\Rightarrow$ \ \ $\bar{X}_n\stackrel{p}{\to}\mu$} \\
+    {\small Convergence in Distribution} & If $\forall\epsilon>0,$ $\lim\mathbb{P}(|X_n-X|>\epsilon)=0$. & $X_n\stackrel{p}{\to}X$ & WLLN{\tiny 中等}: & \makecell{\scriptsize If $X_i\stackrel{i.i.d.}{\sim}F_X$, $\mathbb{E}[X_i]=\mu$. \\ \scriptsize $\Rightarrow$ \ \ $\overline{X}_n\stackrel{p}{\to}\mu$} \\
     \hline
-    {\small Almost Sure Convergence} & If $\mathbb{P}(\lim X_n=X)=1$ & $X_n\stackrel{a.s.}{\to}X$ & SLLN{\tiny 最强}: & \makecell{\scriptsize If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$, \\ \scriptsize $Var[X_i]<\infty$. $\Rightarrow$ \ \ $\bar{X}_n\stackrel{a.s.}{\to}\mu$} \\
+    {\small Almost Sure Convergence} & If $\mathbb{P}(\lim X_n=X)=1$ & $X_n\stackrel{a.s.}{\to}X$ & SLLN{\tiny 最强}: & \makecell{\scriptsize If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$, \\ \scriptsize $Var[X_i]<\infty$. $\Rightarrow$ \ \ $\overline{X}_n\stackrel{a.s.}{\to}\mu$} \\
     \hline
 \end{longtable}
 \vspace{-0.38cm}
 
-\textbf{Central Limit Theorem (CLT)}: If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$ and $Var[X_i]<\infty$. \ \ $\Rightarrow$ \ \ $\frac{\bar{X}_n-\mu}{\sqrt{\sigma^2/n}}=\frac{\sqrt{n}(\bar{X}_n-\mu)}{\sigma}\stackrel{d}{\sim}N(0,1)$ \ \ \ {\tiny 样本均值的分布会趋近于正态分布}
+\textbf{Central Limit Theorem (CLT)}: If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$ and $Var[X_i]<\infty$. \ \ $\Rightarrow$ \ \ $\frac{\overline{X}_n-\mu}{\sqrt{\sigma^2/n}}=\frac{\sqrt{n}(\overline{X}_n-\mu)}{\sigma}\stackrel{d}{\sim}N(0,1)$ \ \ \ {\tiny 样本均值的分布会趋近于正态分布}
 
 
 \section{Writting Format}
@@ -527,17 +571,17 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 \textbf{CI}: The set of values (e.g.$\theta$) are not rejected at significance level $\alpha$ under $H_0$. \ \ \ If data are generated under $H_0$, there is a probability $(1-\alpha)$ for the true $\theta_0$ to be within the $(1-\alpha)100\%$ CI.
 
 \textbf{Hypothesis Testing}: \ \ \
-\textbf{Steps}: $^1$ State $H_0,H_1$; $^2$ Select Test Statistic $T$; $^3$ distribution of $T$ under $H_0$; $^4$ observed test statistic; $^5$ critical value / region, p-value, or CI; $^6$ conclusion. \ \ \
-\textbf{Reject $H_0$}: We would reject $H_0$ in favour of the $H_1$. (So that ...) \ \ \
+\textbf{Steps}: $^1$ State $H_0,H_1$; $^2$ Select Test Statistic $T$; $^3$ distribution of $T$ under $H_0$; $^4$ observed test statistic; $^5$ critical value / region, p-value, or CI; $^6$ conclusion. \ \ \ || \ \ \ 
+\textbf{Reject $H_0$}: We would reject $H_0$ in favour of the $H_1$. (So that ...) \ \ \ || \ \ \ 
 \textbf{Fail to reject $H_0$}: We fail to reject $H_0$. Hence, there is strong evidence against the null hypothesis.
 
 \textbf{MLE}: \textbf{Using (Compare) Newton's Method $=(\ne)$ Scoring Method}: Because the second derivative of likelihood function doesn't (does) include the r.v.
 
 \textbf{MLE Inference Parameter|$\mathbb{P}(\theta<?)=\alpha$ is false}: We cannot make such probability statement. $\{\theta\}$ is a fixed value (but unknown).
 
-\textbf{Geoemtric Comparison of $T_{Score}$,$T_{Wald}$,$T_{LR}$}: \textbf{1}.$T_{Score}$ (Slope Comparison): Represents the slope of the likelihood function at $\theta_0$; A steeper slope indicates that the likelihood function is changing more rapidly at $theta_0$, which implies a greater difference between $\widehat{\theta}$ and $\theta_0$. \ \ \
-\textbf{2}.$T_{Wald}$ (Width Comparison): Compares the difference between $\widehat{\theta}$ and $\theta_0$. \ \ \
-\textbf{3}.$T_{LR}$ (Height Comparison): Compares the maximum likelihood value $L(\widehat{\theta})$ and the likelihood value at $\theta_0,L(\theta_0)$. A larger height difference indicates a greater discrepancy between $\widehat{\theta}$ and $\theta_0$ \ \ \ \ \ \ \ \ \
+\textbf{Geoemtric Comparison of $T_{Score}$,$T_{Wald}$,$T_{LR}$}: \textbf{1}.$T_{Score}$ (Slope Comparison): Represents the slope of the likelihood function at $\theta_0$; A steeper slope indicates that the likelihood function is changing more rapidly at $theta_0$, which implies a greater difference between $\widehat{\theta}$ and $\theta_0$. \ \ \ || \ \ \ 
+\textbf{2}.$T_{Wald}$ (Width Comparison): Compares the difference between $\widehat{\theta}$ and $\theta_0$. \ \ \ || \ \ \ 
+\textbf{3}.$T_{LR}$ (Height Comparison): Compares the maximum likelihood value $L(\widehat{\theta})$ and the likelihood value at $\theta_0,L(\theta_0)$. A larger height difference indicates a greater discrepancy between $\widehat{\theta}$ and $\theta_0$ \ \ \ || \ \ \ 
 \textbf{$T_{Score}$,$T_{Wald}$,$T_{LR}$ Other 部分公式可以近似的理由}: This is due to $\widehat{\theta}$ being a consistent estiamtor of $\theta_0$, and $J(\theta_0)$ being a consistent estimator of $\mathcal{I}(\theta_0)$
 
 \textbf{Normal Linear Regression Assumptions}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
@@ -545,8 +589,11 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 \textbf{Linear Model}: 
 \textbf{LS Estimation}: $S(\beta)$ small: $\mu_i$ relatively close to the $y_i$; \ \ Large: $\mu_i$ far from their corresponding $y_i$. \ \ \ || \ \ \ 
 \textbf{Meaning of $\varepsilon$}: The random component of the model is intended to capture the fact that if we gathered a replicate set of data, the $\beta_i$ (coefficient) would not change, but the $Y_i$ would, as a result of different measurement errors. \ \ \ || \ \ \ 
-\textbf{Why Use Least Square to estimate $\underline{\beta}$}: Most of time, Linear Model can be a system of $n$ equations with $p$ parameters with $n>p$. In this case, the system is overdetermined and there is no exact solution. The least square method is used to find the best solution.
-\textbf{Geometric Interpretation of Linear Model|LS Method}: The least Square Estimation of Linear Model amounts to finding the \textit{orthogonal projection} of the $n$ dimensional response data $\mathbf{y}$ onto the $p$ dimensional linear subspace spanned by the columns of $\mathbf{X}$.
-\textbf{Geometric Interpretation of Linear Model|$\mathbb{E}[\mathbf{y}]$}: $\mathbb{E}[\mathbf{y}]$ lies in the space spanned by the columns of $\mathbf{X}$, | and the least square estimate seeks to find the point in this space that is closest to $\mathbf{y}$.
+\textbf{Why Use Least Square to estimate $\underline{\beta}$}: Most of time, Linear Model can be a system of $n$ equations with $p$ parameters with $n>p$. In this case, the system is overdetermined and there is no exact solution. The least square method is used to find the best solution. \ \ \ || \ \ \ 
+\textbf{Geometric Interpretation of Linear Model|LS Method}: The least Square Estimation of Linear Model amounts to finding the \textit{orthogonal projection} of the $n$ dimensional response data $\mathbf{y}$ onto the $p$ dimensional linear subspace spanned by the columns of $\mathbf{X}$. \ \ \ || \ \ \ 
+\textbf{Geometric Interpretation of Linear Model|$\mathbb{E}[\mathbf{y}]$}: $\mathbb{E}[\mathbf{y}]$ lies in the space spanned by the columns of $\mathbf{X}$, | and the least square estimate seeks to find the point in this space that is closest to $\mathbf{y}$. \ \ \ || \ \ \ 
+\textbf{Independent of $\underline{\widehat{\beta}}$ , $\widehat{\sigma}^2$}: $\mathbf{f}$ , $\mathbf{r}$ independent $\Rightarrow$ $\underline{\widehat{\beta}}$ , $\widehat{\sigma}^2$ independent.
+
+\textbf{Meaning of $R^2$}: $R^2$ evaluates how weel the model fits the response data. \ \ \ || \ \ \ 后面减去的部分: proportion of the variance in the response variable that is not explained by the model. \ \ \ || \ \ \ \textbf{$\to$1}: A value close to 1 indicates that the model fits well and can explain most of the variability. \ \ \ || \ \ \ \textbf{$\to$ 0}: $\star$ a low $R^2$ value does \textit{not necessarily} indicate a poor model; it may simply mean that the data contains a substantial random component.
 
 \end{document}
