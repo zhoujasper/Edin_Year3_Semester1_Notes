@@ -346,7 +346,7 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
     \hline
     QR Method of LS & \multicolumn{5}{l|}{\scriptsize Let $^1\mathcal{Q}$ be orthonormal matrix \ \ \ $^2\mathbf{X}=\mathbf{QR}$ \ \ \ $^3\mathcal{Q}^T\mathbf{y}=\begin{pmatrix}\mathbf{f}\in\mathbb{R}^p \\ \mathbf{r}\in\mathbb{R}^{n-p} \end{pmatrix}$ \ \ $\Rightarrow$ \ \ $S(\underline{\beta})=||\mathcal{Q}^T\underline{\varepsilon}(\underline{\beta})||^2=\cdots=||\mathbf{f}-\mathbf{R}\underline{\beta}||^2+||\mathbf{r}||^2$} \\
     \hline
-    {\scriptsize QR Method (ctd.)} & \multicolumn{4}{l|}{ If $\mathbf{R}$ full rank: \ \ $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{f}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ \ \ \ $RSS=||\mathbf{r}||^2=||\underline{\varepsilon}(\underline{\widehat{\beta}})||^2=||\mathbf{y}-\mathbf{X}\underline{\widehat{\beta}}||^2$} & $\mathbf{f}=\mathbf{Q}^T\mathbf{y}$ (if $n=p$) \\
+    {\scriptsize QR Method (ctd.)} & \multicolumn{4}{l|}{ If $\mathbf{R}$ full rank: \ \ $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{f}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ \ \ \ $RSS=||\mathbf{r}||^2=||\underline{\varepsilon}(\underline{\widehat{\beta}})||^2=||\mathbf{y}-\mathbf{X}\underline{\widehat{\beta}}||^2$} & ps:$\mathbf{f}=\mathbf{Q}^T\mathbf{y}$ \ \ \ || \ \ \ $\mathbf{Q}^T\mathbf{Q}=I_p$, $\mathbf{Q}\mathbf{Q}^T\ne I$  \\
     \hline
 \end{longtable}
 \vspace{-10pt}
@@ -378,7 +378,22 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 \textbf{Prediction | PI}: {\footnotesize Create a \underline{Prediction Matrix}: $\mathbf{X}^*$} {\scriptsize ($\mathbf{X}^*$形式和$\mathbf{X}$保持一直,数据变为按拟合后的每个点的数据)} \ \ $\Rightarrow$ \ \ {\footnotesize $\underline{\widehat{\mu}}^*=\mathbf{X}^*\underline{\widehat{\beta}}$ \ , \ $\underline{\widehat{\mu}}^*\sim\mathcal{N}(\underline{\mu}^*,X^*(X^TX)^{-1}(X^*)^T\sigma^2)$}
 
 
-\subsection{Check || Intervals || Testing}
+\subsection{CI / Hypothesis Testing}
+
+\textbf{Normality Assumption}: Assume that $\underline{\varepsilon}\sim\mathcal{N}(0,\sigma^2I_n)$ \ \ $\Rightarrow$ \ \ $^1\mathbf{y}\sim\mathcal{N}(\mathbf{X}\underline{\beta},I_n\sigma^2)$ \ \ \ $^2\underline{\widehat{\beta}}\sim\mathcal{N}(\underline{\beta},\mathbf{V}_{\underline{\widehat{\beta}}})$ \ \ \ \ || \ \ \ \ {\small 对于 Normal, LS $\underline{\widehat{\beta}}$ = MLE $\underline{\widehat{\beta}}$}
+
+\vspace{-13pt}
+{\footnotesize
+\begin{longtable}{|c||l|l||l|l|}
+    \hline
+    {\scriptsize $\mathbf{V}_{\mathcal{Q}^T\mathbf{y}}$ , $\mathbb{E}[\mathcal{Q}^T\mathbf{y}]$ || $\widehat{\sigma}^2$ , $\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}$ } & $\mathbf{V}_{\mathcal{Q}^T\mathbf{y}}=Var[\mathcal{Q}^T\mathbf{y}]=I_n\sigma^2$ & {\tiny $\mathbb{E}[\mathcal{Q}^T\mathbf{y}]=\mathbb{E}\left[\begin{pmatrix}\mathbf{f} \\ \mathbf{r}\end{pmatrix}\right]=\begin{pmatrix}\mathbf{R} \\ \mathbf{0}\end{pmatrix}\underline{\beta}$} & $\widehat{\sigma}^2=\frac{||\mathbf{r}||^2}{n-p}$ {\tiny (unbiased)} & $\widehat{\mathbf{V}}_{\underline{\widehat{\beta}}}=\mathbf{R}^{-1}\mathbf{R}^{-T}\widehat{\sigma}^2$ \\
+    \hline
+    $\mathbf{f,r}$ Distribution & \multicolumn{2}{l||}{ {\scriptsize Known $\sigma^2$:} \ \ $\mathbf{f}\sim\mathcal{N}(\mathbf{R}\underline{\beta},I_p\sigma^2)$ \ \ \ $\mathbf{r}\sim\mathcal{N}(\mathbf{0},I_{n-p}\sigma^2)$} & \multicolumn{2}{l|}{ {\scriptsize Unknown $\sigma^2$:} } \\
+    \hline
+    Test Statistic & \multicolumn{2}{l||}{\scriptsize $T_{known \ \sigma^2}(\mathbf{Y})=\frac{1}{\sigma^2}||\mathbf{r}||^2=\frac{1}{\sigma^2}\sum^{n-p}_{i=1}r_i^2\sim\chi^2_{n-p}$} & \multicolumn{2}{l|}{\scriptsize $T_{unknown \ \sigma^2}(\mathbf{Y})=$} \\
+\end{longtable}
+}
+\vspace{-13pt}
 
 
 \subsection{Assumptions || Diagnostics}
@@ -533,6 +548,5 @@ $\cdot$ \textbf{Some Defs}: {\footnotesize Parameter Estimates: $\underline{\wid
 \textbf{Why Use Least Square to estimate $\underline{\beta}$}: Most of time, Linear Model can be a system of $n$ equations with $p$ parameters with $n>p$. In this case, the system is overdetermined and there is no exact solution. The least square method is used to find the best solution.
 \textbf{Geometric Interpretation of Linear Model|LS Method}: The least Square Estimation of Linear Model amounts to finding the \textit{orthogonal projection} of the $n$ dimensional response data $\mathbf{y}$ onto the $p$ dimensional linear subspace spanned by the columns of $\mathbf{X}$.
 \textbf{Geometric Interpretation of Linear Model|$\mathbb{E}[\mathbf{y}]$}: $\mathbb{E}[\mathbf{y}]$ lies in the space spanned by the columns of $\mathbf{X}$, | and the least square estimate seeks to find the point in this space that is closest to $\mathbf{y}$.
-
 
 \end{document}
