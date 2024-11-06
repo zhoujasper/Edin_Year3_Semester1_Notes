@@ -320,7 +320,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \subsection{General Linear Model}
 
-\textbf{Linear Model}: $Y_i=\mu_i+\varepsilon_i$ \ , \ $i=1,2,..,n$ \ \ $\mu=f(\beta)$ \ \ || \ \ {\footnotesize $f(\beta)$ linear.} \ \ || \ \ {\footnotesize $\varepsilon_i\stackrel{i.i.d.}{\sim}$ distribution. \ \ \ $\mathbb{E}[\varepsilon_i]=0$ \ \ \ $Var[\varepsilon_i]=\sigma^2$}
+\textbf{Linear Model}: $Y_i=\mu_i+\varepsilon_i$ \ , \ $i=1,2,..,n$ \ \ $\mu=f(\beta,\mathbf{x})$ \ \ || \ \ {\footnotesize $f(\beta,\mathbf{x})$ linear.} \ \ || \ \ {\footnotesize $\varepsilon_i\stackrel{i.i.d.}{\sim}$ distribution. \ \ \ $\mathbb{E}[\varepsilon_i]=0$ \ \ \ $Var[\varepsilon_i]=\sigma^2$}
 
 $\cdot$ \textbf{Matrix Expression}: $\underline{\mathbf{y}}=\mathbf{X}\underline{\beta}+\underline{\varepsilon}$ \ \ || \ \ {\scriptsize Response Vector: $\underline{\mathbf{y}}$ \ | \ Design / Model Matrix: $\mathbf{X}$ \ | \ Parameters / Coefficients: $\underline{\beta}$ \ | \ Additive Noise Vector: $\underline{\varepsilon}$}
 
@@ -447,9 +447,10 @@ $^4$ Test Statistic:
     \item Residuals vs Fitted (Check linear assumption): $(\widehat{\mu}_i,\widehat{\varepsilon}_i)$ \\
     {\tiny $^1$ 平均值线在0附近,越靠0越好. ($\Rightarrow\mathbb{E}[\widehat{\varepsilon}_i]=0$) \ \ \ || \ \ \ $^2$ 有趋势/系统性(systematic pattern in the mean of the residuals): violate the independence assumption.} \ \ \ || \ \ \ 
     {\tiny ps: 点在整张图均匀分布$\to$constant variance}
-    \item Scale-Location (Check constant variance assumption): $(\hat{y}_i,\sqrt{|e^*_i|})$, $e^*_i=\frac{e_i}{s_e}$ \ \ \ \ \text{\footnotesize 越靠近0.82越好.(around a constant value)}
+    \item Scale-Location (Check constant variance assumption): $(\hat{y}_i,\sqrt{|e^*_i|})$, $e^*_i=\frac{e_i}{s_e}$ \ \ \ \  越靠近0.82越好.(around a constant value)
     \item Normal QQ-Plot (Check Normal Assumption): $(z_i,e^*_i)$ , $z_i=\Phi^{-1}(\frac{i-0.5}{n})$
     \item Residuals vs Leverage (Check influential points): $(\mathbf{A}_{ii},\widehat{\varepsilon}_i/(\widehat{\sigma}\sqrt{1-\mathbf{A}_{ii}}))$ {\scriptsize high leverage points: x轴上远离大多数数据点.{\tiny (对拟合结果影响大)} \ \ \ \ \ 超过cook's distance 认为影响大.}
+    \item {\scriptsize 线性回归图像 (Check Independence assumption): $(\mathbf{x},\mu_i)$ or $(x_i,\mu_i)$ \ \ \ (符合假设$\rightarrow$随机在回归线上\textit{随机}分布的; 如果存在聚集性点(cluster points)$\Rightarrow$不符合independence.)}
 \end{enumerate}
 }
 
@@ -597,5 +598,7 @@ $^4$ Test Statistic:
 \textbf{Independent of $\underline{\widehat{\beta}}$ , $\widehat{\sigma}^2$}: $\mathbf{f}$ , $\mathbf{r}$ independent $\Rightarrow$ $\underline{\widehat{\beta}}$ , $\widehat{\sigma}^2$ independent.
 
 \textbf{Meaning of $R^2$}: $R^2$ evaluates how weel the model fits the response data. \ \ \ || \ \ \ 后面减去的部分: proportion of the variance in the response variable that is not explained by the model. \ \ \ || \ \ \ \textbf{$\to$1}: A value close to 1 indicates that the model fits well and can explain most of the variability. \ \ \ || \ \ \ \textbf{$\to$ 0}: $\star$ a low $R^2$ value does \textit{not necessarily} indicate a poor model; it may simply mean that the data contains a substantial random component.
+
+\textbf{For Model of Factors}: If it's a model of Factors, it's often difficult to interpret the p-value for individual coefficients in any meaningful way. $\Rightarrow$ Prefer to test the whole factor effect.
 
 \end{document}
