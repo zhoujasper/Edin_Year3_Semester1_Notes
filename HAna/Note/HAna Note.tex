@@ -300,7 +300,6 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \end{multicols}
 \vspace{-10pt}
 
-
 \ex\textbf{Open Set $\to\bigcup$ Closed Set}: {\small Nonempty open set $E$ $\to$ union of \textit{disjoint closed} intervals.} \ \ {\tiny Hint:$^1$Structure of open set. $^2$ each open interval $(a,b)=\bigcup[a+\frac{1}{n},b-\frac{1}{n}]$. $^3$ closed set$\to$disjoint.}
 
 \ex\textbf{Unbounded$\to\cup$ Bounded}: Any closed / open set $F$ $\to$ countable union of \textit{bounded} closed / open sets. \ \ {\tiny (Hint: $K_n=F\cap[-n,n]$ \ $K_n=F\cap(-n,n)$)}
@@ -386,6 +385,7 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
     \item \textbf{Complement $E^C$}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
     \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
     \item \ex\textbf{Translation Invariance}: $m(E)=m(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
+    \item \ex\textbf{Find Lebesgue Measurable Set}: A simple function $s$ \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R},s(x)>\lambda (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
 \end{enumerate}
 
 
@@ -416,12 +416,18 @@ $\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\
 
 \textbf{Characteristic Function}: $\chi_E(x):=\{ 1,x\in E \ \ ; \ \ 0,x\notin E$ \ \ \ ; \ \ \ $E\subset\mathbb{R}$
 
-\textbf{Basic Integral Definitions}: $\int_{\mathbb{R}} \chi_I(x) \, dx = \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}} c \chi_I(x) \, dx = c \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}}\sum c_j\chi_{I_j}(x)dx=\sum c_j\lambda(I_j)$
+\textbf{Basic Integral Definitions}: $\int_{\mathbb{R}} \chi_I(x) \, dx = m(I) = \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}} c \chi_I(x) \, dx = c \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}}\sum c_j\chi_{I_j}(x)dx=\sum c_j\lambda(I_j) \ , \ c_j\geq0$
 
 \textbf{Step Function}: $f:\mathbb{R}\to[0,\infty)$ is a (non-negative) step function if $f(x)=\sum c_j\chi_{I_j}(x)$ \ \ \ \ \ \ for some $c_j$ and $\chi_{I_j}$
 
 $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exists c_n,I_n$ s.t. $I_n$ \textit{disjoint} and $f(x)=\sum c_n\chi_{I_n}(x)$
 
+
+\subsection{Integration of Simple Functions ||}
+
+\textbf{Simple Function}: $s:\mathbb{R}\to\mathbb{R}$ is a simple function iff: \ \ \ $s(x)=\sum^k_{j=1} c_j\chi_{E_j}$ where $E_j$ are Lebesgue Measurable sets.
+
+\textbf{Integral of Simple Function (Positive)}: $\int_{\mathbb{R}}s(x)dx:=\sum^k_{j=1}c_jm(E_j) \ , \ c_j\geq0$
 
 \section{Appendix}
 
