@@ -35,7 +35,7 @@
 \usepackage{titlesec}
 \titlespacing*{\section}{0pt}{-3pt}{-3pt}
 \titlespacing*{\subsection}{0pt}{-3pt}{-3pt}
-\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{-3pt}{-3pt}
 
 % 调整标题上下间距
 \usepackage{titling}
@@ -423,15 +423,52 @@ $\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\
 $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exists c_n,I_n$ s.t. $I_n$ \textit{disjoint} and $f(x)=\sum c_n\chi_{I_n}(x)$
 
 
-\subsection{Integration of Simple Functions ||}
+\subsection{Simple Functions || Measurable Functions}
 
-\textbf{Simple Function}: $s:\mathbb{R}\to\mathbb{R}$ is a simple function iff: \ \ \ $s(x)=\sum^k_{j=1} c_j\chi_{E_j}$ where $E_j$ are Lebesgue Measurable sets.
+\textbf{Simple Function}: $s:\mathbb{R}\to\mathbb{R}$ is a simple function iff: \ \ \ $s(x)=\sum^k_{j=1} c_j\chi_{E_j}$ , {\footnotesize $E_j$ are Lebesgue Measurable sets.} \ \ \ \ \ \ \ex {\footnotesize $E_j$ can be disjoint nonempty sets.}
 
-\textbf{Integral of Simple Function (Positive)}: $\int_{\mathbb{R}}s(x)dx:=\sum^k_{j=1}c_jm(E_j) \ , \ c_j\geq0$
+\textbf{Integral of Simple Function|Positive}: $\int_{\mathbb{R}}s(x)dx:=\sum^k_{j=1}c_jm(E_j)$ \ \ \ \ \ \ || \ \ \ \ex $\int_{\mathbb{R}}\alpha s_1+\beta s_2=\alpha\int_{\mathbb{R}}s_1+\beta\int_{\mathbb{R}}s_2$
+
+
+\subsubsection{Measurable Functions}
+
+\textbf{Measurable Function}: $f:\mathbb{R}\to\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ if \ \ $\forall\lambda\in\mathbb{R},\{x\in \mathbb{R}:f(x)>\lambda\}$(\textbf{Superlevel Set}) is Lebesgue Measurable.
+\vspace{-3pt}
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{MF|Simple|Continuous Function}: (Simple|Continuous) Function is Lebesgue Measurable. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\downarrow$ Hint:$\{x|f(x)<\lambda\}^C=\bigcap\{x|f(x)>\lambda-\frac{1}{n}\}$}
+    \item \ex\textbf{MF|Measurable Set}: If $f$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
+    \item \ex\textbf{MF|Proeprty}: {\footnotesize If $f,g,f_n$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $max\{f,g\}$ , $min\{f,g\}$ , $f\cdot\chi_E$ , $\alpha f\pm\beta g$ , $f^2$ , $f\cdot g$ , $\sup f_n$ , $\inf f_n$ , $\limsup f_n$ , $\liminf f_n$ also.}
+    \item \textbf{Measurable Func $\Rightarrow$ $\exists$ Simple Func}: {\small $f$ is {\footnotesize 非负勒贝格可测函数} \ \ $\Rightarrow$ \ \ $\exists$ simple functions $(s_n)_{n\in\mathbb{N}}$, $0\leq s_n\leq s_{n+1}(\uparrow)$ s.t. $s_n\to f$ pointwise.}
+\end{enumerate}
+
+\textbf{Integral of Measurable Function|Positive}: Let $f:\mathbb{R}\to[0,\infty)$ be Lebesgue Measurable Function.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Basic Def}: $\int_{\mathbb{R}}f(x)dx:=\sup\{\int_{\mathbb{R}}s(x)dx:s \ simple,0\leq s\leq f \}$
+    \item \textbf{Extend Def}: If $f:\mathbb{R}\to\mathbb{R}$ Lebesgue Measurable , $E$ Measurable Set. \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}f(x)\chi_E(x)dx$
+\end{enumerate}
+\textbf{Basic Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesuge Measurable functions.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Monotonicity}: If $0\leq f(x)\leq g(x)$ \ \ $\Rightarrow$ \ \ $0\leq\int_{\mathbb{R}}f(x)dx\leq\int_{\mathbb{R}}g(x)dx$
+    \item \textbf{Markov's Inequality}: For all $\lambda>0$ \ \ $\Rightarrow$ \ \ $m(\{x\in\mathbb{R}:f(x)>\lambda\})\leq\frac{1}{\lambda}\int_{\mathbb{R}}f(x)dx$ \ \ \ {\footnotesize 函数积分面积 > 其对应底下矩形面积}
+    \item \ex\textbf{Measure Zero}: If $E$ s.t. $m(E)=0$ \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx =0$ \ \ \ {\tiny Hint: $\forall$ simple $s$ , $0\leq\int_Es=\int_{\mathbb{R}}s\chi_E=\int_{\mathbb{R}}c_n\chi_{E_n\cap E}=\sum c_nm(E_n\cap E)\leq\sum\cdots$}
+%   \item \ex\textbf{Almost Everywhere|$f=0$}: If $E$ Lebesgue Measurable \& $\int_Ef(x)dx=0$ \ \ $\Rightarrow$ \ \ $m(\{x\in E:f(x)>0\})=0$ \ \ \ {\tiny Hint: $\{x|f(x)>0\}=\bigcup\{x|f(x)>\frac{1}{n}\}$}
+\end{enumerate}
+
+\textbf{MCT for Integral}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\lim\int_{\mathbb{R}}f_n(x)dx=\int_{\mathbb{R}}\lim f_ndx$}
+
+\textbf{More Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesuge Measurable functions.
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Linear Combination}: $\alpha,\beta>0$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}\alpha f+\beta g =\alpha\int_{\mathbb{R}}f + \beta\int_{\mathbb{R}}g$
+    \item \textbf{Union of Disjoint}: $E,F$ disjoint measurable sets \ \ $\Rightarrow$ \ \ $\int_{E\cup F}f=\int_Ef+\int_Ff$
+    \item \textbf{'MCT for Int Seires'}: {\small $^1f_n$ non-negative Lebesgue Measurable functions; \ $^2\sum f_n=f$ pointwise \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\sum f_n=\sum\int_{\mathbb{R}}f_n$}
+    \item \textbf{Fatou Lemma}: {\small $^1f_n$ non-negative Lebesgue Measurable functions \ \ $\Rightarrow$ \ \ $^2\int_{\mathbb{R}}\liminf f_n\leq\liminf\int_{\mathbb{R}}f_n$}
+    \item \textbf{Reverse Fatou Lemma}: {\small $^1f_n$ non-negative Lebesgue Measurable functions \ \ $\Rightarrow$ \ \ $^2\int_{\mathbb{R}}\limsup f_n\geq\limsup\int_{\mathbb{R}}f_n$}
+\end{enumerate}
+
 
 \section{Appendix}
 
-\textbf{Inequation}: \textit{Useful Property}: If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$
+\textbf{Inequation}: \textit{Useful Property}: If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$ \ \ \ \ \ \ || \ \ \ \ \ \ $\forall\delta,0<\delta<1$ and $\delta a\leq b$ \ \ $\Rightarrow$ \ \ $a\leq b$
 \vspace{-10pt}
 \begin{longtable}{|l||l|l|l|l|}
     \hline
