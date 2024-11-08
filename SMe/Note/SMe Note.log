@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  6 NOV 2024 09:23
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  8 NOV 2024 11:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -791,16 +791,16 @@ LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
 (Font)              scaled to size 6.99925pt on input line 84.
 
-Overfull \hbox (4.1843pt too wide) in alignment at lines 95--116
+Overfull \hbox (4.1843pt too wide) in alignment at lines 97--118
  [] [] [] [] 
  []
 
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
-(Font)              scaled to size 9.00096pt on input line 134.
+(Font)              scaled to size 9.00096pt on input line 136.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 134.
+(Font)              scaled to size 8.99904pt on input line 136.
 
-Overfull \hbox (9.4681pt too wide) in paragraph at lines 165--191
+Overfull \hbox (9.4681pt too wide) in paragraph at lines 167--193
 [][] [] 
  []
 
@@ -810,7 +810,7 @@ Overfull \hbox (9.4681pt too wide) in paragraph at lines 165--191
 Here is how much of TeX's memory you used:
  13427 strings out of 476683
  301912 string characters out of 5795227
- 1958012 words of memory out of 5000000
+ 1959012 words of memory out of 5000000
  33438 multiletter control sequences out of 15000+600000
  522257 words of font info for 160 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

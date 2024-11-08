@@ -460,15 +460,14 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Linear Combination}: $\alpha,\beta>0$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}\alpha f+\beta g =\alpha\int_{\mathbb{R}}f + \beta\int_{\mathbb{R}}g$
     \item \textbf{Union of Disjoint}: $E,F$ disjoint measurable sets \ \ $\Rightarrow$ \ \ $\int_{E\cup F}f=\int_Ef+\int_Ff$
-    \item \textbf{'MCT for Int Seires'}: {\small $^1f_n$ non-negative Lebesgue Measurable functions; \ $^2\sum f_n=f$ pointwise \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\sum f_n=\sum\int_{\mathbb{R}}f_n$}
-    \item \textbf{Fatou Lemma}: {\small $^1f_n$ non-negative Lebesgue Measurable functions \ \ $\Rightarrow$ \ \ $^2\int_{\mathbb{R}}\liminf f_n\leq\liminf\int_{\mathbb{R}}f_n$}
-    \item \textbf{Reverse Fatou Lemma}: {\small $^1f_n$ non-negative Lebesgue Measurable functions \ \ $\Rightarrow$ \ \ $^2\int_{\mathbb{R}}\limsup f_n\geq\limsup\int_{\mathbb{R}}f_n$}
+    \item \textbf{'MCT for Int Seires'}: {\small $^1f_n$ non-negative MF; \ $^2\sum f_n=f$ pointwise \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\sum f_n=\sum\int_{\mathbb{R}}f_n$}
+    \item \textbf{(Reverse) Fatou Lemma}: {\small $f_n$ non-negative MF \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}\liminf f_n\leq\liminf\int_{\mathbb{R}}f_n \ \leq \ ( \ \limsup\int_{\mathbb{R}}f_n\leq\int_{\mathbb{R}}\limsup f_n \ )$}
 \end{enumerate}
 
 
 \section{Appendix}
 
-\textbf{Inequation}: \textit{Useful Property}: If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$ \ \ \ \ \ \ || \ \ \ \ \ \ $\forall\delta,0<\delta<1$ and $\delta a\leq b$ \ \ $\Rightarrow$ \ \ $a\leq b$
+\textbf{Inequation}:
 \vspace{-10pt}
 \begin{longtable}{|l||l|l|l|l|}
     \hline
@@ -476,11 +475,13 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \hline
     \textbf{AM-GM \& Cauchy} & $a+b\geq2\sqrt{ab},a>0,b>0$ & $a^2+b^2\geq2ab$ & \multicolumn{2}{l|}{$(\sum a_nb_n)^2\leq\sum a^2_n\sum b^2_n$} \\
     \hline
-    \textbf{Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
+    \textbf{\footnotesize Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
     \hline
     \textbf{\footnotesize 常见变换技巧1} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
     \hline
-    \textbf{\footnotesize 常见变换技巧2} & \np{\small $\frac{1}{k}\leq ln(x)-ln(x-1)$} \ \ \ \ {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} & \multicolumn{3}{l|}{\small $|a_n||x-c|^n=|a_n|\rho^n\cdot\frac{|x-c|^n}{\rho^n} \ , \ |x-c|<\rho<R$} \\
+    \textbf{\footnotesize 常见变换技巧2} & {\footnotesize\np $\frac{1}{k}\leq ln(x)-ln(x-1)$} \ \ \ \ {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} & \multicolumn{3}{l|}{\small $|a_n||x-c|^n=|a_n|\rho^n\cdot\frac{|x-c|^n}{\rho^n} \ , \ |x-c|<\rho<R$} \\
+    \hline
+    \textbf{\footnotesize 常见变换技巧3} & {\small If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$} & \multicolumn{2}{l|}{\footnotesize $\forall\delta,0<\delta<1$ and $\delta a\leq b$ \ \ $\Rightarrow$ \ \ $a\leq b$} & {\small\np$\int_{\mathbb{R}}\inf_{\ell>k}f_\ell\leq\inf_{\ell>k}\int_{\mathbb{R}}f_\ell$ {\tiny Hint:$\int\inf_{\ell\leq k} f\leq\int f_\ell,\forall\ell\geq k$}} \\
     \hline
 \end{longtable}
 \vspace{-10pt}
