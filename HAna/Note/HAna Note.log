@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  8 NOV 2024 11:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  9 NOV 2024 14:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,35 +760,35 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 71.
+(Font)              scaled to size 10.00107pt on input line 69.
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
-(Font)              scaled to size 7.30078pt on input line 71.
+(Font)              scaled to size 7.30078pt on input line 69.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 71.
+(Font)              scaled to size 9.99893pt on input line 69.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
-(Font)              scaled to size 7.29921pt on input line 71.
+(Font)              scaled to size 7.29921pt on input line 69.
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 77.
+(Font)              scaled to size 5.00053pt on input line 75.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 77.
+(Font)              scaled to size 4.99947pt on input line 75.
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 77.
+(Font)              scaled to size 7.00075pt on input line 75.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 77.
+(Font)              scaled to size 6.99925pt on input line 75.
 LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
 (Font)              scaled to size 9.00096pt on input line 166.
 LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
 (Font)              scaled to size 8.99904pt on input line 166.
  [1
 
-] [2] [3] [4] (./HAna Note.aux) ) 
+] [2] [3] [4] [5] (./HAna Note.aux) ) 
 Here is how much of TeX's memory you used:
  13752 strings out of 476683
  302394 string characters out of 5795227
- 1934012 words of memory out of 5000000
+ 1921012 words of memory out of 5000000
  33777 multiletter control sequences out of 15000+600000
  521331 words of font info for 144 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,12n,114p,451b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,12n,114p,371b,546s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on HAna Note.pdf (4 pages).
+Output written on HAna Note.pdf (5 pages).

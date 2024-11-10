@@ -20,12 +20,12 @@
 \setmathfont{Cambria Math}
 
 % 调整页面布局
-\usepackage[a4paper, top=0.7cm, bottom=1cm, left=0.7cm, right=.7cm]{geometry}
-\setlength{\footskip}{15pt}
+\usepackage[a4paper, top=0.5cm, bottom=0.7cm, left=0.7cm, right=.7cm]{geometry}
+\setlength{\footskip}{0pt}
 
 % 设置页脚/页眉
 \usepackage{fancyhdr}
-\fancyfoot[C]{{ $\xi_i,\eta_i$ 默认是向量} | Copyright By Jingren Zhou | Page \thepage}
+\fancyfoot[C]{\tiny { $\xi_i,\eta_i$ 默认是向量} | Copyright By Jingren Zhou | Page \thepage}
 \fancyhead[]{}
 \pagestyle{fancy}
 % 去除线
@@ -36,20 +36,24 @@
 \usepackage{titlesec}
 
 \titleformat{\section}
-  {\fontsize{9pt}{9pt}\bfseries} % 字体大小为 9pt，加粗
+  {\fontsize{8pt}{8pt}\bfseries} % 字体大小为 9pt，加粗
   {\thesection}{1em}{} % section 编号和标题之间的间距
 
 \titleformat{\subsection}
-  {\fontsize{8pt}{8pt}\bfseries} % 字体大小为 9pt，加粗
+  {\fontsize{7pt}{7pt}\bfseries} % 字体大小为 9pt，加粗
   {\thesubsection}{1em}{} % section 编号和标题之间的间距
 
-\titlespacing*{\section}{0pt}{0pt}{0pt}
-\titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+\titleformat{\subsubsection}
+  {\fontsize{6pt}{6pt}\bfseries} % 字体大小为 9pt，加粗
+  {\thesubsubsection}{1em}{} % section 编号和标题之间的间距
+
+\titlespacing*{\section}{0pt}{-2pt}{-2pt}
+\titlespacing*{\subsection}{0pt}{-1pt}{-1pt}
+\titlespacing*{\subsubsection}{0pt}{-1pt}{-1pt}
 
 % 调整标题上下间距
 \usepackage{titling}
-\setlength{\droptitle}{-1.9cm} % 负值表示向上移动
+\setlength{\droptitle}{-1.6cm} % 负值表示向上移动
 
 % 设置标题，作者，时间
 \title{HDE Note}
@@ -64,7 +68,7 @@
 % 标题
 \maketitle
 \thispagestyle{fancy}
-\vspace{-2.5cm}
+\vspace{-2.7cm}
 
 % 字体大小
 \setlength{\parindent}{0pt}
@@ -199,9 +203,9 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
     \textbf{Wronskian at $x$}: $W[\mathbf{y}^{(1)},...,\mathbf{y}^{(n)}](t)=$ {\tiny $\begin{vmatrix}y^{(1)}_1(t) & \cdots & y^{(n)}_1(t) \\ \cdots & \cdots & \cdots\\ y^{(1)}_n(t) & \cdots &y^{(n)}_n(t) \end{vmatrix}$}.
 
-    $\cdot$ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. { ps:经常用 Abel Theorem} \\ \\
+    $\cdot$ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. { ps:经常用 Abel Theorem} \\
 
-    $e^{J_it}=e^{\lambda_i t}\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$ \\ \\
+    {\tiny $e^{J_it}=e^{\lambda_i t}\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$} \\
 
     \textbf{Exponential of Matrix}: $e^{At}:=\sum_{n=0}^{\infty}\frac{(At)^n}{n!} \ = \ \mathbb{I}+At+\frac{1}{2!}A^2t^2+\cdots$
 
@@ -385,7 +389,7 @@ $\cdot$ \textbf{Euler-Fourier Formulas}: Suppose (*) converges in the interval $
 \vspace{2pt}
 \textbf{Piecewise Continuous}: { $f(x)$ piecewise continuous on $[a,b]$ \ \ iff \ \ $\exists a=x_0<\cdots<x_n=b$ s.t. \ \ \ $^1f(x)$ continuous $\forall x\in(x_{i-1},x_i)$ \ \ \ $^2 f(x_i^{\pm})=\lim_{x\to x_i^{\pm}}f(x)$ finite.}
 
-\textbf{Fourier Convergence Theorem}: If $^1f,f'$ piecewise continuous on $[-L,L]$,$^2f(x+2L)=f(x)$. \ \ $\Rightarrow$ \ \ Fourier Series of $f$ converges.
+\textbf{Fourier Convergence Theorem}: If $^1f,f'$ piecewise continuous on $[-L,L]$,$^2f(x+2L)=f(x)$. \ \ $\Rightarrow$ \ \ Fourier Series of $f$ converges. \ \ \ \ \ \ \ \ \ \ \ \textbf{Fourier和SL都不一定逐点收敛}, 但一定均方收敛. (类似泰勒展开)
 
 $\cdot$ Futhermore, Let Fourier Series of $f$ is $F$. \ \ \ \ $F(x)\to f(x)$, $f(x)$ continuous; $F(x)\to\frac{f(x^+)+f(x^-)}{2}$, $f(x)$ discontinuous.
 
@@ -413,7 +417,6 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 
 \section{Linear PDEs by Separation of Variables}
 
-\vspace{-16pt}
 \begin{minipage}[t]{0.74\textwidth}
     \textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
 
@@ -438,22 +441,23 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 \hfill
 \vrule width 0.3pt
 \hfill
-\begin{minipage}{0.25\textwidth}
+\begin{minipage}[t]{0.25\textwidth}
 
     \textbf{Heat eqn}: $\frac{\partial}{\partial t}u=\alpha^2\frac{\partial^2u}{\partial x^2}$ - Parabolic
 
     \textbf{Wave eqn}: $\frac{\partial^2}{\partial t^2}u=\alpha^2\frac{\partial^2u}{\partial x^2}$ - Hyperbolic
 
-    \textbf{Laplace eqn}: $\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0$ - Elliptical
-\end{minipage}
+    \textbf{Laplace eqn}: $\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}=0$ - Elliptical \\ \\
 
+    一般来说都会有bounded的条件加以限制,即如果存在$r\to0$ or $r\to\infty$会unbounded那么需要让其系数等于0
+\end{minipage}
 
 
 \section{Sturm-Liouville Theory \ \ (Another 'Fourier')}
 
 \subsection{Sturm-Liouville Theory}
 
-\textbf{Sturm-Liouville (SL) Problem}: Form: $-(p(x)y')'+q(x)y=\lambda r(x)y$ \ , \ $p,r>0$ \ \ || \ \ With: $a_1y(a)+a_2y'(a)=b_1y(b)+b_2y'(b)=0$ \ \ || \ \ Assume: $p,p',q,r$ continuous. \ \ || \textbf{weight function}: $r(x)$.
+\textbf{Sturm-Liouville (SL) Problem}: Form: $-(p(x)y')'+q(x)y=\lambda r(x)y$ \ , \ $p,r>0$ \ \ || \ \ With: $a_1y(a)+a_2y'(a)=b_1y(b)+b_2y'(b)=0$ \ \ $p,p',q,r$ continuous. \ \ || \textbf{weight function}: $r(x)$. \ \ \ || \ \ \ {\tiny $\Downarrow$ \textbf{Lagrange's Identity}}
 
 $\cdot$ $\Rightarrow$ Let \textit{Linear Operator}: $\mathcal{L}(y):=-(p(x)y')'+q(x)y$ \ \ \ $\Rightarrow$ \ \ \ Problem becomes: $\mathcal{L}(y)=\lambda r(x)y$ \ \ {\tiny (It's a Eigenvalue Problem $\mathcal{L}(\Psi_n)=\lambda_n r(x)\Psi_n$)} \ \ $\Rightarrow$ \ \ $\forall$ solutions $u,v$ with (二阶导连续) of SL Problem: $(\mathcal{L}(u),v)=(u,\mathcal{L}(v))$ !!!
 
@@ -465,12 +469,12 @@ $\cdot$ \textbf{Properties|Simple|Ordered}: In SL Problem: $^3$ $\lambda_n$ are 
 
 \textbf{Sturm-Liouville Convergence Theorem}: If $f,f'$ are piecewise continuous on $[0,1]$ \ \ $\Rightarrow$ \ \ $F(x)=\sum_{n=1}^{\infty}c_n\Phi_n$ converges. \ \ \ || \ \ \ $\Phi_n$ are \textit{orthonormal} eigenfunction of a Sturm-Liouville problem.
 
-$\cdot$ Futhermore, $^1F\to f$ when $f$ is continuous; \ \ \ \ \ \ $^2F\to\frac{f(x^+)+f(x^-)}{2}$ when $f$ is discontinuous. \ \ {\tiny 边界点右边界条件决定} \ \ \ \ \ \ \textbf{Calculate Coefficients}: $c_n=\langle f,\Phi_n\rangle=\int^b_ar(x)f(x)\Phi_n(x)dx$
+$\cdot$ Futhermore, $^1F\to f$ when $f$ is continuous; \ \ \ \ \ \ $^2F\to\frac{f(x^+)+f(x^-)}{2}$ when $f$ is discontinuous. \ \ {\tiny 边界点右边界条件决定} \ \ \ \ \ \ \textbf{Calculate Coefficients}: $c_n=\langle f,\Phi_n\rangle=\int^b_ar(x)f(x)\Phi_n(x)dx$ \ \ \ \ || \ \ \ \ {\tiny ps: $c_n$ minimize the MSE $\varepsilon_N$}
 
-\textbf{Parseval's Identity}: $f,f'$ are piecewise continuous on $[a,b]$ \ \ $\Rightarrow$ \ \ $\langle f,f\rangle=\int^b_af^2(x)r(x)dx=\sum^{\infty}_{n=1}c^2_n$
+$\cdot$ 如果我们不需要归一化: 特征函数 $\Psi_n$ \ \ $\Rightarrow$ \ \ $f(x)=\sum^\infty_{n=1}c_n\Psi_n$ , $c_n=\langle f,\Psi_n\rangle=\int^b_af(x)\Psi_n(x)dx$ \ \ \ \ \ || \ \ \ \ \ \textbf{Parseval's Identity}: $f,f'$ are piecewise continuous on $[a,b]$ \ \ $\Rightarrow$ \ \ $\langle f,f\rangle=\int^b_af^2(x)r(x)dx=\sum^{\infty}_{n=1}c^2_n$
 
 
-\subsection{General Boundary eigenvalue problem || Non-Homogeneous Boundary Value Problems}
+\subsection{General Boundary eigenvalue problem || Non-Homogeneous Boundary Value Problems || Open Interval Situation}
 
 \vspace{-2pt}
 \textbf{General Boundary eigenvalue problem}: $\mathcal{L}(y)=\lambda r(x)y \ , \ a<x<b$ \ \ || \ With $n-th$ order operator: $\mathcal{L}(y)=p_n(x)\frac{d^ny}{dx^n}+\cdots+p_1(x)\frac{dy}{dx}+p_0(x)y$ \ \ \ || \ \ \ {\tiny Assume $n$ linear Homogeneous Boundary conditions at the endpoints.}
@@ -484,9 +488,84 @@ $\cdot$ $\Rightarrow$ Let $\lambda_n,\Phi_n$ be eigenvalues \& orthonormal eigen
 \vspace{-2pt}
 $\cdot$ (Ctd.) $^1$ If $\mu\ne\lambda_n$ $\Rightarrow$ unique solution. \ \ $^2$ If $\exists m,\mu=\lambda_m$: Let $c_n=\int^b_af(x)\Phi_n(x)dx$ \ \ $\Rightarrow$ \ \ Case I ($c_m=0$): Let $b_n=\frac{c_n}{\lambda_n-\mu}${\tiny $,n\ne m$} \ \ $y(x)=\sum_{n=1,n\ne m}^\infty [b_n\Phi_n(x)]+b_m\Phi_m(x),b_m\in\mathbb{R}$ \ \ \ \ \ \ Case II ($c_m\ne0$): {\tiny No Solution.}
 
+\textbf{Sigular / Regular SL Problem}: \textbf{Sigular}: boundary condition at \textit{closed interval}. \ \ \ || \ \ \ \textbf{Regular}: boundary condition at \textit{open interval} or [a,b) or (a,b].
 
-\section{Laplace's Transform}
+\textbf{Sigular SL Problem|One-side}: $\mathcal{L}(y)=\lambda r(x)y$, 奇异边$x=0$. \ \ $\Rightarrow$ \ \ $\lim_{\varepsilon\to0}p(\varepsilon)[u'(\varepsilon)v(\varepsilon)-u(\varepsilon)v'(\varepsilon)]=0$ \ \ $\Rightarrow$ \ \ $\star$ $\forall$ sols $u,v$: $\int_{0}^{1}\mathcal{L}(u)v-u\mathcal{L}(v)=0$ $\star$ \ \ $\Leftarrow$ $lim_{\varepsilon\to0}p(\varepsilon)=0$ and $u,u',v,v'$ bounded as $x\to0$
 
+{\tiny $\cdot$ $\star$ holds \ \ $\Rightarrow$ \ \ $^1$特征值实数 $^2$正交特征函数 $^3$可以展开任意函数 \ \ \ || \ \ \ 解题一般思路：$^1$分离变量法得到ODE $^2$解ODE(观察是否是Bessel问题),系数先不管 $^3$使用边界条件(注意bounded)去除部分无关系数 $^4$通解:特征函数线性组合+series方法确定系数}
+
+
+\subsection{Other Results on Sturm-Liouville Theory}
+
+\textbf{Mean Square Error}: $\varepsilon_N=\int_{a}^{b}r(x)[f(x)-S_N(x)]^2$ , (Truncation) $S_N(x)=\sum^N_{n=1}c_n\Phi_n(x)$ \ \ \ || \ \ \ If $\lim_{N\to\infty}\varepsilon_N=0$ \ $\Rightarrow$ \ $F=\sum^\infty_{n=1}c_n\Phi_n$ \textbf{converge in the mean} to $f$. \ \ (Not Pointwise Convergence)
+
+\textbf{Complete of Eigenfunctions}: $\{\Phi_n\}$ (or $\{\Psi_n\}$) is complete with respect to [Mean Square Convergence] / [Pointwise Convergence] for a \textit{class} of functions $\mathcal{F}$ \ \ \ if \ \ \ [$\lim_{N\to\infty}\varepsilon_N=0$] / [$\lim_{N\to\infty}S_N(x)=f(x)$] for all $f\in\mathcal{F}$
+
+\textbf{Class of Square Integrable functions}: $\mathcal{F}=\{f(x)|f \ and \ f^2 \ are \ integrable \ on \ x\in[a,b]\}$
+
+\textbf{Theorem|Completeness}: The Set orthonormal eigenfunctions $\{\Phi_n\}$ of a \textit{regular} SL boundary problem are \textit{complete} with respect to [Mean Square Convergence]. for a \textit{class} of Square Integrable functions.
+
+
+\section{Laplace's Transform \ \ \ {\tiny 这里的$\mathcal{L}$和前面无关}}
+
+\vspace{-12pt}
+\begin{multicols}{2}
+    
+\textbf{Laplace Transform}: The Laplace transform of $f$ is: $F(s)=\mathcal{L}\{f(t)\}(s)=\int^\infty_0e^{-st}f(t)dt$ \ \ || \ {\tiny ps:May not exists}
+
+\textbf{$f\in E$ xponential Order}:= $^1f$ is piecewise continuous on $[0,\infty)$; \ \ $^2\forall t\geq0:\exists A,B>0$ s.t. $|f(t)|\leq Ae^{Bt}$
+
+\textbf{Theorem|Laplace Existence}: If $f\in E$ \ \ $\Rightarrow$ \ \ $\forall s$ sufficiently large, $\mathcal{L}\{f\}(s)$ exists.
+
+\textbf{Theorem|Linear Operator}: $\mathcal{L}\{c_1f+c_2g\}(s)=c_1\mathcal{L}\{f\}(s)+c_2\mathcal{L}\{g\}(s)$ \ \ \ \ \ \ $\mathcal{L}\{0\}=0$
+
+\textbf{Theorem|Derivative}: If $f$ continuous on $[0,\infty)$ ; $f,f'\in E$ \ \ $\Rightarrow$ \ \ $\mathcal{L}\{f'\}(s)=s\mathcal{L}\{f\}(s)-f(0)$
+
+$\cdot$ $f,f',...,f^{(n-1)}\in E$ and continuous \ \ $\Rightarrow$ \ \ $\mathcal{L}\{f^{(n)}\}=s^n\mathcal{L}\{f\}(s)-s^{n-1}f(0)-\cdots-sf^{(n-2)}(0)-s^0f^{(n-1)}(0)$
+
+\textbf{Inverse Laplace Transform}: $f(t)=\mathcal{L}^{-1}\{F(s)\}(t)=\frac{1}{2\pi i}\int_{\gamma-i\infty}^{\gamma+i\infty}e^{st}F(s)ds$ \ , \ $\Re(s)=\gamma$ \ \ (general form)
+
+{\tiny
+\begin{tabular}{|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 1pt}|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 1pt}|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 2pt}c@{\hskip 2pt}|}
+    \hline
+    $f(t)$ & $\mathcal{L}\{f\}(s)$ & $f(t)$ & $\mathcal{L}\{f\}(s)$ & $f(t)$ & $\mathcal{L}\{f\}(s)$ \\
+    \hline
+    \hline
+    1 & $\frac{1}{s}$ & $t^n$ \ | \ $e^{at}$ & $\frac{n!}{s^{n+1}}$ \ \ | \ \ $\frac{1}{s-a}$ & $t^ne^{at}$ & $\frac{n!}{(s-a)^{n+1}}$ \\
+    \hline
+    $sinh(at)$ & $\frac{a}{s^2-a^2}$ & $sin(at)$ & $\frac{a}{s^2+a^2}$ & $cos(at)$ & $\frac{s}{s^2+a^2}$ \\
+    \hline
+    $cosh(at)$ & $\frac{s}{s^2-a^2}$ & $e^{at}sin(bt)$ & $\frac{b}{(s-a)^2+b^2}$ & $e^{at}cos(bt)$ & $\frac{s-a}{(s-a)^2+b^2}$ \\
+    \hline
+    $u_c(t)$ & $\frac{e^{-sc}}{s}$ & $t^ne^{at}sin(bt)$ & $(-1)^n\frac{d^n}{ds^n}(\frac{b}{(s-a)^2+b^2})$ & $t^ne^{at}cos(bt)$ & $(-1)^n\frac{d^n}{ds^n}(\frac{s-a}{(s-a)^2+b^2})$ \\
+    \hline
+\end{tabular}
+}
+
+{\tiny ps: 一般: $s>0$ \ \ \ || \ \ \ $sinh,cosh$: $s>|a|$ \ \ \ || \ \ \ $sin/cos/t^n/e^{at}$: $s>a$ \ \ \ || \ \ \ $\star$ \textbf{Heaviside Unit Function}: $u_c=\chi_{[c,\infty)}$}
+
+\textbf{Uniqueness \& Existence}: $^1$ If $f,g$ continuous \ $\Rightarrow$ \ $\mathcal{L}\{f\}=\mathcal{L}\{g\}$ $\Leftrightarrow$ $f=g$
+
+$\cdot$ $^2$ {\tiny If $f,g$ pointwise continuous $\Rightarrow$ 唯一性不一定成立(非连续点上不同) (No particial siginificance in applications)}
+
+\columnbreak
+
+\textbf{Properties of Laplace Transform}: Assume For $s>\gamma\geq0$ , $f\in E$ \ $\exists \ \mathcal{L}\{f(t)\}(s)=F(s)$
+
+{\tiny
+\begin{tabular}{|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 1pt}|@{\hskip 2pt}c@{\hskip 2pt}|@{\hskip 2pt}c@{\hskip 2pt}|}
+    \hline
+    \textbf{s-shift} & $\mathcal{L}\{e^{ct}f(t)\}(s)=F(s-c),s-c>\gamma$ & \textbf{s-derivatives} & $\mathcal{L}\{t^nf(t)\}(s)=(-1)^nF^{(n)}(s)$ \\
+    \hline
+    \textbf{t-shift} & $\mathcal{L}\{f(t-c)u_c(t)\}(s)=e^{-sc}F(s)$ & Corollary & $\mathcal{L}^{-1}\{e^{-sc}F(s)\}=f(t-c)u_c(t)$  \\
+    \hline
+    \textbf{scaling-1} & $\mathcal{L}\{f(ct)\}(s)=\frac{1}{c}F(\frac{s}{c})$ & \textbf{scaling-2} & $F(sc)=\frac{1}{c}\mathcal{L}\{f(\frac{t}{c})\},c>0$ \\
+    \hline
+\end{tabular}
+}
+
+\end{multicols}
+\vspace{-10pt}
 
 
 \section{Appendix}
@@ -515,7 +594,17 @@ $\cdot$ $sinh(x)$ 单调递增, odd, iff $x=0,sinh(x)=0$ \ \ \ \ \ \ $cosh(x)$ $
 
 \textbf{Solve $y''+\lambda y=0$}: { $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0(\mathbb{C}):y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \textbf{Solve $y'+\beta y=0$}: { $y=c_1e^{-\beta x}$}
 
-\textbf{Approximation} $sin(x)\approx x$ when $x\to0$ 
+\textbf{Approximation} $sin(x)\approx x$ when $x\to0$
+
+\textbf{Bessel's Equation}: $y''+\frac{1}{t}y'+(1-\frac{m^2}{t^2})y=0$ \ \ $\Rightarrow$ \ \ Solution: $y(t)=c_1J_m(t)+c_2Y_m(t)$ \ \ \ || \ \ \ $J_m(t)$ is Bessel function of first kind; $Y_m(t)$ is Bessel function of second kind. \ \ \ || \ \ \ ps: $Y_m(t)$ not bounded as $t\to0$, $J_m(t)$ bounded.
+
+
+
+\subsection{Some Applications}
+
+\tiny
+
+\textbf{Generalised Heat Equation}: $r(x)\partial_tu=\partial_x[p\partial_xu]-qu+F$ \ \ $\Rightarrow$ \ \ {\tiny $^1$ 考虑Homo: 分离变量, 得到一个SL问题;一个简单ODE.ODE不计算. $^2$将$F/r$进行SL分解为Series.$^3$考虑解$u=\sum X_n(x)b_n(t)$,$b_n$未知;2,3步带入原始方程,根据特征向量正交得系数关系:一个ODE.$^4$求解ODE系数由其他边界条件给出.}
 
 
 \end{document}
