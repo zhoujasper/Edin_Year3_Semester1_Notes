@@ -598,6 +598,25 @@ $^4$ Test Statistic:
 \textbf{Central Limit Theorem (CLT)}: If $X_i\stackrel{i.i.d.}{\sim}F_X,\mathbb{E}[X_i]=\mu$ and $Var[X_i]<\infty$. \ \ $\Rightarrow$ \ \ $\frac{\overline{X}_n-\mu}{\sqrt{\sigma^2/n}}=\frac{\sqrt{n}(\overline{X}_n-\mu)}{\sigma}\stackrel{d}{\sim}N(0,1)$ \ \ \ {\tiny 样本均值的分布会趋近于正态分布}
 
 
+\subsection{Test Statistics and Decision Rule}
+
+\vspace{-0.4cm}
+\begin{longtable}{|c|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{One Sample} & \multicolumn{3}{c|}{Two Sample}                   \\
+    \hline
+    \multicolumn{2}{|c|}{Find $\mu$} & \multicolumn{2}{c|}{Find $\mu$} & Find $\sigma^2$ \\
+    \hline
+    \makecell{Z-Test ($\sigma^2$ known)                                                  \\ $Z=\frac{\bar{X}-\mu_0}{\sqrt{\sigma^2/n}}\sim N(0,1)$} & \makecell{t-Test ($\sigma^2$ unknown) \\ $T=\frac{\bar{X}-\mu_0}{\sqrt{S^2/n}}\sim t_{n-1}$} & \makecell{Paired t-Test (X,Y same Unit) \\ $D_i=Y_i-X_i\sim N(\mu_D,\sigma^2_D)$ \\ $T=\frac{\bar{D}-\mu_D}{\sqrt{S^2/n}}\sim t_{n-1}$} & \makecell{Two-Sample t-Test (独立) \\ $T=\frac{(\bar{X}-\bar{Y})-\Delta_0}{\sqrt{\sigma^2(\frac{1}{m}+\frac{1}{n})}}\sim N(0,1)$ \\ {\fontsize{10}{12}\selectfont 未知:}$S^2_p$;$T\sim t_{m+n-2}$} & \makecell{F-Test \\ $F=\frac{S^2_X}{S^2_Y}$ \\ $\sim F_{m-1,n-1}$} \\
+    \hline
+\end{longtable}
+\vspace{-0.4cm}
+
+$\cdot$ 对于Two-Sample t-Test 我们要求X,Y $\sigma^2$ 一致 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  ps:$H_0:\mu_D=\mu_X-\mu_Y$ ; \ \ \ \ \ \  $H_0:\Delta_0=\mu_x-\mu_Y$ ; \ \ \ \ \ \ $X:m,Y:n$
+
+\textbf{Pooled Sample Variance}: (Two sample Variance) $S^2_p=\frac{(m-1)S^2_X+(n-1)S^2_Y}{m+n-2}$ \ \ \ \ \ ps:Unbiased
+
+
 \section{Writting Format}
 
 \tiny
