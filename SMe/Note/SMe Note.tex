@@ -342,9 +342,9 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     \hline
     \makecell{$H_0,H_1$ Test || CI} & $T= (\widehat{\beta}- \beta_0) \ / \ Var(\widehat{\beta})\sim\mathcal{N}(0,1)$ \ \ {\tiny ($\sigma^2$ known)} & {\scriptsize $T=(\widehat{\beta}-\beta_0) \ / \ \widehat{Var(\widehat{\beta})}\sim t_{n-2}$} \ \ {\tiny ($\sigma^2$ unknown)} & $T=(\widehat{\alpha}-\alpha_0) \ / \ \widehat{Var(\widehat{\alpha})}\sim t_{n-2}$ {\tiny ($\sigma^2$ unknown)} \\
     \hline
-    (ctd.) Other & {\scriptsize \textbf{Fitted Values}: $\hat{\mu}_i=\hat{\alpha}+\hat{\beta}x_i$ || \textbf{Residuals}: $\widehat{\varepsilon_i}=y_i-\widehat{\mu}_i$} & {\scriptsize For CI / PI / $H_0/H_1$ Assume $\varepsilon_i\sim\mathcal{N}(0,\sigma^2)$} & $T=(\widehat{\alpha}-\alpha_0)/Var(\widehat{\alpha})\sim\mathcal{N}(0,1)$ {\tiny ($\sigma^2$ known)} \\
+    (ctd.) Other & {\tiny \textbf{Fitted Values}: $\hat{\mu}_i=\hat{\alpha}+\hat{\beta}x_i$ || \textbf{残差}: $\widehat{\varepsilon_i}=y_i-\widehat{\mu}_i$ \ || \ $\sum\widehat{\varepsilon}_i=0,\sum\widehat{\varepsilon}_ix_i=0$} & {\scriptsize For CI / PI / $H_0/H_1$ Assume $\varepsilon_i\sim\mathcal{N}(0,\sigma^2)$} & $T=(\widehat{\alpha}-\alpha_0)/Var(\widehat{\alpha})\sim\mathcal{N}(0,1)$ {\tiny ($\sigma^2$ known)} \\
     \hline
-    PI & {\tiny $\sigma^2$ know}: $\widehat{y}_{new}\pm z_{\alpha/2}\sigma\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{S_{xx}}}$ & {\tiny $\sigma^2$ 已知}: {\scriptsize $\widehat{y}_{new}\pm t_{\alpha/2,n-2}\sigma\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{S_{xx}}}$} & {\tiny $\sigma^2$ 未知}: {\scriptsize $\widehat{y}_{new}\pm t_{\alpha/2,n-2}\widehat{\sigma}_{\widehat{y}}\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{S_{xx}}}$} \\
+    PI \ | \ {\tiny Cor.$r=\frac{S_{xy}}{\sqrt{S_{xxS_{yy}}}}$} & {\tiny $\sigma^2$ know}: $\widehat{y}_{new}\pm z_{\alpha/2}\sigma\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{S_{xx}}}$ & {\tiny $\sigma^2$ 已知}: {\scriptsize $\widehat{y}_{new}\pm t_{\alpha/2,n-2}\sigma\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{S_{xx}}}$} & {\tiny $\sigma^2$ 未知}: {\scriptsize $\widehat{y}_{new}\pm t_{\alpha/2,n-2}\widehat{\sigma}_{\widehat{y}}\sqrt{1+\frac{1}{n}+\frac{(x_0-\overline{x})^2}{S_{xx}}}$} \\
     \hline
 \end{longtable}
 }
