@@ -419,7 +419,7 @@ $\cdot$ {\footnotesize \textbf{Parameter Estimates}: $\underline{\widehat{\beta}
 
 \subsection{CI / Hypothesis Testing}
 
-\textbf{Normality Assumption}: Assume that $\underline{\varepsilon}\sim\mathcal{N}(0,\sigma^2I_n)$ \ \ $\Rightarrow$ \ \ $^1\mathbf{y}\sim\mathcal{N}(\mathbf{X}\underline{\beta},I_n\sigma^2)$ \ \ \ $^2\underline{\widehat{\beta}}\sim\mathcal{N}(\underline{\beta},\mathbf{V}_{\underline{\widehat{\beta}}})$ \ \ \ || \ \ \textbf{\small 对于 Normal, LS $\underline{\widehat{\beta}}$ = MLE $\underline{\widehat{\beta}}$}
+\textbf{Normality Assumption}: Assume that $\underline{\varepsilon}\sim\mathcal{N}_n(0,\sigma^2I_n)$ \ \ $\Rightarrow$ \ \ $^1\mathbf{y}\sim\mathcal{N}_n(\mathbf{X}\underline{\beta},I_n\sigma^2)$ \ \ \ $^2\underline{\widehat{\beta}}\sim\mathcal{N}_p(\underline{\beta},\mathbf{V}_{\underline{\widehat{\beta}}})$ \ \ \ || \ \ \textbf{\small 对于 Normal, LS $\underline{\widehat{\beta}}$ = MLE $\underline{\widehat{\beta}}$}
 
 \vspace{-13pt}
 {\footnotesize
@@ -461,7 +461,7 @@ $^3$ Under $H_0$: {\tiny $\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d}\sim\m
 
 \columnbreak
 
-$^4$ Test Statistic:
+$^4$ Test Statistic:  \ \ \ \ \ \ \ \ \ \ {\tiny ps:$T>F_{\alpha}$拒绝}
 
 {\tiny ($\sigma^2$ known):} {\scriptsize $T(\mathbf{Y})=(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})^T(\mathbf{C}\mathbf{V}_{\underline{\widehat{\beta}}}\mathbf{C}^T)^{-1}(\mathbf{C}\underline{\widehat{\beta}}-\mathbf{d})\sim\chi^2_{q}$}
 
@@ -493,7 +493,7 @@ $^4$ Test Statistic:
 \end{enumerate}
 }
 
-\textbf{Check balance of quantiles}: {\footnotesize 检查残差的分布是否对称.} Method \ 1: $|\frac{\widehat{\underline{\varepsilon}}_{median}}{\widehat{\sigma}}|$ \ \ Method \ 2: $|\frac{\widehat{\underline{\varepsilon}}_{Q3}-\widehat{\underline{\varepsilon}}_{Q1}}{\widehat{\sigma}}|$ {\tiny small $\Rightarrow$ no evidence against residuals not being symmetric}
+\textbf{Check balance of quantiles}: {\footnotesize 检查残差的分布是否对称.} Method \ 1: $\frac{|\widehat{\underline{\varepsilon}}_{median}|}{\widehat{\sigma}}$ \ \ Method \ 2: $\frac{|\widehat{\underline{\varepsilon}}_{Q3}|-|\widehat{\underline{\varepsilon}}_{Q1}|}{\widehat{\sigma}}$ {\tiny small $\Rightarrow$ no evidence against residuals not being symmetric}
 
 
 \section{Distribution Table} % Distribution Table
