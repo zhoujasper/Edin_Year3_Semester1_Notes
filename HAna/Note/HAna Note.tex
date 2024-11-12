@@ -395,9 +395,9 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
 
 $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}
 
-\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesuge Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
+\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesgue Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
 
-\textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesuge Measurable}.
+\textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesgue Measurable}.
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Increasing $\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
@@ -405,7 +405,7 @@ $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Meas
     \item \ex\textbf{decreasing $\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\tiny (Hint: $F_n:=E_n\setminus E,E=\cap E_n;m(F_n\cup E)=m(E_n)$)}
 \end{enumerate}
 
-\textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not contabilty additive set. } 
+\textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not countability additive set. } 
 
 $\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\mathbb{R}\}$, choose a number $x_B\in B\cap[0,1]$ \ \ \ $A:=\{x_B:x_B\in B\}$ \ \ \ $^1$A is not Lebesgue Measurable Set. \ \ \ $^2E:=\bigcup_{q\in\mathbb{Q}\cap[-1,1]}(q+A)$ not Contabilty Additive.}
 
@@ -448,7 +448,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \item \textbf{Basic Def}: $\int_{\mathbb{R}}f(x)dx:=\sup\{\int_{\mathbb{R}}s(x)dx:s \ simple,0\leq s\leq f \}$
     \item \textbf{Extend Def}: If $f:\mathbb{R}\to\mathbb{R}$ Lebesgue Measurable , $E$ Measurable Set. \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}f(x)\chi_E(x)dx$
 \end{enumerate}
-\textbf{Basic Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesuge Measurable functions.
+\textbf{Basic Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesgue Measurable functions.
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Monotonicity}: If $0\leq f(x)\leq g(x)$ \ \ $\Rightarrow$ \ \ $0\leq\int_{\mathbb{R}}f(x)dx\leq\int_{\mathbb{R}}g(x)dx$
     \item \textbf{Markov's Inequality}: For all $\lambda>0$ \ \ $\Rightarrow$ \ \ $m(\{x\in\mathbb{R}:f(x)>\lambda\})\leq\frac{1}{\lambda}\int_{\mathbb{R}}f(x)dx$ \ \ \ {\footnotesize 函数积分面积 > 其对应底下矩形面积}
@@ -458,7 +458,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 
 \textbf{MCT for Integral}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
 
-\textbf{More Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesuge Measurable functions.
+\textbf{More Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesgue Measurable functions.
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Linear Combination}: $\alpha,\beta>0$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}\alpha f+\beta g =\alpha\int_{\mathbb{R}}f + \beta\int_{\mathbb{R}}g$
     \item \textbf{Union of Disjoint}: $E,F$ disjoint measurable sets \ \ $\Rightarrow$ \ \ $\int_{E\cup F}f=\int_Ef+\int_Ff$
