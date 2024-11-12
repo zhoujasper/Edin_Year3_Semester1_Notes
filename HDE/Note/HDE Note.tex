@@ -85,7 +85,7 @@
 
 $\cdot$ \textbf{Eigenvalue $\lambda$ \& Eigenvector $\mathbf{x}$}: Def: $A\mathbf{x}=\lambda\mathbf{x}$. \ \ || \ \ Method: $^1det(A-\lambda I)=0\to\lambda$. \ \ $^2(A-\lambda I)\mathbf{x}=0\to\mathbf{x}$.
 
-$\cdot$ \textbf{Arithmetic Manipulate (AM) $\lambda$}: $\lambda$ 重复出现的次数. \ \ $\geq$ \ \ \textbf{Geoemtric Manipulate (GM) of $\lambda$}: \# $\mathbf{x}$ under $\lambda$.
+$\cdot$ \textbf{Arithmetic Manipulate (AM) $\lambda$}: $\lambda$ 重复出现的次数. \ \ $\geq$ \ \ \textbf{Geometric Manipulate (GM) of $\lambda$}: \# $\mathbf{x}$ under $\lambda$.
     
 $\cdot$ \textbf{Generalised Eigenvectors}: If AM>GM: Using $\xi_\lambda = (A-\lambda\mathbb{I})\eta_1,\eta_{n-1} = (A-\lambda\mathbb{I})\eta_{n}$ for each $\xi_\lambda$. \ \ \ \ \ \ $\eta_j$ are \textit{generalised eigenvectors}.
 
@@ -393,7 +393,7 @@ $\cdot$ \textbf{Euler-Fourier Formulas}: Suppose (*) converges in the interval $
 
 $\cdot$ Futhermore, Let Fourier Series of $f$ is $F$. \ \ \ \ $F(x)\to f(x)$, $f(x)$ continuous; $F(x)\to\frac{f(x^+)+f(x^-)}{2}$, $f(x)$ discontinuous.
 
-\textbf{Term-By-Term Integration}: Fourier Series for \textit{piecewise continuous} functions can be \underline{Integrated term-by-term} to \underline{Convergent} Fourier Seires.
+\textbf{Term-By-Term Integration}: Fourier Series for \textit{piecewise continuous} functions can be \underline{Integrated term-by-term} to \underline{Convergent} Fourier Series.
 
 \textbf{Finite Truncation (Partial Sum)}: { Finite Truncation of Fourier Series is: $s_k=\frac{a_0}{2}+\sum_{n=1}^{k}\left(a_ncos(\frac{n\pi x}{L})+b_nsin(\frac{n\pi x}{L})\right)$ \ \ || \ \  \textbf{Error}: $e_N=s_N-f(x)$}
 
@@ -418,7 +418,7 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 \section{Linear PDEs by Separation of Variables}
 
 \begin{minipage}[t]{0.74\textwidth}
-    \textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Seperation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
+    \textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Separation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
 
     \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$
 
@@ -546,7 +546,7 @@ $\cdot$ $f,f',...,f^{(n-1)}\in E$ and continuous \ \ $\Rightarrow$ \ \ $\mathcal
 
 \textbf{Uniqueness \& Existence}: $^1$ If $f,g$ continuous \ $\Rightarrow$ \ $\mathcal{L}\{f\}=\mathcal{L}\{g\}$ $\Leftrightarrow$ $f=g$
 
-$\cdot$ $^2$ {\tiny If $f,g$ pointwise continuous $\Rightarrow$ 唯一性不一定成立(非连续点上不同) (No particial siginificance in applications)}
+$\cdot$ $^2$ {\tiny If $f,g$ pointwise continuous $\Rightarrow$ 唯一性不一定成立(非连续点上不同) (No practical significance in applications)}
 
 \columnbreak
 
@@ -581,7 +581,7 @@ $\cdot$ \textbf{Property}: $^1\mathcal{L}\{\delta(t-t_0)\}(s)=\lim_{\tau\to0}\ma
 
 \scriptsize
 
-\textbf{Wronskian Geoemtric Meaning}: Geometrically, $W$ is the volume spanned by the three vectors $y^{(1)}, y^{(2)}, y^{(3)}$; \ \ $t$ 增加或减小代表在 $y^{(i)}$方向上 compress/stretch.
+\textbf{Wronskian Geometric Meaning}: Geometrically, $W$ is the volume spanned by the three vectors $y^{(1)}, y^{(2)}, y^{(3)}$; \ \ $t$ 增加或减小代表在 $y^{(i)}$方向上 compress/stretch.
 
 \textbf{和差化积/积化和差}: s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$ \ \ || \ \ $sin(2x)=2sin(x)cos(x)$ \ \ $cos(2x)=2cos^2(x)-1$ \ \ $cos(x)=\sqrt{\frac{1+cos(2x)}{2}}$ \ \ $sin(x)=\sqrt{\frac{1-cos(2x)}{2}}$
 

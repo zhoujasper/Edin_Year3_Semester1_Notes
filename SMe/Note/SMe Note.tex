@@ -235,7 +235,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 \vspace{-0.35cm}
 \begin{longtable}{|c|c|c|c|}
     \hline
-    Name & MAP{\tiny Maximum A Posteriori} & MMSE{\tiny Posterior Mean / Bayesian Minimum Mean Squared Error Estimator} & Posterior Median $\widehat{\theta}_{median}$ \\
+    Name & MAP{\tiny Maximum A Posterior} & MMSE{\tiny Posterior Mean / Bayesian Minimum Mean Squared Error Estimator} & Posterior Median $\widehat{\theta}_{median}$ \\
     \hline
     {\scriptsize Single Para} & {\footnotesize $\widehat{\theta}_{MAP}=\arg\max_\theta p(\theta|\mathbf{y})$} & {\footnotesize $\widehat{\theta}_{MMSE}=\mathbb{E}[\theta|\mathbf{y}]=\int_{\theta\in\Theta}\theta p(\theta|\mathbf{y})d\theta$} & {\footnotesize $\frac{1}{2}=\int_{-\infty}^{\widehat{\theta}_{median}}p(\theta|\mathbf{y})d\theta=\int_{\widehat{\theta}_{median}}^{\infty}p(\theta|\mathbf{y})d\theta$} \\
     \hline
@@ -251,7 +251,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item Choose a \textit{Loss Function} $Q(\widehat{\theta},\theta)$ {\scriptsize (损失函数,衡量估计值与真实值的差距; 贝叶斯决策的目的是最小化损失函数的期望)}
-    \item Minimises Posterior Expacted Loss Function: $\widehat{\theta}_Q(\mathbf{y})=\arg\min_{\widehat{\theta}}\mathbb{E}[Q(\widehat{\theta},\theta)|\mathbf{y}]=\arg\min_{\widehat{\theta}}\int_{\theta\in\Theta}Q(\widehat{\theta},\theta)p(\theta|\mathbf{y})d\theta$
+    \item Minimises Posterior Expected Loss Function: $\widehat{\theta}_Q(\mathbf{y})=\arg\min_{\widehat{\theta}}\mathbb{E}[Q(\widehat{\theta},\theta)|\mathbf{y}]=\arg\min_{\widehat{\theta}}\int_{\theta\in\Theta}Q(\widehat{\theta},\theta)p(\theta|\mathbf{y})d\theta$
 \end{enumerate}
 
 
@@ -357,7 +357,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 
 \subsection{General Linear Model}
 
-\textbf{Lamma|$\mathbb{E}$ , $Var$ in Matrix}: {\footnotesize If \ r.v. \ $\mathbf{v}$ \ , \ $\mathbf{A},\mathbf{b}$ constant \ \ $\Rightarrow$ \ \ $^1\mathbb{E}[\mathbf{A}\mathbf{v}+\mathbf{b}]=\mathbf{A}\mathbb{E}[\mathbf{v}] + \mathbf{b}$ \ \ \ $^2Var[\mathbf{Av+b}]=\mathbf{A}Var[\mathbf{v}]\mathbf{A}^T$}
+\textbf{Lemma|$\mathbb{E}$ , $Var$ in Matrix}: {\footnotesize If \ r.v. \ $\mathbf{v}$ \ , \ $\mathbf{A},\mathbf{b}$ constant \ \ $\Rightarrow$ \ \ $^1\mathbb{E}[\mathbf{A}\mathbf{v}+\mathbf{b}]=\mathbf{A}\mathbb{E}[\mathbf{v}] + \mathbf{b}$ \ \ \ $^2Var[\mathbf{Av+b}]=\mathbf{A}Var[\mathbf{v}]\mathbf{A}^T$}
 
 \textbf{Metric Predictor}: {\scriptsize 设计矩阵 用 连续观测值.} \ \ \ || \ \ \ \textbf{Factor Predictor}: {\scriptsize 离散数据 用 指示函数(0/1)填满,每个"小组"对应一个指示函数.}
 
@@ -514,7 +514,7 @@ $^4$ Test Statistic:  \ \ \ \ \ \ \ \ \ \ {\tiny ps:$T>F_{\alpha}$拒绝}
     \hline
     \makecell{\small \textbf{Negative Binomial} $X\sim NB(r,p)$} & $\binom{r+x-1}{x}(1-p)^rp^{x}$ , $r\geq1$ & {\small $\frac{rp}{1-p}$} & {\small $\frac{rp}{(1-p)^2}$} & {\footnotesize 或者$p=1-q$,注意!} \\
     \hline
-    {\textbf{Poission} \ $X\sim Po(\lambda)$} & $e^{-\lambda}\cdot \frac{\lambda^x}{x!}$ & $\lambda$ & $\lambda$ & $\mathbb{E}[X^2]=\lambda^2+\lambda$ \\
+    {\textbf{Poisson} \ $X\sim Po(\lambda)$} & $e^{-\lambda}\cdot \frac{\lambda^x}{x!}$ & $\lambda$ & $\lambda$ & $\mathbb{E}[X^2]=\lambda^2+\lambda$ \\
     \hline
     \multicolumn{5}{|l|}{For $X,Y\sim Po(\lambda_1),Po(\lambda_2)$, then $X+Y\sim Po(\lambda_1+\lambda_1)$} \\
     \hline
@@ -623,7 +623,7 @@ $\cdot$ 对于Two-Sample t-Test 我们要求X,Y $\sigma^2$ 一致 \ \ \ \ \ \ \ 
 \textbf{Pooled Sample Variance}: (Two sample Variance) $S^2_p=\frac{(m-1)S^2_X+(n-1)S^2_Y}{m+n-2}$ \ \ \ \ \ ps:Unbiased
 
 
-\section{Writting Format}
+\section{Writing Format}
 
 \scriptsize
 \setlength{\parindent}{0pt}
@@ -635,7 +635,7 @@ $\cdot$ 对于Two-Sample t-Test 我们要求X,Y $\sigma^2$ 一致 \ \ \ \ \ \ \ 
 
 \textbf{寻找新distribution}: 产生新 distribution 的一种方法: 通过条件概率来. \ \ \ \ \ \ $\mathbb{P}(A|B)=\mathbb{P}[ (A\cap B) / B ]$
 
-\textbf{Def|Unbiased}：An estimator is unbiased if, on average, it equals the true value of the parameter it's estimating.
+\textbf{Def|Unbiased}:An estimator is unbiased if, on average, it equals the true value of the parameter it's estimating.
 
 \textbf{Def|Consistent}: An estimator is consistent if it converges in probability to the true value of the parameter p as the sample size increases indefinitely.
 
@@ -653,7 +653,7 @@ $\cdot$ 对于Two-Sample t-Test 我们要求X,Y $\sigma^2$ 一致 \ \ \ \ \ \ \ 
 
 \textbf{Reason|$\mathbb{P}(\theta<?)=\alpha$ is false}: We cannot make such probability statement. $\{\theta\}$ is a fixed value (but unknown).
 
-\textbf{Geoemtric Comparison of $T_{Score}$,$T_{Wald}$,$T_{LR}$}:
+\textbf{Geometric Comparison of $T_{Score}$,$T_{Wald}$,$T_{LR}$}:
 
 $\cdot$ \textbf{1}.$T_{Score}$ (Slope Comparison): Represents the slope of the likelihood function at $\theta_0$; A steeper slope indicates that the likelihood function is changing more rapidly at $theta_0$, which implies a greater difference between $\widehat{\theta}$ and $\theta_0$.
 
@@ -661,13 +661,13 @@ $\cdot$ \textbf{2}.$T_{Wald}$ (Width Comparison): Compares the difference betwee
 
 $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\theta})$ and the likelihood value at $\theta_0,L(\theta_0)$. A larger height difference indicates a greater discrepancy between $\widehat{\theta}$ and $\theta_0$
 
-\textbf{Reason|$T_{Score}$,$T_{Wald}$,$T_{LR}$ Other 部分公式可以近似的理由}: This is due to $\widehat{\theta}$ being a consistent estiamtor of $\theta_0$, and $J(\theta_0)$ being a consistent estimator of $\mathcal{I}(\theta_0)$
+\textbf{Reason|$T_{Score}$,$T_{Wald}$,$T_{LR}$ Other 部分公式可以近似的理由}: This is due to $\widehat{\theta}$ being a consistent estimator of $\theta_0$, and $J(\theta_0)$ being a consistent estimator of $\mathcal{I}(\theta_0)$
 
 
 \vspace{5pt}
 \textbf{CI|PI}
 
-\textbf{Def|CI}: An interval of uncertainty for fitted regression line, given the explantory variable $x_0$.
+\textbf{Def|CI}: An interval of uncertainty for fitted regression line, given the explanatory variable $x_0$.
 
 \textbf{Meaning|CI 表示含义}: \textbf{Not Reject}: If data are generated under $H_0$, there is a probability $(1-\alpha)$ for the true $\theta_0$ to be within the $(1-\alpha)100\%$ CI.
 
@@ -677,11 +677,11 @@ $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\t
 
 \textbf{Reason|无误差}:The true $\{?\}$ population parameter is assumed to be fixed (not random)
 
-\textbf{Def|PI}: An interval of uncertainty for a future observation $y_0$, given explantory variable $x_0$.
+\textbf{Def|PI}: An interval of uncertainty for a future observation $y_0$, given explanatory variable $x_0$.
 
-\textbf{Reason|CI < PI}: PI > CI, because it's accounts fro the additional variability of the single observations, since $\sigma^2>0$
+\textbf{Reason|CI < PI}: PI > CI, because it's accounts for the additional variability of the single observations, since $\sigma^2>0$
 
-\textbf{Reason|$\bar{x}=(left+right)/2$}: The confidence interval for the $\{\mu\}$ is centred on $\bar{x}$
+\textbf{Reason|$\bar{x}=(left+right)/2$}: The confidence interval for the $\{\mu\}$ is centered on $\bar{x}$
 
 
 \vspace{5pt}
@@ -704,7 +704,7 @@ $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\t
 
 \textbf{Reason|MLE 和 LS公式一样}: The functional form of the (log-)likelihood being a sum of squared differences.
 
-\textbf{Assumption|Normal Linear Regression}: Assumptions are that the obervations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
+\textbf{Assumption|Normal Linear Regression}: Assumptions are that the observations: 1. are from a normal distribution; 2. are independent; 3. have a common variance; 4. Linearity of the expectation variable.
 
 \textbf{Meaning|LS 数值大小的表示含义}: $S(\beta)$ small: $\mu_i$ relatively close to the $y_i$; \ \ Large: $\mu_i$ far from their corresponding $y_i$.
 
@@ -722,7 +722,7 @@ $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\t
 
 \textbf{Reason|$R^2,R_{adj}^2$}: \textbf{1.} The linear model explains $\{R^2\}$ of the Variability within the $\{y\}$ data. \textbf{2.} $\{1-R\}$ of Variability of the $\{y\}$ data remains unexplained.
 
-\textbf{Reason|$R^2,R_{adj}^2$}: R越大better predicts the data. \ \ \ || \ \ \ \textbf{$R^2$比较}: As $R^2$ for the 'Model 1' is larger (smaller) than 'Model 2', so 'Model 1/2' is preferred as it expains more of the response variability.
+\textbf{Reason|$R^2,R_{adj}^2$}: R越大better predicts the data. \ \ \ || \ \ \ \textbf{$R^2$比较}: As $R^2$ for the 'Model 1' is larger (smaller) than 'Model 2', so 'Model 1/2' is preferred as it explains more of the response variability.
 
 \textbf{Reason|对于Factor类型的单个p-value不关心}: If it's a model of Factors, it's often difficult to interpret the p-value for individual coefficients in any meaningful way. $\Rightarrow$ Prefer to test the whole factor effect.
 
@@ -736,8 +736,9 @@ $\cdot$ Linear Regression 从$\bar{x}$ 往左右,reliable 逐渐下降.
 
 \textbf{Method|是否能用边缘分布来推断(t-test)}: 如果不能使用: Using 4.5 后半段内容.
 
-\textbf{*Not Exam|centred simple linear regression}: 将$x$变为$x'=x-\overline{x}$, $\Rightarrow$ Design matrix will be orthogonal.
+\textbf{*Not Exam|centered simple linear regression}: 将$x$变为$x'=x-\overline{x}$, $\Rightarrow$ Design matrix will be orthogonal.
 
 \end{multicols}
+
 
 \end{document}
