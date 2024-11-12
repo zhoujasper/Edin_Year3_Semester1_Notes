@@ -83,10 +83,10 @@
 
 \textbf{Def of Identifiability}: A model is identifiable if $f(y;\theta_1)=f(y;\theta_2),\forall y$ then $\theta_1=\theta_2$ {\scriptsize (i.e.$map:\theta\to f(y;\theta)$ is 1-1)}
 
-\textbf{Linear Algebra Knowledge}: {\scriptsize If $A$ is symmetric matrix, with eigenvalues $\lambda_n$ then $A+aI$ have eigenvalues $\lambda_n+a$. \ \ \ || \ \ \ $det(M)=\prod\lambda_n$ \ \ \ || \ \ \ eigenvalues of $X^TX$ $\geq0$.}
-
 \vspace{-5pt}
 $\cdot$ {\scriptsize Method: \textbf{1}.By def $\Rightarrow$ ratio not depend on $y\Rightarrow$ $\theta_1,\theta_2$ relationship. (with any additional constraint) \ \ \textbf{2}.MLE not unique $\Rightarrow$ not identifiable \ \ \textbf{3}.Give an example $\theta$ \ \ \textbf{4}.Fisher information}
+
+\textbf{Linear Algebra Knowledge}: {\scriptsize If $A$ is symmetric matrix, with eigenvalues $\lambda_n$ then $A+aI$ have eigenvalues $\lambda_n+a$. \ \ \ || \ \ \ $det(M)=\prod\lambda_n$ \ \ \ || \ \ \ eigenvalues of $X^TX$ $\geq0$.}
 
 
 \section{Properties of the Likelihood and the MLE} % Properties of the Likelihood and the MLE
@@ -400,7 +400,7 @@ $\cdot$ {\footnotesize \textbf{Parameter Estimates}: $\underline{\widehat{\beta}
     Matrix Method of LS & \multicolumn{2}{l|}{$S(\underline{\beta})=(\mathbf{y}-\mathbf{X}\underline{\beta})^T(\mathbf{y}-\mathbf{X}\underline{\beta})=\mathbf{y}^T\mathbf{y}-2\mathbf{y}^T\mathbf{X}\underline{\beta}+\underline{\beta}^T\mathbf{X}^T\mathbf{X}\underline{\beta}$} & $\underline{\widehat{\beta}}=(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}$ & $\mathbf{V}_{\underline{\widehat{\beta}}}=Var[\widehat{\underline{\beta}}]=(\mathbf{X^T}\mathbf{X})^{-1}\sigma^2$ \\
     \hline
     \hline
-    \textbf{Influence / Hat Matrix} $\mathbf{A}$ & $\mathbf{A}=\mathbf{Q}\mathbf{Q}^T=\mathbf{A}^2=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T$ & \multicolumn{3}{l|}{\# of (identifiable) parameters = $tr(\mathbf{A})=tr(\mathbf{Q}\mathbf{Q}^T)=tr(I_p)=p$} \\
+    \textbf{Influence / Hat Matrix} $\mathbf{A}$ & $\mathbf{A}=\mathbf{Q}\mathbf{Q}^T=\mathbf{A}^2=\mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T$ & \multicolumn{3}{l|}{$\mathbf{A}$ is symmetric. \ \ \ \ \ \ || \ \ \ \# of (identifiable) parameters = $tr(\mathbf{A})=tr(\mathbf{Q}\mathbf{Q}^T)=tr(I_p)=p$} \\
     \hline
     $Var[\mathbf{y}]$ , $Var[\mathbf{f}]$ , $\widehat{\underline{\mu}}$ , $\widehat{\underline{\beta}}$ & $Var[\mathbf{y}]=Cov(\underline{\varepsilon},\underline{\varepsilon})=\sigma^2I_n$ & $Var[\mathbf{f}]=\mathbf{Q}^T\mathbf{Q}\sigma^2=\mathbf{}I_p$ & $\underline{\hat{\mu}}=\mathbf{X}\widehat{\underline{\beta}}=\mathbf{A}\mathbf{y}$ & $\widehat{\underline{\beta}}=\mathbf{R}^{-1}\mathbf{Q}^T\mathbf{y}$ \\
     \hline
@@ -698,6 +698,8 @@ $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\t
 \vspace{5pt}
 \textbf{Linear Regression}
 
+\textbf{Explain|$\star$Why considered to be linear}: Since the responses are independent, have the same variance and the expected value of the response given covariates is linear in the unknown coefficients $\{?:e.g.\beta_0,\beta_1,\beta_2,...\}$
+
 \textbf{Reason|不说一个增加导致另一个...}: Correlation is not Causation. A linear regression model can only describes correlated relationship.
 
 \textbf{Reason|MLE 和 LS公式一样}: The functional form of the (log-)likelihood being a sum of squared differences.
@@ -730,6 +732,11 @@ $\cdot$ Linear Regression 从$\bar{x}$ 往左右,reliable 逐渐下降.
 
 \textbf{Reason|y和x之间是否有任何关联}: Association between the explanatory variable and the response is measured by the F statistic whose value is \{?\} in this case. The corresponding p-value is small (large), so we do not reject (reject) the hypothesis of association at any reasonable significance level.
 
+\textbf{Reason|是否能用边缘分布来推断(t-test)}: $^1$ Case I: design matrix $\mathbf{X}$ orthogonal (or 其他方式得到parameter independent), it's possible to use the marginal distribution of $\underline{\widehat{\beta}}$ to make inference. $^2$ Case II: $\mathbf{X}$ not orthogonal (or 其他方式得到parameter dependent), it's not possible to use the marginal distribution of $\underline{\widehat{\beta}}$ to make inference. 
+
+\textbf{Method|是否能用边缘分布来推断(t-test)}: 如果不能使用: Using 4.5 后半段内容.
+
+\textbf{*Not Exam|centred simple linear regression}: 将$x$变为$x'=x-\overline{x}$, $\Rightarrow$ Design matrix will be orthogonal.
 
 \end{multicols}
 
