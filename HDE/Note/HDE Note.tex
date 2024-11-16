@@ -490,7 +490,7 @@ $\cdot$ (Ctd.) $^1$ If $\mu\ne\lambda_n$ $\Rightarrow$ unique solution. \ \ $^2$
 
 \textbf{Sigular / Regular SL Problem}: \textbf{Sigular}: boundary condition at \textit{closed interval}. \ \ \ || \ \ \ \textbf{Regular}: boundary condition at \textit{open interval} or [a,b) or (a,b].
 
-\textbf{Sigular SL Problem|One-side}: $\mathcal{L}(y)=\lambda r(x)y$, 奇异边$x=0$. \ \ $\Rightarrow$ \ \ $\lim_{\varepsilon\to0}p(\varepsilon)[u'(\varepsilon)v(\varepsilon)-u(\varepsilon)v'(\varepsilon)]=0$ \ \ $\Rightarrow$ \ \ $\star$ $\forall$ sols $u,v$: $\int_{0}^{1}\mathcal{L}(u)v-u\mathcal{L}(v)=0$ $\star$ \ \ $\Leftarrow$ $lim_{\varepsilon\to0}p(\varepsilon)=0$ and $u,u',v,v'$ bounded as $x\to0$
+\textbf{Sigular SL Problem|One-side}: $\mathcal{L}(y)=\lambda r(x)y$, 奇异边$x=a,b$. \ \ $\Rightarrow$ \ \ $\lim_{\varepsilon\to a,b}p(\varepsilon)[u'(\varepsilon)v(\varepsilon)-u(\varepsilon)v'(\varepsilon)]=0$ \ \ $\Rightarrow$ \ \ $\star$ $\forall$ sols $u,v$: $\int_{a}^{b}\mathcal{L}(u)v-u\mathcal{L}(v)=0$ $\star$ \ \ $\Leftarrow$ $lim_{\varepsilon\to a,b}p(\varepsilon)=0$ and $u,u',v,v'$ bounded as $x\to a,b$
 
 {\tiny $\cdot$ $\star$ holds \ \ $\Rightarrow$ \ \ $^1$特征值实数 $^2$正交特征函数 $^3$可以展开任意函数 \ \ \ || \ \ \ 解题一般思路：$^1$分离变量法得到ODE $^2$解ODE(观察是否是Bessel问题),系数先不管 $^3$使用边界条件(注意bounded)去除部分无关系数 $^4$通解:特征函数线性组合+series方法确定系数}
 
@@ -531,18 +531,18 @@ $\cdot$ $f,f',...,f^{(n-1)}\in E$ and continuous \ \ $\Rightarrow$ \ \ $\mathcal
     $f(t)$ & $\mathcal{L}\{f\}(s)$ & $f(t)$ & $\mathcal{L}\{f\}(s)$ & $f(t)$ & $\mathcal{L}\{f\}(s)$ \\
     \hline
     \hline
-    1 & $\frac{1}{s}$ & $t^n$ \ | \ $e^{at}$ & $\frac{n!}{s^{n+1}}$ \ \ | \ \ $\frac{1}{s-a}$ & $t^ne^{at}$ & $\frac{n!}{(s-a)^{n+1}}$ \\
+    1 & $\frac{1}{s}$ & $t^n$ \ | \ $e^{at}$ & $\frac{n!}{s^{n+1}}$ \ \ | \ \ $\frac{1}{s-a},x>a$ & $t^ne^{at}$ & $\frac{n!}{(s-a)^{n+1}}$ \\
     \hline
-    $sinh(at)$ & $\frac{a}{s^2-a^2}$ & $sin(at)$ & $\frac{a}{s^2+a^2}$ & $cos(at)$ & $\frac{s}{s^2+a^2}$ \\
+    $^\ominus sinh(at)$ & $\frac{a}{s^2-a^2}$ & $sin(at)$ & $\frac{a}{s^2+a^2}$ & $cos(at)$ & $\frac{s}{s^2+a^2}$ \\
     \hline
-    $cosh(at)$ & $\frac{s}{s^2-a^2}$ & $e^{at}sin(bt)$ & $\frac{b}{(s-a)^2+b^2}$ & $e^{at}cos(bt)$ & $\frac{s-a}{(s-a)^2+b^2}$ \\
+    $^\ominus cosh(at)$ & $\frac{s}{s^2-a^2}$ & $e^{at}sin(bt)$ & $\frac{b}{(s-a)^2+b^2}$ & $e^{at}cos(bt)$ & $\frac{s-a}{(s-a)^2+b^2}$ \\
     \hline
     $u_c(t)$ & $\frac{e^{-sc}}{s}$ & $t^ne^{at}sin(bt)$ & $(-1)^n\frac{d^n}{ds^n}(\frac{b}{(s-a)^2+b^2})$ & $t^ne^{at}cos(bt)$ & $(-1)^n\frac{d^n}{ds^n}(\frac{s-a}{(s-a)^2+b^2})$ \\
     \hline
 \end{tabular}
 }
 
-{\tiny ps: 一般: $s>0$ \ \ \ || \ \ \ $sinh,cosh$: $s>|a|$ \ \ \ || \ \ \ $sin/cos/t^n/e^{at}$: $s>a$ \ \ \ || \ \ \ $\star$ \textbf{Heaviside Unit Function}: $u_c=\chi_{[c,\infty)}$}
+{\tiny ps: 一般: $s>0$ \ \ \ || \ \ \ $sinh,cosh$: $s>|a|$ \ \ \ || \ \ \ $e^{at}sin/cos(t^n)$: $s>a$ \ \ \ || \ \ \ $\star$ \textbf{Heaviside Unit Function}: $u_c=\chi_{[c,\infty)}$}
 
 \textbf{Uniqueness \& Existence}: $^1$ If $f,g$ continuous \ $\Rightarrow$ \ $\mathcal{L}\{f\}=\mathcal{L}\{g\}$ $\Leftrightarrow$ $f=g$
 

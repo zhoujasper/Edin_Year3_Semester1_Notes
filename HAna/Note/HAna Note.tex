@@ -210,8 +210,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Continuous}: {\footnotesize If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$.} \hspace{80pt} {\footnotesize $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$}
     \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.}
-    \vspace{-4pt}
-    \item {\scriptsize\textcolor{red}{Cannot use now}}If $^1\lim f_n(x)=f(x)$ uniformly on \textit{closed interval} $[a,b]$, $^2$ $f_n$ integrable on $[a,b]$ \ \ $\Rightarrow$ \ \ $\lim \int_{a}^{b}f_n(x)dx=\int_{a}^{b}\lim f_n(x)dx$
+    \item \textbf{Uniform Convergence Theorem For Int}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
     \item \ex If $f_n:[a,b]\to\mathbb{R}$,$g_n:[a,b]\to\mathbb{R}$ converge uniformly. \ \ $\Rightarrow$ \ \ $\frac{f_n}{g_n}$ converge uniformly also. \ \ {\footnotesize ps:$(a,b)$不行} \ \ \ \ \ \ {\tiny Hint: $f_ng-fg_n=f_ng-fg+fg-fg_n$}
 \end{enumerate}
 
@@ -385,7 +384,7 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
     \item \textbf{Complement $E^C$}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
     \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
     \item \textbf{Translation Invariance}: $m(E)=m(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
-    \item \ex\textbf{Find Lebesgue Measurable Set}: A simple function $s$ \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R},s(x)>\lambda (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
+    \item \textbf{Find Lebesgue Measurable Set}: A simple function $s$ \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R},s(x)>\lambda (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
 \end{enumerate}
 
 
@@ -423,20 +422,20 @@ $\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\
 $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exists c_n,I_n$ s.t. $I_n$ \textit{disjoint} and $f(x)=\sum c_n\chi_{I_n}(x)$
 
 
-\subsection{Simple Functions || Measurable Functions || Real-Valued Functions}
+\subsection{Simple Functions || Measurable Functions}
 
 \subsubsection{Simple Functions \& Measurable Function}
 
-\textbf{Simple Function}: $s:\mathbb{R}\to\mathbb{R}$ is a simple function iff: \ \ \ $s(x)=\sum^k_{j=1} c_j\chi_{E_j}$ , {\footnotesize $E_j$ are Lebesgue Measurable sets.}
+\textbf{Simple Function}: $s:\mathbb{R}\to\mathbb{R}$ is a simple function iff: \ \ \ $s(x)=\sum^k_{j=1} c_j\chi_{E_j}$ , {\footnotesize $E_j$ are Lebesgue Measurable sets.} \ \ \ || \ \ \ {\footnotesize $E_j$ can be disjoint.}
 
-\textbf{Integral of Simple Function|Positive}: $\int_{\mathbb{R}}s(x)dx:=\sum^k_{j=1}c_jm(E_j)$ \ \ \ \ \ \ || \ \ \ \ex $\int_{\mathbb{R}}\alpha s_1+\beta s_2=\alpha\int_{\mathbb{R}}s_1+\beta\int_{\mathbb{R}}s_2$
+\textbf{Integral of Simple Function|Positive}: $\int_{\mathbb{R}}s(x)dx:=\sum^k_{j=1}c_jm(E_j)$ \ \ \ \ \ \ || \ \ \ $\int_{\mathbb{R}}\alpha s_1+\beta s_2=\alpha\int_{\mathbb{R}}s_1+\beta\int_{\mathbb{R}}s_2$
 
 \textbf{Measurable Function}: $f:\mathbb{R}\to\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ if \ \ $\forall\lambda\in\mathbb{R},\{x\in \mathbb{R}:f(x)>\lambda\}$(\textbf{Superlevel Set}) is Lebesgue Measurable.
 \vspace{-3pt}
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{MF|Simple|Continuous Function}: (Simple|Continuous) Function is Lebesgue Measurable. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\downarrow$ Hint:$\{x|f(x)<\lambda\}^C=\bigcap\{x|f(x)>\lambda-\frac{1}{n}\}$}
-    \item \ex\textbf{MF|Measurable Set}: If $f$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
-    \item \ex\textbf{MF|property}: {\footnotesize If $f,g,f_n$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $max\{f,g\}$ , $min\{f,g\}$ , $f\cdot\chi_E$ , $\alpha f\pm\beta g$ , $f^2$ , $f\cdot g$ , $\sup f_n$ , $\inf f_n$ , $\limsup f_n$ , $\liminf f_n$ also.}
+    \item \textbf{MF|Measurable Set}: If $f$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
+    \item \textbf{MF|property}: {\footnotesize If $f,g,f_n$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $max\{f,g\}$ , $min\{f,g\}$ , $f\cdot\chi_E$ , $\alpha f\pm\beta g$ , $f^2$ , $f\cdot g$ , $\sup f_n$ , $\inf f_n$ , $\limsup f_n$ , $\liminf f_n$ also.}
     \item \textbf{Measurable Func $\Rightarrow$ $\exists$ Simple Func}: {\small $f$ is {\footnotesize 非负勒贝格可测函数} \ \ $\Rightarrow$ \ \ $\exists$ simple functions $(s_n)_{n\in\mathbb{N}}$, $0\leq s_n\leq s_{n+1}(\uparrow)$ s.t. $s_n\to f$ pointwise.}
 \end{enumerate}
 
@@ -467,7 +466,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 \end{enumerate}
 
 
-\subsubsection{Integrating Real-Valued Functions}
+\subsection{Integrating Real-Valued Functions}
 
 \textbf{Isolated Functions}: For a function $f$. We define that $f^+:=\max\{f,0\}$ \ , \ $f^-:=-\min\{f,0\}$ \ \ \ $\Rightarrow$ \ \ \ $f=f^+-f^-$ \ , \ $|f|=f^++f^-$.
 
@@ -476,17 +475,25 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \item \textbf{Def of Integral}: If $f\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}f(x)dx:=\int_{\mathbb{R}}f^+(x)dx-\int_{\mathbb{R}}f^-(x)dx$
     \item \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
     \item \textbf{Extended Def}: If $f:E\to\mathbb{R}$ with $E$ Measurable Set \ s.t. \ $\tilde{f}:=f(x)\chi_E$ is Lebesgue Integrable \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}\tilde{f}(x)dx$
+    \item \textbf{Find Other Lebesgue Integrable}: If $^1f:\mathbb{R}\to\mathbb{R}$ measurable \ \ $^2g\in\mathcal{L}^1(\mathbb{R})$ \ \ $^3|f|<|g|$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(\mathbb{R})$
     \item $\mathcal{L}^1(\mathbb{R}):=$ Collection of all Lebesgue Integrable functions on $\mathbb{R}$.
     \item $\mathcal{L}^1(E):=$ Collection of all Lebesgue Integrable functions on $E$.
 \end{enumerate}
 
 \textbf{Property of Integral}: Let $f,g\in\mathcal{L}^1(\mathbb{R})$. Then:
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \ex\textbf{Triangular Inequality for Integrals}: $|\int_{\mathbb{R}}f(x)dx|\leq\int_{\mathbb{R}}|f(x)|dx$
+    \item \textbf{Triangular Inequality for Integrals}: $|\int_{\mathbb{R}}f(x)dx|\leq\int_{\mathbb{R}}|f(x)|dx$
     \item \textbf{Linearity of the Integral}: $\alpha f+\beta g\in\mathcal{L}^1(\mathbb{R})$ and $\int_{\mathbb{R}}\alpha f+\beta g=\alpha\int_{\mathbb{R}}f+\beta\int_{\mathbb{R}}g$ \ \ \ $\Rightarrow$ \ \ \ {\footnotesize \textbf{$\mathcal{L}^1(\mathbb{R})$ is a vector space}}
 \end{enumerate}
 
-\textbf{Dominated Convergence Theorem}: 
+\textbf{Dominated Convergence Theorem}: {\small $^1f_n\in\mathcal{L}^1(\mathbb{R})$. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
+
+\textbf{Fundamental Theorem of Calculus}: $f:[a,b]\to\mathbb{R}$ be \textit{continuous}. \ \ $\Rightarrow$ \ \ $^1F(x):=\int_{a}^{x}f(y)dy$ is differentiable \ \ $^2F'(x)=f(x)$
+
+$\cdot$ \textbf{Corollary}: $f:[a,b]\to\mathbb{R}$ be \textit{continuously differentiable}. \ \ $\Rightarrow$ \ \ $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
+
+
+\section{$\mathcal{L}^p$ Spaces || Hölder's Inequality || Minkowski's Inequality}
 
 
 \section{Appendix}
