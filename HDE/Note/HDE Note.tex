@@ -420,7 +420,7 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 \begin{minipage}[t]{0.74\textwidth}
     \textbf{Requirement}: Assume $u(x,t)=X(x)T(t)$! \ \ \ $\Rightarrow$ \ \ \ { If PDE 能写成 类似 $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}$ $\Rightarrow$ $\frac{T'(t)}{T(t)}=\frac{X''(x)}{X(x)}=\lambda$ (Separation Constant)} \ \ \ $\Rightarrow$ \ \ \ { 可以使用此方法!}
 
-    \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: $u(0,t)=a,u(L,t)=b;u(x,0)=f(x)$
+    \ \ \ 1.Homo, 假设: $u(0,t)=u(L,t)=0;u(x,0)=f(x)$ \ \ \ \ \ \ 2.Inhomo, 假设: change to $u(0,t)=a,u(L,t)=b$
 
     \textbf{Basic Idea|Homo}: { 1. 假设解$u$能写成$u(x,t)=X(x)T(t)$ \ $\Rightarrow$ \ 2. 代入PDE,得两个ODE \ $\Rightarrow$ \ 3. 解其中一个得到特征函数$X_n$ \ $\Rightarrow$ \ 4. 代initial 条件 得限制条件 \ $\Rightarrow$}
 
@@ -428,7 +428,7 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 
     \hspace{49pt} $\cdot$ Remark: { $^1$化简中可以使用正比简化计算 \ \ \ \ \ \ $^2$对$n$的取值为$1,2,3,...$ \ \ \ \ \ \ $^3$对$\lambda$的取值让出现$sin,cos$时为正不容易出错,或注意正负号}
 
-    \textbf{Basic Idea|Inhomo}: { 1. Let $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ $\Rightarrow$ \ $\omega(x,t)$ satisfy: $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$ \ \ \ {\scriptsize 2.按Homo解$\omega(x,t)$}}
+    \textbf{Basic Idea|Inhomo}: {\tiny Soln: $u(x,t)=v(x)+\omega(x,t),v(x)=\frac{b-a}{L}x+a$ \ || \ $\omega(x,t)$ 当作homo微分方程解,边界条件 $\omega(x,0)=f(x)-v(x);\omega(0,t)=\omega(L,t)=0$}
 
     \textbf{Laplace Equation}: 2D:$\nabla^2u=\partial^2_xu+\partial^2_yu=0$ \ \ \ 3D: $\nabla^2u=\partial^2_xu+\partial^2_yu+\partial^2_zu=0$ \ \ \ \ \ \ Following are the method to solve:
 
@@ -455,7 +455,8 @@ $\cdot$ \textbf{Euler-Fourier Formula (Complex)}: If ($\Uparrow$) of Periodic $f
 
 \section{Sturm-Liouville Theory \ \ (Another 'Fourier')}
 
-\subsection{Sturm-Liouville Theory}
+\vspace{-5pt}
+\subsection{Sturm-Liouville Theory \ \ \ \ \ {\tiny $Py''+Qy'+Ry=0$ \ \ $\Leftrightarrow$ \ \ $[\mu Py']'+\mu Ry=0$ \ \ Integrating factor:$\mu=\frac{1}{P}e^{\int_{x_0}^{x}\frac{Q(s)}{P(s)}ds}$}}
 
 \textbf{Sturm-Liouville (SL) Problem}: Form: $-(p(x)y')'+q(x)y=\lambda r(x)y$ \ , \ $p,r>0$ \ \ || \ \ With: $a_1y(a)+a_2y'(a)=b_1y(b)+b_2y'(b)=0$ \ \ $p,p',q,r$ continuous. \ \ || \textbf{weight function}: $r(x)$. \ \ \ || \ \ \ {\tiny $\Downarrow$ \textbf{Lagrange's Identity}}
 

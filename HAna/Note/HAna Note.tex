@@ -455,7 +455,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 %   \item \ex\textbf{Almost Everywhere|$f=0$}: If $E$ Lebesgue Measurable \& $\int_Ef(x)dx=0$ \ \ $\Rightarrow$ \ \ $m(\{x\in E:f(x)>0\})=0$ \ \ \ {\tiny Hint: $\{x|f(x)>0\}=\bigcup\{x|f(x)>\frac{1}{n}\}$}
 \end{enumerate}
 
-\textbf{MCT for Integral}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
+\textbf{MCT for Integral|Positive}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
 
 \textbf{More Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesgue Measurable functions.
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
@@ -553,5 +553,6 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 
 \ex$E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
 
+\textbf{特殊集合构造技巧}: {\scriptsize $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$} \ \ || \ \ {\scriptsize $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$}
 
 \end{document}
