@@ -222,7 +222,7 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
 \textbf{Variation of Parameters}: $\mathbf{y}=\mathbf{y}_g+\mathbf{y}_p$; \ \ \ $\mathbf{y}_g=\Psi(t)\Psi^{-1}(t_0)\mathbf{y}(t_0)$; \ \ \ $\mathbf{y}_p=\Psi(t)\mathbf{u}(t),\mathbf{u}(t)=\int^t_{t_0}\Psi^{-1}(s)\mathbf{g}(s)ds$. \ \ {\scriptsize 经常$\Psi(t)\mathbf{u}'=\mathbf{g}$来找$\mathbf{u}$}
 
-\textbf{Matrix methods|Diagonalisation}: $^1$Let $\mathbf{y}=T\mathbf{x}$ \ \ \ $^2(\star)\Rightarrow \mathbf{x}'=D\mathbf{x}+T^{-1}\mathbf{g}=D\mathbf{x}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $z_i=c_ie^{r_it}+\underline{e^{r_it}\int^t_{t_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
+\textbf{Matrix methods|Diagonalisation}: $^1$Let $\mathbf{y}=T\mathbf{x}$ \ \ \ $^2(\star)\Rightarrow \mathbf{x}'=D\mathbf{x}+T^{-1}\mathbf{g}=D\mathbf{x}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $x_i=c_ie^{r_it}+\underline{e^{r_it}\int^t_{t_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
 
 \textbf{Undetermined Coefficients}: { when $\mathbf{g}(t)$ is \underline{polynomials}, or \underline{real/complex exponential}.} \ \ \ Let { $P_n(t)=\sum^n_{i=0}\mathbf{p}_it^i,A_n(t)=\sum^n_{i=0}\mathbf{a}_it^i$}
 
@@ -489,7 +489,7 @@ $\cdot$ $\Rightarrow$ Let $\lambda_n,\Phi_n$ be eigenvalues \& orthonormal eigen
 \vspace{-2pt}
 $\cdot$ (Ctd.) $^1$ If $\mu\ne\lambda_n$ $\Rightarrow$ unique solution. \ \ $^2$ If $\exists m,\mu=\lambda_m$: Let $c_n=\int^b_af(x)\Phi_n(x)dx$ \ \ $\Rightarrow$ \ \ Case I ($c_m=0$): Let $b_n=\frac{c_n}{\lambda_n-\mu}${\tiny $,n\ne m$} \ \ $y(x)=\sum_{n=1,n\ne m}^\infty [b_n\Phi_n(x)]+b_m\Phi_m(x),b_m\in\mathbb{R}$ \ \ \ \ \ \ Case II ($c_m\ne0$): {\tiny No Solution.}
 
-\textbf{Sigular / Regular SL Problem}: \textbf{Sigular}: boundary condition at \textit{closed interval}. \ \ \ || \ \ \ \textbf{Regular}: boundary condition at \textit{open interval} or [a,b) or (a,b].
+\textbf{Sigular / Regular SL Problem}: \textbf{Regular}: boundary condition at \textit{closed interval}. \ \ \ || \ \ \ \textbf{Singular}: boundary condition at \textit{open interval} or [a,b) or (a,b].
 
 \textbf{Sigular SL Problem|One-side}: $\mathcal{L}(y)=\lambda r(x)y$, 奇异边$x=a,b$. \ \ $\Rightarrow$ \ \ $\lim_{\varepsilon\to a,b}p(\varepsilon)[u'(\varepsilon)v(\varepsilon)-u(\varepsilon)v'(\varepsilon)]=0$ \ \ $\Rightarrow$ \ \ $\star$ $\forall$ sols $u,v$: $\int_{a}^{b}\mathcal{L}(u)v-u\mathcal{L}(v)=0$ $\star$ \ \ $\Leftarrow$ $lim_{\varepsilon\to a,b}p(\varepsilon)=0$ and $u,u',v,v'$ bounded as $x\to a,b$
 

@@ -475,7 +475,8 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \item \textbf{Def of Integral}: If $f\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}f(x)dx:=\int_{\mathbb{R}}f^+(x)dx-\int_{\mathbb{R}}f^-(x)dx$
     \item \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
     \item \textbf{Extended Def}: If $f:E\to\mathbb{R}$ with $E$ Measurable Set \ s.t. \ $\tilde{f}:=f(x)\chi_E$ is Lebesgue Integrable \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}\tilde{f}(x)dx$
-    \item \textbf{Find Other Lebesgue Integrable}: If $^1f:\mathbb{R}\to\mathbb{R}$ measurable \ \ $^2g\in\mathcal{L}^1(\mathbb{R})$ \ \ $^3|f|<|g|$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(\mathbb{R})$
+    \item \ex\textbf{'Comparison Test'}: If $^1f:\mathbb{R}\to\mathbb{R}$ measurable \ \ $^2g\in\mathcal{L}^1(\mathbb{R})$ \ \ $^3|f|<g$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(\mathbb{R})$
+    \item \textbf{Remark}: Can use p-test, Comparison test ... when we want to prove a function is Lebesgue Integrable.
     \item $\mathcal{L}^1(\mathbb{R}):=$ Collection of all Lebesgue Integrable functions on $\mathbb{R}$.
     \item $\mathcal{L}^1(E):=$ Collection of all Lebesgue Integrable functions on $E$.
 \end{enumerate}
@@ -486,7 +487,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \item \textbf{Linearity of the Integral}: $\alpha f+\beta g\in\mathcal{L}^1(\mathbb{R})$ and $\int_{\mathbb{R}}\alpha f+\beta g=\alpha\int_{\mathbb{R}}f+\beta\int_{\mathbb{R}}g$ \ \ \ $\Rightarrow$ \ \ \ {\footnotesize \textbf{$\mathcal{L}^1(\mathbb{R})$ is a vector space}}
 \end{enumerate}
 
-\textbf{Dominated Convergence Theorem}: {\small $^1f_n\in\mathcal{L}^1(\mathbb{R})$. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
+\textbf{Dominated Convergence Theorem}: {\small $^1f_n$ is MF. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
 
 \textbf{Fundamental Theorem of Calculus}: $f:[a,b]\to\mathbb{R}$ be \textit{continuous}. \ \ $\Rightarrow$ \ \ $^1F(x):=\int_{a}^{x}f(y)dy$ is differentiable \ \ $^2F'(x)=f(x)$
 
