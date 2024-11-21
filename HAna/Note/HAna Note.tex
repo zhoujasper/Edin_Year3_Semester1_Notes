@@ -470,13 +470,12 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 
 \textbf{Isolated Functions}: For a function $f$. We define that $f^+:=\max\{f,0\}$ \ , \ $f^-:=-\min\{f,0\}$ \ \ \ $\Rightarrow$ \ \ \ $f=f^+-f^-$ \ , \ $|f|=f^++f^-$.
 
+$\cdot$ \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
+
 \textbf{Lebesgue Integrable}: A MF $f:\mathbb{R}\to\mathbb{R}$ is Lebesgue Integrable \ iff \ $\int_{\mathbb{R}}|f(x)|dx<\infty$ \ \ $\Leftrightarrow$ \ \ $\int_{\mathbb{R}}f^+dx<\infty$ \& $\int_{\mathbb{R}}f^-dx<\infty$
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Def of Integral}: If $f\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}f(x)dx:=\int_{\mathbb{R}}f^+(x)dx-\int_{\mathbb{R}}f^-(x)dx$
-    \item \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
-    \item \textbf{Extended Def}: If $f:E\to\mathbb{R}$ with $E$ Measurable Set \ s.t. \ $\tilde{f}:=f(x)\chi_E$ is Lebesgue Integrable \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}\tilde{f}(x)dx$
-    \item \ex\textbf{'Comparison Test'}: If $^1f:\mathbb{R}\to\mathbb{R}$ measurable \ \ $^2g\in\mathcal{L}^1(\mathbb{R})$ \ \ $^3|f|<g$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(\mathbb{R})$
-    \item \textbf{Remark}: Can use p-test, Comparison test ... when we want to prove a function is Lebesgue Integrable.
+    \item \textbf{Extended Def}: If $f:E\to\mathbb{R}$ with $E$ Measurable Set \ s.t. \ $\tilde{f}:=f(x)\chi_E$ is Lebesgue Integrable \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}\tilde{f}(x)dx$    
     \item $\mathcal{L}^1(\mathbb{R}):=$ Collection of all Lebesgue Integrable functions on $\mathbb{R}$.
     \item $\mathcal{L}^1(E):=$ Collection of all Lebesgue Integrable functions on $E$.
 \end{enumerate}
@@ -485,6 +484,8 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Triangular Inequality for Integrals}: $|\int_{\mathbb{R}}f(x)dx|\leq\int_{\mathbb{R}}|f(x)|dx$
     \item \textbf{Linearity of the Integral}: $\alpha f+\beta g\in\mathcal{L}^1(\mathbb{R})$ and $\int_{\mathbb{R}}\alpha f+\beta g=\alpha\int_{\mathbb{R}}f+\beta\int_{\mathbb{R}}g$ \ \ \ $\Rightarrow$ \ \ \ {\footnotesize \textbf{$\mathcal{L}^1(\mathbb{R})$ is a vector space}}
+    \item \textbf{'Comparison Test'}: If $^1f:\mathbb{R}\to\mathbb{R}$ measurable \ \ $^2\int_{\mathbb{R}}g(x)<\infty$ \ \ $^3|f|<g$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(\mathbb{R})$
+    \item \textbf{Remark}: Can use p-test, Comparison test ... when we want to prove a function is Lebesgue Integrable.
 \end{enumerate}
 
 \textbf{Dominated Convergence Theorem}: {\small $^1f_n$ is MF. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}

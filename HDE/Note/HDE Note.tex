@@ -205,7 +205,7 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
     $\cdot$ $W(t)\ne0$,$\forall t$ \ $\Rightarrow \ \{\mathbf{y}^{(j)}\}$ \textbf{linearly independent}. { ps:经常用 Abel Theorem} \\
 
-    {\tiny $e^{J_it}=e^{\lambda_i t}\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$} \\
+    {\tiny $e^{J_it}=e^{\lambda_i t}\begin{pmatrix} 1 & t & \frac{t^2}{2} & \cdots & \frac{t^{n-1}}{(n-1)!} \\ 0 & 1 & t & \cdots & \frac{t^{n-2}}{(n-2)!} \\ \vdots & \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & 0 & \cdots & 1 \end{pmatrix}$} \ \ \ ps: (e.g.) $J_3=\begin{pmatrix}\lambda & 1 & 0 \\ 0 & \lambda & 1 \\ 0 & 0 & \lambda\end{pmatrix}$ \\
 
     \textbf{Exponential of Matrix}: $e^{At}:=\sum_{n=0}^{\infty}\frac{(At)^n}{n!} \ = \ \mathbb{I}+At+\frac{1}{2!}A^2t^2+\cdots$
 
@@ -218,12 +218,28 @@ $\cdot$ $^2F_j  \ , \ \partial_{y_i}F_j:R_i \to \mathbb{R}$ are continuous.  \ \
 
 \subsection{non-Homogeneous}
 
-\textbf{Theorem}: Solution of (\star): $\mathbf{y}=\sum_ic_i\mathbf{y}^{(i)}+\mathbf{y}_{p}$, \ \ where $\mathbf{y}^{(i)}$ is solution of it's Homogeneous. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\Downarrow$ 通常会让特解中积分后的常数c=0}
+\begin{minipage}[t]{0.69\textwidth}
+    
+    \textbf{Theorem}: Solution of (\star): $\mathbf{y}=\sum_ic_i\mathbf{y}^{(i)}+\mathbf{y}_{p}$, \ \ where $\mathbf{y}^{(i)}$ is solution of it's Homogeneous. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\Downarrow$ 通常会让特解中积分后的常数c=0}
 
-\textbf{Variation of Parameters}: $\mathbf{y}=\mathbf{y}_g+\mathbf{y}_p$; \ \ \ $\mathbf{y}_g=\Psi(t)\Psi^{-1}(t_0)\mathbf{y}(t_0)$; \ \ \ $\mathbf{y}_p=\Psi(t)\mathbf{u}(t),\mathbf{u}(t)=\int^t_{t_0}\Psi^{-1}(s)\mathbf{g}(s)ds$. \ \ {\scriptsize 经常$\Psi(t)\mathbf{u}'=\mathbf{g}$来找$\mathbf{u}$}
+    \textbf{Variation of Parameters}: $\mathbf{y}=\mathbf{y}_g+\mathbf{y}_p$; \ \ \ $\mathbf{y}_g=\Psi(t)\Psi^{-1}(t_0)\mathbf{y}(t_0)$; \ \ \ $\mathbf{y}_p=\Psi(t)\mathbf{u}(t),\mathbf{u}(t)=\int^t_{t_0}\Psi^{-1}(s)\mathbf{g}(s)ds$. \ \ {\scriptsize 经常$\Psi(t)\mathbf{u}'=\mathbf{g}$来找$\mathbf{u}$}
+    
+    \textbf{Matrix methods|Diagonalisation}: $^1$Let $\mathbf{y}=T\mathbf{x}$ \ \ \ $^2(\star)\Rightarrow \mathbf{x}'=D\mathbf{x}+T^{-1}\mathbf{g}=D\mathbf{x}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $x_i=c_ie^{r_it}+\underline{e^{r_it}\int^t_{t_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
+    
 
-\textbf{Matrix methods|Diagonalisation}: $^1$Let $\mathbf{y}=T\mathbf{x}$ \ \ \ $^2(\star)\Rightarrow \mathbf{x}'=D\mathbf{x}+T^{-1}\mathbf{g}=D\mathbf{x}+\mathbf{h}$ \ \ \ $^3$ {\tiny 直接计算;} $x_i=c_ie^{r_it}+\underline{e^{r_it}\int^t_{t_0}e^{-r_is}h_i(s)ds}_{\mathbf{y}_p}$
+\end{minipage}
+\hfill
+\vrule width 0.3pt
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+    \tiny
+    \textbf{Inversse of Matrix}: $\begin{pmatrix}a & b \\ c & d \end{pmatrix}^{-1}=\frac{1}{ad-bc}\begin{pmatrix}d & -b \\ -c & a \end{pmatrix}$
+    
+    $(e.g.)J_3^{-1}=\frac{1}{\lambda}\begin{pmatrix}1 & -\frac{1}{\lambda} & \frac{1}{\lambda^2} \\ 0 & 1 & -\frac{1}{\lambda} \\ 0 & 0 & 1\end{pmatrix}$
 
+\end{minipage}
+
+\vspace{-7pt}
 \textbf{Undetermined Coefficients}: { when $\mathbf{g}(t)$ is \underline{polynomials}, or \underline{real/complex exponential}.} \ \ \ Let { $P_n(t)=\sum^n_{i=0}\mathbf{p}_it^i,A_n(t)=\sum^n_{i=0}\mathbf{a}_it^i$}
 
 $^1${\scriptsize 构造$\mathbf{y}_p$与$\mathbf{g}$ 结构相匹配.(e.g. If $\mathbf{g}=P_n(t)\Rightarrow \mathbf{y}_p=A_n(t)$; If $\mathbf{g}=\mathbf{c}e^{kt}\Rightarrow \mathbf{y}_p=\mathbf{a}e^{kt}$)} \ $^2$ {\scriptsize 特殊: If $\mathbf{g}=\mathbf{c}e^{\lambda t}$,$\lambda$ is eigenvalue with $AM=n\Rightarrow \mathbf{y}_p=e^{\lambda t}\sum_{i=0}^{n}\mathbf{a}_it^i$} \ $^3${\scriptsize 带入原方程得未知系数}
@@ -616,7 +632,7 @@ $\cdot$ $sinh(x)$ 单调递增, odd, iff $x=0,sinh(x)=0$ \ \ \ \ \ \ $cosh(x)$ $
 
 \textbf{Solve $y''+\lambda y=0$}: { $^1\lambda<0:y=c_1\sinh(\sqrt{-\lambda}x)+c_2\cosh(\sqrt{-\lambda}x)$ \ \ \ $^2\lambda=0:y=c_1x+c_2$ \ \ \ $^3\lambda>0(\mathbb{C}):y=c_1\cos(\sqrt{\lambda}x)+c_2\sin(\sqrt{\lambda}x)$} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \textbf{Solve $y'+\beta y=0$}: { $y=c_1e^{-\beta x}$}
 
-\textbf{Approximation} $sin(x)\approx x$ when $x\to0$
+\textbf{Approximation} $sin(x)\approx x$ when $x\to0$ \ \ \ \ \ \ || \ \ \ \ \ \ $\Downarrow$ 一般对于$-(xy')'=\lambda xy$ \ \ Let $t=\sqrt{\lambda}x$ \ $\Rightarrow$ \ $y''+\frac{1}{t}y'+y=0$
 
 \textbf{Bessel's Equation}: $y''+\frac{1}{t}y'+(1-\frac{m^2}{t^2})y=0$ \ \ $\Rightarrow$ \ \ Solution: $y(t)=c_1J_m(t)+c_2Y_m(t)$ \ \ \ || \ \ \ $J_m(t)$ is Bessel function of first kind; $Y_m(t)$ is Bessel function of second kind. \ \ \ || \ \ \ ps: $Y_m(t)$ not bounded as $t\to0$, $J_m(t)$ bounded.
 
