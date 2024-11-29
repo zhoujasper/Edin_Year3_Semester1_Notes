@@ -210,7 +210,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Continuous}: {\footnotesize If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$.} \hspace{80pt} {\footnotesize $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$}
     \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.}
-    \item \textbf{Uniform Convergence Theorem For Int}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
+    \item \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
     \item \ex If $f_n:[a,b]\to\mathbb{R}$,$g_n:[a,b]\to\mathbb{R}$ converge uniformly. \ \ $\Rightarrow$ \ \ $\frac{f_n}{g_n}$ converge uniformly also. \ \ {\footnotesize ps:$(a,b)$不行} \ \ \ \ \ \ {\tiny Hint: $f_ng-fg_n=f_ng-fg+fg-fg_n$}
 \end{enumerate}
 
@@ -251,7 +251,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 
 \subsection{Exponential Function \& Real Analytic Function}
 
-\textbf{Exponential Function}: $E(x):=\sum_{n=0}^{\infty}\frac{x^n}{n!}$ with $R=\infty$ \ \ \ \ \ \ {\scriptsize ps: usually denoted by $exp(x)$ or $e^x$} \ \ \ \ \ \ {\scriptsize ps: $E(x)=\lim_{n\to\infty}(1+\frac{x}{n})^n$}
+\textbf{Exponential Function}: $E(x):=\sum_{n=0}^{\infty}\frac{x^n}{n!}$ with $R=\infty$\ \ \ \ \ \ {\scriptsize ps: $E(x)=\lim_{n\to\infty}(1+\frac{x}{n})^n$ {\tiny Hint: 证pointwise考虑$ln$,as $ln(1+\frac{x}{n})=\int^{1+\frac{x}{n}}_1\frac{1}{t}dt$,缩放,squeeze theorem.|uniformly考虑unif cont}}
 
 \textbf{Real Analytic Function}: $f:I\to\mathbb{R}$ is real analytic \ iff \ $\exists (a_n)_{n\in\mathbb{N}}$ s.t. $f(x)=\sum_{n=0}^{\infty}a_n(x-c)^n$ for $\forall x\in I$ \ \ \ {\footnotesize i.e. Series converges pointwise on I.}
 
@@ -489,13 +489,20 @@ $\cdot$ \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
     \item \textbf{Remark}: Can use p-test, Comparison test ... when we want to prove a function is Lebesgue Integrable.
 \end{enumerate}
 
-\textbf{Dominated Convergence Theorem}: {\small $^1f_n$ is MF. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
+\textbf{Dominated Convergence Theorem (DCT)}: {\small $^1f_n$ is MF. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
 
-\textbf{Fundamental Theorem of Calculus}: $f:[a,b]\to\mathbb{R}$ be \textit{continuous}. \ \ $\Rightarrow$ \ \ $^1F(x):=\int_{a}^{x}f(y)dy$ is differentiable \ \ $^2F'(x)=f(x)$
+$\cdot$ \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
+
+\textbf{Fundamental Theorem of Calculus (FTC)}: $f:[a,b]\to\mathbb{R}$ be \textit{continuous}. \ \ $\Rightarrow$ \ \ $^1F(x):=\int_{a}^{x}f(y)dy$ is differentiable \ \ $^2F'(x)=f(x)$
 
 $\cdot$ \textbf{Corollary}: $f:[a,b]\to\mathbb{R}$ be \textit{continuously differentiable}. \ \ $\Rightarrow$ \ \ $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
 
 $\cdot$ \textbf{Remark}: $^1$ f is Lebesgue Integrable. (By Extreme value theorem) and. \ \ \ $^2$ {\small 需要闭区间(Closed)否则需要结合MCT或DCT极限逼近来用.}
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{Integration-By-Parts}: If $f,g:[a,b]\to\mathbb{R}$ be \textit{continuously differentiable}. \ \ $\Rightarrow$ \ \ $\int_{a}^{b}fg' \ dx=[fg]^b_a-\int_{a}^{b}f'g \ dx$
+    \item \textbf{Integration-By-Substitution}: {\small If $f:[c,d]\to\mathbb{R}$ \textit{continuous} \& $\phi:[a,b]\to[c,d]$ \textit{continuous diff} \ \ $\Rightarrow$ \ \ $\int_{a}^{b}f(\phi)\phi'dx=\int_{\phi(a)}^{\phi(b)}f(y)dy$}
+\end{enumerate}
 
 
 \section{$\mathcal{L}^p$ Spaces || Hölder's Inequality || Minkowski's Inequality}
@@ -513,11 +520,13 @@ $\cdot$ \textbf{Remark}: $^1$ f is Lebesgue Integrable. (By Extreme value theore
     \hline
     \textbf{\footnotesize Bernoulli's Inequality} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\leq 1+\delta\alpha,\alpha\in(0,1],\delta\geq-1$} & \multicolumn{2}{l|}{$(1+\delta)^\alpha\geq 1+\delta\alpha,\alpha\in[1,+\infty),\delta\geq-1$} \\
     \hline
-    \textbf{\footnotesize 常见变换技巧1} & \np$|sin(x)|\leq |x|$ {\tiny Hint:MVT} & \np$ln(x)<x${\scriptsize $,x>0$} {\tiny Hint: MVT} & \multicolumn{2}{l|}{\np$1-cos(x)<|x|$ {\tiny Hint: MVT}} \\
+    \textbf{\np\footnotesize $e^x,ln(x)$} & $e^x\geq1+x\geq x$ {\tiny Hint: Def/MVT} & $\ln x\leq x-1\leq x$ {\tiny Hint: MVT} & {\footnotesize $e^x\geq1+x+\frac{x^2}{2}+\cdots$} {\tiny Hint: Def} & {\scriptsize $\frac{1}{k}\leq ln(x)-ln(x-1)$} {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} \\
     \hline
-    \textbf{\footnotesize 常见变换技巧2} & {\footnotesize\np $\frac{1}{k}\leq ln(x)-ln(x-1)$} \ \ \ \ {\tiny Hint:$\int^k_{k-1}\frac{dx}{x}$} & \multicolumn{3}{l|}{\small $|a_n||x-c|^n=|a_n|\rho^n\cdot\frac{|x-c|^n}{\rho^n} \ , \ |x-c|<\rho<R$} \\
+    \textbf{\footnotesize 常见变换技巧} & \multicolumn{2}{l|}{\small $(1+\frac{x}{n})^n\geq1+n\cdot\frac{x}{n}+C_n^2(\frac{x}{n})^2$ {\tiny Hint:Binomial Theorem}}  & \multicolumn{2}{l|}{\small $|a_n||x-c|^n=|a_n|\rho^n\cdot\frac{|x-c|^n}{\rho^n} \ , \ |x-c|<\rho<R$} \\
     \hline
-    \textbf{\footnotesize 常见变换技巧3} & {\small If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$} & \multicolumn{2}{l|}{\footnotesize $\forall\delta,0<\delta<1$ and $\delta a\leq b$ \ \ $\Rightarrow$ \ \ $a\leq b$} &  \\
+    \textbf{\np\footnotesize $sin(x),cos(x)$} & $|sin(x)|\leq |x|$ {\tiny Hint:MVT} & $1-cos(x)<|x|$ {\tiny Hint: MVT} & & \\
+    \hline
+    \textbf{\footnotesize 常见变换技巧2} & {\small If $\forall\varepsilon>0$ $a\leq b+\varepsilon$ \ \ $\Rightarrow$ \ \ $a\leq b$} & \multicolumn{2}{l|}{\footnotesize $\forall\delta,0<\delta<1$ and $\delta a\leq b$ \ \ $\Rightarrow$ \ \ $a\leq b$} & \\
     \hline
 \end{longtable}
 \vspace{-10pt}
@@ -559,5 +568,6 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 \ex$E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
 
 \textbf{特殊集合构造技巧}: {\scriptsize $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$} \ \ || \ \ {\scriptsize $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$}
+
 
 \end{document}
