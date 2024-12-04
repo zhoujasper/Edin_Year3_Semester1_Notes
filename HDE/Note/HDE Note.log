@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  28 NOV 2024 09:09
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  4 DEC 2024 19:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -818,7 +818,7 @@ Package fancyhdr Warning: \footskip is too small (0.0pt):
 Here is how much of TeX's memory you used:
  13549 strings out of 476683
  301692 string characters out of 5795227
- 2021012 words of memory out of 5000000
+ 2020012 words of memory out of 5000000
  33611 multiletter control sequences out of 15000+600000
  517381 words of font info for 101 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
