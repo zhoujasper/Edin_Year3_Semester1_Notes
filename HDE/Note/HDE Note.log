@@ -717,4 +717,111 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=557.6742pt
-* \textheight
+* \textheight=810.90364pt
+* \oddsidemargin=-52.35315pt
+* \evensidemargin=-52.35315pt
+* \topmargin=-95.04362pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=9.0pt
+* \footskip=0.0pt
+* \marginparwidth=74.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=7.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
+(Font)              scaled to size 10.00107pt on input line 69.
+LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 69.
+LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 69.
+LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 69.
+LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 69.
+LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 69.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 69.
+(d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 69.
+ (d:/Program Files (x86)/texlive/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `TU/CambriaMath(2)/m/n' will be
+(Font)              scaled to size 6.00064pt on input line 84.
+LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 84.
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--341
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 7.05pt, for example:
+(fancyhdr)                \setlength{\footskip}{7.05pt}.
+
+[1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--467
+
+ []
+
+
+Package fancyhdr Warning: \footskip is too small (0.0pt): 
+(fancyhdr)                Make it at least 7.05pt, for example:
+(fancyhdr)                \setlength{\footskip}{7.05pt}.
+
+[2] (./HDE Note.aux) ) 
+Here is how much of TeX's memory you used:
+ 13549 strings out of 476683
+ 301692 string characters out of 5795227
+ 2021012 words of memory out of 5000000
+ 33611 multiletter control sequences out of 15000+600000
+ 517381 words of font info for 101 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 89i,15n,114p,574b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on HDE Note.pdf (2 pages).
