@@ -237,7 +237,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
     \hline
     Name & MAP{\tiny Maximum A Posterior} & MMSE{\tiny Posterior Mean / Bayesian Minimum Mean Squared Error Estimator} & Posterior Median $\widehat{\theta}_{median}$ \\
     \hline
-    {\scriptsize Single Para} & {\footnotesize $\widehat{\theta}_{MAP}=\arg\max_\theta p(\theta|\mathbf{y})$} & {\footnotesize $\widehat{\theta}_{MMSE}=\mathbb{E}[\theta|\mathbf{y}]=\int_{\theta\in\Theta}\theta p(\theta|\mathbf{y})d\theta$} & {\footnotesize $\frac{1}{2}=\int_{-\infty}^{\widehat{\theta}_{median}}p(\theta|\mathbf{y})d\theta=\int_{\widehat{\theta}_{median}}^{\infty}p(\theta|\mathbf{y})d\theta$} \\
+    {\scriptsize Single Para} & {\footnotesize $\widehat{\theta}_{MAP}=\arg\max_\theta p(\theta|\mathbf{y})$} & {\scriptsize $\widehat{\theta}_{MMSE}=\mathbb{E}[\theta|\mathbf{y}]=\int_{\theta\in\Theta}\theta p(\theta|\mathbf{y})d\theta$} {\tiny ps:估算后验分布参数一般方法} & {\scriptsize $\frac{1}{2}=\int_{-\infty}^{\widehat{\theta}_{median}}p(\theta|\mathbf{y})d\theta=\int_{\widehat{\theta}_{median}}^{\infty}p(\theta|\mathbf{y})d\theta$} \\
     \hline
     \hline
     Name & Posterior Var & \multicolumn{2}{c|}{$C_{\alpha}=[a,b]$ \scriptsize $(1-\alpha)100\%$ Bayesian Credible Intervals (or Simply Credible Intervals)} \\
@@ -669,7 +669,7 @@ $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\t
 
 \textbf{Def|CI}: An interval of uncertainty for fitted regression line, given the explanatory variable $x_0$.
 
-\textbf{Meaning|CI 表示含义}: \textbf{Not Reject}: If data are generated under $H_0$, there is a probability $(1-\alpha)$ for the true $\theta_0$ to be within the $(1-\alpha)100\%$ CI.
+\textbf{Meaning|CI 表示含义}: \textbf{Not Reject}: If data are generated under $H_0$, there is a probability $(1-\alpha)$ for the true $\theta_0$ to be within the $(1-\alpha)100\%$ CI. (i.e. If we were to repeat out experiment 100 times, we would expect the true $\theta_0$ to be within the derived confidence interval (not necessarily CI:(a,b)) \{e.g. 95\} times.)
 
 \textbf{Assumption|CI}: Let $X_1,...,X_n$ be independent and identically distributed $\{?:distribution\}$ random variables, where $\{?\}$ is unknown/known ...
 
@@ -694,6 +694,13 @@ $\cdot$ \textbf{3}.$T_{LR}$ (Height Comparison): Compares the MLE $L(\widehat{\t
 \textbf{Reject $H_0$}: We would reject $H_0$ in favour of the $H_1$. (So that ...) \ \ \ || \ \ \ 
 \textbf{Fail to reject $H_0$}: We fail to reject $H_0$. Hence, there is strong evidence against the null hypothesis.
 
+
+\vspace{5pt}
+\textbf{Bayes Inference}
+
+\textbf{Meaning|Important Sampling (IS)}: It's a Monte Carlo technique that can be used when simulating from the posterior is not possible.
+
+\textbf{Meaning|Variation Methods}: It minimizes a divergence between the posterior and the variation approximation.
 
 \vspace{5pt}
 \textbf{Linear Regression}
