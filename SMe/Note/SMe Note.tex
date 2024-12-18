@@ -333,7 +333,7 @@ $\cdot$ \textbf{Bayes' Rule / Theorem}: $p(\underline{\theta}|\mathbf{y})=\frac{
 \footnotesize
 \begin{longtable}{|c||l|l|l|}
     \hline
-    SL Estimate & {\scriptsize $S_{xy}=\frac{1}{n}\sum(x_i-\overline{x})(y_i-\overline{y})=\sum x_iy_i-\frac{1}{n}(\sum x_i)(\sum y_i)$} & LS Method: $\widehat{\beta}=\frac{S_{xy}}{S_{xx}}$ | $\widehat{\alpha}=\overline{y}-\widehat{\beta}\overline{x}$ & {\scriptsize $\widehat{\alpha},\widehat{\beta}=\arg\min_{\alpha,\beta}S(\alpha,\beta)$ | $S(\alpha,\beta)=\sum(y_i-\mu_i)$} \\
+    SL Estimate & {\scriptsize $S_{xy}=\sum(x_i-\overline{x})(y_i-\overline{y})=\sum x_iy_i-\frac{1}{n}(\sum x_i)(\sum y_i)$} & LS Method: $\widehat{\beta}=\frac{S_{xy}}{S_{xx}}$ | $\widehat{\alpha}=\overline{y}-\widehat{\beta}\overline{x}$ & {\scriptsize $\widehat{\alpha},\widehat{\beta}=\arg\min_{\alpha,\beta}S(\alpha,\beta)$ | $S(\alpha,\beta)=\sum(y_i-\mu_i)$} \\
     \hline
     $\mathbb{E},Var$ For $\beta$ & $\mathbb{E}[\widehat{\beta}]=\beta${\tiny ,unbiased} \ \ || \ \ $Var[\widehat{\beta}]=\sigma^2_{\widehat{\beta}}=\frac{\sigma^2}{S_{xx}}$ & $\widehat{Var[\widehat{\beta}]}=\widehat{\sigma^2}_{\widehat{\beta}}=\frac{\widehat{\sigma^2}}{S_{xx}}$ & {\scriptsize $\widehat{\sigma^2}=\frac{1}{n-2}\sum(y-\alpha-\beta x)^2=\frac{1}{n-2}(S_{yy}-\frac{S^2_{xy}}{S_{xx}})$} \\
     \hline
@@ -376,7 +376,7 @@ $\cdot$ {\footnotesize \textbf{Parameter Estimates}: $\underline{\widehat{\beta}
     \hline
     Orthonormal Matrix $\mathcal{Q}$ & \multicolumn{2}{l|}{ Def: $\mathcal{Q}$:= columns and rows are orthonormal vectors.} & {\footnotesize $\mathcal{Q}^T=\mathcal{Q}^{-1}$} & $\mathcal{Q}\mathcal{Q}^T=\mathcal{Q}^T\mathcal{Q}=I_n$ & $\forall\mathbf{v},||\mathbf{v}||^2=||\mathcal{Q}\mathbf{v}||^2=||\mathcal{Q}^T\mathbf{v}||^2$ \\
     \hline
-    (ctd.) $\star\star$ & \multicolumn{2}{l|}{Matrix $X$ Orthogonal iff $X^TX$ is diagonal matrix.} & \multicolumn{3}{l|}{$X^TX$ always symmetric matrix \ \ $\Rightarrow$ \ \ $\mathbf{V}_{\hat{\underline{\beta}}}$ is diagonal \ \ $\Rightarrow$ \ \ $\beta_i$ independent} \\
+    (ctd.) $\star\star$ & \multicolumn{2}{l|}{Matrix $X$ Orthogonal iff $X^TX$ is diagonal matrix.} & \multicolumn{2}{l|}{$X^TX$ always symmetric matrix} & {$\mathbf{V}_{\hat{\underline{\beta}}}$ is diagonal \ \ $\Rightarrow$ \ \ $\beta_i$ independent} \\
     \hline
     $\mathbf{QR}$ Decomposition & $\forall \ \mathbf{X}\in\mathbb{R}^{n\times p}$ \ $\Rightarrow$ \ $\mathbf{X}=\mathcal{Q}\begin{pmatrix}\mathbf{R} \\ 0 \end{pmatrix}=\mathbf{QR}$ & \multicolumn{4}{l|}{\scriptsize $\mathbf{R}\in\mathbb{R}^{p\times p}$ is \textit{upper triangular matrix}; \ \ $\mathcal{Q}\in\mathbb{R}^{n\times n}$ is \textit{orthonormal matrix}; \ \ $\mathcal{Q}$前$p$列等于$\mathbf{Q}\in\mathbb{R}^{n\times p}$ } \\
     \hline
