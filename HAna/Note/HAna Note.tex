@@ -241,7 +241,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Continuous}: $f(x)$ continuous on $(c-R,c+R)$.
     \item \textbf{Convergence}: $\forall 0<r<R, \ \ \ f(x)$ converges absolutely \& uniformly on $[c-r,c+r]$.
-    \item \textbf{Preserve R}: $\sum^\infty_{n=0} a_n(x-c)^n$ and $\sum^\infty_{n=1} na_n(x-c)^{n-1}$ have same $R$. \ \ {\footnotesize ps: 即求导R不变}
+    \item \textbf{Preserve R}: $\forall (a_n)_{n\in\mathbb{N}}$, we have: $\sum^\infty_{n=0} a_n(x-c)^n$ and $\sum^\infty_{n=1} na_n(x-c)^{n-1}$ have same $R$. \ \ {\footnotesize ps: 提供了一种由$n-1\leftrightarrow n$的方法}
     \item \textbf{Termwise differentiation}: $f(x)$ is differentiable on $(c-R,c+R)$ \ \ \ || \ \ \ $^1f'(x)=\sum^\infty_{n=1} na_n(x-c)^{n-1},x\in(c-R,c+R)$ \\
     $^2\forall 0<r<R, \ \ \ f'(x)$ converges absolutely and uniformly on $[c-r,c+r]$. \ \ \ \ \ \ \ \ {\footnotesize ps: 即可以对里面求导}
     \item \textbf{Coefficients \& Diff}: $^1f(x)$ is \textit{infinitely differentiable} on $(c-R,c+R)$ \ \  \ || \ \ \ $^2a_k=\frac{f^{(k)}(c)}{k!}$
@@ -264,7 +264,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
     \item $P_{n,f,x_0}(x):=f(x_0)+\sum_{k=1}^{n}\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k$ \ \ \ (Taylor's polynomial of degree $n$ at $x_0$)
     \vspace{-4pt}
     \item If $f^{(n+1)}$ exists on $(a,b)$, then: $\exists \xi\in(x,x_0)$ s.t. $f(x)=P_{n,f,x_0}(x)+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$
-    \item Remainder $R_{n,f,x_0}:=f(x)-P_{n,f,x_0}$. \ \ \ || \ \ \ $f:I\to\mathbb{R}$ is real analytic iff $\lim R_{n,f,x_0}=0$ for $\forall x\in I$
+    \item (Lagrange) Remainder $R_{n,f,x_0}:=f(x)-P_{n,f,x_0}$. \ \ \ || \ \ \ $f:I\to\mathbb{R}$ is real analytic iff $\lim R_{n,f,x_0}=0$ for $\forall x\in I$
 \end{enumerate}
 
 
