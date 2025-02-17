@@ -301,7 +301,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \textbf{Open Set $\to\bigcup$ Closed Set}: {\small Nonempty open set $E$ $\to$ union of \textit{disjoint closed} intervals.} \ \ {\tiny Hint:$^1$Structure of open set. $^2$ each open interval $(a,b)=\bigcup[a+\frac{1}{n},b-\frac{1}{n}]$. $^3$ closed set$\to$disjoint.}
 
-\ex\textbf{Unbounded$\to\cup$ Bounded}: Any closed / open set $F$ $\to$ countable union of \textit{bounded} closed / open sets. \ \ {\tiny (Hint: $K_n=F\cap[-n,n]$ \ $K_n=F\cap(-n,n)$)}
+\textbf{Unbounded$\to\cup$ Bounded}: Any closed / open set $F$ $\to$ countable union of \textit{bounded} closed / open sets. \ \ {\tiny (Hint: $K_n=F\cap[-n,n]$ \ $K_n=F\cap(-n,n)$)}
 
 \textbf{Both Open \& Closed}: Only $\emptyset$ and $\mathbb{R}$ are both open and closed.
 
@@ -316,9 +316,11 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 \textbf{Lebesgue Outer Measure ($m^*$)}: Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$ \ \ \ \ \ \ \ \ \ {\scriptsize ps: 本质是寻找到最小的\textit{区间}可以覆盖$E$,用前面$\lambda$的定义来定义"长度"}
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Version 1|Open Intervals}: $m^*(E):=\inf\left\{\sum_{n=1}^{\infty}\lambda(I_n) \ | \ E\subseteq\cup_{n=1}^{\infty}I_n,I_n \ is \ a \ open \ interval \right\}$
-    \item \textbf{Version 2|Open Sets}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$
-    \item \textbf{Remark}: If we cannot find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$.
+    \item \textbf{Version 1|Open Intervals}: $m^*(E):=\inf\left\{\sum_{n=1}^{\infty}\lambda(I_n) \ | \ E\subseteq\cup_{n=1}^{\infty}I_n,I_n \ is \ a \ open \ interval \right\}$ \\
+    \quad ps: {\footnotesize $\forall \varepsilon>0,\exists I_n$ open interval s.t. \ \ $E\subseteq\bigcup I_n$ \ \ and \ \ $m^*(E)<\sum\lambda(I_n)<m^*(E)+\varepsilon$}
+    \item \textbf{Version 2|Open Sets}: $m^*(E)=\inf\left\{\lambda(U),E\subseteq U,U \ is \ open \ set \right\}$ \ \ \ \ \ \ ps:$\lambda(U)=\sum \lambda(I_n)$ \\
+    \quad ps: {\footnotesize $\forall \varepsilon>0,\exists U$ open set s.t. \ \ $E\subseteq U$ \ \ and \ \ $m^*(E)<m^*(U)<m^*(E)+\varepsilon$ \ \ {\scriptsize or} \ \ $m^*(E)<\lambda(U)<m^*(E)+\varepsilon$ \\}
+    \quad $\cdot$ \textbf{Remark}: If we cannot find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$.
 \end{enumerate}
 
 \vspace{-12pt}
@@ -338,7 +340,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 Then $\forall\varepsilon>0,\forall\delta>0$: $\exists (I_n)_{n\in\mathbb{N}}$ , $I_n$ open intervals s.t.: \ex
 
-{\footnotesize $^1E\subseteq\bigcup I_n$ \ | \ $^2m^*(E)\leq\sum \lambda(I_n)<m^*(E)+\varepsilon$ \ | \ $^3I_n\cap E=\emptyset,\forall n$ \ | \ $^4\lambda(I_n)<\delta,\forall n$}
+{\footnotesize $^1E\subseteq\bigcup I_n$ \ | \ $^2m^*(E)\leq\sum \lambda(I_n)<m^*(E)+\varepsilon$ \ | \ $^3I_n\cap E\ne\emptyset,\forall n$ \ | \ $^4\lambda(I_n)<\delta,\forall n$}
 
 {\footnotesize $^5I_n\cap E\nsubseteq I_k,\forall n\ne k.$} \ {\scriptsize $\leftarrow$无覆盖项} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\scriptsize 无无关项$\uparrow$} \ \ \ \ {\scriptsize ps: 也使用与是open set的.}
 
@@ -354,7 +356,9 @@ $\cdot$ \textbf{More Properties}:
     \item \textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$
 \end{enumerate}
 
-\textbf{Def of $\mathbf{dist(E,F)}$}: {\footnotesize $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$} \ \ \ || \ \ \ \textbf{Property}: {\footnotesize $^1E,F$ are nonempty \textit{closed} sets; \ \ $^2E\cap F=\emptyset$; \ \ $^3E$ \textit{bounded}. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$}
+\textbf{Def of $\mathbf{dist(E,F)}$}: {\footnotesize $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$}
+
+\quad \textbf{Lemma}: {\footnotesize $^1E,F$ are nonempty \textit{closed} sets; \ \ $^2E\cap F=\emptyset$; \ \ $^3E$ \textit{bounded}. \ \ $\Rightarrow$ \ \ $dist(E,F)>0$}
 
 \textbf{Countable Additivity|Outer Measure}:
 
