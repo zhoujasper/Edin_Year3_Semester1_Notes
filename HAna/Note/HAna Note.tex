@@ -301,14 +301,23 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \textbf{Open Set $\to\bigcup$ Closed Set}: {\small Nonempty open set $E$ $\to$ union of \textit{disjoint closed} intervals.} \ \ {\tiny Hint:$^1$Structure of open set. $^2$ each open interval $(a,b)=\bigcup[a+\frac{1}{n},b-\frac{1}{n}]$. $^3$ closed set$\to$disjoint.}
 
+\textbf{Closed Set $\to\bigcap$ Open Set}: {\small Closed set $F$ $\to$ intersection of \textit{open} sets.} \ \ {\tiny e.g. $[0,1]=\bigcap(0-\frac{1}{n},1+\frac{1}{n})$}
+
 \textbf{Unbounded$\to\cup$ Bounded}: Any closed / open set $F$ $\to$ countable union of \textit{bounded} closed / open sets. \ \ {\tiny (Hint: $K_n=F\cap[-n,n]$ \ $K_n=F\cap(-n,n)$)}
 
 \textbf{Both Open \& Closed}: Only $\emptyset$ and $\mathbb{R}$ are both open and closed.
 
+\textbf{Some Properties of Sets}:
+
+\begin{enumerate}[itemsep=-2pt, topsep=-2pt]
+    \item \textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$ \qquad \qquad $A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$ \ \ \ $A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$
+    \item \ex$E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
+\end{enumerate}
+
 
 \section{Lebesgue Outer Measure || Lebesgue Measurable || Lebesgue Measure}
 
-\textbf{Countably Additivity}: $(E_n)_{n\in\mathbb{N}}$ disjoint sets, $m$ be measure. \ \ $\Rightarrow$ \ \ Countably Additive if: $m(\cup_{n}E_n)=\sum m(E_n)$
+\qquad ps: \textbf{Countably Additivity}: $(E_n)_{n\in\mathbb{N}}$ disjoint sets, $m$ be measure. \ \ $\Rightarrow$ \ \ Countably Additive if: $m(\cup_{n}E_n)=\sum m(E_n)$
 
 
 \subsection{Lebesgue Outer Measure}
@@ -405,7 +414,8 @@ $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Meas
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Increasing $\uparrow$}: If $E_n\subseteq E_{n+1}$ \ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$
     \vspace{-5pt}
-    \item \ex\textbf{decreasing $\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \ \ \ {\tiny (Hint: $F_n:=E_n\setminus E,E=\cap E_n;m(F_n\cup E)=m(E_n)$)}
+    \item \ex\textbf{decreasing $\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \\
+    \quad {\tiny (Hint: $F_n=E_1\setminus E_n \ (\uparrow)$ \ \ $m(F_n)=m(E_1)-m(E_n)$ \quad $m(\cup F_n)=\lim m(F_n)=m(E_1)-m(\cap E_n)$, $m(\cup F_n)=m(E_1\setminus\cap E_n)=m(\cap E_n)+m(\cup F_n)$)}
 \end{enumerate}
 
 \textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not countability additive set. } 
@@ -569,10 +579,6 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 \textbf{Sum of $\mathbf{n,n^2,n^3}$}: $\sum^n_{k=1}k=\frac{n(n+1)}{2}$ \ \ \ \ \ \ $\sum^n_{k=1}k^2=\frac{n(n+1)(2n+1)}{6}$ \ \ \ \ \ \ $\sum^n_{k=1}k^3=[\frac{n(n+1)}{2}]^2$
 
 \textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
-
-\textbf{De Morgan's Laws}: $(A\cap B)^C=A^C\cup B^C$ \ \ \ $(A\cup B)^C=A^C\cap B^C$
-
-\ex$E \setminus F=F^C\cap E$ is open {\footnotesize (i.e. open - closed = open)} \ \ \ \ \ \ \ \ \ || \ \ \ \ \ \ \ \ \ $F\setminus E=E^C\cap F$ is open {\footnotesize (i.e. closed - open = closed)}
 
 \textbf{特殊集合构造技巧}: {\scriptsize $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$} \ \ || \ \ {\scriptsize $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$}
 
