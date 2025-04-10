@@ -151,7 +151,7 @@ $\cdot$ \textbf{Limit Comparison Test}: If $a_n,b_n\geq 0,\lim \frac{a_n}{b_n}=L
 
 \textbf{Def of cont of func}: {\footnotesize \textbf{1}.$\forall\varepsilon>0,\exists\delta>0 \ s.t. \ \forall x,|x-x_0|<\delta \ \Rightarrow |f(x)-f(x_0)|<\varepsilon.$ \ \ \textbf{2}.$\forall (x_n)_{n\in \mathbb{N}}$,$if \ \lim x_n = x_0 \ \Rightarrow \lim f(x_n)=f(x_0)$}
 
-\textbf{Def of diffi}: {\scriptsize \textbf{1}.$f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}$ \ \ \ \textbf{2}.$f'(a)=\lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}$.}
+\textbf{Def of differentiable}: {\scriptsize \textbf{1}.$f'(a)=\lim\limits_{x\to a}\frac{f(x)-f(a)}{x-a}$ \ \ \ \textbf{2}.$f'(a)=\lim\limits_{h\to 0}\frac{f(a+h)-f(a)}{h}$.}
 
 \textbf{The Extreme Value Theorem (EVT)}: If $f:[a,b]\to\mathbb{R}$ is continuous, then $f$ has a max and min value.
 
@@ -196,6 +196,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 
 \textbf{Vertical Neighbourhood} $\mathcal{N}(f,\varepsilon):=\{(x,y)| x\in E,|y-f(x)|<\varepsilon\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Uniformly Convergence}: $f_n:E\to\mathbb{R}$ converge uniformly iff: \hspace{50pt} || \ \ \textbf{Uniformly} $\Rightarrow$ \textbf{Pointwise}
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Version 1}: $\forall\varepsilon>0,\exists N_{\varepsilon} \ s.t. \ \forall n>N,\forall x\in E,|f_n(x)-f(x)|<\varepsilon$
@@ -205,14 +206,20 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 \end{enumerate}
 
 \textbf{Sequence Test}: If $f_n:E\to\mathbb{R}$ converge uniformly to $f$. \ \ $\Rightarrow$ \ \ If $(x_n)_{n\in\mathbb{N}}\in E,\lim|f_n(x_n)-f(x_n)|=0$ \ \ {\footnotesize 不能当作 $\forall x_n$}
+}}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Properties of Uniformly Convergent}: Let $f_n,f,g:I\to\mathbb{R}$ Then: \ \ \ \ \ {\scriptsize NOT preserve: \ differentiable.}
+
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Continuous}: {\footnotesize If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$.} \hspace{80pt} {\footnotesize $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$}
-    \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.}
-    \item \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
+    \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.} \\
+    \textbf{For Series}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\sum f_n'$ exists and unif; $\exists x_0\in I \ s.t. \ \sum f_n(x_0)$ converge.} \ \ $\Rightarrow$ \ \ {\footnotesize $\sum f_n$ unfi \ and  \ $(\sum f)'=\sum f'$}
+    \item \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(E)$ \ \ and \ \ $\lim \int_Ef_n(x)dx=\int_E f dx$} \\
+    \textbf{For Series}: {\footnotesize If $^1 \sum f_n$ exists and uniformly on $E\in\mathcal{M}, \ m(E)<\infty$, $^2f_n\in\mathcal{L}^1(\mathbb{R})$} \ \ $\Rightarrow$ \ \ {\footnotesize $\sum \int f_n\in\mathcal{L}^1(E)$ \ \ and \ \ $\int \sum f_n=\sum\int f_n$}
     \item \ex If $f_n:[a,b]\to\mathbb{R}$,$g_n:[a,b]\to\mathbb{R}$ converge uniformly. \ \ $\Rightarrow$ \ \ $\frac{f_n}{g_n}$ converge uniformly also. \ \ {\footnotesize ps:$(a,b)$不行} \ \ \ \ \ \ {\tiny Hint: $f_ng-fg_n=f_ng-fg+fg-fg_n$}
 \end{enumerate}
+}}
 
 \textbf{Def of Series of Functions}: Let $f_n:E\to\mathbb{R}$; Def partial sum $s_n(x):=\sum_{k=1}^{n}f_k(x)$
 
@@ -236,6 +243,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
     \item \textbf{All-In-One}: $R=\sup\{r\geq0:(a_nr^n)_{n\in\mathbb{N}} \ is \ \underline{bounded}\}$
 \end{enumerate}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Properties | In Radius of Convergence}: Assume $f(x)=\sum a_n(x-c)^n$ with $R>0$.
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
@@ -247,7 +255,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
     \item \textbf{Coefficients \& Diff}: $^1f(x)$ is \textit{infinitely differentiable} on $(c-R,c+R)$ \ \  \ || \ \ \ $^2a_k=\frac{f^{(k)}(c)}{k!}$
     \item \textbf{Uniqueness}: If $\sum a_n(x-c)^n=\sum b_n(x-c)^n$ for $\forall x\in\mathbb{R},|x-c|<r_0$ \ \ $\Rightarrow$ \ \ $a_n=b_n$
 \end{enumerate}
-
+}}
 
 \subsection{Exponential Function \& Real Analytic Function}
 
@@ -270,6 +278,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \section{Open \& Closed Sets}
 
+\vspace{-10pt}
 \begin{multicols}{2}
 
 \textbf{Open Set}: Set $E$ is open iff $\forall x\in E,\exists r>0, \ s.t. \ (x-r,x+r)\subseteq E$
@@ -332,6 +341,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
     \quad $\cdot$ \textbf{Remark}: If we cannot find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$.
 \end{enumerate}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \vspace{-12pt}
 \begin{multicols}{2}
 
@@ -355,15 +365,18 @@ Then $\forall\varepsilon>0,\forall\delta>0$: $\exists (I_n)_{n\in\mathbb{N}}$ , 
 
 \end{multicols}
 \vspace{-12pt}
+}}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 $\cdot$ \textbf{More Properties}:
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Interval}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$.
+    \item \star\textbf{Interval}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$.
     \item \textbf{Countable}: Any Countable set $E$ \ \ $\Rightarrow$ \ \ $m^*(E)=0$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\exists m^*(E)=0,E$ uncountable {\footnotesize (e.g.Cantor Set (Closed Set))}
     \item \ex\textbf{Further|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ \ \ \ || \ \ \ \ \ \ \ex$m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$ , $I_n$ intervals.
     \item \textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$
 \end{enumerate}
+}}
 
 \textbf{Def of $\mathbf{dist(E,F)}$}: {\footnotesize $dist(E,F):=\inf\{|x-y|:x\in E,y\in F\}$}
 
@@ -389,16 +402,18 @@ $\cdot$ \textbf{More Properties}:
 
 $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R}$.
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Property of Lebesgue Measurable Sets}:
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Closed Set|Open Set|Interval}: Any closed set / open set / interval is Lebesgue measurable.
-    \item \textbf{Union $\cup$|\ex Intersection $\cap$}: If $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ Also: $^1E:=\cup^\infty_{n=1}E_n$ \ \ \ex$^2E:=\cap^\infty_{n=1}E_n$. \ \ {\tiny Hint: $(\bigcap E_n)^C=\bigcup E_n^C$}
+    \item \star\textbf{Closed Set|Open Set|Interval}: Any closed set / open set / interval is Lebesgue measurable.
+    \item \textbf{Union $\cup$|\ex Intersection $\cap$}: If $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ Also: $^1E:=\cup^\infty_{n=1}E_n$ \ \ $^2E:=\cap^\infty_{n=1}E_n$. \ \ {\tiny Hint: $(\bigcap E_n)^C=\bigcup E_n^C$}
     \item \textbf{Complement $E^C$}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
     \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
     \item \textbf{Translation Invariance}: $m(E)=m(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
     \item \textbf{Find Lebesgue Measurable Set}: A simple function $s$ \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R},s(x)>\lambda (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
 \end{enumerate}
+}}
 
 
 \subsection{Lebesgue Measure}
@@ -407,7 +422,8 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
 
 $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}
 
-\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesgue Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
+\fbox{\parbox[c]{0.98\textwidth}{
+\star\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesgue Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
 
 \textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesgue Measurable}.
 
@@ -417,6 +433,7 @@ $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Meas
     \item \ex\textbf{decreasing $\downarrow$}: If $E_{n+1}\subseteq E_n,m(E_1)<\infty$ \ \ $\Rightarrow$ \ \ $m(\cap^\infty_{n=1}E_n)=\lim\limits_{n\to\infty} m(E_n)$ \\
     \quad {\tiny (Hint: $F_n=E_1\setminus E_n \ (\uparrow)$ \ \ $m(F_n)=m(E_1)-m(E_n)$ \quad $m(\cup F_n)=\lim m(F_n)=m(E_1)-m(\cap E_n)$, $m(\cup F_n)=m(E_1\setminus\cap E_n)=m(\cap E_n)+m(\cup F_n)$)}
 \end{enumerate}
+}}
 
 \textbf{Vitali Set}: {\footnotesize $^1$ 存在 not Lebesgue measurable set. \ \ \ \ \ \ $^2$ 存在 not countability additive set. } 
 
@@ -435,7 +452,7 @@ $\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\
 
 $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exists c_n,I_n$ s.t. $I_n$ \textit{disjoint} and $f(x)=\sum c_n\chi_{I_n}(x)$
 
-\textbf{Defined of $\int fdx$}: $\int_{\mathbb{R}} f$ is defined iff: It's Lebesgue integrable or $f:\mathbb{R}\to[0,\infty)$ is Lebesuge Measurable.
+\textbf{Defined of $\int fdx$}: $\int_{\mathbb{R}} f$ is defined iff: It's Lebesgue integrable or $f:\mathbb{R}\to(\pm)[0,\infty)$ is Lebesuge Measurable. \qquad {\footnotesize 本质是不允许($\infty-\infty$)}
 
 
 \subsection{Simple Functions || Measurable Functions}
@@ -444,6 +461,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 
 \textbf{Simple Function}: $s:\mathbb{R}\to\mathbb{R}$ is a simple function iff: \ \ \ $s(x)=\sum^k_{j=1} c_j\chi_{E_j}$ , {\footnotesize $E_j$ are Lebesgue Measurable sets.} \ \ \ || \ \ \ {\footnotesize $E_j$ can be disjoint.}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Integral of Simple Function|Positive}: $\int_{\mathbb{R}}s(x)dx:=\sum^k_{j=1}c_jm(E_j)$ \ \ \ \ \ \ || \ \ \ $\int_{\mathbb{R}}\alpha s_1+\beta s_2=\alpha\int_{\mathbb{R}}s_1+\beta\int_{\mathbb{R}}s_2$
 
 \textbf{Measurable Function}: $f:\mathbb{R}\to\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ if \ \ $\forall\lambda\in\mathbb{R},\{x\in \mathbb{R}:f(x)>\lambda\}$(\textbf{Superlevel Set}) is Lebesgue Measurable.
@@ -455,6 +473,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \item \textbf{MF|property}: {\footnotesize If $f,g,f_n$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $max\{f,g\}$ , $min\{f,g\}$ , $f\cdot\chi_E$ , $\alpha f\pm\beta g$ , $f^2$ , $f\cdot g$ , $\sup f_n$ , $\inf f_n$ , $\limsup f_n$ , $\liminf f_n$ also.}
     \item \textbf{Measurable Func $\Rightarrow$ $\exists$ Simple Func}: {\small $f$ is {\footnotesize 非负勒贝格可测函数} \ \ $\Rightarrow$ \ \ $\exists$ simple functions $(s_n)_{n\in\mathbb{N}}$, $0\leq s_n\leq s_{n+1}(\uparrow)$ s.t. $s_n\to f$ pointwise.}
 \end{enumerate}
+}}
 
 
 \subsubsection{Measurable Functions|Positive}
@@ -464,23 +483,32 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
     \item \textbf{Basic Def}: $\int_{\mathbb{R}}f(x)dx:=\sup\{\int_{\mathbb{R}}s(x)dx:s \ simple,0\leq s\leq f \}$
     \item \textbf{Extend Def}: If $f:\mathbb{R}\to\mathbb{R}$ Lebesgue Measurable , $E$ Measurable Set. \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}f(x)\chi_E(x)dx$
 \end{enumerate}
+
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Basic Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesgue Measurable functions.
+
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{Monotonicity}: If $0\leq f(x)\leq g(x)$ \ \ $\Rightarrow$ \ \ $0\leq\int_{\mathbb{R}}f(x)dx\leq\int_{\mathbb{R}}g(x)dx$
+    \item \star\textbf{Monotonicity}: If $0\leq f(x)\leq g(x)$ \ \ $\Rightarrow$ \ \ $0\leq\int_{\mathbb{R}}f(x)dx\leq\int_{\mathbb{R}}g(x)dx$
     \item \textbf{Markov's Inequality}: For all $\lambda>0$ \ \ $\Rightarrow$ \ \ $m(\{x\in\mathbb{R}:f(x)>\lambda\})\leq\frac{1}{\lambda}\int_{\mathbb{R}}f(x)dx$ \ \ \ {\footnotesize 函数积分面积 > 其对应底下矩形面积}
     \item \ex\textbf{Measure Zero}: If $E$ s.t. $m(E)=0$ \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx =0$ \ \ \ {\tiny Hint: $\forall$ simple $s$ , $0\leq\int_Es=\int_{\mathbb{R}}s\chi_E=\int_{\mathbb{R}}c_n\chi_{E_n\cap E}=\sum c_nm(E_n\cap E)\leq\sum\cdots$}
 %   \item \ex\textbf{Almost Everywhere|$f=0$}: If $E$ Lebesgue Measurable \& $\int_Ef(x)dx=0$ \ \ $\Rightarrow$ \ \ $m(\{x\in E:f(x)>0\})=0$ \ \ \ {\tiny Hint: $\{x|f(x)>0\}=\bigcup\{x|f(x)>\frac{1}{n}\}$}
 \end{enumerate}
+}}
 
-\textbf{MCT for Integral|Positive}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
+\fbox{\parbox[c]{0.98\textwidth}{
+\textbf{MCT for Integral|Positive}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is MF; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
 
+\textbf{For Series}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ MF; \ $^2\sum f_n=f$ pointwise \ \ $\Rightarrow$ \ \ $^1f$ is MF; \ $^2\int_{\mathbb{R}}\sum f_n=\sum\int_{\mathbb{R}}f_n$}
+}}
+
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{More Properties of Integral|Positive}: Let $f,g:[0,\infty)\to\mathbb{R}$ be non-negative Lebesgue Measurable functions.
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Linear Combination}: $\alpha,\beta>0$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}\alpha f+\beta g =\alpha\int_{\mathbb{R}}f + \beta\int_{\mathbb{R}}g$
     \item \textbf{Union of Disjoint}: $E,F$ disjoint measurable sets \ \ $\Rightarrow$ \ \ $\int_{E\cup F}f=\int_Ef+\int_Ff$
-    \item \textbf{'MCT for Int Series'}: {\small $^1f_n$ non-negative MF; \ $^2\sum f_n=f$ pointwise \ \ $\Rightarrow$ \ \ $^1f$ is measurable; \ $^2\int_{\mathbb{R}}\sum f_n=\sum\int_{\mathbb{R}}f_n$}
     \item \textbf{(Reverse) Fatou Lemma}: {\small $f_n$ non-negative MF \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}\liminf f_n\leq\liminf\int_{\mathbb{R}}f_n \ \leq \ ( \ \limsup\int_{\mathbb{R}}f_n\leq\int_{\mathbb{R}}\limsup f_n \ )$}
 \end{enumerate}
+}}
 
 
 \subsection{Integrating Real-Valued Functions}
@@ -497,6 +525,7 @@ $\cdot$ \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
     \item $\mathcal{L}^1(E):=$ Collection of all Lebesgue Integrable functions on $E$.
 \end{enumerate}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Property of Integral}: Let $f,g\in\mathcal{L}^1(\mathbb{R})$. Then:
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Triangular Inequality for Integrals}: $|\int_{\mathbb{R}}f(x)dx|\leq\int_{\mathbb{R}}|f(x)|dx$
@@ -505,24 +534,26 @@ $\cdot$ \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
     \item \textbf{'Comparison Test'}: If $^1f:\mathbb{R}\to\mathbb{R}$ measurable \ \ $^2\int_{\mathbb{R}}g(x)<\infty$ \ \ $^3|f|<g$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(\mathbb{R})$
     \item \textbf{Remark}: Can use p-test, Comparison test ... when we want to prove a function is Lebesgue Integrable.
 \end{enumerate}
+}}
 
-\textbf{Dominated Convergence Theorem (DCT)}: {\small $^1f_n$ is MF. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
+\fbox{\parbox[c]{0.98\textwidth}{
+\textbf{Dominated Convergence Theorem (DCT)}: {\small $^1f_n\in\mathcal{L}^1(I)$. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
 
 $\cdot$ \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
+}}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Fundamental Theorem of Calculus (FTC)}: $f:[a,b]\to\mathbb{R}$ be \textit{continuous}. \ \ $\Rightarrow$ \ \ $^1F(x):=\int_{a}^{x}f(y)dy$ is differentiable \ \ $^2F'(x)=f(x)$
 
 $\cdot$ \textbf{Corollary}: $f:[a,b]\to\mathbb{R}$ be \textit{continuously differentiable}. \ \ $\Rightarrow$ \ \ $\int_{a}^{b}f'(x)dx=f(b)-f(a)$
 
-$\cdot$ \textbf{Remark}: $^1$ f is Lebesgue Integrable. (By Extreme value theorem) and. \ \ \ $^2$ {\small 需要闭区间(Closed)否则需要结合MCT或DCT极限逼近来用.}
+$\cdot$ \textbf{Remark}: $^1$ f is Lebesgue Integrable. (By Extreme value theorem) and. \ \ \ $^2$ {\small 需要闭区间(Closed)否则需要结合MCT或DCT极限逼近.}
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Integration-By-Parts}: If $f,g:[a,b]\to\mathbb{R}$ be \textit{continuously differentiable}. \ \ $\Rightarrow$ \ \ $\int_{a}^{b}fg' \ dx=[fg]^b_a-\int_{a}^{b}f'g \ dx$
     \item \textbf{Integration-By-Substitution}: {\small If $f:[c,d]\to\mathbb{R}$ \textit{continuous} \& $\phi:[a,b]\to[c,d]$ \textit{continuous diff} \ \ $\Rightarrow$ \ \ $\int_{a}^{b}f(\phi)\phi'dx=\int_{\phi(a)}^{\phi(b)}f(y)dy$}
 \end{enumerate}
-
-
-\section{$\mathcal{L}^p$ Spaces || Hölder's Inequality || Minkowski's Inequality}
+}}
 
 
 \section{Appendix}
@@ -548,6 +579,7 @@ $\cdot$ \textbf{Remark}: $^1$ f is Lebesgue Integrable. (By Extreme value theore
 \end{longtable}
 \vspace{-10pt}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \ex\textbf{{\footnotesize 和差化积/积化和差}}: {\footnotesize s+s=sc,s-s=cs,c+c=cc,c-c=-ss || e.g. $sinA+sinB=2sin(\frac{A+B}{2})cos(\frac{A+B}{2})$ \ \ \ $sinAsinB=-\frac{1}{2}[cos(A+B)-cos(A-B)]$} \ {\tiny Hint: 和差角公式相加减}
 
 $\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^2(x)=cos^2(x)-sin^2(x)$ \ \ \ $cos(x)=\sqrt{\frac{1+cos(2x)}{2}}$ \ \ \ $sin(x)=\sqrt{\frac{1-cos(2x)}{2}}$}
@@ -555,20 +587,27 @@ $\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^
 \textbf{Hyperbolic Func}: {\footnotesize $sinh(x)=\frac{e^x-e^{-x}}{2}$ \ \ \ $cosh(x)=\frac{e^x+e^{-x}}{2}$ \ \ \ $cosh^2(x)-sinh^2(x)=1$ \ \ \ $[sinh(x)]'=cosh(x)$ \ \ \ $[cosh(x)]'=sinh(x)$}
 
 \hspace{72pt} $\cdot$ {\footnotesize $\sinh(x \pm y) = \sinh(x)\cosh(y) \pm \cosh(x)\sinh(y)$ \ \ \ \ \ \ $\cosh(x \pm y) = \cosh(x)\cosh(y) \pm \sinh(x)\sinh(y)$}
+}}
 
-\textbf{Common Int}: {\footnotesize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
+\fbox{\parbox[c]{0.98\textwidth}{
+\textbf{Common Int}: {\scriptsize $\int tan(x)dx=-ln|cos(x)|$; \ \ $\int cot(x)dx=ln|sin(x)|$; \ \ $\int sec(x)dx = ln|sec(x)+tan(x)|$; \ \ $\int csc(x)dx = ln|csc(x)-cot(x)| = ln|tan(\frac{x}{2})|$}
 
 \textbf{Common Der}: {\footnotesize $[tan(x)]'=sec^2(x)$; \ \ $[cot(x)]'=-csc^2(x)$; \ \ $[sec(x)]'=sec(x)tan(x)$; \ \ $[csc(x)]'=-csc(x)cot(x)$; \ \ $[arctan(x)]'=\frac{1}{1+x^2}$.}
 
 \hspace{65pt} {\footnotesize $1+tan^2(x)=sec^2(x)$; \ \ $1-csc^2(x)=cot^2(x)$; \ \ $csc^2(x)-cot^2(x)=1$. \hspace{18pt} $[arcsin(x)]'=\frac{1}{\sqrt{1-x^2}}$; \ \ $[arccos(x)]'=-\frac{1}{\sqrt{1-x^2}}$}
+}}
 
-\textbf{Useful Counterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$
+\fbox{\parbox[c]{0.98\textwidth}{
+\textbf{Useful Counterexample}: $(1/2)^{\frac{1}{n}}\subseteq[1/2,1)$\qquad\qquad\qquad\textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
 
-\textbf{Countably Approximation Tools}: $\sum_{n=1}^{\infty}2^{-n}\varepsilon=\varepsilon$
+$\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \ \ $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
 
-\textbf{特殊集合构造技巧}: {\scriptsize $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$} \ \ || \ \ {\scriptsize $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$}
+\textbf{For exponential}: $(1+\frac{x}{n})^n=1+n\left(\frac{x}{n}\right)+\begin{pmatrix} n \\ 2 \end{pmatrix} \left(\frac{x}{n}\right)^2$ by Binomial Theorem.
 
-\ex\textbf{Common Power Series}:
+\textbf{Useful Limits}: If $0\leq x< 1$, then $\lim_{n\to\infty}n^kx^n=0$
+}}
+
+\textbf{Common Power Series}:
 \vspace{-10pt}
 \begin{table}[h]
     \centering
@@ -602,6 +641,7 @@ $\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^
 \end{table}
 \vspace{-10pt}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Sum of $\mathbf{n,n^2,n^3}$}: $\sum^n_{k=1}k=\frac{n(n+1)}{2}$ \ \ \ \ \ \ $\sum^n_{k=1}k^2=\frac{n(n+1)(2n+1)}{6}$ \ \ \ \ \ \ $\sum^n_{k=1}k^3=[\frac{n(n+1)}{2}]^2$
 
 \textbf{Interchanging the Order of Summation}: $\sum_{n=1}^{p}\sum_{m=1}^{q}f(n,m)=\sum_{m=1}^{q}\sum_{n=1}^{p}f(n,m)$ \ \ \ \ \ \ || \ex $\sum_{k=0}^{n}\sum_{i=0}^{k}=\sum_{i=0}^{k}\sum_{k=i}^{n}$ {\tiny Hint: 列出来看or画图}
@@ -609,7 +649,38 @@ $\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^
 \ex\textbf{Summation By Parts}: $\sum_{k=1}^{n}a_k(b_{k+1}-b_k)=(a_{n+1}b_{n+1}-a_1b_1)-\sum_{k=1}^{n}(a_{k+1}-a_k)b_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$
 
 \hspace{102pt} $\Rightarrow$ $\sum_{k=1}^{n}a_kb_k=a_{n+1}\sigma_{n+1}-\sum_{k=1}^{n}(a_{k+1}-a_k)\sigma_{k+1}$ , $\forall (a_k)_{k=1}^{n+1},(b_k)_{k=1}^{n+1}$ \ \ \ $\sigma_k:=\sum_{j=1}^{k-1}b_j$
+}}
 
-$\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \ \ $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
+\fbox{\parbox[c]{0.98\textwidth}{
+\textbf{Lebesgue Integrable}: $f$ continuous + $f$ in bounded interval \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1$
+}}
+
+\textbf{Related to Metric}:
+
+\fbox{\parbox[c]{0.98\textwidth}{
+\vspace{-12pt}
+\begin{multicols}{3}
+    If $a_n\uparrow$, then $\lim\limits_{n\to\infty}a_n=\sup a_n$ \\
+    If $a_n\downarrow$, then $\lim\limits_{n\to\infty}a_n=\inf a_n$
+
+    \columnbreak
+
+    $\limsup\limits_{n\to\infty}a_n=\inf\limits_{n\geq1}\sup\limits_{k\geq n}a_k$ \\
+    $\liminf\limits_{n\to\infty}a_n=\sup\limits_{n\geq1}\inf\limits_{k\geq n}a_k$
+
+    \columnbreak
+    \small
+    $\limsup\limits_{n\to\infty}A_n=\bigcap\limits_{n=1}^{\infty}\bigcup\limits_{k=n}^{\infty}A_k$\hfill{\footnotesize $A_n$ sets} \\
+    $\liminf\limits_{n\to\infty}A_n=\bigcup\limits_{n=1}^{\infty}\bigcap\limits_{k=n}^{\infty}A_k$
+\end{multicols}
+\vspace{-10pt}
+}}
+
+
+
+
+\textbf{特殊集合构造技巧}: {\scriptsize $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$} \ \ || \ \ {\scriptsize $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$}
+
+
 
 \end{document}
