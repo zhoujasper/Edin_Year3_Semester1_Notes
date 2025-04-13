@@ -602,7 +602,7 @@ $\cdot$ {\footnotesize $sin(2x)=2sin(x)cos(x)$ \ \ \ $cos(2x)=2cos^2(x)-1=1-sin^
 
 $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \ \ $\mathbf{1\pm x^3}$: $1\pm x^3=(1\pm x)(1\mp x+x^2)$
 
-\textbf{For exponential}: $(1+\frac{x}{n})^n=1+n\left(\frac{x}{n}\right)+\begin{pmatrix} n \\ 2 \end{pmatrix} \left(\frac{x}{n}\right)^2$ by Binomial Theorem.
+\textbf{For exponential}: $(1+\frac{x}{n})^n\geq1+n\left(\frac{x}{n}\right)+\begin{pmatrix} n \\ 2 \end{pmatrix} \left(\frac{x}{n}\right)^2$ by Binomial Theorem.
 
 \textbf{Useful Limits}: If $0\leq x< 1$, then $\lim_{n\to\infty}n^kx^n=0$
 }}
@@ -677,10 +677,28 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 }}
 
 
+\fbox{\parbox[c]{0.98\textwidth}{
+\vspace{-12pt}
+\begin{multicols}{2}
+    $\sup\limits_{n\in\mathbb{N}}f_n(x):=\sup\{f_n(x):n\in\mathbb{N}\}$ \\
+    $\{x:\sup\limits_{n\in\mathbb{N}}f_n(x)>\lambda\}=\bigcup\limits_{n\in\mathbb{N}}\{x:f_n(x)>\lambda\}$ \\
+    $\{x:\limsup\limits_{n\in\mathbb{N}}f_n(x)>\lambda\}=\bigcap\limits_{n=1}^{\infty}\bigcup\limits_{k=n}^{\infty}\{x:f_k(x)>\lambda\}$
 
+    \columnbreak
 
-\textbf{特殊集合构造技巧}: {\scriptsize $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$} \ \ || \ \ {\scriptsize $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$}
+    $\inf\limits_{n\in\mathbb{N}}f_n(x):=\inf\{f_n(x):n\in\mathbb{N}\}$ \\
+    $\{x:\inf\limits_{n\in\mathbb{N}}f_n(x)>\lambda\}=\bigcap\limits_{n\in\mathbb{N}}\{x:f_n(x)>\lambda\}$ \\
+    $\{x:\liminf\limits_{n\in\mathbb{N}}f_n(x)>\lambda\}=\bigcup\limits_{n=1}^{\infty}\bigcap\limits_{k=n}^{\infty}\{x:f_k(x)>\lambda\}$
+\end{multicols}
+\vspace{-10pt}
 
+\textbf{特殊集合构造技巧 I}: $\{x\in\mathbb{R}:(f+g)(x)>\lambda\}=\bigcup_{t\in\mathbb{Q}}(\{x\in\mathbb{R}:f(x)>\lambda-t\}\cap \{x\in\mathbb{R}:g(x)>t\})$
 
+\textbf{特殊集合构造技巧 II}: $\{x\in\mathbb{R}:\forall\varepsilon>0,\exists N>0 \ \ s.t. \ \ ...<\varepsilon\}=\bigcap^\infty_{k=1}\bigcup_{N=1}^\infty\{x\in\mathbb{R}: \ \ ...<\frac{1}{k}\}$
+}}
+
+\textbf{Def of function}: for a function $f$ well-defined on a set $E$, we have $f(x)<\infty$ for all $x\in E$
+
+\textbf{Cauchy-Schwarz Inequality}: {\small $\forall x,y\in\mathbb{R}^n$ \ \ $\Rightarrow$ \ \ $(\sum_{i=1}^{n}x_iy_i)^2\leq(\sum_{i=1}^{n}x_i^2)(\sum_{i=1}^{n}y_i^2)$}
 
 \end{document}
