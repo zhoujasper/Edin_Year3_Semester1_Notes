@@ -100,7 +100,11 @@ $\cdot$ $\lim (x_n + y_n)=\lim x_n + \lim y_n$ ; $\lim x_n \cdot y_n=\lim x_n \c
 
 \textbf{Comparison Theorem (For Seq)}: If $\lim x_n,y_n$ exist, and $x_n\leq y_n$ for all $n\geq N$ then $\lim x_n\leq\lim y_n.$
 
-\textbf{Cauchy Sequence}: Sequence $(a_n)_{n\in\mathbb{N}}$ is Cauchy iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ |a_n-a_m|<\varepsilon$ for all $m,n\geq N$. \ \ || \ \ \textbf{Convergent $\Leftrightarrow$ Cauchy}
+\textbf{Cauchy Sequence}: Sequence $(a_n)_{n\in\mathbb{N}}$ is Cauchy iff $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ |a_n-a_m|<\varepsilon$ for all $m,n\geq N$.
+
+\textbf{Cauchy Criterion}: Convergent $\Leftrightarrow$ Cauchy \quad {\tiny proof: ($\Rightarrow$) $|a_n-a_m|\le|a_n-a|+|a-a_m|$ \ \ ($\Leftarrow$) $a_n$ converge $\rightarrow$ bdd; Bolzano-Weierstrass $\rightarrow$ $a_{n_k}\to a$ converge; $|a_n-a|\leq|a_n-a_{n_k}|+|a_{n_k}-a|$}
+
+{\tiny Proof of Uniformly Cauchy $\Leftrightarrow$ Uniformly Convergent. ($\Rightarrow$) unif cauchy $\to$ pointwise cauchy $\to$ pointwise convergent $\to$ $\forall x\in E,\lim f_n(x)=f(x)$; $|f_n(x)-f_m(x)|<\varepsilon/2$ $\to$ $\lim_m|f_n(x)-f(x)|\le\varepsilon/2<\varepsilon$ ($\Leftarrow$) $|f_n(x)-f_m(x)|\le|f_n(x)-f(x)|+|f(x)-f_m(x)|$}
 
 \textbf{Bolzano-Weierstrass Theorem}: Every \textit{bounded sequence} has a \textit{convergent subsequence}.
 
@@ -185,7 +189,7 @@ $\cdot$ \textbf{1.} $f(I)$ is open interval. \ \ \ \ \ \textbf{2.} $f$ is invert
     \item \textbf{Version 2}: $\forall x\in E,\lim f_n(x)$ exists and $\lim f_n(x)=f(x)$
 \end{enumerate}
 
-\textbf{Pointwise Convergence NOT Preserve}: $^1$\textit{continuity}, \ \ $^2$\textit{differentiability}, \ \ $^3(\lim f_n)'\ne\lim f'_n$, \ \ $^4\int\lim f_n\ne\lim\int f_n$
+\textbf{Pointwise Convergence NOT Preserve}: {\small $^1$\textit{continuity}, \ \ $^2$\textit{differentiability} (But converge uniformly), \ \ $^3(\lim f_n)'\ne\lim f'_n$, \ \ $^4\int\lim f_n\ne\lim\int f_n$}
 
 $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$} \ \ {\scriptsize $^2f_n:(-1,1)\to\mathbb{R}:=\sqrt{x^2+\frac{1}{n}}$} \ \ {\scriptsize $^3f_n:(-1,1)\to\mathbb{R}:=\frac{sin(nx)}{n}$} \ \ {\scriptsize $^4f_n:(0,1]\to\mathbb{R}:=\begin{cases} n,0<x\leq\frac{1}{n} \\ 0,\frac{1}{n}<x\leq1 \end{cases}$}
 
@@ -197,11 +201,11 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 \textbf{Vertical Neighbourhood} $\mathcal{N}(f,\varepsilon):=\{(x,y)| x\in E,|y-f(x)|<\varepsilon\}$ {\scriptsize ps:$f:E\to\mathbb{R}$}
 
 \fbox{\parbox[c]{0.98\textwidth}{
-\textbf{Uniformly Convergence}: $f_n:E\to\mathbb{R}$ converge uniformly iff: \hspace{50pt} || \ \ \textbf{Uniformly} $\Rightarrow$ \textbf{Pointwise}
+\textbf{Uniformly Convergence}: $f_n:E\to\mathbb{R}$ converge uniformly iff: \hspace{50pt} || \ \ {\footnotesize \textbf{Uniformly} $\Rightarrow$ \textbf{Pointwise}}
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Version 1}: $\forall\varepsilon>0,\exists N_{\varepsilon} \ s.t. \ \forall n>N,\forall x\in E,|f_n(x)-f(x)|<\varepsilon$
     \item \textbf{Version 2}: $\lim\left[ \sup_{x\in E}|f_n(x)-f(x)| \right]=0$
-    \item \textbf{Version 3 | Uniformly Cauchy}: $\forall\varepsilon>0,\exists N_\varepsilon\in\mathbb{N} \ s.t. \ \forall x\in E, m,n>N \ |f_n(x)-f_m(x)|<\varepsilon$ \ \ \ || \ \ \ {\small \textbf{Converge Unif} \ $\Leftrightarrow$ \ \textbf{Unif Cauchy}}
+    \item \textbf{Version 3 | Uniformly Cauchy}: $\forall\varepsilon>0,\exists N_\varepsilon\in\mathbb{N} \ s.t. \ \forall x\in E, m,n>N \ |f_n(x)-f_m(x)|<\varepsilon$ \ \ \ || \ \ {\footnotesize \textbf{Converge Unif} \ $\Leftrightarrow$ \ \textbf{Unif Cauchy}}
     \item \textbf{Version 4 | Vertical Neighbourhood Test}: $\forall\varepsilon>0,\exists N\in\mathbb{N} \ s.t. \ \forall n>N,\Gamma(f_n)\subset\mathcal{N}(f,\varepsilon)$
 \end{enumerate}
 
@@ -213,7 +217,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Continuous}: {\footnotesize If $^1\lim f_n(x)=f(x)$ uniformly, $^2\forall f_n$ continuous at $x_0$ \ $\Rightarrow$ \ $f$ continuous at $x_0$.} \hspace{80pt} {\footnotesize $\Downarrow$ $\forall x\in I,(\lim f_n)'(x)=\lim f'_n(x)$}
-    \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\lim f'_n=g$ unif; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.} \\
+    \item \textbf{Termwise differentiation}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, \underline{$\lim f'_n=g$ unif}; \underline{$^3\exists x_0\in I \ s.t. \ f_n(x_0)$ converges}. \ \ $\Rightarrow$ \ \ \underline{$\lim f_n=f$ unif}; $f'$ diff and $f'=g$.} \\
     \textbf{For Series}: {\footnotesize If $^1I$ is \textit{bounded open}; $^2\forall f_n$ diff, $\sum f_n'$ exists and unif; $\exists x_0\in I \ s.t. \ \sum f_n(x_0)$ converge.} \ \ $\Rightarrow$ \ \ {\footnotesize $\sum f_n$ unfi \ and  \ $(\sum f)'=\sum f'$}
     \item \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1(E)$ \ \ and \ \ $\lim \int_Ef_n(x)dx=\int_E f dx$} \\
     \textbf{For Series}: {\footnotesize If $^1 \sum f_n$ exists and uniformly on $E\in\mathcal{M}, \ m(E)<\infty$, $^2f_n\in\mathcal{L}^1(\mathbb{R})$} \ \ $\Rightarrow$ \ \ {\footnotesize $\sum \int f_n\in\mathcal{L}^1(E)$ \ \ and \ \ $\int \sum f_n=\sum\int f_n$}
@@ -225,7 +229,9 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 
 {\scriptsize \textbf{1}. $\sum f_n$ converge pointwise iff $s_n$ converge pointwise. \ \ \textbf{2}. $\sum f_n$ converge uniformly iff $s_n$ converge uniformly. \ \ \textbf{3}.$\sum f_n$ converge absolutely (pointwise) iff $\sum|f_n|$ converge (pointwise).}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Weierstrass M-Test}: {\small $f_n:E\to\mathbb{R}$, $\exists (M_n)_{n\in\mathbb{N}}\geq 0$ s.t. $^1\forall x\in E,\forall n\in\mathbb{N}:|f_n|<M_n$; $^2\sum M_n$ converges. \ \ $\Rightarrow$ \ \ $\sum f_n$ converge absolutely \& Uniformly.}
+}}
 
 
 \section{Power Series}
@@ -234,14 +240,16 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
 
 \textbf{Power Series}: A series from $\sum_{n=0}^{\infty}a_n(x-c)^n$ \ \ \ \textbf{Center}: $c$. \ \ \ \textbf{Coefficients}: $a_n$.
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Radius of Convergence (R)}: For a power series $\sum a_n(x-c)^n$, there are three situations for it's radius of convergence:
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item $R=0$ if $\sum a_n(x-c)^n$ converges only $x=c$.
     \item $R=\infty$ if $\sum a_n(x-c)^n$ converges absolutely $\forall x\in\mathbb{R}$.
     \item $\exists R>0$ s.t. $\sum a_n(x-c)^n$ converges absolutely if $|x-c|<R$; diverges if $|x-c|>R$.
-    \item \textbf{All-In-One}: $R=\sup\{r\geq0:(a_nr^n)_{n\in\mathbb{N}} \ is \ \underline{bounded}\}$
+    \item \textbf{All-In-One}: $R=\sup\{r\geq0:(a_nr^n)_{n\in\mathbb{N}} \ is \ \underline{bounded}\}\in[0,\infty]$
 \end{enumerate}
+}}
 
 \fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Properties | In Radius of Convergence}: Assume $f(x)=\sum a_n(x-c)^n$ with $R>0$.
@@ -256,6 +264,7 @@ $\cdot$ {\footnotesize 对应反例}: {\scriptsize $f_n:[0,1]\to\mathbb{R}:=x^n$
     \item \textbf{Uniqueness}: If $\sum a_n(x-c)^n=\sum b_n(x-c)^n$ for $\forall x\in\mathbb{R},|x-c|<r_0$ \ \ $\Rightarrow$ \ \ $a_n=b_n$
 \end{enumerate}
 }}
+
 
 \subsection{Exponential Function \& Real Analytic Function}
 
@@ -331,6 +340,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
 
 \subsection{Lebesgue Outer Measure}
 
+\fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Lebesgue Outer Measure ($m^*$)}: Can interpret $m^*$ as $m^*:\mathcal{P}(\mathbb{R})\to[0,\infty)$ \ \ \ \ \ \ \ \ \ {\scriptsize ps: 本质是寻找到最小的\textit{区间}可以覆盖$E$,用前面$\lambda$的定义来定义"长度"}
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
@@ -340,6 +350,7 @@ $\cdot$ {\footnotesize Not all infinitely differentiable functions are real anal
     \quad ps: {\footnotesize $\forall \varepsilon>0,\exists U$ open set s.t. \ \ $E\subseteq U$ \ \ and \ \ $m^*(E)<m^*(U)<m^*(E)+\varepsilon$ \ \ {\scriptsize or} \ \ $m^*(E)<\lambda(U)<m^*(E)+\varepsilon$ \\}
     \quad $\cdot$ \textbf{Remark}: If we cannot find $(I_n)_{n\in\mathbb{N}}$ s.t. $\sum\lambda(I_n)<\infty$ \ \ $\Rightarrow$ \ \ $m^*(E)=\infty$.
 \end{enumerate}
+}}
 
 \fbox{\parbox[c]{0.98\textwidth}{
 \vspace{-12pt}
@@ -373,7 +384,7 @@ $\cdot$ \textbf{More Properties}:
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \star\textbf{Interval}: If $J\subseteq\mathbb{R}$ is interval. $m^*(J)=\lambda(J)$.
     \item \textbf{Countable}: Any Countable set $E$ \ \ $\Rightarrow$ \ \ $m^*(E)=0$ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $\exists m^*(E)=0,E$ uncountable {\footnotesize (e.g.Cantor Set (Closed Set))}
-    \item \ex\textbf{Further|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ \ \ \ || \ \ \ \ \ \ \ex$m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$ , $I_n$ intervals.
+    \item \ex\textbf{Further|$m^{**}(E)$}: $m^*(E)=m^{**}(E):=\inf\left\{\sum\lambda(I_n) \ | \ E\subseteq \cup I_n,I_n \ interval \right\}$ \ \ \ || \ \ \ \ex$m^*(E)\leq\sum\lambda(I_n),$ if $E=\cup I_n$ , $I_n$ intervals.
     \item \textbf{Translation Invariance}: $m^*(E)=m^*(x+E)$
 \end{enumerate}
 }}
@@ -406,8 +417,8 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
 \textbf{Property of Lebesgue Measurable Sets}:
 
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \star\textbf{Closed Set|Open Set|Interval}: Any closed set / open set / interval is Lebesgue measurable.
-    \item \textbf{Union $\cup$|\ex Intersection $\cap$}: If $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ Also: $^1E:=\cup^\infty_{n=1}E_n$ \ \ $^2E:=\cap^\infty_{n=1}E_n$. \ \ {\tiny Hint: $(\bigcap E_n)^C=\bigcup E_n^C$}
+    \item \star\textbf{Closed Set|Open Set|Interval}: \textcolor{red}{Any closed set / open set / interval is Lebesgue measurable}.
+    \item \textbf{Union $\cup$|Intersection $\cap$}: If $(E_n)_{n\in\mathbb{N}}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ Also: $^1E:=\cup^\infty_{n=1}E_n$ \ \ $^2E:=\cap^\infty_{n=1}E_n$. \ \ {\tiny Hint: $(\bigcap E_n)^C=\bigcup E_n^C$}
     \item \textbf{Complement $E^C$}: if $E\subseteq\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ $\Rightarrow$ \ \ $\mathbb{R}\setminus E$ is also \textit{Lebesgue Measurable}.
     \item \textbf{Measure Zero Set}: $m^*(E)=0$ \ \ $\Leftrightarrow$ \ \ $E$ Lebesgue measurable.
     \item \textbf{Translation Invariance}: $m(E)=m(x+E)$ \ \ \ \ \ \ || \ \ \ \ \ \ If $E$ is Lebesgue Measurable \ \ $\Rightarrow$ \ \ $x+E$ also.
@@ -423,7 +434,7 @@ $\cdot$ $\mathcal{M}:=$ collection of all Lebesgue measurable sets of $\mathbb{R
 $\cdot$ \textbf{Property}: \textbf{$\star$ All properties of Lebesgue Outer Measure hold for Lebesgue Measure. $\star$}
 
 \fbox{\parbox[c]{0.98\textwidth}{
-\star\textbf{Countable Additivity for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesgue Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
+\star\textcolor{red}{\textbf{Countable Additivity for Measure}}: If $(E_n)_{n\in\mathbb{N}}$ \textit{disjoint} \& \textit{Lebesgue Measurable}.\ \ $\Rightarrow$ \ \ $m(\cup^\infty_{n=1}E_n)=\sum^\infty_{n=1}m(E_n)$
 
 \textbf{Monotone Convergence for Measure}: If $(E_n)_{n\in\mathbb{N}}$ \textit{Lebesgue Measurable}.
 
@@ -446,7 +457,7 @@ $\cdot$ \textbf{Example}:{\scriptsize $\forall$ cosets $B\in\{x+\mathbb{Q}|x\in\
 
 \textbf{Characteristic Function}: $\chi_E(x):=\{ 1,x\in E \ \ ; \ \ 0,x\notin E$ \ \ \ ; \ \ \ $E\subset\mathbb{R}$
 
-\textbf{Basic Integral Definitions}: $\int_{\mathbb{R}} \chi_I(x) \, dx = m(I) = \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}} c \chi_I(x) \, dx = c \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}}\sum c_j\chi_{I_j}(x)dx=\sum c_j\lambda(I_j) \ , \ c_j\geq0$
+\textbf{Basic Integral Definitions}: $\int_{\mathbb{R}} \chi_I(x) \, dx = m(I) = \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}} c \chi_I(x) \, dx = c \lambda(I)$ \ \ \ || \ \ \ $\int_{\mathbb{R}}\sum_{j=1}^m c_j\chi_{I_j}(x)dx=\sum_{j=1}^m c_j\lambda(I_j) \ , \ c_j\geq0$
 
 \textbf{Step Function}: $f:\mathbb{R}\to[0,\infty)$ is a (non-negative) step function if $f(x)=\sum c_j\chi_{I_j}(x)$ \ \ \ \ \ \ for some $c_j$ and $\chi_{I_j}$
 
@@ -467,8 +478,8 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 \textbf{Measurable Function}: $f:\mathbb{R}\to\mathbb{R}$ is \textit{Lebesgue Measurable} \ \ if \ \ $\forall\lambda\in\mathbb{R},\{x\in \mathbb{R}:f(x)>\lambda\}$(\textbf{Superlevel Set}) is Lebesgue Measurable.
 \vspace{-3pt}
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
-    \item \textbf{MF|Simple|Continuous Function}: (Simple|Continuous) Function is Lebesgue Measurable. \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\downarrow$ Hint:$\{x|f(x)<\lambda\}^C=\bigcap\{x|f(x)>\lambda-\frac{1}{n}\}$}
-    \item \np\textbf{MF|Monotone}: All Monotone functions are Lebesgue Measurable. \ \ {\tiny Hint: Prove it by using definition directly.}
+    \item \textbf{MF|Simple|Continuous Function}: \textcolor{red}{(Simple|Continuous) Function is Lebesgue Measurable.} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ {\tiny $\downarrow$ Hint:$\{x|f(x)<\lambda\}^C=\bigcap\{x|f(x)>\lambda-\frac{1}{n}\}$}
+    \item \np\textbf{MF|Monotone}: \textcolor{red}{All Monotone functions are Lebesgue Measurable.} \ \ {\tiny Hint: Prove it by using definition directly.}
     \item \textbf{MF|Measurable Set}: If $f$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $\{x\in\mathbb{R}:f(x)>\lambda \ (<\lambda \ or =\lambda)\}$ is Lebesgue Measurable.
     \item \textbf{MF|property}: {\footnotesize If $f,g,f_n$ is Lebesgue Measurable, \ \ $\Rightarrow$ \ \ $max\{f,g\}$ , $min\{f,g\}$ , $f\cdot\chi_E$ , $\alpha f\pm\beta g$ , $f^2$ , $f\cdot g$ , $\sup f_n$ , $\inf f_n$ , $\limsup f_n$ , $\liminf f_n$ also.}
     \item \textbf{Measurable Func $\Rightarrow$ $\exists$ Simple Func}: {\small $f$ is {\footnotesize 非负勒贝格可测函数} \ \ $\Rightarrow$ \ \ $\exists$ simple functions $(s_n)_{n\in\mathbb{N}}$, $0\leq s_n\leq s_{n+1}(\uparrow)$ s.t. $s_n\to f$ pointwise.}
@@ -481,7 +492,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 \textbf{Integral of Measurable Function|Positive}: Let $f:\mathbb{R}\to[0,\infty)$ be Lebesgue Measurable Function.
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Basic Def}: $\int_{\mathbb{R}}f(x)dx:=\sup\{\int_{\mathbb{R}}s(x)dx:s \ simple,0\leq s\leq f \}$
-    \item \textbf{Extend Def}: If $f:\mathbb{R}\to\mathbb{R}$ Lebesgue Measurable , $E$ Measurable Set. \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}f(x)\chi_E(x)dx$
+    \item \textbf{Extend Def}: If $f:\mathbb{R}\to\mathbb{R}$ Lebesgue Measurable , $E$ Measurable Set. \ \ $\Rightarrow$ \ \ \textcolor{red}{$\int_Ef(x)dx:=\int_{\mathbb{R}}f(x)\chi_E(x)dx$}
 \end{enumerate}
 
 \fbox{\parbox[c]{0.98\textwidth}{
@@ -496,7 +507,7 @@ $\cdot$ \textbf{Property}: If $f$ is a step function \ \ $\Rightarrow$ \ \ $\exi
 }}
 
 \fbox{\parbox[c]{0.98\textwidth}{
-\textbf{MCT for Integral|Positive}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is MF; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
+\textcolor{red}{\textbf{MCT for Integral|Positive}}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ non-decreasing ($\uparrow$) MF; \ $^2\lim f_n=f$ pointwise. \ \ $\Rightarrow$ \ \ $^1f$ is MF; \ $^2\int_{\mathbb{R}}\lim f_ndx=\lim\int_{\mathbb{R}}f_n(x)dx$}
 
 \textbf{For Series}: {\small $^1f_n:[0,\infty)\to\mathbb{R}$ MF; \ $^2\sum f_n=f$ pointwise \ \ $\Rightarrow$ \ \ $^1f$ is MF; \ $^2\int_{\mathbb{R}}\sum f_n=\sum\int_{\mathbb{R}}f_n$}
 }}
@@ -537,7 +548,7 @@ $\cdot$ \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
 }}
 
 \fbox{\parbox[c]{0.98\textwidth}{
-\textbf{Dominated Convergence Theorem (DCT)}: {\small $^1f_n\in\mathcal{L}^1(I)$. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
+\textcolor{red}{\textbf{Dominated Convergence Theorem (DCT)}}: {\small $^1f_n$ is MF. \ \ $^2f_n\to f$ pointwise. \ \ $^3\exists g\in\mathcal{L}^1(\mathbb{R}) \ s.t. \ |f_n|\leq g$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(\mathbb{R})$ \ \ \& \ \ $\lim\int_{\mathbb{R}}f_n=\int_{\mathbb{R}}f$}
 
 $\cdot$ \textbf{Uniform Convergence Theorem}: {\scriptsize If $^1\lim f_n(x)=f(x)$ \textit{uniformly} on $E\in\mathcal{M},m(E)<\infty$, $^2$ $f_n\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $^1f\in\mathcal{L}^1(E)$ \ \ $^2\lim \int_Ef_n(x)dx=\int_E f dx$}
 }}
@@ -652,7 +663,7 @@ $\mathbf{q^n-1}$: $q^n-1=(q-1)(1+q+q^2+\cdots+q^{n-1})$ \ \ \ \ \ \ || \ \ \ \ \
 }}
 
 \fbox{\parbox[c]{0.98\textwidth}{
-\textbf{Lebesgue Integrable}: $f$ continuous + $f$ in bounded interval \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1$
+\textcolor{red}{\textbf{Lebesgue Integrable}: $f$ continuous + $f$ in bounded interval \ \ $\Rightarrow$ \ \ $f\in\mathcal{L}^1$}
 }}
 
 \textbf{Related to Metric}:
