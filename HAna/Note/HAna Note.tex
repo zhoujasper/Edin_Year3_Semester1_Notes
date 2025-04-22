@@ -531,10 +531,15 @@ $\cdot$ \textbf{Remark}: If $a<0$: $(af)^+=(-a)f^-$ and $(af)^-=-af^+$
 \textbf{Lebesgue Integrable}: A MF $f:\mathbb{R}\to\mathbb{R}$ is Lebesgue Integrable \ iff \ $\int_{\mathbb{R}}|f(x)|dx<\infty$ \ \ $\Leftrightarrow$ \ \ $\int_{\mathbb{R}}f^+dx<\infty$ \& $\int_{\mathbb{R}}f^-dx<\infty$
 \begin{enumerate}[itemsep=-2pt, topsep=-2pt]
     \item \textbf{Def of Integral}: If $f\in\mathcal{L}^1(\mathbb{R})$ \ \ $\Rightarrow$ \ \ $\int_{\mathbb{R}}f(x)dx:=\int_{\mathbb{R}}f^+(x)dx-\int_{\mathbb{R}}f^-(x)dx$
-    \item \textbf{Extended Def}: If $f:E\to\mathbb{R}$ with $E$ Measurable Set \ s.t. \ $\tilde{f}:=f(x)\chi_E$ is Lebesgue Integrable \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}\tilde{f}(x)dx$    
-    \item $\mathcal{L}^1(\mathbb{R}):=$ Collection of all Lebesgue Integrable functions on $\mathbb{R}$.
+    \item \textbf{Extended Def}: If $f:E\to\mathbb{R}$ with $E$ Measurable Set \ s.t. \ $\tilde{f}:=f(x)\chi_E$ is Lebesgue Integrable \ \ $\Rightarrow$ \ \ $\int_Ef(x)dx:=\int_{\mathbb{R}}\tilde{f}(x)dx$
     \item $\mathcal{L}^1(E):=$ Collection of all Lebesgue Integrable functions on $E$.
 \end{enumerate}
+
+\textcolor{red}{\textbf{Common LI Functions}}: {\small \textcolor{red}{$\int_{1}^{\infty}\frac{1}{x^p}dx<\infty$ iff $p>1$} \qquad $\int_{\mathbb{R}}\frac{c_1}{c_2+c_3|x|^p}dx<\infty$ if $p>1;c_2,c_3>0$} {\tiny $|\frac{c_1}{c_2+c_3|x|^p}|\le\frac{|c_1|}{|c_2|}\chi_{[-1,1]}+\frac{|c_1|}{|c_3||x|^p}\chi_{(-\infty,-1)\cup(1,\infty)}$}
+
+{\small If $p\geq0$, \textcolor{red}{$\int_{\mathbb{R}}\frac{1}{(1+|x|)^p}dx<\infty$ iff $p>1$} \qquad If $p\geq0$, $\int_{\mathbb{R}}\frac{c_1}{(c_2+c_3|x|)^p}dx<\infty$ iff $p>1,c_2,c_3>0$} {\tiny $\frac{c_1}{(c_2+c_3|x|)^p}=\frac{c_1}{c_2^p}\frac{1}{(1+|\frac{c_3}{c_2}x|)^p}$}
+
+{\small If $p\geq0$, \textcolor{red}{$\int_{\mathbb{R}}\frac{1}{x^p}\chi_{(0,1]}<\infty$ iff $0\leq p<1$}}
 
 \fbox{\parbox[c]{0.98\textwidth}{
 \textbf{Property of Integral}: Let $f,g\in\mathcal{L}^1(\mathbb{R})$. Then:

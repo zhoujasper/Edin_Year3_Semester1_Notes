@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  22 APR 2025 11:15
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.22)  22 APR 2025 22:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -785,7 +785,7 @@ LaTeX Font Info:    Font shape `TU/CambriaMath(3)/m/n' will be
 Here is how much of TeX's memory you used:
  13758 strings out of 476683
  302546 string characters out of 5795227
- 1943012 words of memory out of 5000000
+ 1945012 words of memory out of 5000000
  33781 multiletter control sequences out of 15000+600000
  521347 words of font info for 146 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
