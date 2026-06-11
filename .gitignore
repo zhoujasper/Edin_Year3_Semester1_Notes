@@ -1,10 +1,39 @@
+# Keep this repository focused on note sources and release-ready materials
 */
 
 !/HAna/
 !/HAna/Note/
-
 !/HDE/
 !/HDE/Note/
-
 !/SMe/
 !/SMe/Note/
+
+# LaTeX build artefacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Editor and OS files
+.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
